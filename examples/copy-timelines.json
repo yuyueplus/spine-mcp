@@ -1,0 +1,13 @@
+{
+  "input": "hero.json",
+  "output": "edits/hero-selected-timelines.json",
+  "fromAnimation": "wave",
+  "toAnimation": "slow-wave",
+  "mappings": [
+    { "from": { "kind": "bone", "bone": "arm", "channel": "rotate" }, "to": { "kind": "bone", "bone": "arm", "channel": "rotate" } },
+    { "from": { "kind": "slot", "slot": "arm-slot", "channel": "rgba" }, "to": { "kind": "slot", "slot": "arm-slot", "channel": "rgba" } }
+  ],
+  "replace": false,
+  "timeScale": 2,
+  "timeOffset": 0.25
+}

@@ -1,0 +1,10 @@
+{
+  "tool": "spine_start_job",
+  "arguments": {
+    "operation": "export_media",
+    "args": {
+      "input": "source.json",
+      "options": { "animation": "walk", "start": 0, "end": 1, "fps": 30, "width": 320, "height": 300, "transparent": true, "formats": ["apng", "gif", "mp4", "spritesheet"], "columns": 8, "rows": 8 }
+    }
+  }
+}

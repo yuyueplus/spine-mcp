@@ -1,0 +1,28 @@
+{
+  "psdPreflight": { "tool": "spine_plan_psd_import", "arguments": { "input": "art/character.psd", "name": "Character", "padding": 1 } },
+  "buildPlan": {
+    "tool": "spine_plan_character_build",
+    "arguments": {
+      "input": "art/character.psd",
+      "name": "Character construction",
+      "construction": {
+        "psd": { "plan": "PSD_PLAN_PATH", "expectedSha256": "PSD_PLAN_SHA256" },
+        "preparation": {
+          "bones": [
+            { "name": "upper", "parent": "root", "transform": { "x": -20, "length": 50, "rotation": -15 } },
+            { "name": "lower", "parent": "upper", "transform": { "x": 50, "length": 40, "rotation": 25 } },
+            { "name": "foot", "parent": "lower", "transform": { "x": 36, "y": 4, "length": 25 } }
+          ],
+          "bindings": [{ "skin": "default", "slot": "leg", "attachment": "leg", "bones": ["upper", "lower"], "columns": 3, "rows": 6, "influences": 2, "minWeight": 0.00001 }]
+        },
+        "controls": [{ "name": "leg_ik", "bones": ["upper", "lower"], "target": "foot_goal", "createTargetParent": "root" }],
+        "motions": [{ "name": "idle", "poses": [{ "time": 0, "bones": { "root": { "y": 0 } } }, { "time": 1, "bones": { "root": { "y": 2 } } }, { "time": 2, "bones": { "root": { "y": 0 } } }] }],
+        "templates": []
+      },
+      "publication": { "native": true, "openInEditor": false }
+    }
+  },
+  "createTask": { "tool": "spine_create_character_build_task", "arguments": { "requestId": "55555555-5555-4555-8555-555555555555", "plan": "BUILD_PLAN_PATH", "expectedSha256": "BUILD_PLAN_SHA256", "landmarkConfirmation": "use_reviewed_landmarks" } },
+  "run": { "tool": "spine_run_character_task", "arguments": { "id": "TASK_ID", "expectedPlanSha256": "TASK_PLAN_SHA256" } },
+  "notes": ["Coordinates and names are illustrative, not inferred anatomy. Use the returned PSD layer/skin/slot names and review world joints before confirming.", "JSON/native inputs omit construction.psd. Existing tagged bones can use empty preparation.bones; existing bindings can use empty bindings.", "Saved templates use construction.templates entries with template path, animation name and optional boneMap/slotMap/timeScale/translationScale.", "Review media defaults to APNG for at most four new motions. Named-skin PSDs need the selected skin. Final candidate review is a separate gate; then run again to publish.", "New bindings/controllers may affect old clips in the new candidate; original files are preserved. File publication does not acknowledge an editor window."]
+}

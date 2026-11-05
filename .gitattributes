@@ -1,0 +1,6 @@
+# Native bridge and verification manifests pin file bytes. Preserve them on
+# checkout, including on Windows with core.autocrlf=true.
+* -text
+*.png binary
+*.psd binary
+*.jar binary

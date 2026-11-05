@@ -1,0 +1,782 @@
+{
+  "schema": "spine-product-completion-plan/1",
+  "updatedAt": "2026-11-05T04:49:55.563Z",
+  "language": "zh-CN",
+  "baseline": {
+    "connectedVersion": "3.0.0",
+    "connectedTools": 226,
+    "developmentVersion": "3.0.0",
+    "targetTools": 226,
+    "evidence": [
+      "README.md",
+      "SUPPORT.json",
+      "src",
+      "work/implementation-plan-2.21.0.json"
+    ],
+    "meaning": "已实现表示代码中有能力；通过测试、原生文件回读、编辑器中实际显示、用户认可动作自然，是四种不同证据，分别记录。",
+    "capabilityGroups": [
+      {
+        "name": "工程预检与资源",
+        "status": "implemented_bounded",
+        "features": [
+          "编辑预演和差异",
+          "对象/引用检查",
+          "缺图、序列和音频引用",
+          "重定位、收集与源文件保护"
+        ]
+      },
+      {
+        "name": "关键帧精细编辑",
+        "status": "implemented_bounded",
+        "features": [
+          "单个/批量增删改",
+          "区间复制和调时",
+          "曲线及时间冲突处理",
+          "采样边界和范围外通道保护"
+        ]
+      },
+      {
+        "name": "跨工程复用",
+        "status": "implemented_bounded",
+        "features": [
+          "动画迁移和骨架分支复制",
+          "骨骼/插槽/约束映射",
+          "皮肤合并和冲突报告",
+          "比例与祖先关系受约束的动作重定向"
+        ]
+      },
+      {
+        "name": "网格与蒙皮",
+        "status": "implemented_bounded",
+        "features": [
+          "轮廓、UV、顶点和局部细分",
+          "权重整理/镜像/迁移",
+          "变形迁移或明确清除",
+          "复杂拓扑及原生兼容限制见 SUPPORT.json"
+        ]
+      },
+      {
+        "name": "动画质量与交付",
+        "status": "implemented_bounded",
+        "features": [
+          "实际姿态循环接缝和误差检查",
+          "有预算的关键帧精简与约束捕获",
+          "图集打包/解包",
+          "可搬移资源、原生回读和清单"
+        ]
+      },
+      {
+        "name": "安装与稳定性",
+        "status": "implemented_bounded",
+        "features": [
+          "安装、版本兼容和显式任务迁移",
+          "后台任务/取消/重试/中间结果复用",
+          "资源一致性、版本回执和恢复",
+          "固定测试、性能与发布记录"
+        ]
+      }
+    ]
+  },
+  "productGoal": "Codex 接收明确的角色、素材和动作要求，在后台完成资源导入、骨架/蒙皮、动作编辑、诊断修正、Spine 内预览、版本恢复和可搬移交付；用户其他鼠标键盘工作不受影响。",
+  "completionRules": [
+    "每项功能有输入、产物、失败处理和可重复验收，不以新增工具数量作为完成标准。",
+    "所有编辑默认生成新结果，源工程、正式动作和资源哈希受保护。",
+    "有限采样、几何评分、调用方确认不冒充连续数学证明、人体语义识别、用户审美认可或编辑器画面回执。",
+    "用户最新“全部完成”已将授权扩大到 M1–M7 全部28项；保留原生接口可行性关卡和逐项验收，不再以早期 M1-only 边界限制本轮。",
+    "与 Spine 私有入口或上游行为有关的事项有可行性关卡，未获得可靠接口前不承诺可实现。",
+    "每个里程碑按固定清单封版；新想法进入可选扩展，不再变成本轮无期限欠账。"
+  ],
+  "milestones": [
+    {
+      "id": "M1",
+      "priority": "P0",
+      "name": "完成本轮 2.21 三项与发布验收",
+      "status": "implemented_bounded_verified",
+      "items": [
+        {
+          "id": "M1-1",
+          "feature": "完整角色验收",
+          "details": [
+            "使用官方完整 Mix-and-Match 工程，覆盖四肢、脸、头发和服装",
+            "记录全部骨骼、插槽、附件、皮肤、动作数量及素材许可",
+            "至少三套完整皮肤、全部原始动作进行原生往返和世界姿态比较",
+            "导出对照图/视频，交付资源搬移后重建",
+            "保留全部原始资源和正式工程"
+          ],
+          "acceptance": "源文件与资源不变；原动作/皮肤保留；原生姿态误差不超过 0.0001；像素误差满足预定门槛；移动目录仍可重建。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Current-code regression, original-source preservation and declared support limits apply.",
+            "evidence": [
+              "production-character-smoke",
+              "work/implementation-report-2.21.0.json"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M1-2",
+          "feature": "接缝建议与定位诊断",
+          "details": [
+            "网格边界或全顶点互近邻配对",
+            "报告距离、法线关系、歧义和几何置信度",
+            "生成标注 PNG，并固定计划/资源/几何哈希",
+            "明确选择候选顶点对，不自动接受建议",
+            "失败定位到动作时间、网格、顶点、三角形和边"
+          ],
+          "acceptance": "篡改计划、源、预览或更换皮肤会拒绝；修复前后及原生回读可独立复查；失败候选不能发布。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Current-code regression, original-source preservation and declared support limits apply.",
+            "evidence": [
+              "seam-compatibility-smoke",
+              "visual-rig-deform-raster-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M1-3",
+          "feature": "联动网格与物理兼容",
+          "details": [
+            "显式创建隔离皮肤，处理链接网格及其继承/独立变形",
+            "默认附件与皮肤占位符冲突时建立私有映射",
+            "显式以 60/120 FPS 捕获确定性物理结果",
+            "保留原皮肤、原动作、骨骼、权重、拓扑及约束定义",
+            "输出捕获误差、采样预算及适用范围"
+          ],
+          "acceptance": "链接、独立 deform、父网格依赖、物理、链接+物理、默认附件隔离均经原生导入/回读；原动作误差不超过 0.0001。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Current-code regression, original-source preservation and declared support limits apply.",
+            "evidence": [
+              "seam-compatibility-smoke",
+              "production-character-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M1-4",
+          "feature": "封版收尾",
+          "details": [
+            "全部单元及集成回归",
+            "全部 204 工具调用覆盖",
+            "2.20 任务显式迁移和旧进程写入阻止",
+            "干净安装、移动路径、发布包清单核对",
+            "正式会话、16 个保护文件和配置逐一核对"
+          ],
+          "acceptance": "所有必需检查通过；安装包和报告包含版本/源码/文件哈希；对话旧连接与新安装版本明确区分。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Current-code regression, original-source preservation and declared support limits apply.",
+            "evidence": [
+              "feature-audit.json",
+              "clean-install.json",
+              "source-preservation.json"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        }
+      ],
+      "completedAt": "2026-10-26T12:41:21.963Z",
+      "verification": {
+        "report": "work/implementation-report-2.21.0.json",
+        "unitTests": 746,
+        "suites": 49,
+        "successfulTools": 204,
+        "coreSha256": "3443a61d5877c62afb0a8b64209d6e2692ba8a43d6e818d03000486264a67270"
+      },
+      "verifiedAt": "2026-11-05T04:49:55.563Z"
+    },
+    {
+      "id": "M2",
+      "priority": "P1",
+      "name": "编辑器连接与同步闭环",
+      "status": "implemented_bounded_verified",
+      "existing": "可创建/打开指定工程；独立原生预览工程可自动换图；预加载序列可持续播放；有后台发布回执。",
+      "items": [
+        {
+          "id": "M2-1",
+          "feature": "连接诊断与版本状态入口",
+          "details": [
+            "统一展示客户端已加载版本、磁盘版本、工具目录、CLI 和预览状态",
+            "明确旧进程或工具目录过期原因",
+            "在客户端公开控制接口允许时请求重载并读回新版本；不允许时返回准确入口"
+          ],
+          "acceptance": "新旧版本混用可复现、可诊断；不把另建 SDK 连接当成本对话已重载。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Actual chat reports 3.0.0/226; public loopback WebSocket reload protocol is verified with a controlled endpoint. The current desktop exposes no verified host-control endpoint; no stdio attachment, process restart or UI input is used.",
+            "evidence": [
+              "product-workflow-smoke",
+              "product-workflows.test",
+              "current-chat-activation.json"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M2-2",
+          "feature": "当前工程身份与未保存状态",
+          "details": [
+            "先验证官方或可靠公开接口",
+            "识别目标实例、完整路径、是否存在未保存改动",
+            "多个窗口或同名文件必须消除歧义",
+            "没有内存接口时只报告已保存文件，不猜测编辑器状态"
+          ],
+          "acceptance": "两个同名工程、未保存编辑和多个编辑器实例均不会选错或覆盖。",
+          "dependency": "Pinned installed build and MCP nativeBridge startup; ordinary windows require reopening through the bridge.",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "NEW startup-bridge windows on the pinned installed Spine 4.3.23 build only. No active attachment to ordinary windows. Reload refuses unsaved/stale/busy states; writes a NEW verified sibling recovery file; preserves supported view state; resets native undo history. No mouse/keyboard injection or window-activation command.",
+            "evidence": [
+              "native-editor-bridge-smoke",
+              "verification-evidence/native-failure-recovery.json",
+              "verification-evidence/complex-native.json",
+              "verification-evidence/install.json"
+            ]
+          },
+          "completedAt": "2026-11-05T04:49:55.563Z",
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M2-3",
+          "feature": "运行中可编辑骨架重新载入",
+          "details": [
+            "可行性验证后实现指定实例重新载入",
+            "保护未保存修改，支持失败恢复",
+            "保持或明确恢复动作、皮肤、时间位置和镜头",
+            "返回编辑器实际加载代数/源哈希的回执"
+          ],
+          "acceptance": "编辑骨骼/插槽/关键帧后，原生可编辑工程更新且无鼠标键盘注入、无焦点抢占；多实例和未保存状态测试通过。",
+          "dependency": "Pinned installed build and MCP nativeBridge startup; ordinary windows require reopening through the bridge.",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "NEW startup-bridge windows on the pinned installed Spine 4.3.23 build only. No active attachment to ordinary windows. Reload refuses unsaved/stale/busy states; writes a NEW verified sibling recovery file; preserves supported view state; resets native undo history. No mouse/keyboard injection or window-activation command.",
+            "evidence": [
+              "native-editor-bridge-smoke",
+              "verification-evidence/native-failure-recovery.json",
+              "verification-evidence/complex-native.json",
+              "verification-evidence/install.json"
+            ]
+          },
+          "completedAt": "2026-11-05T04:49:55.563Z",
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M2-4",
+          "feature": "连续预览性能预算",
+          "details": [
+            "统计实际素材更新时的准备、写入和发布延迟",
+            "大序列缓存/失效和多个预览会话的资源预算",
+            "记录稳定播放、编辑后更新及恢复的独立指标"
+          ],
+          "acceptance": "固定硬件/样本下给出 P50/P95、内存和缓存命中率；用户再次确认编辑器画面；不承诺所有机器零 Loading。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Measured CPU P50/P95, RSS and publication/cache metadata on this host plus prior exact user observations. No native GPU FPS or universal zero-Loading guarantee.",
+            "evidence": [
+              "product-workflow-smoke",
+              "benchmark",
+              "native-preview-stability-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        }
+      ],
+      "verifiedAt": "2026-11-05T04:49:55.563Z"
+    },
+    {
+      "id": "M3",
+      "priority": "P1",
+      "name": "图片生成、拆图与回填的一次任务体验",
+      "status": "implemented_bounded_verified",
+      "existing": "Codex 生成图片；MCP 接收本地素材，有图层交接、保护遮罩、补绘回填、对齐、批量换图和持久任务。",
+      "items": [
+        {
+          "id": "M3-1",
+          "feature": "完整角色素材规格单",
+          "details": [
+            "一次性列全必需部件、遮挡关系、关节重叠、隐藏区补绘和透明边规范",
+            "记录画布、锚点、图层命名、许可及生成来源",
+            "缺失部件集中报告"
+          ],
+          "acceptance": "在制作骨架前能发现缺腿、缺掌、关节裸露和隐藏区缺图；允许显式简化角色。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Explicit semantic part/overlap/hidden-area requirements; missing declared roles are reported. No anatomy or hidden-art recognition.",
+            "evidence": [
+              "product-workflow-smoke",
+              "product-workflows.test"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M3-2",
+          "feature": "生成资产任务适配",
+          "details": [
+            "用固定资产名、请求摘要和哈希对接 Codex 图片输出",
+            "只补生成缺失/被拒绝素材",
+            "拒绝错误尺寸、透明通道、来源或过期任务回填",
+            "支持暂停、补图、断线恢复"
+          ],
+          "acceptance": "重试不会重复导入；修改一张图只失效依赖阶段；保护区像素保持。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Codex generates images outside MCP; local PNG handoff validates dimensions, alpha, resource hashes and protected pixels. Durable task recovery and deterministic request reuse are verified.",
+            "evidence": [
+              "product-workflow-smoke",
+              "character-tasks-smoke",
+              "product-workflows.test"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M3-3",
+          "feature": "指定区域的导入放置",
+          "details": [
+            "统一以骨骼局部坐标、世界坐标或明确锚点放置",
+            "报告缩放、旋转、层级和绘制顺序",
+            "生成放置前后对照与撤销版本"
+          ],
+          "acceptance": "明确坐标输入能稳定复现；中文路径和半透明素材正常；不把口头区域描述猜成精确编辑器选区。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Explicit world/bone-local anchors, rotation/scale, new slots and draw-order preservation; common-camera setup before/after PNGs and pinned portable undo version.",
+            "evidence": [
+              "product-workflow-smoke",
+              "product-workflows.test"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M3-4",
+          "feature": "真实分层素材验收矩阵",
+          "details": [
+            "增加实际绘图软件保存的完整角色 PSD 样本",
+            "覆盖不同发型、裙摆、手部和鞋型",
+            "保存合法来源、授权、合成参考和失败样例"
+          ],
+          "acceptance": "独立合成参考、Spine 回读和多动作检查均通过；合成工程样本与真实素材分开标注。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "One genuinely authored licensed 689-layer PSD with three complete directions, not three independent original PSD files. Visible child groups flatten to 27/14/22 PNG regions. Independent source-grid maximum error <3/255 and mean <0.35/255; native/JSON preview bytes exact. AI-restricted sources excluded.",
+            "evidence": [
+              "psd-section-smoke",
+              "visual-rig-deform-raster-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        }
+      ],
+      "verifiedAt": "2026-11-05T04:49:55.563Z"
+    },
+    {
+      "id": "M4",
+      "priority": "P1",
+      "name": "完整绑定和角色控制规范",
+      "status": "implemented_bounded_verified",
+      "existing": "骨骼/约束/网格/权重工具、几何绑定建议、显式关节点标注、可编辑 IK、任务控制和修正已存在。",
+      "items": [
+        {
+          "id": "M4-1",
+          "feature": "完整角色绑定配置",
+          "details": [
+            "统一躯干、双臂、双腿、头部、手腕脚掌、头发、服装的语义配置",
+            "校验父子关系、旋转轴、左右命名、长度和单位",
+            "按角色类型保存配置，不依赖单一角色命名"
+          ],
+          "acceptance": "至少三种比例/服装角色可复用配置；明确标注或校正错误时阻止继续。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Same explicit calibrated profile reused across leg proportions 0.8/1/1.25. The second outfit uses its own explicit bend calibration; incompatible profile reuse is rejected.",
+            "evidence": [
+              "production-motion-pack-smoke",
+              "product-workflows.test"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M4-2",
+          "feature": "关节极限和弯曲方向",
+          "details": [
+            "明确膝肘弯曲方向、角度极限和 IK 可达范围",
+            "脚底朝向、脚跟/脚尖接触与 FK/IK 过渡",
+            "左右镜像后的配置一致性"
+          ],
+          "acceptance": "过伸、反折、穿地和控制器突跳都有定位信息；不能修复时保留失败。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Explicit rest-relative angle/bend/contact semantics and bounded FK/IK paths. Unreachable or unsupported constrained rigs reject; no universal anatomical solver.",
+            "evidence": [
+              "product-workflow-smoke",
+              "branch-contact-psd-smoke",
+              "construction-runtime-psd-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M4-3",
+          "feature": "蒙皮与接缝配置复用",
+          "details": [
+            "将已审核接缝、固定点、权重策略和衣物覆盖关系存成资源受保护配置",
+            "拓扑或图片改变时要求重新核对",
+            "显示受影响动作范围"
+          ],
+          "acceptance": "兼容角色复用成功；顶点重排、拓扑变化或错误映射不会静默套用。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Pinned topology, weight/seam plans and explicit compatibility/isolation. Source changes require new seam plans; no semantic auto-matching.",
+            "evidence": [
+              "seam-compatibility-smoke",
+              "unified-joint-smoke",
+              "product-workflows.test"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M4-4",
+          "feature": "控制器使用说明与姿态库",
+          "details": [
+            "输出控制器清单、可动范围和示范姿态",
+            "区分控制骨、变形骨和物理链",
+            "建立可重用的稳定站姿/接触基准"
+          ],
+          "acceptance": "角色在多套皮肤下执行同一控制姿态，无未声明的部件缺失或控制跳变。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Controller inventory, roles, limits, rest/contact guidance and existing complete multi-skin pose regression; no automatic semantic control discovery.",
+            "evidence": [
+              "product-workflow-smoke",
+              "production-character-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        }
+      ],
+      "verifiedAt": "2026-11-05T04:49:55.563Z"
+    },
+    {
+      "id": "M5",
+      "priority": "P1",
+      "name": "可复用的动作制作包",
+      "status": "implemented_bounded_verified",
+      "existing": "关键帧/曲线/区间编辑、复制、重定向、混合、镜像、烘焙、接触修正、误差精简和动作模板均已有。",
+      "items": [
+        {
+          "id": "M5-1",
+          "feature": "基础动作模板规格",
+          "details": [
+            "站立呼吸、走、跑、起跳/腾空/落地、招手、转身分别定义时长、相位和接触事件",
+            "使用角色语义配置重定向",
+            "幅度、节奏、重心和循环参数可调整"
+          ],
+          "acceptance": "至少三种角色比例和两套服装运行同一模板；原动作和范围外通道不变；用户确认自然。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Seven bounded planar in-place FK recipes, three actual leg proportions and two illustrated outfits. User acceptance is pinned only to the exact earlier standard Spineboy video. Current regenerated native library and derived variants are technically verified and do not inherit human approval.",
+            "evidence": [
+              "production-motion-pack-smoke",
+              "motion-library-visual-acceptance.json"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M5-2",
+          "feature": "次级运动与转场",
+          "details": [
+            "头发/衣摆/配件具有相位、延迟、衰减和幅度预算",
+            "进出动作的脚底接触和根运动连续",
+            "物理运行与有限采样捕获范围明确"
+          ],
+          "acceptance": "循环接缝、跨动作转场和长循环采样通过；明显跳变可定位到时间和控制器。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Explicit bounded secondary-motion recipes, existing compose/contact tools, finite-loop sampling and actual official AnimationState crossfades. Runtime data agreement is not a universal proof of contact locking throughout arbitrary blends.",
+            "evidence": [
+              "production-motion-pack-smoke",
+              "complete-smoke",
+              "complex-project-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M5-3",
+          "feature": "表情与口型配置",
+          "details": [
+            "基于明确已有眼睛/嘴部素材建立眨眼、视线和口型切换表",
+            "可选接收外部已对齐音素或时间标注",
+            "缺素材时进入补图任务，不从单图保证侧脸或任意表情"
+          ],
+          "acceptance": "音素事件/附件/绘制顺序往返一致；音频缺失和时间越界拒绝；素材变更使审核失效。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Existing eye/mouth attachments plus explicit timing cues, optional locally probed WAV/MP3/OGG. No speech recognition, sound playback or generated facial artwork in MCP.",
+            "evidence": [
+              "product-workflow-smoke",
+              "product-workflows.test"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M5-4",
+          "feature": "批量动作风格修订",
+          "details": [
+            "同一角色的多动作共享力度/节奏配置",
+            "提供精确候选差异与共享镜头对照",
+            "只发布用户选择的动作版本"
+          ],
+          "acceptance": "批量重试幂等；不同动作的接触约束各自验证；拒绝一个候选不会发布其余未确认版本。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Shared intensity/tempo recipe, exact candidate review and same-source/camera comparison. No automatic winner or inherited approval.",
+            "evidence": [
+              "product-workflow-smoke",
+              "character-tasks-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        }
+      ],
+      "verifiedAt": "2026-11-05T04:49:55.563Z"
+    },
+    {
+      "id": "M6",
+      "priority": "P1",
+      "name": "质量诊断和交付产品化",
+      "status": "implemented_bounded_verified",
+      "existing": "像素可见翻面、接缝、拉伸、接触、关键帧、资源和原生兼容诊断，发布门禁、归档恢复和可搬移资源包均已有。",
+      "items": [
+        {
+          "id": "M6-1",
+          "feature": "统一问题清单",
+          "details": [
+            "按严重程度、动作、皮肤、时间、骨骼/网格和证据图集中展示",
+            "区分源工程已有问题与本次新增问题",
+            "保留已处理/拒绝/重新验证状态"
+          ],
+          "acceptance": "同一个问题在计划、修复、发布和交付之间可追踪；资源改变后不能沿用过期通过记录。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Pinned issue board with source-vs-baseline origin, CAS history and independent revalidation; truncated inventories cannot be marked fully resolved.",
+            "evidence": [
+              "product-workflow-smoke",
+              "product-workflows.test"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M6-2",
+          "feature": "修复方案比较",
+          "details": [
+            "对同一问题生成有预算的多个候选",
+            "比较位移、约束误差、关键帧体积和外观",
+            "无解给出限制原因和需要补充的素材/标注"
+          ],
+          "acceptance": "候选超预算不会被自动挑选；对照使用同一镜头、源和采样设置。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "2–8 exact-source candidates, common camera/metrics and unchanged source/resource pins; no automatic aesthetic winner.",
+            "evidence": [
+              "product-workflow-smoke",
+              "product-workflows.test"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M6-3",
+          "feature": "目标运行时验收配置",
+          "details": [
+            "按实际使用的游戏引擎/运行时版本配置兼容矩阵",
+            "检查 runtime 数据、图集、混合、物理和裁剪",
+            "保留可重复加载/播放样例与性能报告"
+          ],
+          "acceptance": "目标运行时实际加载、播放全部交付动作；不把编辑器/CPU 预览通过等同于所有游戏引擎通过。",
+          "dependency": "用户选择目标运行时及可用测试环境。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Official JavaScript spine-core 4.3.13 sequential AnimationState playback, finite loops/crossfades, JSON/binary comparison, event/bone budgets and atlas checks. GPU, audio and other engines excluded.",
+            "evidence": [
+              "product-workflow-smoke",
+              "production-motion-pack-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M6-4",
+          "feature": "正式交付清单",
+          "details": [
+            "工程、JSON/二进制、图集、图片、动作清单、预览和许可一起核对",
+            "干净目录重建并验证全部资源引用",
+            "输出兼容版本、排除项、审核来源和恢复入口"
+          ],
+          "acceptance": "交付文件哈希全部吻合；无临时绝对路径依赖；没有未经授权收录的用户素材或密钥。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Native/JSON/binary/atlas/images, per-clip PNGs, license/review/runtime evidence, relative loading paths and hash inventory; actual moved-directory loading and rebuild. Absolute evidence provenance may remain in reports, not loading dependencies.",
+            "evidence": [
+              "product-workflow-smoke",
+              "production-character-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        }
+      ],
+      "verifiedAt": "2026-11-05T04:49:55.563Z"
+    },
+    {
+      "id": "M7",
+      "priority": "P1",
+      "name": "安装、可发现性和长期维护",
+      "status": "implemented_bounded_verified",
+      "existing": "安装/升级、任务恢复、队列、旧写入器防护、版本迁移、限额、测试和发布包已存在。",
+      "items": [
+        {
+          "id": "M7-1",
+          "feature": "常用工作流入口",
+          "details": [
+            "按新建角色、加素材、做动作、修问题、查看预览、交付分组",
+            "为每种工作流给出最少参数和完整实例",
+            "明确哪些步骤等待图片、调用方选择或外部条件"
+          ],
+          "acceptance": "首次使用者能按一个完整示例走完，无需了解全部底层工具名称。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Current-code regression, original-source preservation and declared support limits apply.",
+            "evidence": [
+              "product-workflow-smoke",
+              "examples/product-workflows.json"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M7-2",
+          "feature": "可迁移配置和依赖诊断",
+          "details": [
+            "路径、CLI、FFmpeg、PSD 渲染器分别诊断",
+            "干净机器安装与已有安装升级分开验收",
+            "不读取修改许可证或绕过激活"
+          ],
+          "acceptance": "缺依赖时给出准确原因；升级失败保留旧安装；中文/空格路径可用。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Clean production npm installation and private pinned PSD renderer relocation on this host, including Chinese/spaced paths. A separate new operating system or Spine activation is not claimed.",
+            "evidence": [
+              "clean-install.json",
+              "product-workflow-smoke"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M7-3",
+          "feature": "规模和故障矩阵",
+          "details": [
+            "小/中/大工程各自的时间、内存、磁盘和采样预算",
+            "断线、进程退出、磁盘不足、资源被改和并发请求",
+            "取消、重试、恢复、归档和清理逐一覆盖"
+          ],
+          "acceptance": "失败可恢复或明确拒绝；不丢原工程、不多发布版本、不启动无限重试。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Existing bounded size/performance and fault/retry/cancel/recovery/archive/concurrency matrix. Budget violations reject; no infinite retries or absolute filesystem quota guarantee.",
+            "evidence": [
+              "stability-smoke",
+              "maintenance-upgrade-smoke",
+              "character-tasks-smoke",
+              "benchmark"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        },
+        {
+          "id": "M7-4",
+          "feature": "支持矩阵与封版记录",
+          "details": [
+            "统一 README、SUPPORT、工具 schema、示例与实际测试报告",
+            "每项限制标注已支持/有界支持/未验证/上游限制",
+            "维护固定验收集和版本变更记录"
+          ],
+          "acceptance": "文档、工具数、版本、源码哈希和安装包一致；未来新需求进入单独版本计划。",
+          "status": "implemented_bounded_verified",
+          "verification": {
+            "scope": "Current-code regression, original-source preservation and declared support limits apply.",
+            "evidence": [
+              "feature-audit.json",
+              "release-manifest.json"
+            ]
+          },
+          "verifiedAt": "2026-11-05T04:49:55.563Z"
+        }
+      ],
+      "verifiedAt": "2026-11-05T04:49:55.563Z"
+    }
+  ],
+  "upstreamLimits": [
+    {
+      "item": "Ordinary windows and unpinned editor builds",
+      "status": "Outside the verified native bridge scope",
+      "action": "Use nativeBridge=true for the pinned build; no active attachment, native bytecode patching or input fallback."
+    },
+    {
+      "item": "Native display and aesthetic verification",
+      "status": "Native frame/time/model receipts available within bridge scope; no general pixel/FPS or aesthetic certification",
+      "action": "Keep observed native repaint counts separate from screenshots and user aesthetic acceptance."
+    },
+    {
+      "item": "原生凹裁剪导入",
+      "status": "安装的 4.3.23 存在已记录的规范化行为",
+      "action": "保留诊断/拒绝机制和显式有限采样替代；不声称修复上游导入器。"
+    },
+    {
+      "item": "所有 PSD 特效无损导入",
+      "status": "当前只支持已验证的有界 RGB8 栅格路径",
+      "action": "逐类增加独立参考验证；未支持的效果要求源软件栅格化，不静默丢弃。"
+    },
+    {
+      "item": "单张图片自动获得所有隐藏部件和自然动作",
+      "status": "需要补绘、语义标注、约束及视觉检查",
+      "action": "将缺失输入显式转成素材/标注任务，不承诺通用无人工审美修正。"
+    }
+  ],
+  "optionalAfterCompletion": [
+    "新的 Spine 大版本适配",
+    "新增游戏引擎连接器",
+    "多人远程协作和云渲染",
+    "更多角色风格和特定玩法动作库"
+  ],
+  "executionOrder": [
+    "M1 全部通过并封版",
+    "M2 可行性调查和 M3 素材工作流",
+    "M4 统一绑定配置",
+    "M5 可复用动作包",
+    "M6 目标运行时交付",
+    "M7 的文档/诊断随每个里程碑同步维护"
+  ],
+  "planningNote": "M2–M7 为用户要求的完整后续功能规划，包含已有能力的整合、扩大验证和明确新能力；并非宣称这些项目全部未实现，也不为无法验证的上游能力给出保证日期。",
+  "implementation": {
+    "version": "3.1.0",
+    "tools": 229,
+    "availableImplementationComplete": true,
+    "allRequestedOutcomesAchieved": true,
+    "implementedBoundedItems": 28,
+    "blockedItems": [],
+    "nativeScope": "NEW startup-bridge windows on the pinned installed Spine 4.3.23 build only. No active attachment to ordinary windows. Reload refuses unsaved/stale/busy states; writes a NEW verified sibling recovery file; preserves supported view state; resets native undo history. No mouse/keyboard injection or window-activation command.",
+    "report": "VERIFICATION.json",
+    "checkedAt": "2026-11-05T04:49:55.563Z"
+  }
+}

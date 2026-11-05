@@ -1,0 +1,10 @@
+{
+  "input": "same-name-constraints.json",
+  "output": "typed-constraints-edited.spine",
+  "edits": [
+    { "type": "set_constraint_timeline", "animation": "action", "constraint": "控制", "constraintType": "ik", "channel": "parameters", "keyframes": [{ "time": 0, "mix": 0.5 }, { "time": 1, "mix": 1 }] },
+    { "type": "set_constraint_timeline", "animation": "action", "constraint": "控制", "constraintType": "physics", "channel": "wind", "keyframes": [{ "time": 0, "value": 0 }, { "time": 1, "value": 20 }] },
+    { "type": "rename", "target": { "kind": "constraint", "name": "控制", "constraintType": "ik" }, "newName": "瞄准" },
+    { "type": "set_skin_members", "skin": "active", "constraints": [{ "name": "瞄准", "type": "ik" }, { "name": "控制", "type": "physics" }] }
+  ]
+}

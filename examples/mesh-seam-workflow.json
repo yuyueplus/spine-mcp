@@ -1,0 +1,26 @@
+{
+  "description": "Plan and inspect geometric candidates before explicitly selecting pairs. Example paths, candidate IDs and SHA values must be replaced with the actual pinned result.",
+  "plan": {
+    "tool": "spine_plan_mesh_seams",
+    "arguments": {
+      "input": "character.json", "animation": "idle", "skin": "outfit",
+      "targets": [{"id":"upper","slot":"upper-cloth","attachment":"upper"},{"id":"lower","slot":"lower-cloth","attachment":"lower"}],
+      "vertices": "boundary", "maxDistance": 2, "maxCandidates": 48, "mode": "coincident", "tolerance": 0.05,
+      "width": 512, "height": 768
+    }
+  },
+  "review": "Inspect the marked PNG, distances, ambiguity and source pose. Geometric confidence does not establish anatomical correctness or human approval.",
+  "repair": {
+    "tool":"spine_create_joint_mesh_repair",
+    "arguments": {
+      "requestId":"61d759d8-3a55-4db6-9b8d-6642ea446a41", "input":"character.json", "animation":"idle", "newName":"idle-seam-reviewed", "skin":"outfit",
+      "targets":[{"id":"upper","slot":"upper-cloth","attachment":"upper","maxCorrection":2,"pinnedVertices":[]},{"id":"lower","slot":"lower-cloth","attachment":"lower","maxCorrection":2,"pinnedVertices":[]}],
+      "seamPlan":{"plan":"EXACT_RETURNED_PLAN_PATH","expectedSha256":"EXACT_RETURNED_PLAN_SHA256","selected":["EXPLICITLY_SELECTED_CANDIDATE_ID"],"confirmation":"use_reviewed_seams"},
+      "compatibility":{"linkedMeshes":"isolated_skin","outputSkin":"outfit-seam-review","physics":"reject","physicsFps":120,"poseTolerance":0.001},
+      "comparison":{"video":true,"fps":12,"width":320,"height":480}
+    }
+  },
+  "physicsOptIn": "Set compatibility.physics=sampled_capture only when finite deterministic capture is intended. Repair FPS must be 30/60 and physicsFps at least twice repair FPS. Defaults reject physics and linked dependencies.",
+  "independentAudit": "Use spine_audit_mesh_seams with candidate.details.verification.resolvedTargets, the returned output skin, new animation and selected seam definitions. Source-relative mode additionally requires referenceAnimation, referenceSkin and original referenceTargets when private placeholders were created.",
+  "publication": "Failed candidates cannot publish. Inspect comparisons; explicitly select the exact candidate SHA. Use suggestedPublishQuality to select the derived clip/output skin. Independently audit the published native file. New skins are scoped to new repaired clips; original skins/clips remain unchanged."
+}

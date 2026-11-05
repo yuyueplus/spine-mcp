@@ -1,0 +1,10 @@
+{
+  "input": "source.json",
+  "output": "surface-weights.json",
+  "from": { "skin": "default", "slot": "source-slot", "name": "source-mesh" },
+  "to": { "skin": "default", "slot": "target-slot", "name": "target-mesh" },
+  "method": "surface",
+  "maxDistance": 20,
+  "lockedBones": [],
+  "clearDeform": false
+}

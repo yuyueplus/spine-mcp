@@ -1,0 +1,22 @@
+{
+  "tool": "spine_create_character_task",
+  "arguments": {
+    "requestId": "REPLACE_WITH_NEW_UUID",
+    "input": "character/source.psd",
+    "name": "Reviewed authoring task",
+    "authoring": {
+      "raster": { "layerPolicy": "flatten_top_level", "padding": 0 },
+      "landmarks": { "coordinateSpace": "world", "width": 512, "height": 768 }
+    },
+    "publication": { "native": true },
+    "waitForPreview": false
+  },
+  "sequence": [
+    "Run, then inspect stageGate raster proof and semanticLoss.",
+    "Review raster using exact expectedArtifactSha256 and decision=accepted; run again.",
+    "Inspect calibrated landmark PNG/camera. Submit decision=revise with explicit joints, bones, bindings and motions using the displayed stage and landmark plan SHAs.",
+    "Inspect the revised image and blueprint. Accept using the NEW expectedLandmarkPlanSha256; run again.",
+    "Inspect final candidate and media. Review its exact SHA with spine_review_character_task, then run publication."
+  ],
+  "limits": "No anatomy inference or image generation inside MCP. Intermediate reviews and final publication review are separate. To change a consumed stage, create an explicitly reviewed branch."
+}

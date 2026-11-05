@@ -1,0 +1,9 @@
+{
+  "input": "hero.json",
+  "output": "edits/hero-advanced.spine",
+  "edits": [
+    { "type": "crop_animation", "animation": "wave", "newName": "middle", "start": 0.2, "end": 0.8, "fps": 30 },
+    { "type": "mirror_animation", "animation": "middle", "newName": "middle-mirrored", "axis": "x", "bones": ["arm"] },
+    { "type": "merge_animations", "animations": ["middle", "middle-mirrored"], "newName": "combined", "fps": 30, "gap": 0.1 }
+  ]
+}

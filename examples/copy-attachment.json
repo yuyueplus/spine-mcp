@@ -1,0 +1,9 @@
+{
+  "input": "hero.json",
+  "output": "edits/hero-attachment-copy.json",
+  "from": { "skin": "day", "slot": "arm-slot", "name": "arm" },
+  "to": { "skin": "night", "slot": "copy-slot", "name": "arm-copy" },
+  "preserveWorld": true,
+  "copyTimelines": true,
+  "setAsSetup": true
+}

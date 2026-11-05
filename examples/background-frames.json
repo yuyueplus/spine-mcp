@@ -1,0 +1,7 @@
+{
+  "operation": "export_frames",
+  "args": {
+    "input": "hero.json",
+    "options": { "animation": "wave", "start": 0, "end": 1, "fps": 24, "kind": "artwork", "physics": false }
+  }
+}

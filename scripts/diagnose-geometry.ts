@@ -1,0 +1,4 @@
+import { readDocument } from '../src/document.js';
+import { attachmentEntries } from '../src/attachment-data.js';
+const a = await readDocument(process.argv[2]!), b = await readDocument(process.argv[3]!), left = attachmentEntries(a), right = attachmentEntries(b);
+for (const item of left) { const other = right.find(other => other.skin === item.skin && other.slot === item.slot && other.name === item.name); if (!other || !Array.isArray(item.value.vertices) || !Array.isArray(other.value.vertices)) continue; const av = item.value.vertices as number[], bv = other.value.vertices as number[], differences = av.flatMap((value, i) => Math.abs(value - bv[i]!) > 1e-5 * Math.max(1, Math.abs(value), Math.abs(bv[i]!)) ? [{ index: i, a: value, b: bv[i], difference: Math.abs(value - bv[i]!) }] : []); if (differences.length) console.log(JSON.stringify({ skin: item.skin, slot: item.slot, name: item.name, lengths: [av.length, bv.length], differences: differences.slice(0, 6) })); }

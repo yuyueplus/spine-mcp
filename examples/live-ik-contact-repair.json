@@ -1,0 +1,15 @@
+{
+  "tool": "spine_create_ik_contact_repair",
+  "arguments": {
+    "requestId": "22222222-2222-4222-8222-222222222222",
+    "input": "character/source.spine",
+    "animation": "walk",
+    "newName": "walk_planted_review",
+    "fps": 60,
+    "tolerance": 0.1,
+    "orientationToleranceDegrees": 0.25,
+    "chains": [{ "constraint": "leg_left_ik", "foot": "foot_left", "heel": { "x": -8, "y": -4 }, "toe": { "x": 20, "y": -4 }, "contacts": [{ "start": 0.2, "end": 0.6, "mode": "sole", "transitionSeconds": 0.12 }] }],
+    "comparison": { "video": true, "fps": 12, "width": 256, "height": 384 }
+  },
+  "notes": ["Replace heel/toe with actual foot-local landmarks; no anatomy inference. Default anchor/angle comes from the original contact-start pose.", "For rolling use mode=heel or toe and angles=[{time:start,degrees:...},{time:end,degrees:...}], with increments at most 180 degrees. Sole mode holds both landmarks and a fixed angle.", "Requires live two-bone full-mix zero-softness IK, positive uniform scales, no shear/stretch/compress/physics, and a direct foot child at the lower tip. Review the new clip before promotion.", "The same arguments minus input/requestId can be a character task contactRepair stage."]
+}

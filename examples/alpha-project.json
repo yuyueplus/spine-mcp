@@ -1,0 +1,13 @@
+{
+  "input": "hero.json",
+  "output": "edits/hero-alpha-rig.spine",
+  "edits": [
+    { "type": "add_slot", "name": "alpha-mask-slot", "bone": "arm" },
+    { "type": "add_slot", "name": "alpha-bounds-slot", "bone": "arm" },
+    { "type": "set_slot_order", "order": ["alpha-mask-slot", "arm-slot", "alpha-bounds-slot"] },
+    { "type": "polygon_from_region", "skin": "default", "slot": "arm-slot", "name": "arm", "kind": "boundingbox", "targetSlot": "alpha-bounds-slot", "targetName": "arm-bounds", "alphaThreshold": 1, "padding": 1, "maxVertices": 64 },
+    { "type": "polygon_from_region", "skin": "default", "slot": "arm-slot", "name": "arm", "kind": "clipping", "targetSlot": "alpha-mask-slot", "targetName": "arm-mask", "endSlot": "arm-slot", "alphaThreshold": 1, "padding": 1, "maxVertices": 64 },
+    { "type": "mesh_from_alpha", "skin": "default", "slot": "arm-slot", "name": "arm", "alphaThreshold": 1, "padding": 1, "maxVertices": 64 },
+    { "type": "auto_weights", "skin": "default", "slot": "arm-slot", "name": "arm", "bones": ["arm"], "influences": 1 }
+  ]
+}

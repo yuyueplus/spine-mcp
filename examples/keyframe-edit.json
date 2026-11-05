@@ -1,0 +1,9 @@
+{
+  "input": "character.json",
+  "output": "character-keyed.json",
+  "animation": "idle",
+  "target": { "kind": "bone", "bone": "root", "channel": "rotate" },
+  "action": "upsert",
+  "keyframes": [{ "time": 0.5, "value": 12 }],
+  "collision": "error"
+}

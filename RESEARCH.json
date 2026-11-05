@@ -1,0 +1,722 @@
+{
+  "version": "3.1.0",
+  "researchedAt": "2026-10-26",
+  "editor": "4.3.23",
+  "unsavedEditorState": {
+    "implemented": false,
+    "reason": "No supported editor-internal structural automation interface was identified. Official guidance supports exported data editing and CLI import/export. A running GUI is not a documented saved-state API.",
+    "officialSource": "https://esotericsoftware.com/forum/d/29562-spine-cli--mcp-automation-and-json-round-trip",
+    "fallback": "Save the project manually, then use background file tools. Version2.1 adds detached saved-project/resource synchronization with debounce, independent original-byte archives and commit recovery. It does not trigger saves or read editor memory. No keyboard, mouse, process injection, licensed binary patching or unsupported metadata rewrite is used."
+  },
+  "editorMetadata": {
+    "originalArchive": "Exact original bytes and hashed resources are retained by spine_archive_project; collected JSON previews have portable paths.",
+    "editedProjectLosslessPreservationProven": false,
+    "reason": "The native compressed project serialization is not the public exported JSON format. Export/import verification covers exported data, not opaque editor-only fields. Original native resource paths remain unchanged in the byte-exact archived copy."
+  },
+  "concaveClipping": {
+    "nativeImporterFixed": false,
+    "observed": "Installed 4.3.23 JSON and binary import can force the convex flag, changing concave clipping. Verification continues to reject unsafe publication.",
+    "visualFallback": "spine_bake_clipping samples official runtime output into flat ordinary triangle meshes. Only selected skin/animation artwork is retained in this derived output. Validate sampled pixels and native readback."
+  },
+  "mcpReload": {
+    "officialDocs": [
+      "https://learn.chatgpt.com/docs/extend/mcp?surface=cli",
+      "https://learn.chatgpt.com/docs/app-server"
+    ],
+    "documentedRpc": "config/mcpServer/reload",
+    "freshSdkConnection": "Reads the registered spine43 stdio command and launches the current build. This does not refresh an already-open application's connection.",
+    "activeConversationReload": "No supported reload capability was exposed to this task. Reload spine43 in the MCP client to replace its old process and tool catalog."
+  },
+  "userProductionRegression": {
+    "validated": false,
+    "reason": "Original four-clip generated character has numeric/native regression coverage. A separate 05_jump_land_review in the new native review project was explicitly accepted by the user; original four visual decisions remain pending. No external production project was supplied.",
+    "currentCharacterReport": "work/visual-acceptance-2.7.0/workflow-verification.json"
+  },
+  "nativeEditorPreview": {
+    "implemented": "dedicated native project with a hot-reloaded fixed PNG",
+    "officialImageWatch": "https://en.esotericsoftware.com/spine-images",
+    "projectOpenReuseSource": "https://en.esotericsoftware.com/spine-settings",
+    "launcherOverrideSource": "https://esotericsoftware.com/forum/d/17883-%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A7%E5%88%A5%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%A7%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E9%96%8B%E3%81%8F%E3%81%AB%E3%81%AF",
+    "distinction": "Spine watches image files. No supported full-project structural reload endpoint or editor display acknowledgement was verified for this installed entrypoint. Image preview publication is not editable rig synchronization.",
+    "method": "Render the chosen saved pose in a detached worker, atomically replace the image referenced by a generated dedicated native Spine project. The project is opened once by the user. No mouse, keyboard, focus commands, editor process injection or license/launcher changes.",
+    "nativeEditorDisplayVerified": true,
+    "verificationMethod": "User observed the dedicated native preview and confirmed automatic pose/position changes without manual refresh. This is human evidence, not an editor API receipt.",
+    "verificationReport": "work/native-preview-visual-test-2.2.0.json",
+    "verifiedAt": "2026-10-22T07:04:44.682Z",
+    "editableRigReloadVerified": false
+  },
+  "editableProjectReload": {
+    "implemented": false,
+    "verified": false,
+    "checkedAt": "2026-10-22",
+    "report": "work/native-reload-check-2.2.0.json",
+    "reproduce": "npm run build && npm run check:native-reload",
+    "diskFixture": "A separate native project with an added bone, slot, animation and two rotation keys was rebuilt and re-exported successfully. This does not test the running editor memory.",
+    "installedEntryPoints": "A working background batch entrypoint exists. No standard Spine.com was found at the inspected locations; the configured GUI executable is a different entrypoint. Two existing GUI windows have no observed TCP/UDP listener. Neither observation proves all IPC is absent.",
+    "reuseInstance": "The installed settings enable reuseInstance. Official documentation describes opening projects in an existing instance; it does not establish same-file forced reload, target-process selection, unsaved-state protection, no-focus operation or preservation of animation/time/viewport.",
+    "nativeOpenForwardingTestPerformed": false,
+    "reason": "No supported live-state query or verified no-focus reload transaction was found. A launcher success or a batch re-export cannot be counted as native skeleton-tree/timeline acceptance.",
+    "conclusion": "Not established on this installation within the user's background/no-input requirements. No GUI launch, file forwarding, synthetic input, process injection, settings edit or original-project overwrite was used.",
+    "officialSources": [
+      "https://en.esotericsoftware.com/spine-command-line-interface",
+      "https://en.esotericsoftware.com/spine-settings",
+      "https://esotericsoftware.com/forum/d/29562-spine-cli--mcp-automation-and-json-round-trip"
+    ]
+  },
+  "nativePreviewReliability": {
+    "implemented": true,
+    "report": "work/native-preview-recovery-report-2.3.0.json",
+    "continuousRegression": "work/native-preview-stability-report-2.3.0.json",
+    "sameProjectRenewResume": true,
+    "rendererExitSupervision": true,
+    "supervisorRestart": "On MCP startup or edit/update/resume; no automatic restart of stopped/expired sessions.",
+    "nativeEditorDisplayReceipt": false,
+    "editableRigHotReload": false
+  },
+  "cachedNativePlayback": {
+    "officialSource": "https://en.esotericsoftware.com/spine-images",
+    "documentedMechanism": "Spine watches its images folder and loads image changes.",
+    "implementation": "Atomic replacement of one fixed PNG from a complete CPU-rendered frame cache; independent clock with play/pause/seek/stop, range, speed and loop.",
+    "evidence": "work/native-playback-report-2.4.0.json",
+    "currentProjectTest": "work/native-playback-current-report-2.4.0.json",
+    "nativeContinuousDisplayVerified": false,
+    "limitations": "Documentation does not specify animation-frame delivery, supported refresh cadence or receipt. Publication throughput must not be reported as native-window FPS. No native timeline, editable rig reload, focus/input or audio.",
+    "initialNativeObservation": "User reported red/green Loading indicators; character itself appeared normally. Original single-frame refresh remains confirmed; initial continuous-display trial did not meet quality acceptance.",
+    "loadingMitigation": {
+      "implementation": "Temporary PNGs staged outside watched images; cached frames padded to identical lengths via valid PNG private ancillary chunk before IEND.",
+      "historicalOfficialSource": "https://es.esotericsoftware.com/forum/d/11487-spine-37-quotlocksquot-my-png-files",
+      "inference": "Historical maintainer description uses a length-stability delay. It is not verification of the exact 4.3 implementation. Current visual retest must determine whether the mitigation works."
+    },
+    "nativeVisualAcceptance": "Failed twice; user screenshot shows a full green LOADING placeholder. Constant file length and staging outside images did not eliminate it."
+  },
+  "nativeSequencePreview": {
+    "implemented": true,
+    "officialSources": [
+      "https://en.esotericsoftware.com/spine-regions#Sequence",
+      "https://us.esotericsoftware.com/spine-keys#Sequence-keys"
+    ],
+    "mechanism": "Pre-render fixed sequence and import genuine native attachment/timeline. Spine switches preloaded frames; watcher handles actual edited content.",
+    "backendReport": "work/native-sequence-report-2.4.0.json",
+    "nativeClockControlFromMcp": false,
+    "nativeVisualVerification": true,
+    "limitations": "One-time open, ANIMATE, MCP-playback and loop/play in Spine. Fixed range/count/timing. Resource changes can briefly load images. No editable rig reload.",
+    "oneTimeSetup": "Open MCP-sequence.spine, switch to ANIMATE, expand Animations and activate MCP-playback using its visibility dot at the far left of the tree row. Enable loop and play once.",
+    "nativeVisualVerificationVersion": "2.4.0",
+    "currentVersionNativeWindowReobserved": false,
+    "priorManualAcceptance": {
+      "version": "2.4.0",
+      "report": "work/native-sequence-window-acceptance-2.4.0.json",
+      "scope": "User confirmed steady playback and the obvious half-size MCP edit without loading. New-version PNG equivalence is verified separately by the performance check."
+    }
+  },
+  "previewRenderingOptimization": {
+    "version": "2.4.1",
+    "method": "Skip system font discovery for image-only slot SVGs and clean final artwork; retain it for labeled previews.",
+    "measuredOfficialSpineboy": {
+      "frameCount": 20,
+      "width": 512,
+      "height": 512,
+      "oldEditToPublishedMs": 43592,
+      "currentEditToPublishedMs": 6785,
+      "normalSizeRestoreMs": 12393,
+      "pngBytesIdentical": true
+    },
+    "report": "work/native-preview-performance-report-2.4.1.json",
+    "scope": "Local measured background publication, not GUI FPS or a promise for other machines/projects."
+  },
+  "editorOpening": {
+    "implemented": true,
+    "verifiedInstallation": "Existing local 4.3.23 installed runtime entrypoint; no launcher, license or editor settings patch.",
+    "workflow": "Create an exclusive new root-only native project, verify exported data, then open a detached editor with --no-reuse-instance and the full project path.",
+    "cliSource": "https://en.esotericsoftware.com/spine-command-line-interface#Editor",
+    "instanceFlagSource": "https://esotericsoftware.com/forum/d/17883-コマンドラインで別インスタンスでプロジェクトを開くには",
+    "nativeWindowTitle": "Spine - MCP-created-cad74195",
+    "manualAcceptance": "User confirmed the newly opened project and root bone.",
+    "report": "work/editor-open-report-2.5.0.json",
+    "evidenceLimit": "Process/window metadata and one manual test; no editor-internal structural edit or unsaved-state API, no original-rig hot reload."
+  },
+  "stabilityAndEditorControl": {
+    "version": "2.7.0",
+    "checkedAt": "2026-10-23",
+    "officialSources": [
+      "https://esotericsoftware.com/spine-command-line-interface",
+      "https://esotericsoftware.com/spine-settings",
+      "https://esotericsoftware.com/spine-images"
+    ],
+    "documented": [
+      "CLI opens a saved project path; headless import/export and atlas operations are supported.",
+      "Reuse instance config concerns project opening.",
+      "Images folder changes are watched."
+    ],
+    "inference": "These documents do not establish a supported in-process API for querying unsaved memory, choosing or playing an animation, seeking the native timeline, or safely forcing reload of an edited open rig. This is an adapter capability boundary, not proof that all possible IPC is absent.",
+    "nativePlayPauseSeekImplemented": false,
+    "unsavedMemoryAccessImplemented": false,
+    "editableRigHotReloadImplemented": false,
+    "implementedAlternative": "Request-idempotent saved-file verified publish/open, existing native preloaded sequence preview, explicit animation audits, isolated visual-review records.",
+    "launcherRecovery": "Trusted configured candidates are scanned at actual serialized execution and after GUI inventory; only a synchronous ENOENT/ENOTDIR can retry once with a newly resolved different candidate. No launcher/activation/settings edits or input simulation.",
+    "curveCompatibility": "Constant/nearly constant Bezier ordinate hull bounds allow native curve flattening with <=2e-5 per component relative to endpoint scale; nonconstant comparisons remain strict.",
+    "resources": "Native null or empty resource roots are anchored to the original project directory before export relocation; post-edit and newly attached image snapshots reject mutation before publication.",
+    "localProbeReport": "work/editor-capabilities-2.6.0.json",
+    "localAdvancedProbe": "The installed runtime responds to --help --advanced with version output only, without a discoverable argument list. This does not establish editor controls."
+  },
+  "scopedCharacterReview": {
+    "animation": "05_jump_land_review",
+    "nativeProject": "work/visual-acceptance-2.7.0/Anime-Girl-Review.spine",
+    "sourceSha256": "1a1af7a7e2d1d5e611af02a8908322c0d74316beff5dbeb5a7895a0d88ff6606",
+    "userResponse": "看到了，动作自然",
+    "scope": "Only this animation, original four pending. Structural/numeric results are independent.",
+    "evidence": "work/visual-acceptance-2.7.0/workflow-verification.json"
+  },
+  "diagnosticScope": {
+    "geometry": "Default retains all folded triangles after alpha/min-area filtering.",
+    "centroidVisibility": "Optional clipping/inverse clipping and fully opaque later normal-layer point coverage; not full-triangle or self-occlusion proof. Candidate inventory retained.",
+    "physics": "Actual 4.3.13 runtime history from time zero on physics FPS lattice plus exact requested boundaries; bounded, schedule-sensitive, not a looping-convergence proof.",
+    "recovery": "Stable recovery ID binds one persisted replacement after disconnect/lost response. Generic retries read current saved inputs. Existing generic outputs are preserved; publisher independently checks uncertain output. Completed results are historical."
+  },
+  "formalCharacterReview": {
+    "project": "work/visual-acceptance-2.7.0/Anime-Girl-Review.spine",
+    "sourceSha256": "1a1af7a7e2d1d5e611af02a8908322c0d74316beff5dbeb5a7895a0d88ff6606",
+    "animations": [
+      "01_idle_breeze",
+      "02_greeting_wave",
+      "03_charge_release",
+      "05_jump_land_review"
+    ],
+    "userResponseForRemainingThree": "这三个动作都自然",
+    "decision": "user-reported accepted for selected four clips",
+    "excludedArchived": [
+      "04_jump_land"
+    ],
+    "evidence": "work/formal-animation-review-2.8.0/formal-set-acceptance.json"
+  },
+  "qualityExtensions": {
+    "constrainedContacts": "Full interacting capture before solving; original constraints and animations preserved, constraints muted only in new animation. Sampling/chain/transform restrictions remain.",
+    "pixels": "Resolution-bounded world-cell center raster coverage with alpha, clipping and later opaque normal layers. No continuous coverage or anatomy proof.",
+    "longPreview": "Explicit up to600 frames within pixel/byte/geometry limits. Chunked preparation, per-frame state/content fingerprints, old-frame reuse, identical-frame deduplication and changed-image-only publication. Native editor still preloads all frames.",
+    "templates": "Validated data-only recipes through explicit roles; no automatically inferred landmarks. Contact positions are resolved per target rig."
+  },
+  "latestEditorInterfaceReview": "work/editor-interface-review-2.12.0.json",
+  "nativeEditorBridge": {
+    "researchedAt": "2026-10-24",
+    "supportedBridgeFound": false,
+    "unsavedMemory": false,
+    "editableRigHotReload": false,
+    "nativeTimelineControl": false,
+    "officialNoPluginSystem": "https://en.esotericsoftware.com/support",
+    "cliDocumentation": "https://en.esotericsoftware.com/spine-command-line-interface",
+    "evidence": "work/editor-interface-review-2.12.0.json"
+  },
+  "publicationQuality": {
+    "automaticWorkflows": [
+      "session edit/checkpoint/restore history commit",
+      "publish_and_open before build",
+      "deliver before collection/build"
+    ],
+    "defaultMode": "enforce",
+    "explicitReportMode": true,
+    "meshVisibility": "pixels",
+    "defaultFps": 60,
+    "maxFps": 120,
+    "defaultPixelSize": 0.1,
+    "defaultMaxSamples": 6000,
+    "maxSamples": 50000,
+    "exactContactBoundariesIncluded": true,
+    "characterRules": "Explicit per-animation contacts/joints/separation/crossing/steps; anatomy is not inferred.",
+    "noAnimations": "Resource checks only; explicitly reported as noAnimations.",
+    "visualAcceptance": "Always separate; finite sampling never certifies natural motion.",
+    "candidateRetention": "Failed independent session output is retained without history commit. Originals are not overwritten."
+  },
+  "formalFiveAnimationReview": {
+    "decision": "All five clips are user-reported accepted; sixth numbered clip replaces no existing animation.",
+    "animations": [
+      "01_idle_breeze",
+      "02_greeting_wave",
+      "03_charge_release",
+      "05_jump_land_review",
+      "06_greeting_wave_emphasis"
+    ],
+    "lastUserResponse": "动作自然，可以合入正式工程",
+    "evidence": "work/wave-review-2.11.0-rcoqjF/wave-06-user-acceptance.json",
+    "production": "work/current-production-delivery.json"
+  },
+  "qualityWaivers": {
+    "prepareThenExplicitApproval": true,
+    "callerConfirmationNotAuthenticatedHumanIdentity": true,
+    "binds": [
+      "normalized exact saved data",
+      "PNG/audio content",
+      "engine build",
+      "sampling profile",
+      "animation",
+      "slot",
+      "triangle",
+      "sampled instant",
+      "maximum observed fold area"
+    ],
+    "onlyMeshFolds": true,
+    "rawFindingsRetained": true,
+    "newWorseUnlistedOrTruncatedFindingsBlocked": true,
+    "staleInputsRejected": true
+  },
+  "animatedSeams": {
+    "implemented": true,
+    "explicitBoneLocalAnchors": true,
+    "worldRadius": true,
+    "maximumFrames": 300,
+    "maximumSeams": 20,
+    "maximumCircularSamples": 200000,
+    "maximumTriangleTests": 2000000,
+    "markedProblemCrops": true,
+    "rawAlphaBeforeClippingAndOcclusion": true,
+    "physics": "Independent reset per frame, aggregate bone integration bound.",
+    "continuousCoverageProof": false,
+    "anatomyInference": false
+  },
+  "archiveMaintenance": {
+    "dryRunReferenceScan": true,
+    "protected": [
+      "retained session history",
+      "managed preview/sync/job metadata",
+      "saved JSON/native project references",
+      "shared PNG/audio paths"
+    ],
+    "orphansOnly": true,
+    "quarantineReversible": true,
+    "quarantineReclaimsPhysicalBytes": false,
+    "explicitPermanentPurge": true,
+    "reviewedPlanHashAndJournal": true,
+    "partialMoveRecovery": true,
+    "newReferenceConflictRollback": true,
+    "unrecordedFilesAndSymlinksRejected": true,
+    "scope": "Workspace saved references; diagnostic reports excluded except actual project JSON. Archive interiors are self-contained portable copies. No lock or visibility for unsaved editor memory or uncooperative external applications. Bounded/incomplete scans reject."
+  },
+  "sessionMigrationAndReceipts": {
+    "schema": "spine-project-session/2",
+    "savedFilesOnly": true,
+    "explicitSessionId": true,
+    "revisionGuard": true,
+    "idempotentMutationReceipts": true,
+    "externalSourceAndResourceDrift": true,
+    "maxTrackedResources": 10000,
+    "defaultVersions": 30,
+    "maxVersions": 100,
+    "defaultArchiveMiB": 1024,
+    "maxArchiveMiB": 4096,
+    "restoreToNewFile": true,
+    "restoredResources": "Verified portable archive resources; original files are not overwritten.",
+    "multiSkeletonNativeEdits": true,
+    "explicitNativePreviewBinding": true,
+    "uncommittedOutputs": "Retained for inspection and explicit checkpoint or a fresh output path.",
+    "unsavedEditorRead": false,
+    "editorOnlyMetadataRestored": false,
+    "rename": true,
+    "archiveUnarchive": true,
+    "archiveDeletesFiles": false,
+    "capacityInspection": true,
+    "adjustLimitsAboveRetainedUsage": true,
+    "receiptLimit": 100000,
+    "physicalGarbageCollection": false,
+    "previewLease": {
+      "explicitEditingActivityOnly": true,
+      "defaultDurationSeconds": 3600,
+      "defaultRenewBeforeSeconds": 120,
+      "maxDurationSeconds": 28800,
+      "automaticIdleRenewal": false,
+      "respectsExplicitStop": true,
+      "durableInterruptedResume": true,
+      "samePreviewId": true
+    },
+    "readLegacyV1": true,
+    "minimumWriterVersion": "2.13.0",
+    "legacyBackupBeforeMigration": true,
+    "olderWritersRejectV2": true,
+    "inlineReceiptThreshold": 256,
+    "receiptSegmentHashVerification": true,
+    "oldReceiptReplayNeverRepeatsEffects": true
+  },
+  "characterPipeline": {
+    "implementedIn": "2.14.0",
+    "generationProvider": "Codex image generation remains external to MCP",
+    "preparation": "explicit image layers with canvas positions/pivots and explicit alpha masks; no automatic semantic splitting or inferred anatomy",
+    "imageReplacement": "one static region/mesh per plan, source/resource/build pins, shared normalized-UV propagation guard, original files and bone/keyframe data retained",
+    "repair": "explicit contact solver or local rotation limits with outside-window checks; ORIGINAL/CANDIDATE shared-camera frame player and verified MP4",
+    "promotion": "isolated candidates require exact hashes, explicit caller selection, publication quality and optional session revision guard; no native display acknowledgement",
+    "psdSupport": "This adds a PNG layer-manifest workflow. A PSD parser or 4.3.23 PSD CLI compatibility is not claimed.",
+    "verification": "work/character-pipeline-report-2.14.0.json"
+  },
+  "characterRefinement": {
+    "implementedIn": "2.15.0",
+    "exactPixels": "Decoded 8-bit RGBA includes transparent RGB; any protected alpha locks the pixel, only repaint-mask pixels change. Base profile chunks copied; no generated-image color conversion.",
+    "alignment": "Explicit canvas fit/offset or one/two geometric anchor correspondences, no semantic/anatomy inference",
+    "batch": "All patches computed independently on one original snapshot; identical shared fields merge, conflicts reject. One candidate/checkpoint, no partial formal edits.",
+    "constrainedRepair": "Explicit full-rig constraint baking into the NEW animation, then local angle limits; original controls/animations retained. Ordered definitions and affected descendants reported; finite-sample unselected/outside world matrices must satisfy bakeTolerance.",
+    "physics": "Original source independently reset at capture FPS; baked result is not simulated again.",
+    "nativeDuplicateTimeFix": "Float32 bake/sample time collisions coalesced before native import.",
+    "verification": "work/character-refinement-report-2.15.0.json",
+    "sourceReferences": [
+      "https://github.com/pngjs/pngjs",
+      "https://en.esotericsoftware.com/spine-constraints",
+      "https://en.esotericsoftware.com/spine-meshes#Image-resize"
+    ]
+  },
+  "characterTasks": {
+    "implementedIn": "2.16.0",
+    "scope": {
+      "implemented": true,
+      "externalGeneration": true,
+      "stages": "compose, batch, animation repair, live IK, media, frozen candidate, review, publish/session, exact preview",
+      "detachedWorker": true,
+      "hashVerifiedStageReuse": true,
+      "explicitReviewGate": true,
+      "taskBuildPinned": true,
+      "maxAssets": 64,
+      "maxReviewMedia": 8,
+      "failedPreviewDoesNotRepublish": true,
+      "visualAcceptance": "caller reported, not authenticated human or native display acknowledgement"
+    },
+    "verification": "work/character-tasks-report-2.16.0.json",
+    "realGeneratedAssets": "work/real-generated-assets-2.16.0.json"
+  },
+  "liveIkTargetRepair": {
+    "implementedIn": "2.16.0",
+    "source": "https://esotericsoftware.com/spine-ik-constraints",
+    "verifiedInstalledRuntime": "@esotericsoftware/spine-core 4.3.13; BonePose.worldToParent and IkConstraint",
+    "limits": {
+      "constraintBaking": false,
+      "constraintsAndOriginalClipsPreserved": true,
+      "controllerTypes": [
+        "one-bone IK pointing",
+        "two-bone IK"
+      ],
+      "worldOffsets": true,
+      "worldPaths": true,
+      "splitTranslation": true,
+      "physics": false,
+      "constrainedTargetAncestors": false,
+      "maxKeys": 20000,
+      "maxVerifiedBonePoses": 300000,
+      "maxCoordinateMagnitude": 1000000,
+      "verification": "double-FPS finite world samples and exact range boundaries; optional end effector tolerance"
+    },
+    "verification": "work/ik-native-variants-2.16.0.json"
+  },
+  "taskBranches": {
+    "implementedIn": "2.17.0",
+    "scope": {
+      "implemented": true,
+      "parentUnchanged": true,
+      "patchAndRemoveStages": true,
+      "dependencyAwareReuse": true,
+      "reuseRequiresHashes": true,
+      "newReviewRequired": true,
+      "publicationSessionInherited": false,
+      "versionMigration": {
+        "acceptedParents": [
+          "2.16.0",
+          "2.17.0"
+        ],
+        "explicitConsent": true,
+        "oldNumericAndMediaStages": "recompute",
+        "oldPureComposition": "reuse only if verified"
+      },
+      "sourceDrift": "requires explicit acceptance and invalidates dependent outputs"
+    },
+    "verification": "work/branch-contact-psd-report-2.17.0.json"
+  },
+  "liveIkContactRepair": {
+    "implementedIn": "2.17.0",
+    "sources": [
+      "https://en.esotericsoftware.com/spine-ik-constraints",
+      "https://github.com/EsotericSoftware/spine-runtimes/tree/4.3/spine-ts/spine-core"
+    ],
+    "scope": {
+      "implemented": true,
+      "constraintBaking": false,
+      "footLocalHeelToeLandmarks": true,
+      "contactModes": [
+        "sole",
+        "heel",
+        "toe"
+      ],
+      "rollingAnglePaths": true,
+      "editedChannels": "Independent two-bone IK target translation and direct foot rotation in a NEW clip",
+      "requirements": "Full mix, zero softness, no stretch/compress/physics, normal inheritance, positive uniform scales, no shear; foot at lower tip",
+      "verification": "Doubled-FPS anchor/orientation plus outside/unrelated world poses; original clips retained",
+      "maxSamplesPerWindow": 600,
+      "maxVerificationBonePoses": 300000
+    },
+    "verification": "work/branch-contact-psd-report-2.17.0.json"
+  },
+  "psdImport": {
+    "implementedIn": "2.17.0",
+    "sources": [
+      "https://en.esotericsoftware.com/spine-import-psd",
+      "https://github.com/Agamnentzar/ag-psd",
+      "https://github.com/Agamnentzar/ag-psd/blob/master/README_PSD.md"
+    ],
+    "nativeCli": "Installed 4.3.23 --help probe only identifies version; documented JSON/native import does not establish a PSD CLI flag. Background import uses a pinned local raster parser, then the existing verified native JSON importer.",
+    "scope": {
+      "implemented": true,
+      "parser": "ag-psd@33.0.0",
+      "input": "Standard PSD v1, RGB, 8-bit saved raster layers",
+      "groups": true,
+      "opacity": "Layer opacity baked into new PNG alpha; group opacity requires flattening",
+      "tags": [
+        "bone",
+        "slot",
+        "skin",
+        "folder",
+        "path",
+        "pad",
+        "trim",
+        "bones",
+        "slots",
+        "ignore",
+        "origin"
+      ],
+      "unsupported": "PSB, 16/32bit, CMYK, layer masks/styles, clipping, vectors/adjustments/fills, partial fill, non-normal/partial-opacity groups, unsupported tags; preflight blocks instead of silently dropping",
+      "colorManagement": "Original RGB values; ICC retained as artifact without color conversion",
+      "files": "New generated PNG filenames; logical tag paths retained in manifest",
+      "limits": {
+        "sourceMiB": 32,
+        "dimension": 8192,
+        "canvasPixels": 16777216,
+        "totalLayerPixels": 64000000,
+        "layers": 256,
+        "depth": 24
+      },
+      "detachedOperation": "import_psd",
+      "resume": "Stable requestId verifies exact partial PNG bytes; cancel between layers; job recover supported",
+      "native": "Explicit reviewed candidate promotion builds and verifies new .spine"
+    },
+    "verification": "work/branch-contact-psd-report-2.17.0.json",
+    "nativeReadbackFinding": "4.3.23 requires unique actual attachment names for skin placeholders; default attachments are ordinary attachments and cannot share those placeholder names. Named skins use qualified actual names; no implicit default copy. Preflight blocks default/placeholder collisions. Native roundtrip and explicit skin activation are checked without verifier waivers."
+  },
+  "characterBuild": {
+    "implementedIn": "2.18.0",
+    "scope": {
+      "implemented": true,
+      "tools": [
+        "spine_plan_character_build",
+        "spine_create_character_build_task"
+      ],
+      "source": "Saved JSON/native or passing current-build PSD plan",
+      "landmarkConfirmation": "use_reviewed_landmarks",
+      "anatomyInference": false,
+      "preparation": "Explicit bones and distance-weighted mesh bindings",
+      "controls": "Two-bone IK; optional target creation at setup tip; inferred setup bend unless explicitly specified",
+      "motions": "Editable sparse pose recipes and saved role-mapped templates",
+      "stageRecovery": true,
+      "branchDependencyReuse": true,
+      "finalCandidateReviewMandatory": true,
+      "defaultReview": "APNGs for up to four newly built motions; caller may supply media options",
+      "newRigAffectsOldCandidateMotions": true,
+      "originalFilesUnchanged": true
+    },
+    "evidence": "work/construction-runtime-psd-report-2.18.0.json"
+  },
+  "runtimeIkContact": {
+    "implementedIn": "2.18.0",
+    "sources": [
+      "https://en.esotericsoftware.com/spine-ik-constraints",
+      "https://github.com/EsotericSoftware/spine-runtimes/tree/4.3/spine-ts/spine-core"
+    ],
+    "method": "Finite-difference, scaled damped inverse solve through official runtime. Explicit FK rotations only when allowed. Transition paths projected only if physically unreachable; stance anchors remain exact to the declared sampled tolerance.",
+    "scope": {
+      "strict": "Original fully mixed zero-softness controller-only path, direct foot at lower tip",
+      "runtime": "Offset foot, partial IK mix and animated softness through bounded official-runtime inverse solving",
+      "allowFk": "Explicit true permits selected upper/lower rotation tracks during FK/IK blending; constraints/mix timelines remain live",
+      "transitionReach": "Only fades can project an unreachable interpolated ankle onto physical reach. Core contacts never project.",
+      "limits": "Positive uniform scale, normal inheritance, no shear/stretch/compress/physics or overlapping interacting controls; 3,000,000 inverse bone evaluations; 300,000 verification poses"
+    },
+    "evidence": "work/construction-runtime-psd-report-2.18.0.json"
+  },
+  "psdPixelCompositing": {
+    "implementedIn": "2.18.0",
+    "sources": [
+      "https://en.esotericsoftware.com/spine-import-psd",
+      "https://github.com/Agamnentzar/ag-psd"
+    ],
+    "fixtureProvenance": "test/fixtures/psd-authored/provenance.json",
+    "fixtureWriter": "Adobe Photoshop stored versionInfo; pinned upstream files, not generated by this MCP",
+    "libraryOrderFinding": "The current README ordering statement differs from the pinned 33.0.0 reader behavior. Authored groups PSD/composite verifies bottom-to-top. Reversing it produces max premultiplied RGB error 107/255.",
+    "scope": {
+      "bitmapMasks": true,
+      "clippingStacks": true,
+      "groupOpacity": true,
+      "isolatedGroups": true,
+      "explicitMerge": true,
+      "clippedBaseAlphaPreserved": true,
+      "hiddenClipsSkipped": true,
+      "intermediatePixelBudget": 64000000,
+      "operationBudget": 2048,
+      "sourceOrder": "ag-psd 33.0.0 actual reader order verified bottom-to-top against authored Photoshop composites",
+      "comparison": "Premultiplied RGB8 plus alpha, max component error <3/255 and mean <0.2/255 for pinned authored fixtures; unassociated transparent RGB does not describe visible error"
+    },
+    "evidence": "work/construction-runtime-psd-report-2.18.0.json"
+  },
+  "visualRigDeformRaster": {
+    "researchedAt": "2026-10-25",
+    "primarySources": [
+      "https://psd-tools.readthedocs.io/en/latest/reference/psd_tools.composite.html",
+      "https://github.com/psd-tools/psd-tools/blob/main/docs/usage.rst"
+    ],
+    "backend": "psd-tools 1.26.0",
+    "proof": "Fresh composite ignores merged preview but may use saved per-layer pixels; premultiplied RGB/alpha compared independently in Python and Node.",
+    "fixedProofBounds": {
+      "maxExclusive": 3,
+      "meanExclusive": 0.35,
+      "reason": "Accepts RGB8 rounding including a one-LSB active stroke fixture; gross vector/curve/style differences remain blocked."
+    },
+    "authoredCases": "test/fixtures/psd-raster/provenance.json",
+    "knownNegativeReferences": [
+      "curves-reject",
+      "unsupported-effect"
+    ],
+    "notImplemented": "General Photoshop layer-effect fidelity, unconditional PSD compatibility, image-model anatomy recognition inside MCP, physics/linked-dependent mesh deformation repair.",
+    "nativeDeformPrecision": {
+      "finding": "On a real 1440-coordinate weighted skirt, native sparse export trimmed two generated tail values of about 4.24e-5. The strict round-trip verifier rejected them.",
+      "resolution": "Generated deform coordinates below 1e-4 are normalized to zero and remaining values to float32; actual saved representation is rechecked against world correction/pin/geometry budgets. Original clips and the verifier remain unchanged.",
+      "evidence": "work/real-visual-rig-2.19.0.json"
+    }
+  },
+  "local220": {
+    "basis": "Local implementation and Spine 4.3.23 CLI roundtrip evidence; no new external API assumptions",
+    "tasks": "raster and landmark exact-review gates with immutable revisions and dependency-aware replay",
+    "jointRepair": "explicit constrained seam projection, native sparse-zero normalization before doubled-rate verification",
+    "newMaterial": "new generated adventurer artwork, synthetic PSD assembly; not an independently Photoshop-authored document",
+    "claims": "Automated resource/native verification does not imply native-window display or human aesthetic acceptance."
+  },
+  "meshSeamsAndCompatibility221": {
+    "researchedAt": "2026-10-26",
+    "sources": [
+      "https://en.esotericsoftware.com/spine-examples-mix-and-match",
+      "https://en.esotericsoftware.com/spine-meshes",
+      "https://en.esotericsoftware.com/spine-physics-constraints"
+    ],
+    "findings": [
+      "Linked geometry and deformation inheritance must be resolved explicitly; independent output skin retains originals.",
+      "Default-slot placeholder conflicts require private skin placeholders, without changing original setup slots.",
+      "Physics capture is finite deterministic runtime sampling; not an editor live-physics interface.",
+      "Native linkedmesh records differ from independent mesh records.",
+      "Native face ordering may normalize; preserve oriented topology and check sampled pixels separately.",
+      "Official full-character sample supplies native project/images/license, not a Photoshop PSD."
+    ],
+    "localProof": [
+      "scripts/seam-compatibility-smoke.ts",
+      "scripts/production-character-smoke.ts",
+      "test/mesh-seams-compatibility.test.ts"
+    ]
+  },
+  "productVerification": {
+    "date": "2026-10-27T03:48:51.076Z",
+    "report": "VERIFICATION.json",
+    "coreSha256": "7cb4d212e9947d0053293f30fd87be5663360d602981ceca3765dceb4dc375df",
+    "tests": 784,
+    "suites": 52,
+    "tools": 226,
+    "genuinePsdScope": {
+      "independentlyAuthoredFiles": 1,
+      "completeViews": 3,
+      "parts": [
+        {
+          "direction": "s-boy",
+          "count": 27,
+          "pixelProof": {
+            "maxPremultipliedError": 2.9725490196078397,
+            "meanPremultipliedError": 0.005377250136165606,
+            "method": "Independent TypeScript source-grid composition of extracted PNG parts versus original PSD selected-group renderer; no texture filtering."
+          },
+          "nativeAndJsonPreviewByteExact": true
+        },
+        {
+          "direction": "n-boy",
+          "count": 14,
+          "pixelProof": {
+            "maxPremultipliedError": 2.9725490196078397,
+            "meanPremultipliedError": 0.00306682734204789,
+            "method": "Independent TypeScript source-grid composition of extracted PNG parts versus original PSD selected-group renderer; no texture filtering."
+          },
+          "nativeAndJsonPreviewByteExact": true
+        },
+        {
+          "direction": "e-boy",
+          "count": 22,
+          "pixelProof": {
+            "maxPremultipliedError": 2.258823529411771,
+            "meanPremultipliedError": 0.0032007897603485978,
+            "method": "Independent TypeScript source-grid composition of extracted PNG parts versus original PSD selected-group renderer; no texture filtering."
+          },
+          "nativeAndJsonPreviewByteExact": true
+        }
+      ],
+      "originalUnchanged": true,
+      "restrictedSourceExcluded": true
+    },
+    "currentChat": {
+      "version": "3.0.0",
+      "currentConversationVersion": "3.0.0",
+      "currentConversationTools": 226,
+      "targetVersion": "3.0.0",
+      "targetTools": 226,
+      "reloadPending": false,
+      "verifiedAt": "2026-10-27T03:30:47.796Z",
+      "verification": "Actual current-conversation mcp__spine43__spine_status returned serverVersion 3.0.0 and tools 226; the active namespace contains 226 tools. Independent SDK and installed-package checks are separately recorded.",
+      "loadedProcessSourceFingerprintAvailable": false,
+      "editorRestartRequired": false,
+      "processRestartOrInputUsed": false
+    },
+    "motionAcceptance": {
+      "statement": "整体自然，可作为动作库示例",
+      "scope": "Human visual acceptance of the exact official Spineboy seven-motion library example, in the order idle/walk/run/jump/wave/turn/charge. Does not imply human review of derived body proportions, GPU output or unavailable native editor reload APIs.",
+      "videoSha256": "90daebd253c4d913262884d09a3736811b387c4ef4d96a7ec1bf1e0c603f8f27",
+      "currentRegeneratedLibraryHumanApproval": false
+    },
+    "currentLibraryExport": {
+      "technicalVerification": true,
+      "humanApproval": false,
+      "legacyCollisionFailureRetained": true
+    },
+    "nativeCliTransient": "verification-evidence/native-transient-mismatch.json",
+    "noNativeInternalApiClaim": true
+  },
+  "nativeAdapter": {
+    "unofficial": true,
+    "startupOnly": true,
+    "supportedBuild": "native-bridge/builds.json",
+    "targetJarUnmodified": true,
+    "bytecodeTransformation": false,
+    "mouseKeyboardInjection": false,
+    "report": "VERIFICATION.json",
+    "evidence": [
+      {
+        "file": "verification-evidence/feature-audit.json",
+        "sha256": "0c1a01577445a52f09cc0f16edfd61a068960832644741ec2ebed2942bffa5e0"
+      },
+      {
+        "file": "verification-evidence/native-editor.json",
+        "sha256": "3cc857ba033c6b1f3818124e19cc7a8acabfbd725c406d216463d9fc6a66835c"
+      },
+      {
+        "file": "verification-evidence/native-failure-recovery.json",
+        "sha256": "08283bd43e8435e9fff76393415626d23ef6e1c1229d7095a32367af23f8e855"
+      },
+      {
+        "file": "verification-evidence/complex-native.json",
+        "sha256": "e8e1f5efa8843214d7a19ebc31fd300b92532253a0669066217124ac5b08d9b1"
+      },
+      {
+        "file": "verification-evidence/install.json",
+        "sha256": "d9e2bd1569cb1948b660ac86d4bd829669c147aa018e3c0f06365e0cd1a1aa2b"
+      },
+      {
+        "file": "verification-evidence/source-preservation.json",
+        "sha256": "3ca279d5ed8fc2b9baf8f7a679f4fc7a5be76b288af5dafac15d7e5f74ce68cb"
+      },
+      {
+        "file": "verification-evidence/os-focus.json",
+        "sha256": "0e87cba2f74176ef242d330d3aae4baa952c19fee59ea02844953bfd5e257aae"
+      }
+    ]
+  }
+}

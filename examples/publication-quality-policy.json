@@ -1,0 +1,19 @@
+{
+  "mode": "enforce",
+  "fps": 60,
+  "maxSamples": 6000,
+  "visibilityPixelSize": 0.1,
+  "maxVisibilityPixels": 2000000,
+  "rules": [
+    {
+      "animation": "greeting_wave",
+      "contacts": [
+        { "bone": "foot_left", "start": 0, "end": 2, "tolerance": 0.1 },
+        { "bone": "foot_right", "start": 0, "end": 2, "tolerance": 0.1 }
+      ],
+      "joints": [
+        { "bone": "forearm_right", "min": -15, "max": 5 }
+      ]
+    }
+  ]
+}

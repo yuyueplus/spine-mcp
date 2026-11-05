@@ -1,0 +1,11 @@
+{
+  "operation": "edit_project",
+  "args": {
+    "input": "hero-mesh.spine",
+    "output": "edits/hero-mesh-background.spine",
+    "edits": [
+      { "type": "transform_mesh", "skin": "default", "slot": "arm-slot", "name": "arm", "vertices": [0, 1], "transform": { "x": 2, "y": 1 }, "transformDeform": true },
+      { "type": "refine_mesh", "skin": "default", "slot": "arm-slot", "name": "arm", "iterations": 1 }
+    ]
+  }
+}

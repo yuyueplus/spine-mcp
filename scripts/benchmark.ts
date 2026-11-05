@@ -1,0 +1,14 @@
+import { performance } from 'node:perf_hooks';
+import path from 'node:path';
+import { writeFile } from 'node:fs/promises';
+import { loadConfig } from '../src/config.js';
+import { SpineService } from '../src/service.js';
+import { parseDocument, type SpineDocument } from '../src/document.js';
+import { inspectTimelines } from '../src/timeline-tools.js';
+import { documentDiff } from '../src/production-assets.js';
+import { sampleState } from '../src/production-quality.js';
+import { VERSION } from '../src/version.js';
+const config = await loadConfig(), service = new SpineService(config), data = parseDocument({ skeleton: { spine: '4.3.23' }, bones: [{ name: 'root' }, ...Array.from({ length: 199 }, (_, i) => ({ name: `bone-${i}`, parent: 'root', x: i, length: 10 }))], animations: Object.fromEntries(Array.from({ length: 10 }, (_, i) => [`animation-${i}`, { bones: Object.fromEntries(Array.from({ length: 199 }, (_, j) => [`bone-${j}`, { rotate: Array.from({ length: 30 }, (_, k) => ({ time: k / 30, value: k + i })) }])) }])) });
+const measure = (name: string, action: () => unknown, iterations: number) => { const start = performance.now(); for (let i = 0; i < iterations; i++) action(); return { name, iterations, totalMs: performance.now() - start }; };
+const results = [measure('validate-200-bones-59700-keys', () => parseDocument(data), 10), measure('timeline-inventory-199-channels', () => inspectTimelines(data, 'animation-0'), 20), measure('world-pose-200-bones', () => sampleState(data, 'animation-0', 0.5), 20), measure('diff-identical-production-sized-json', () => documentDiff(data, data), 10)];
+const report = { version: VERSION, node: process.version, platform: process.platform, synthetic: true, bones: data.bones.length, animations: 10, keys: 59700, results, peakRssBytes: process.resourceUsage().maxRSS * 1024, informationalOnly: true }; const filename = path.join(service.workspace.root, 'benchmark-report.json'); await writeFile(filename, JSON.stringify(report, null, 2)); console.log(JSON.stringify({ ...report, reportPath: filename }, null, 2));

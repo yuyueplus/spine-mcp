@@ -1,0 +1,10 @@
+{
+  "input": "saved-project.spine",
+  "options": {
+    "animation": "run",
+    "time": 0.15,
+    "width": 512,
+    "height": 512,
+    "durationSeconds": 3600
+  }
+}

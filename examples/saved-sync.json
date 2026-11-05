@@ -1,0 +1,15 @@
+{
+  "tool": "spine_start_saved_sync",
+  "arguments": {
+    "input": "character.spine",
+    "options": {
+      "intervalMs": 2000,
+      "stableMs": 1500,
+      "durationSeconds": 3600,
+      "includeInitial": true,
+      "maxRevisions": 20,
+      "maxOutputMiB": 512,
+      "verifyEverySeconds": 30
+    }
+  }
+}

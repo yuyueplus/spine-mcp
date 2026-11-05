@@ -1,0 +1,38 @@
+{
+  "repository": "https://github.com/Agamnentzar/ag-psd",
+  "commit": "c82ba4e44d00d9ad48236ec183c7e3a1a5c7fd04",
+  "fixtures": [
+    {
+      "fixture": "groups",
+      "file": "canvas.png",
+      "path": "test/read/groups/canvas.png",
+      "sha": "3554a0ac74c34eef8812a3876d68c2f3f3a72344",
+      "bytes": 59212,
+      "url": "https://raw.githubusercontent.com/Agamnentzar/ag-psd/c82ba4e44d00d9ad48236ec183c7e3a1a5c7fd04/test/read/groups/canvas.png"
+    },
+    {
+      "fixture": "groups",
+      "file": "src.psd",
+      "path": "test/read/groups/src.psd",
+      "sha": "09da1af47777550a2a0cfdd111e3cf349088c002",
+      "bytes": 226613,
+      "url": "https://raw.githubusercontent.com/Agamnentzar/ag-psd/c82ba4e44d00d9ad48236ec183c7e3a1a5c7fd04/test/read/groups/src.psd"
+    },
+    {
+      "fixture": "layer-mask",
+      "file": "canvas.png",
+      "path": "test/read/layer-mask/canvas.png",
+      "sha": "9eef6a6f37c9801fb777b8ad3223cb0a34b9cf3f",
+      "bytes": 8982,
+      "url": "https://raw.githubusercontent.com/Agamnentzar/ag-psd/c82ba4e44d00d9ad48236ec183c7e3a1a5c7fd04/test/read/layer-mask/canvas.png"
+    },
+    {
+      "fixture": "layer-mask",
+      "file": "src.psd",
+      "path": "test/read/layer-mask/src.psd",
+      "sha": "5fea44b9b2d71a1889a8f55b69e85420644addc1",
+      "bytes": 50156,
+      "url": "https://raw.githubusercontent.com/Agamnentzar/ag-psd/c82ba4e44d00d9ad48236ec183c7e3a1a5c7fd04/test/read/layer-mask/src.psd"
+    }
+  ]
+}

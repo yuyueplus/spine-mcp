@@ -1,0 +1,15 @@
+import path from 'node:path';
+import { randomUUID } from 'node:crypto';
+import { mkdir, cp, readFile, writeFile, readdir } from 'node:fs/promises';
+import { projectRoot } from '../src/config.js';
+import { fileSha256 } from '../src/file-hash.js';
+import { VERSION } from '../src/version.js';
+import { verifyNativeBridgeBundle } from '../src/native-editor-bridge.js';
+const nativeBundle=await verifyNativeBridgeBundle();
+const directory = path.join(projectRoot, 'releases', `spine-mcp-${VERSION}-${randomUUID().slice(0, 8)}`); await mkdir(directory, { recursive: true });
+for (const name of ['dist/src', 'dist/scripts', 'dist/test', 'src', 'scripts', 'examples', 'test', 'package.json', 'package-lock.json', 'tsconfig.json', 'README.md', 'COMPLETION-PLAN.json', 'SUPPORT.json', 'RESEARCH.json', 'THIRD_PARTY_SPINE_LICENSE.txt', 'THIRD_PARTY_PNGJS_LICENSE.txt', 'THIRD_PARTY_AG_PSD_LICENSE.txt']) await cp(path.join(projectRoot, name), path.join(directory, name), { recursive: true, errorOnExist: true, force: false });
+for(const name of ['bundle.json','spine-editor-bridge.jar','README.md',...nativeBundle.sources.map(s=>s.path)]){const target=path.join(directory,'native-bridge',name);await mkdir(path.dirname(target),{recursive:true});await cp(path.join(projectRoot,'native-bridge',name),target,{errorOnExist:true,force:false});}
+await writeFile(path.join(directory, 'spine.local.json'), JSON.stringify({ schemaVersion: 1, targetVersion: '4.3.23', workspaceRoot: './work', cliExecutable: null, guiExecutable: null, cliTimeoutMs: 60000 }, null, 2), { flag: 'wx' });
+await writeFile(path.join(directory, 'Install.ps1'), "param([switch]$SkipPsdRaster)\n$ErrorActionPreference = 'Stop'\nSet-Location -LiteralPath $PSScriptRoot\nnpm ci --omit=dev --no-audit --no-fund\nif ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed.' }\nif (-not $SkipPsdRaster) { npm run setup:psd-raster; if ($LASTEXITCODE -ne 0) { throw 'PSD raster setup failed. Install Python 3.11+ or explicitly use -SkipPsdRaster for saved-raster-only PSD support.' } }\nWrite-Output 'Installed. Configure Spine.com using npm run setup with a NEW config output; existing config remains intact.'\n", { flag: 'wx' });
+const files: { path: string; sha256: string }[] = []; const walk = async (folder: string): Promise<void> => { for (const entry of await readdir(folder, { withFileTypes: true })) { const filename = path.join(folder, entry.name); if (entry.isDirectory()) await walk(filename); else files.push({ path: path.relative(directory, filename).replaceAll('\\', '/'), sha256: await fileSha256(filename) }); } }; await walk(directory);
+await writeFile(path.join(directory, 'release-manifest.json'), JSON.stringify({ version: VERSION, node: '>=22.2', dependencies: JSON.parse(await readFile(path.join(projectRoot, 'package.json'), 'utf8')).dependencies, files }, null, 2), { flag: 'wx' }); console.log(JSON.stringify({ version: VERSION, directory, files: files.length, install: path.join(directory, 'Install.ps1'), portableAfterSetup: true }, null, 2));

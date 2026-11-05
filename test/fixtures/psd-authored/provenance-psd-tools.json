@@ -1,0 +1,21 @@
+{
+  "repository": "https://github.com/psd-tools/psd-tools",
+  "commit": "a1fcb7d38d688ce39db54cb241f27af4a2e3a001",
+  "files": [
+    {
+      "source": "tests/psd_files/group-clipping/group-clipping.psd",
+      "url": "https://raw.githubusercontent.com/psd-tools/psd-tools/a1fcb7d38d688ce39db54cb241f27af4a2e3a001/tests/psd_files/group-clipping/group-clipping.psd",
+      "sha256": "b8e346ee1909c793c5d1be36b01dacad7152d3f40757b4271cfb869d4a5ba141",
+      "gitBlobSha": "a28bb699df74ac0f57b94d6da95222f96743deee",
+      "fixture": "group-clipping",
+      "reference": "Stored PSD merged image decoded without recompositing."
+    },
+    {
+      "source": "tests/psd_files/group.psd",
+      "url": "https://raw.githubusercontent.com/psd-tools/psd-tools/a1fcb7d38d688ce39db54cb241f27af4a2e3a001/tests/psd_files/group.psd",
+      "sha256": "1aaf572b69f0b0fa7c04b7b3a14c97e310a0c7bbdc06e733c9dd0d0cdcf7df1c",
+      "gitBlobSha": "60dbe4c37171cd6d4dc7bdb81e2d49f04a108fa5",
+      "fixture": "unsupported-vector"
+    }
+  ]
+}

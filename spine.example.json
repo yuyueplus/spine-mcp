@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "targetVersion": "4.3.23",
+  "workspaceRoot": "./work",
+  "cliExecutable": null,
+  "guiExecutable": null,
+  "cliTimeoutMs": 60000
+}

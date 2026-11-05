@@ -1,0 +1,6 @@
+{
+  "input": "hero.json",
+  "animation": "wave",
+  "offset": 0,
+  "limit": 100
+}

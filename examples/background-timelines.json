@@ -1,0 +1,11 @@
+{
+  "operation": "edit_project",
+  "args": {
+    "input": "hero.spine",
+    "output": "edits/hero-timelines-background.spine",
+    "edits": [
+      { "type": "copy_timelines", "fromAnimation": "wave", "toAnimation": "wave-copy", "mappings": [{ "from": { "kind": "bone", "bone": "arm", "channel": "rotate" }, "to": { "kind": "bone", "bone": "arm", "channel": "rotate" } }] },
+      { "type": "retime_keyframes", "animation": "wave-copy", "targets": [{ "kind": "bone", "bone": "arm", "channel": "rotate" }], "start": 1, "end": 1, "timeOffset": 0.25 }
+    ]
+  }
+}

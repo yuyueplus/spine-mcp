@@ -1,0 +1,10 @@
+{
+  "output": "new-character/new-character.spine",
+  "skeletonName": "new-character",
+  "fps": 30,
+  "openInEditor": true,
+  "openOptions": {
+    "reuseInstance": false,
+    "waitMs": 5000
+  }
+}

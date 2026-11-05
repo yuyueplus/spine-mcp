@@ -1,0 +1,22 @@
+{
+  "tool": "spine_create_animation_repair",
+  "arguments": {
+    "requestId": "99999999-9999-4999-8999-999999999999",
+    "input": "character/source.spine",
+    "animation": "wave",
+    "newName": "wave_constraint_candidate",
+    "constraintMode": "bake",
+    "physics": false,
+    "fps": 60,
+    "bakeTolerance": 0.05,
+    "rotations": [{ "bone": "upper_arm", "min": -15, "max": 50, "start": 0, "end": 5 }],
+    "comparison": { "start": 0, "end": 5, "fps": 12, "width": 320, "height": 480, "video": true }
+  },
+  "notes": [
+    "Choose an existing animation, active bone in the selected skin, valid duration and a NEW animation name. Endpoints inside the animation must already satisfy the selected limits.",
+    "Explicit bake mode captures the ordered rig/constraints before repairing the NEW animation, disabling constraints only in that new animation. Original animations, definitions and controls remain unchanged.",
+    "physics=true explicitly captures reset physics using the configured FPS. Physics and world-pose budgets reject oversized work; reduce FPS or animation duration when required.",
+    "Double-FPS samples plus exact boundaries check local limits and original unselected/outside world matrices against bakeTolerance. Failures do not grant publication or visual acceptance.",
+    "Before/after diagnostics and shared-camera media remain separate from user visual review. Promote only the explicitly selected exact candidate."
+  ]
+}

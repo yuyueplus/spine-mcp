@@ -1,0 +1,79 @@
+{
+  "input": "character/rig.json",
+  "output": "templates/greeting.json",
+  "name": "greeting",
+  "roles": {
+    "body": "hips",
+    "head": "head",
+    "hairTip": "hair_tip"
+  },
+  "slots": {
+    "face": {
+      "slot": "face",
+      "attachments": {
+        "open": "eyes_open",
+        "closed": "eyes_closed"
+      }
+    }
+  },
+  "recipe": {
+    "fps": 60,
+    "poses": [
+      {
+        "time": 0,
+        "bones": {
+          "body": {
+            "rotation": 0
+          },
+          "head": {
+            "rotation": 0
+          }
+        }
+      },
+      {
+        "time": 1,
+        "bones": {
+          "body": {
+            "rotation": 2
+          },
+          "head": {
+            "rotation": 6
+          }
+        }
+      },
+      {
+        "time": 2,
+        "bones": {
+          "body": {
+            "rotation": 0
+          },
+          "head": {
+            "rotation": 0
+          }
+        }
+      }
+    ],
+    "secondary": [
+      {
+        "bones": [
+          "hairTip"
+        ],
+        "driver": "head",
+        "delay": 0.1,
+        "gain": 0.3,
+        "maxAngle": 3
+      }
+    ],
+    "blinks": [
+      {
+        "slot": "face",
+        "open": "open",
+        "closed": "closed",
+        "times": [
+          0.5
+        ],
+        "duration": 0.1
+      }
+    ]
+  }
+}

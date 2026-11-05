@@ -1,0 +1,6 @@
+{
+  "retargetPlan": { "tool": "spine_plan_retarget", "arguments": { "input": "target.json", "source": "source.json" } },
+  "retarget": { "tool": "spine_retarget_animation", "arguments": { "input": "target.json", "source": "source.json", "output": "retargeted-new.json", "animation": "walk", "newName": "walk-retargeted", "fps": 60 } },
+  "mirror": { "tool": "spine_world_mirror", "arguments": { "input": "source.json", "output": "mirrored-new.json", "animation": "walk", "newName": "walk-mirrored", "axis": "x", "swapSides": true, "fps": 60 } },
+  "compose": { "tool": "spine_compose_animation", "arguments": { "input": "source.json", "output": "layered-new.json", "newName": "walk-aim", "layers": [{ "animation": "walk" }, { "animation": "aim", "bones": ["arm"], "mode": "additive", "weight": 0.5, "fadeIn": 0.2, "fadeOut": 0.2, "includeEvents": false }], "fps": 60 } }
+}

@@ -1,0 +1,18 @@
+{
+  "input": "character.json",
+  "animation": "idle",
+  "fps": 12,
+  "samplesPerAxis": 9,
+  "seams": [
+    {
+      "name": "right-elbow",
+      "a": { "slot": "arm_R_upper" },
+      "b": { "slot": "arm_R_fore" },
+      "bone": "arm_R_fore",
+      "point": { "x": 0, "y": 0 },
+      "radius": 3,
+      "minOverlapFraction": 0.2,
+      "minUnionFraction": 0.85
+    }
+  ]
+}

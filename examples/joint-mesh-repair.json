@@ -1,0 +1,18 @@
+{
+  "tool": "spine_create_joint_mesh_repair",
+  "arguments": {
+    "requestId": "REPLACE_WITH_NEW_UUID",
+    "input": "character/skeleton.json",
+    "animation": "bow",
+    "newName": "bow_seam_fixed",
+    "targets": [
+      { "id": "upper", "slot": "upper", "attachment": "upper", "maxCorrection": 8, "pinnedVertices": [0, 1] },
+      { "id": "lower", "slot": "lower", "attachment": "lower", "maxCorrection": 8, "pinnedVertices": [2, 3] }
+    ],
+    "seams": [
+      { "name": "waist", "a": { "target": "upper", "vertex": 2 }, "b": { "target": "lower", "vertex": 1 }, "mode": "coincident", "tolerance": 0.05 }
+    ],
+    "comparison": { "video": true, "width": 512, "height": 768, "fps": 30 }
+  },
+  "notes": "Vertex indices are explicit examples; inspect your actual meshes. No automatic seam selection. Review the new candidate and suggestedPublishQuality before explicit promotion. Original clips remain present."
+}

@@ -1,0 +1,21 @@
+{
+  "candidate": {
+    "tool": "spine_create_animation_repair",
+    "arguments": {
+      "requestId": "55555555-5555-4555-8555-555555555555",
+      "input": "character/source.spine",
+      "animation": "wave",
+      "newName": "wave_candidate",
+      "rotations": [{ "bone": "upper_arm", "min": -15, "max": 55, "start": 0, "end": 5 }],
+      "comparison": { "start": 0, "end": 5, "fps": 12, "width": 320, "height": 480, "video": true }
+    }
+  },
+  "inspect": { "tool": "spine_get_character_candidate", "arguments": { "candidate": "RETURNED_CANDIDATE_PATH", "expectedSha256": "RETURNED_CANDIDATE_SHA256" } },
+  "notes": [
+    "Interior rotation-window endpoints must already satisfy the limits. Curved outside motion is checked at double FPS and exact boundaries.",
+    "Rotation repairs currently require unconstrained rigs. Explicit foot-contact chains can use the existing constraint-baking mode.",
+    "Contacts contain chains with upper/lower/foot bone names and explicit contact windows. These are caller-provided; no anatomy/contact inference occurs.",
+    "Review the shared-camera ORIGINAL/CANDIDATE MP4 or seekable HTML before explicit promotion. Numeric passing does not imply natural motion.",
+    "Existing animations stay intact. A failed or stale candidate cannot be promoted."
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "requestId": "00000000-0000-4000-8000-000000000001",
+  "input": "character/animation.json",
+  "options": { "animation": "run", "width": 512, "height": 512 },
+  "sequence": { "nativeFps": 30 }
+}

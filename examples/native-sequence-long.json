@@ -1,0 +1,16 @@
+{
+  "input": "character/animation.json",
+  "options": {
+    "animation": "long_action",
+    "width": 256,
+    "height": 256,
+    "durationSeconds": 3600
+  },
+  "sequence": {
+    "start": 0,
+    "end": 10,
+    "nativeFps": 30,
+    "maxFrames": 600,
+    "chunkFrames": 30
+  }
+}

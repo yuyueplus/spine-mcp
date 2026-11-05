@@ -1,0 +1,17 @@
+{
+  "tool": "spine_create_ik_contact_repair",
+  "arguments": {
+    "requestId": "66666666-6666-4666-8666-666666666666",
+    "input": "character/rig.spine",
+    "animation": "walk",
+    "newName": "walk_contact_review",
+    "solver": "runtime",
+    "allowFk": true,
+    "fps": 120,
+    "tolerance": 0.1,
+    "orientationToleranceDegrees": 0.25,
+    "chains": [{ "constraint": "leg_left_ik", "foot": "foot_left", "heel": { "x": -8, "y": -4 }, "toe": { "x": 20, "y": -4 }, "contacts": [{ "start": 0.2, "end": 0.7, "mode": "sole", "transitionSeconds": 0.15 }] }],
+    "comparison": { "video": true, "fps": 12, "width": 256, "height": 384 }
+  },
+  "notes": ["Runtime mode supports a direct foot child with nonzero local offset, partial mix and animated softness. allowFk explicitly permits upper/lower rotation channels for FK-only or mixed portions; constraints and parameter tracks remain live.", "Positive uniform scale, normal inheritance, no shear/stretch/compress/physics or conflicting constraints. Foot landmarks remain explicit; unreachable stance targets reject.", "During fades only, an unreachable interpolated ankle path may be projected to physical reach; the report includes maxTransitionProjection. Core anchors are never projected.", "Uses doubled-FPS anchor/orientation/outside/unrelated checks. View comparison media and select the exact candidate before promotion. Default solver=strict retains previous restrictions."]
+}

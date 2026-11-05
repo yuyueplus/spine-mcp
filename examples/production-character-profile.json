@@ -1,0 +1,14 @@
+{
+  "schema":"spine-production-character-acceptance/1",
+  "fixture":"Official Spine 4.3 Mix-and-Match",
+  "source":"https://en.esotericsoftware.com/files/examples/4.3/mix-and-match/mix-and-match.zip",
+  "archiveSha256":"24c0b3bef708dcda0b1919fa1b9084c2558412e5acdf18f0a8681b3cf8d44efd",
+  "minimumStructure":{"bones":100,"slots":60,"skins":30,"attachments":300,"clips":6,"visiblePartsPerSelectedSkin":20},
+  "skins":["full-skins/girl","full-skins/girl-blue-cape","full-skins/girl-spring-dress"],
+  "originalClips":["aware","blink","dance","dress-up","idle","walk"],
+  "explicitRoles":{"face":["base-head","eye-front-white","eye-front-pupil","mouth","nose"],"arms":["arm-back","arm-front","hand-back","hand-front"],"legs":["leg-back","leg-front"],"hair":["hair-back","hair-bangs"],"clothes":["body-dress","cape-back"]},
+  "seam":{"skin":"full-skins/girl-blue-cape","animation":"idle","vertices":"all","radius":1,"targets":[{"id":"cape-front","slot":"cape-blue-up-front","attachment":"cape-blue-up-front"},{"id":"cape-back","slot":"cape-up-back","attachment":"cape-up-back"}],"selectedVertices":{"a":13,"b":18},"maxCorrection":2,"tolerance":0.05,"outputSkin":"mcp/girl-blue-cape-review","newAnimation":"mcp_cape_review"},
+  "verification":{"poseSamplesPerOriginalClipAndSkin":7,"maxWorldPoseError":0.0001,"rasterClips":["idle","walk","dance"],"maxPremultipliedComponentError":3,"maxMeanPremultipliedComponentError":0.2,"orientedFaceOrder":"Native equivalent face reordering is separately recorded; compare oriented face multisets and sampled pixels, retaining strict numeric pose tolerances.","movedDirectoryNativeRebuild":true,"previewExactGenerationAndSourceHash":true,"sourceAndResourcesByteExact":true},
+  "license":"Retain supplied license.txt with acceptance/delivery materials. Official image-use restrictions apply. Official art is excluded from the general MCP source release.",
+  "scope":"Full native project and resources, not a supplied Photoshop PSD. Explicit fixture role names and selected pair are engineering inputs, not inferred anatomy, automatic seam acceptance, human visual approval or editor display acknowledgement."
+}

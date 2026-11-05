@@ -1,0 +1,19 @@
+{
+  "input": "character/animation.json",
+  "options": {
+    "animation": "jump",
+    "fps": 60,
+    "preview": "artwork",
+    "meshVisibility": "pixels",
+    "visibilityPixelSize": 0.5,
+    "maxVisibilityPixels": 200000,
+    "contacts": [
+      {
+        "bone": "foot_L",
+        "start": 0,
+        "end": 0.8,
+        "tolerance": 0.1
+      }
+    ]
+  }
+}

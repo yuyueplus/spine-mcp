@@ -1,0 +1,18 @@
+{
+  "create": {
+    "tool": "spine_create_character_task",
+    "arguments": {
+      "requestId": "99999999-9999-4999-8999-999999999999",
+      "input": "character/source.spine",
+      "name": "Outfit and motion candidate",
+      "replacements": [
+        { "skin": "default", "slot": "skirt", "attachment": "skirt", "image": { "asset": "generated_skirt" } }
+      ],
+      "reviewMedia": [ { "animation": "idle", "end": 2, "fps": 8, "width": 256, "height": 448, "formats": ["mp4"] } ]
+    }
+  },
+  "run": { "tool": "spine_run_character_task", "arguments": { "id": "RETURNED_TASK_ID", "expectedPlanSha256": "RETURNED_PLAN_SHA256" } },
+  "supply": { "tool": "spine_supply_character_task_assets", "arguments": { "id": "RETURNED_TASK_ID", "expectedPlanSha256": "RETURNED_PLAN_SHA256", "requestId": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa", "assets": { "generated_skirt": "character/generated/skirt.png" } } },
+  "review": { "tool": "spine_review_character_task", "arguments": { "id": "RETURNED_TASK_ID", "expectedPlanSha256": "RETURNED_PLAN_SHA256", "requestId": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb", "candidateSha256": "EXACT_CANDIDATE_SHA256", "decision": "accepted", "note": "Explain the explicit review/selection of this exact candidate." } },
+  "notes": ["Replace every placeholder with the returned identity/hash. Codex generates images outside MCP. Run after supply and again after review.", "No publication until accepted review. Optional publication.session requires the initial saved source branch and its current revision.", "Completed stages are hash-verified and reused; external mutations or build changes reject stale recovery. Native preview receipt does not acknowledge screen contents."]
+}

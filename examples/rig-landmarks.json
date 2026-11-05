@@ -1,0 +1,17 @@
+{
+  "input": "character.json",
+  "coordinateSpace": "world",
+  "joints": [
+    { "id": "hip", "x": 0, "y": 0, "confidence": 0.95 },
+    { "id": "knee", "x": -8, "y": -45, "confidence": 0.75 },
+    { "id": "ankle", "x": 0, "y": -90, "confidence": 0.95 }
+  ],
+  "bones": [
+    { "name": "thigh", "parent": "root", "from": "hip", "to": "knee" },
+    { "name": "shin", "parent": "thigh", "from": "knee", "to": "ankle" }
+  ],
+  "bindings": [{ "slot": "art", "attachment": "art", "bones": ["thigh", "shin"], "columns": 2, "rows": 4 }],
+  "controls": [{ "name": "leg_ik", "bones": ["thigh", "shin"], "target": "goal", "createTargetParent": "root" }],
+  "motions": [{ "name": "idle", "poses": [{ "time": 0, "bones": { "goal": { "x": 0, "y": 0 } } }, { "time": 1, "bones": { "goal": { "x": -4, "y": 3 } } }] }],
+  "publication": { "native": true }
+}

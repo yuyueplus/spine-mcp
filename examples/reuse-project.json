@@ -1,0 +1,12 @@
+{
+  "input": "hero.json",
+  "output": "edits/hero-reused.spine",
+  "edits": [
+    { "type": "add_bone", "name": "copy-bone", "parent": "root", "transform": { "x": -80, "y": 80, "rotation": 25, "scaleX": -1, "shearY": 10 } },
+    { "type": "add_slot", "name": "copy-slot", "bone": "copy-bone" },
+    { "type": "add_slot", "name": "linked-slot", "bone": "copy-bone" },
+    { "type": "copy_attachment", "from": { "skin": "default", "slot": "arm-slot", "name": "arm" }, "to": { "skin": "default", "slot": "copy-slot", "name": "arm-copy" }, "preserveWorld": true, "copyTimelines": true, "setAsSetup": true },
+    { "type": "link_mesh", "from": { "skin": "default", "slot": "copy-slot", "name": "arm-copy" }, "to": { "skin": "default", "slot": "linked-slot", "name": "arm-linked" }, "inheritTimelines": true, "preserveWorld": true, "setAsSetup": true },
+    { "type": "unlink_mesh", "skin": "default", "slot": "linked-slot", "name": "arm-linked", "preserveTimelines": true }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "input": "hero.spine",
+  "output": "results/hero-wave.spine",
+  "edits": [
+    {
+      "type": "set_timeline",
+      "animation": "wave",
+      "bone": "arm",
+      "channel": "rotate",
+      "keyframes": [
+        { "time": 0, "value": 0 },
+        { "time": 0.5, "value": 35 },
+        { "time": 1, "value": 0 }
+      ]
+    }
+  ]
+}

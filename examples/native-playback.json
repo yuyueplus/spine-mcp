@@ -1,0 +1,11 @@
+{
+  "id": "00000000-0000-4000-8000-000000000000",
+  "control": {
+    "action": "play",
+    "start": 0,
+    "end": 0.6666667,
+    "playbackFps": 8,
+    "speed": 1,
+    "loop": true
+  }
+}

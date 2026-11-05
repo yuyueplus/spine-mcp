@@ -1,0 +1,30 @@
+{
+  "tool": "spine_compose_layer_repaint",
+  "arguments": {
+    "requestId": "77777777-7777-4777-8777-777777777777",
+    "handoff": "RETURNED_HANDOFF_PATH",
+    "expectedSha256": "RETURNED_HANDOFF_SHA256",
+    "repaints": [
+      {
+        "layer": "upper_arm",
+        "image": "character/generated/upper-arm-larger-canvas.png",
+        "alignment": {
+          "mode": "anchors",
+          "from": { "x": 180, "y": 100 },
+          "to": { "x": 70, "y": 35 },
+          "from2": { "x": 180, "y": 500 },
+          "to2": { "x": 70, "y": 235 }
+        },
+        "sampling": "bilinear",
+        "blend": "replace"
+      }
+    ]
+  },
+  "notes": [
+    "This example contains placeholders. Resolve the explicit returned handoff path/hash and actual anchors before calling.",
+    "Canvas alignment alternatively accepts mode=canvas and fit=contain/cover/stretch/exact. contain is default; anchors use explicit geometric correspondences, not anatomy inference.",
+    "Original handoff repaint/protection masks govern composition. Every nonzero protection-alpha pixel and every outside-mask pixel retains exact decoded 8-bit RGBA, including RGB under zero alpha.",
+    "Use the returned replacements with spine_audit_layer_handoff or spine_import_layer_handoff. Failed coverage remains failed; no visual acceptance is inferred.",
+    "Codex generates artwork outside MCP. This tool aligns/composites existing local PNGs into NEW files."
+  ]
+}

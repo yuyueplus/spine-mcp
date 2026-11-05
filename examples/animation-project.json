@@ -1,0 +1,19 @@
+{
+  "input": "hero/base.json",
+  "output": "hero/outputs/hero-slow.spine",
+  "skeletonName": "hero",
+  "edits": [
+    { "type": "add_animation", "name": "working_action", "copyFrom": "action" },
+    { "type": "set_event", "name": "step", "defaults": { "int": 1, "float": 0.5, "string": "脚步" } },
+    {
+      "type": "set_event_timeline", "animation": "working_action",
+      "keyframes": [ { "time": 0, "name": "step" }, { "time": 0.5, "name": "step", "int": 7, "string": "左脚" }, { "time": 1, "name": "step" } ]
+    },
+    {
+      "type": "set_draw_order", "animation": "working_action",
+      "keyframes": [ { "time": 0, "order": null }, { "time": 0.5, "order": ["overlay", "arm-slot"] }, { "time": 1, "order": null } ]
+    },
+    { "type": "retime_animation", "animation": "working_action", "timeScale": 2, "timeOffset": 0.25 },
+    { "type": "rename_animation", "animation": "working_action", "newName": "slow_action" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "note": "A plan never moves files. Review protected references and eligible bytes before applying. Quarantine is recoverable and keeps physical bytes; purge is a separate irreversible action.",
+  "plan": { "tool": "spine_plan_archive_cleanup", "arguments": { "minAgeHours": 24, "maxFiles": 100000, "maxNativeProjects": 100 } },
+  "quarantineAfterReview": { "tool": "spine_apply_archive_cleanup", "requiredValues": ["planId", "expectedPlanSha256", "requestId"] },
+  "restore": { "tool": "spine_restore_archive_cleanup", "requiredValues": ["cleanupId", "requestId"] },
+  "permanentPurgeOnlyAfterExplicitAuthorization": { "tool": "spine_purge_archive_cleanup", "requiredValues": ["cleanupId", "requestId", "expectedFingerprint"], "confirmation": "permanently_delete_quarantined_archives" }
+}

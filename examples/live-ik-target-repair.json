@@ -1,0 +1,14 @@
+{
+  "tool": "spine_create_ik_target_repair",
+  "arguments": {
+    "requestId": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
+    "input": "character/source.spine",
+    "animation": "wave",
+    "newName": "wave_ik_candidate",
+    "fps": 60,
+    "tolerance": 0.05,
+    "windows": [ { "constraint": "hand_ik", "start": 0.2, "end": 0.8, "motion": { "mode": "offset", "x": 4, "y": 8, "fadeSeconds": 0.15 } } ],
+    "comparison": { "fps": 12, "width": 320, "height": 480, "video": true }
+  },
+  "notes": ["Use actual constraint/animation names and world units. This keeps constraints live, editing only the independent controller translation tracks in a NEW animation.", "world_path accepts explicit strictly ordered time/x/y points including both window endpoints. Interior boundaries must match the source controller within tolerance.", "Optional endEffectorTolerance requires the last bone tip to reach the target. A one-bone constraint normally only points toward it.", "Physics or constrained target ancestors reject; use the separate explicit baking repair mode for those rigs. Visual acceptance remains pending."]
+}

@@ -1,0 +1,5 @@
+{
+  "input": "hero/outputs/hero-slow.spine",
+  "animation": "slow_action",
+  "times": [0.25, 1.25, 2.25]
+}

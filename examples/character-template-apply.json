@@ -1,0 +1,23 @@
+{
+  "input": "another-character/rig.json",
+  "template": "templates/greeting.json",
+  "output": "another-character/greeting.json",
+  "animation": "greeting_from_template",
+  "boneMap": {
+    "body": "pelvis",
+    "head": "head_ctrl",
+    "hairTip": "hair_end"
+  },
+  "slotMap": {
+    "face": {
+      "slot": "face",
+      "attachments": {
+        "open": "face_open",
+        "closed": "face_closed"
+      }
+    }
+  },
+  "timeScale": 1.2,
+  "translationScale": 1,
+  "bakeContacts": false
+}

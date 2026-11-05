@@ -1,0 +1,13 @@
+{
+  "input": "hero.json",
+  "output": "edits/hero-auto-rig.spine",
+  "edits": [
+    { "type": "add_bone", "name": "tip", "parent": "root", "transform": { "x": 120, "length": 60 } },
+    { "type": "mesh_from_region", "skin": "default", "slot": "arm-slot", "name": "arm", "columns": 4, "rows": 2 },
+    { "type": "auto_weights", "skin": "default", "slot": "arm-slot", "name": "arm", "bones": ["arm", "tip"], "influences": 2, "power": 2 },
+    { "type": "set_timeline", "animation": "wave", "bone": "arm", "channel": "rotate", "keyframes": [{ "time": 0, "value": 0 }, { "time": 0.5, "value": 30 }, { "time": 1, "value": 0 }] },
+    { "type": "add_slot", "name": "overlay", "bone": "arm" },
+    { "type": "set_attachment", "skin": "default", "slot": "overlay", "name": "overlay", "setAsSetup": true, "attachment": { "path": "arm", "x": 60, "width": 120, "height": 24, "color": "669ee6bb" } },
+    { "type": "set_folder_draw_order", "animation": "wave", "folders": [{ "slots": ["arm-slot", "overlay"], "keyframes": [{ "time": 0, "order": null }, { "time": 0.5, "order": ["overlay", "arm-slot"] }, { "time": 1, "order": null }] }] }
+  ]
+}

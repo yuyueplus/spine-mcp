@@ -1,0 +1,18 @@
+{
+  "note": "Replace all sample names, IDs and hashes. Inspect the exact draft audit before explicitly approving. Caller confirmation is not authenticated human identity.",
+  "prepare": {
+    "tool": "spine_prepare_quality_waiver",
+    "arguments": {
+      "input": "reviewed-candidate.json",
+      "animation": "idle",
+      "quality": { "fps": 60 },
+      "selections": [{ "subject": "sleeve", "start": 1, "end": 1.5, "triangles": [2] }]
+    }
+  },
+  "approveAfterReview": {
+    "tool": "spine_approve_quality_waiver",
+    "requiredValues": ["draft", "expectedSha256", "requestId", "reason"],
+    "confirmation": "reviewed_exact_report"
+  },
+  "publicationPolicy": { "mode": "enforce", "fps": 60, "waivers": "Use only the approved path/sha256 reference returned by the approval tool." }
+}

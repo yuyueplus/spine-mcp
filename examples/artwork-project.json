@@ -1,0 +1,20 @@
+{
+  "input": "hero/base.json",
+  "output": "hero/outputs/hero-artwork.spine",
+  "skeletonName": "hero",
+  "edits": [
+    { "type": "add_skin", "name": "night", "copyFrom": "default", "baseSkin": "base" },
+    {
+      "type": "attach_image", "skin": "base", "slot": "arm-slot", "name": "arm-alt",
+      "image": "hero/images/arm-alt.png", "transform": { "x": 60, "width": 120, "height": 24 }
+    },
+    {
+      "type": "set_attachment_timeline", "animation": "swap-and-fade", "slot": "arm-slot",
+      "keyframes": [ { "time": 0, "name": "arm" }, { "time": 0.5, "name": "arm-alt" }, { "time": 1, "name": null }, { "time": 1.5, "name": "arm" } ]
+    },
+    {
+      "type": "set_color_timeline", "animation": "swap-and-fade", "slot": "arm-slot",
+      "keyframes": [ { "time": 0, "color": "ffffffff" }, { "time": 0.75, "color": "ffffff80" }, { "time": 1.5, "color": "ffffffff" } ]
+    }
+  ]
+}

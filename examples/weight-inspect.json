@@ -1,0 +1,8 @@
+{
+  "input": "weighted.json",
+  "skin": "default",
+  "slot": "arm-slot",
+  "name": "arm",
+  "offset": 0,
+  "limit": 100
+}

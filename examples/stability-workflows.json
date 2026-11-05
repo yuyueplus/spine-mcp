@@ -1,0 +1,171 @@
+{
+  "notes": "Paths are examples inside the configured workspace. Replace bone/slot names and contact windows with explicit rig landmarks. Each output must be new. Use a fresh requestId for a different revision.",
+  "publish": {
+    "tool": "spine_publish_and_open",
+    "arguments": {
+      "input": "character/animation.json",
+      "output": "deliveries/character-v2.spine",
+      "openInEditor": true
+    }
+  },
+  "audit": {
+    "tool": "spine_audit_animation",
+    "arguments": {
+      "input": "character/animation.json",
+      "options": {
+        "animation": "jump",
+        "fps": 120,
+        "contacts": [
+          {
+            "bone": "foot_L",
+            "start": 0,
+            "end": 0.8,
+            "tolerance": 0.1
+          }
+        ],
+        "joints": [
+          {
+            "bone": "lower_L",
+            "min": -60,
+            "max": 60
+          }
+        ],
+        "limbPairs": [
+          {
+            "a": [
+              "upper_L",
+              "lower_L",
+              "foot_L"
+            ],
+            "b": [
+              "upper_R",
+              "lower_R",
+              "foot_R"
+            ]
+          }
+        ],
+        "maxStep": 5,
+        "stepBones": [
+          "foot_L",
+          "foot_R"
+        ],
+        "preview": "bones",
+        "physics": false,
+        "physicsFps": 60,
+        "meshVisibility": "geometry"
+      }
+    }
+  },
+  "footContacts": {
+    "tool": "spine_bake_foot_contacts",
+    "arguments": {
+      "input": "character/animation.json",
+      "output": "character/planted.json",
+      "animation": "jump",
+      "newName": "jump_planted",
+      "fps": 60,
+      "tolerance": 0.1,
+      "orientationToleranceDegrees": 0.1,
+      "chains": [
+        {
+          "upper": "upper_L",
+          "lower": "lower_L",
+          "foot": "foot_L",
+          "contacts": [
+            {
+              "start": 0,
+              "end": 0.8
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "poses": {
+    "tool": "spine_build_pose_animation",
+    "arguments": {
+      "input": "character/rig.json",
+      "output": "character/gesture.json",
+      "name": "gesture",
+      "poses": [
+        {
+          "time": 0,
+          "bones": {
+            "chest": {
+              "rotation": 0
+            }
+          }
+        },
+        {
+          "time": 0.5,
+          "bones": {
+            "chest": {
+              "rotation": 6
+            }
+          }
+        },
+        {
+          "time": 1,
+          "bones": {
+            "chest": {
+              "rotation": 0
+            }
+          }
+        }
+      ],
+      "secondary": [
+        {
+          "bones": [
+            "hair_1",
+            "hair_2"
+          ],
+          "driver": "chest",
+          "delay": 0.1,
+          "delayPerBone": 0.05,
+          "maxAngle": 5
+        }
+      ]
+    }
+  },
+  "regression": {
+    "tool": "spine_start_job",
+    "arguments": {
+      "operation": "regression_suite",
+      "args": {
+        "cases": [
+          {
+            "name": "saved character",
+            "input": "character/animation.json",
+            "nativeRoundTrip": true,
+            "audits": [
+              {
+                "animation": "idle",
+                "fps": 60,
+                "preview": "none"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "recoverJob": {
+    "tool": "spine_recover_job",
+    "arguments": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "recoveryId": "22222222-2222-4222-8222-222222222222"
+    },
+    "notes": "Replace IDs with the original job and a stable recovery UUID; omitted recoveryId defaults to original job ID. Repeating the same pair never submits a second replacement."
+  },
+  "scopedVisualReview": {
+    "tool": "spine_record_visual_review",
+    "arguments": {
+      "input": "deliveries/character-reviewed.spine",
+      "animations": [
+        "jump"
+      ],
+      "decision": "accepted",
+      "note": "Only after the user explicitly confirms this animation at this revision."
+    }
+  }
+}

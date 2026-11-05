@@ -1,0 +1,13 @@
+{
+  "input": "hero.json",
+  "output": "edits/hero-refined.spine",
+  "edits": [
+    { "type": "mesh_from_region", "skin": "default", "slot": "arm-slot", "name": "arm", "columns": 2, "rows": 2 },
+    { "type": "auto_weights", "skin": "default", "slot": "arm-slot", "name": "arm", "bones": ["arm", "root"], "influences": 2 },
+    { "type": "add_slot", "name": "shared-slot", "bone": "arm" },
+    { "type": "link_mesh", "from": { "skin": "default", "slot": "arm-slot", "name": "arm" }, "to": { "skin": "default", "slot": "shared-slot", "name": "arm-shared" }, "setAsSetup": true },
+    { "type": "set_attachment_animation", "animation": "bend", "skin": "default", "slot": "arm-slot", "name": "arm", "channel": "deform", "keyframes": [{ "time": 0 }, { "time": 1, "offset": 3, "vertices": [2, 3, 4] }] },
+    { "type": "transform_mesh", "skin": "default", "slot": "arm-slot", "name": "arm", "vertices": [2, 3], "transform": { "y": 5, "rotation": 8, "pivotX": 60 }, "transformDeform": true },
+    { "type": "refine_mesh", "skin": "default", "slot": "arm-slot", "name": "arm", "iterations": 1 }
+  ]
+}

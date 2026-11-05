@@ -1,0 +1,7 @@
+{
+  "entries": [
+    { "input": "hero.json", "name": "hero" },
+    { "input": "prop.json", "name": "prop" }
+  ],
+  "output": "edits/combined-project.spine"
+}

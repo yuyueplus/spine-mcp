@@ -1,0 +1,24 @@
+{
+  "protocol": "1",
+  "jar": "spine-editor-bridge.jar",
+  "sha256": "4cd86ac2421b6cffe878e16bec9e0edcbe134e776259bd660c5234ff3c723376",
+  "sourceSha256": "183d1959912e742d53148887154cc7a4216599a5e9bf32d37e549037c9b74a26",
+  "sources": [
+    {
+      "path": "MANIFEST.MF",
+      "sha256": "451106d75cfaf363f83956b1e4819e55ef58ef3b3b265e54e05e54c2df28b31b"
+    },
+    {
+      "path": "builds.json",
+      "sha256": "6e21ab59fe597aa9b328e3bbdcbba83e19cc82523b4abfbe9f5ec119851966f1"
+    },
+    {
+      "path": "src/EditorBridgeAgent.java",
+      "sha256": "75b984b96b3617db6c63911a115bac533e8e7efba02e620d9e7c747ecaf85d87"
+    },
+    {
+      "path": "src/NativeEditorAccess.java",
+      "sha256": "3b0551ebf0422e07ea5a38a64a8070e6eb960998e4c044ef4814022f2b1c0520"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "input": "hero-mesh.json",
+  "skin": "default",
+  "slot": "arm-slot",
+  "name": "arm",
+  "offset": 0,
+  "limit": 100,
+  "triangleOffset": 0,
+  "triangleLimit": 100
+}

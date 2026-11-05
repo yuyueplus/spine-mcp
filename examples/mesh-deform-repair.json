@@ -1,0 +1,14 @@
+{
+  "requestId": "00000000-0000-4000-8000-000000000319",
+  "input": "character.json",
+  "animation": "bad",
+  "newName": "fixed",
+  "skin": "default",
+  "slot": "art",
+  "attachment": "art",
+  "maxCorrection": 20,
+  "minAreaRatio": 0.02,
+  "maxStretch": 3,
+  "pinnedVertices": [0, 1, 3],
+  "comparison": { "video": true, "fps": 6, "width": 320, "height": 480 }
+}

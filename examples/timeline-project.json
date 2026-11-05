@@ -1,0 +1,16 @@
+{
+  "input": "hero.json",
+  "output": "edits/hero-timeline-reuse.spine",
+  "edits": [
+    { "type": "add_bone", "name": "other-arm", "parent": "root", "transform": { "y": 60, "length": 120 } },
+    { "type": "add_slot", "name": "other-slot", "bone": "other-arm" },
+    { "type": "copy_attachment", "from": { "skin": "default", "slot": "arm-slot", "name": "arm" }, "to": { "skin": "default", "slot": "other-slot", "name": "other-arm" }, "preserveWorld": false, "copyTimelines": false, "setAsSetup": true },
+    { "type": "set_timeline", "animation": "wave", "bone": "arm", "channel": "rotate", "keyframes": [{ "time": 0, "value": 0, "curve": [0.2, 0, 0.8, 30] }, { "time": 1, "value": 30 }, { "time": 2, "value": 0 }] },
+    { "type": "set_color_timeline", "animation": "wave", "slot": "arm-slot", "keyframes": [{ "time": 0, "color": "ffffffff" }, { "time": 1, "color": "ffffff80" }, { "time": 2, "color": "ffffffff" }] },
+    { "type": "copy_timelines", "fromAnimation": "wave", "toAnimation": "slow-wave", "mappings": [
+      { "from": { "kind": "bone", "bone": "arm", "channel": "rotate" }, "to": { "kind": "bone", "bone": "other-arm", "channel": "rotate" } },
+      { "from": { "kind": "slot", "slot": "arm-slot", "channel": "rgba" }, "to": { "kind": "slot", "slot": "other-slot", "channel": "rgba" } }
+    ], "timeScale": 2, "timeOffset": 0.25 },
+    { "type": "retime_keyframes", "animation": "slow-wave", "targets": [{ "kind": "bone", "bone": "other-arm", "channel": "rotate" }, { "kind": "slot", "slot": "other-slot", "channel": "rgba" }], "start": 2.25, "end": 2.25, "timeOffset": 0.5 }
+  ]
+}

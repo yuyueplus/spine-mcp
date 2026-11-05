@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "protocol": "1",
+  "adapters": [
+    {
+      "id": "spine-4.3.23-4a1f51fa",
+      "version": "4.3.23",
+      "jarBasename": "Pro_4.3.23.jar",
+      "sha256": "4a1f51fa672fcffe251e10de6bb9399b0aec6564da0161f0a48aafa45681eaf8"
+    }
+  ]
+}

@@ -1,0 +1,989 @@
+{
+  "profile": "spine-4.3.23",
+  "configSchemaVersion": 1,
+  "editor": "4.3.23",
+  "previewRuntime": "4.3.13",
+  "node": ">=22.2",
+  "transport": "MCP stdio",
+  "savedFilesOnly": true,
+  "mouseKeyboardRequired": false,
+  "remoteWrites": false,
+  "backgroundOperations": [
+    "JSON inspection/editing",
+    "verified native projects",
+    "CPU previews and PNG frames",
+    "asset audit and collection",
+    "atlas pack/unpack",
+    "delivery packages",
+    "checkpointed pipelines",
+    "surface weight transfer and UV deformation migration",
+    "native clipping compatibility diagnosis and sampled visual fallback",
+    "rest-relative automatic motion retargeting",
+    "world reflection and masked overlapping animation layers",
+    "full interacting-constraint baking",
+    "adaptive animation comparison and validated reduction",
+    "repeated physics-loop convergence checks",
+    "APNG/GIF/MP4/paged spritesheets via local FFmpeg",
+    "byte-exact original-project archives with portable JSON previews",
+    "saved project and resource synchronization with detached workers, debounce and committed-revision recovery",
+    "dedicated native Spine project texture-preview updates after successful MCP edits, with detached rendering worker",
+    "request-idempotent verified publication and optional editor opening",
+    "explicit animation diagnostics with abnormal-frame previews",
+    "layer rigging, sparse pose recipes and validated planted-contact baking",
+    "hash-pinned regression suites with separate revision-bound reported visual acceptance",
+    "Pinned layer handoff, masked repaint validation, pivot-preserving portable layer import",
+    "Reviewed image replacement with shared-UV guards and preserved bones/animation",
+    "Explicit animation repair candidates, shared-camera verified MP4 comparisons and guarded session promotion",
+    "Exact RGBA8 masked repaint alignment/composition with protected pixels",
+    "Source-pinned batch outfit candidates and one-version promotion",
+    "Explicitly baked constraint local-angle repairs with unselected/outside world-pose verification",
+    "Independent dependency-aware task branches and explicit 2.16 task migration",
+    "Live IK sole orientation and heel/toe rolling pivots",
+    "Bounded grouped raster PSD import with hidden detached job, resumable exact PNG output and native promotion",
+    "Reviewed end-to-end character blueprints: PSD import, mesh binding, IK controller creation, editable pose/template motions, media and guarded native publication",
+    "Official-runtime inverse contact solving for offset feet, FK/IK blend and softness",
+    "PSD bitmap masks, clipped pixel stacks, group opacity/isolation and merge groups",
+    "Pinned startup-agent native state and same-window editable reload with dirty-state protection, recovery and repaint receipts"
+  ],
+  "limits": {
+    "crossProject": "Name-mapped data transfer requires compatible deform topology. Branch transfer preserves local coordinates and rejects external dependencies. Motion retargeting offers exact/normalized automatic name suggestions, explicit bijective overrides, rest-relative matched ancestor transforms, proportion and root-translation scaling; ambiguous/reversed ancestry rejects. It does not solve IK foot contacts or copy source attachments/events.",
+    "mesh": "Exact contours capped at 10000 vertices; native compound pieces capped at 500. Single-mesh holes/islands are runtime JSON only. Retopology defaults to reject/explicit clear; interpolate transports weighted source/linked deformation through unambiguous original UV triangles, without extrapolation. New setup positions are supplied unweighted; old weights are derived. At most 16 influences, no silent pruning. No universal lossless retopology guarantee.",
+    "boundaryKeys": "Runtime mode preserves original piecewise-linear runtime curves with supporting keys and raises output editor FPS to at least 240 to avoid native frame snapping; seconds and duration are unchanged. Curve mode splits mathematical Beziers but may change runtime approximation. Colors are byte quantized.",
+    "binaryPrecision": "Matching binary exports supplement JSON vertex/weight/deform data and ten numeric bone timeline channels, including small values omitted by JSON. Bone/attachment identity, type, frame count, key times and known rounding quantum must agree; mismatches reject. JSON curves remain unchanged, and source hashes guard the paired exports.",
+    "bakeTimePrecision": "Sampling times within one microsecond are coalesced to avoid duplicate keys after native import of JSON/binary float-time noise. Time zero is retained. Dense chained clusters spanning more than one microsecond reject instead of silently erasing fast transitions. Original animations remain unchanged; the rule applies to derived baked animation sampling.",
+    "simplification": "Legacy numeric simplification uses FPS grid/midpoints/keys. Adaptive reduction additionally seeds both animations' key times and recursively samples world/geometry/tint differences. Budget/depth exhaustion cannot pass; failed reduction retries then keeps original keys. No continuous mathematical error bound.",
+    "baking": "Selective bone baking rejects unsupported non-bone Slider sources. Full-rig baking captures all interacting constraint results including slot color/attachments/sequence/deform/draw order, disables mixes only in the new animation, and validates sampled world states. Conflicting inherited-link deform states reject. Max 1500 frames/200000 bone samples; physics 500000 integration bone steps. World mirror and layers use sampled full-rig baking; between-frame equivalence is not proven.",
+    "physics": "Ordinary previews reset at zero. Repeated-loop checks retain actual integration history through warmup and measured cycles. They report finite sampled convergence, not mathematical infinite-loop stability.",
+    "nativeRoundTrip": "Exported data verification cannot prove preservation of editor-only metadata or visual GPU equivalence. Exact original archives retain all native bytes; collected previews have portable paths. Archived native internal resource paths remain original. Edited/reimported metadata preservation remains unproven.",
+    "nativeVideo": "The native OpenGL video exporter is not invoked. Clean CPU artwork frames (no preview labels/borders), configurable dimensions and default transparent RGBA feed local FFmpeg/FFprobe for APNG/GIF/MP4/paged spritesheets. Actual frame-count verification; max300 frames,2MP/frame,64M output pixels,64MiB/file,128MiB outputs. GIF is palette/binary-alpha limited; H.264 MP4 is lossy and opaque, transparent areas black and even dimensions required. Frame quantization can change fractional interval duration; the requested endpoint is omitted by default; near-grid native timestamp rounding is coalesced.",
+    "nativeConcaveClipping": "Installed 4.3.23 JSON/binary import can force convex=false to true. Diagnosis/preflight and unsafe-publication rejection remain. Only stable convex/inverse clips permit equivalent flag normalization. The importer issue is not fixed. Explicit visual fallback samples the official clipper to ordinary triangle meshes on a new flat rig, retaining selected skin/animation artwork only; original rig, clipping editability, other skins/animations are not retained in this derived output. Max300 frames/500 compound slots/20000 triangle samples. Native readback and sampled pixel comparison required.",
+    "liveUnsavedEditorState": "Unavailable: no supported editor-internal structural automation API identified. See official evidence and alternatives in RESEARCH.json. Save manually before background editing.",
+    "savedSynchronization": "Saved .spine/JSON only; source files never written. Native inputs need CLI. Detects project and all referenced image/audio changes after stability delay, with periodic full hashes. Default1h/20 revisions/512MiB recorded archives; max8 live watches/100 revisions/1GiB input/10000 resource files. Limits/stop checked between stages: a current archive or CLI export can finish, so physical disk usage is not a hard quota. CLI temporary exports are separate. Twenty consecutive errors stop until explicit resume. Immutable commit records and archive verification recover publication status without duplicating a committed revision. Unsaved editor memory remains unavailable.",
+    "userProductionRegression": "User-reported approval remains bound to the five exact formal clips: 01,02,03,05 and06. Old04 remains excluded; no private production project was supplied.",
+    "activeMcpConnection": "A fresh standard SDK client launches the current registered spine43 build. Existing application connections/tool catalogs need client-side reload; no supported active-conversation reload capability is exposed to this task.",
+    "weightTransfer": "Nearest-vertex (default) or barycentric nearest-triangle surface weights in setup-world space; optional maximum matching distance, slot-local mirror, bone maps and target weight locks. Equal-distance overlapping surfaces choose the first triangle. More than 16 influences reject. Five million comparisons per call. Existing deform keys require explicit clearing when weights change. minWeight=0 preserves every positive weight; an explicit positive threshold removes smaller unlocked influences and renormalizes while retaining locked values. Native import may quantize small weights; use an explicit threshold if verification rejects tiny influences.",
+    "verificationCoverage": "The reproducible 45-suite frozen-core audit records actual current-build MCP requests. Endpoint coverage does not prove every argument, continuous geometry, natural motion or editor-only metadata.",
+    "nativeEditorPreview": "Open the generated dedicated preview project once in Spine. Image changes use the documented Spine image watcher. Dedicated native preview automatic refresh was confirmed by the user; see work/native-preview-visual-test-2.2.0.json. Does not reload the original editable project or follow native animation/time/selection. Status proves PNG publication only; the GUI has no programmatic display receipt. Last good image stays visible on render failure. Reconnect old MCP clients to access new tools.",
+    "editableProjectReload": "Not implemented or verified on the installed entrypoint. The isolated bone/slot/keyframe native round trip passes, but it is a saved-file check, not running-editor reload. No supported target-instance, dirty-state guard, no-focus reload and live-state acknowledgement route was established. See work/native-reload-check-2.2.0.json and RESEARCH.json.",
+    "nativePreviewRecovery": "Renderer process exits are independently supervised, with bounded exponential backoff and five consecutive failures before exhaustion. Explicit resume or a new edit resets the budget; 20 seconds of process stability resets consecutive failures. Supervisor interruption is recovered on MCP startup or edit/update/resume. Saved files only; no native editor memory or display receipt. Same managed native project and PNG are retained across explicit renew/resume. Missing files or changes after the native-project hash baseline reject. Legacy sessions establish the baseline on first resume. System boot alone does not start MCP workers.",
+    "nativeContinuousPlayback": "High-frequency single-PNG playback failed native visual acceptance (LOADING placeholders). Prefer preloaded native sequence: Spine plays loaded frames without per-frame file writes; native timeline controls remain manual. Resource updates may briefly load images; visual verification is recorded separately.",
+    "nativeCurveNormalization": "Constant/nearly constant segments only: per-component Bezier ordinate convex-hull bound <=2e-5 of endpoint scale. Endpoints and nonconstant curves retain strict existing checks. Reported normalization is not native GPU visual acceptance.",
+    "animationDiagnostics": "Explicit character rules and world units required. Default geometry mode keeps all fold candidates. Optional centroid mode classifies posed-centroid clipping and fully opaque later normal layers, retaining full candidate inventory; no full-triangle coverage or self-occlusion proof. Optional physics integrates from reset on the physics FPS grid plus exact requested boundaries; schedule affects integration. Independent previews reset separately. Finite sampling does not establish natural anatomy or visual acceptance. Optional pixels mode evaluates all covered world-aligned cell centers at explicit resolution, preserving unresolved subpixel findings, per-pixel alpha, budgets and marked geometric-region PNGs. Not continuous/GPU coverage or self-occlusion proof.",
+    "footContactBaking": "Default rejects constrained rigs. Explicit constraintMode=bake samples full interacting bone/slot/attachment/deform motion, disables constraints only in the new animation, then solves direct upper/lower/foot chains. Original rig/animations remain; new captured channels are resampled. Positive uniform scale, normal inheritance and a reference bend required. Doubled-FPS/key/boundary validation includes unrelated world transforms; unreachable/unsupported/over-budget/error cases reject.",
+    "temporaryLaunchers": "Trusted configured runtime folders are rescanned just before execution. Synchronous missing-executable launch can retry once on a different trusted candidate. Nonzero exits/timeouts never auto-replay. Temporary folders remain dependent on the installed launcher; no activation/settings patch.",
+    "visualReviews": "Explicit caller-reported review bound to source and all referenced resource hashes; source/resource changes invalidate it. Not an authenticated user identity or native editor display receipt.",
+    "nativeCliTransientColorMutation": "An observed multi-skeleton CLI load/export changed one RGBA key. Exact round-trip verification rejected it and no bad project was published. Same-code retry passed; cause is not claimed fixed."
+  },
+  "version": "3.0.0",
+  "artworkRaster": {
+    "decodedTexturesPerRenderCall": "one per referenced PNG, reused across poses",
+    "textureFilter": "bilinear premultiplied RGBA",
+    "antialiasSamplesPerAxis": 2,
+    "sharedTriangleEdges": "top-left ownership, no independent clip antialiasing",
+    "layerOpacityAfterTriangleComposition": true,
+    "maxSubpixelCandidatesPerRenderCall": 256000000,
+    "gpuEquivalenceGuaranteed": false
+  },
+  "nativeEditorPreview": {
+    "mode": "static-image-watch-or-preloaded-native-sequence",
+    "requiresOneTimeProjectOpen": true,
+    "automaticallyPublishesWatchedPng": true,
+    "editableRigReload": false,
+    "editorTimelineFollowing": false,
+    "liveAnimationPlayback": true,
+    "editorDisplayAcknowledgement": false,
+    "manualVisualVerification": {
+      "automaticNativeRefreshConfirmed": true,
+      "confirmedAt": "2026-10-22T07:04:44.682Z",
+      "report": "work/native-preview-visual-test-2.2.0.json",
+      "scope": "sampled-static-artwork-in-dedicated-native-project"
+    },
+    "sourceProjectOverwritten": false,
+    "defaultLifetimeSeconds": 3600,
+    "maxLifetimeSeconds": 28800,
+    "maxConcurrentSessions": 4,
+    "maxSize": [
+      1024,
+      1024
+    ],
+    "resumeSameProject": true,
+    "renewFromNow": true,
+    "rendererSupervisor": true,
+    "maximumConsecutiveRendererFailures": 5,
+    "supervisorRecovery": "MCP startup, or an edit/update/resume request; stopped/expired sessions remain stopped until explicit resume.",
+    "playbackClock": "Independent cached-PNG clock; no native timeline synchronization or audio. Requested FPS is publication target, not editor-display FPS.",
+    "playback": {
+      "defaultPublicationFps": 8,
+      "maxPublicationFps": 24,
+      "speed": [
+        0.1,
+        4
+      ],
+      "maxCacheFrames": 120,
+      "maxCacheOutputPixels": 64000000,
+      "maxCacheBytes": 67108864,
+      "nativeContinuousDisplayVerified": false,
+      "states": [
+        "building",
+        "playing",
+        "paused",
+        "completed",
+        "error"
+      ],
+      "cacheInvalidation": "Saved input content, resources, animation, skin, physics, canvas, viewport and sampled range; controls reuse verified compatible cache.",
+      "recovery": "Reuse verified current-version disk cache; last committed frame, without advancing during downtime. Stop playback restores selected static pose.",
+      "delivery": "Constant-size valid PNGs with private ancillary padding; staging files outside watched images folder. No intermediate image names in that folder.",
+      "nativeQualityAccepted": false,
+      "status": "Experimental; two native trials show LOADING placeholders."
+    },
+    "nativeSequence": {
+      "implemented": true,
+      "defaultNativeFps": 30,
+      "maxNativeFps": 60,
+      "maxFrames": 600,
+      "maxOutputPixels": 64000000,
+      "maxCacheBytes": 67108864,
+      "oneTimeSetup": "Open MCP-sequence.spine, switch to ANIMATE, expand Animations, activate MCP-playback by clicking its visibility dot at the far left of the tree row, enable loop and start playback.",
+      "nativeTimelineControlFromMcp": false,
+      "writesImagesDuringSteadyPlayback": false,
+      "updatesAfterSavedEdits": true,
+      "nativeDisplayVerified": true,
+      "multiFileUpdateIsNativeAtomic": false,
+      "manualVisualVerification": {
+        "version": "2.4.0",
+        "scope": "User-selected official Spineboy example; steady playback and a half-size MCP edit were observed without loading. This is human evidence, not a native display receipt or a guarantee for every resource update.",
+        "report": "work/native-sequence-window-acceptance-2.4.0.json"
+      },
+      "defaultMaxFrames": 120,
+      "defaultChunkFrames": 30,
+      "incrementalFrameReuse": true,
+      "identicalFrameDeduplication": true,
+      "writesOnlyChangedFrameImages": true,
+      "chunkMeaning": "Preparation/cache records; native editor preloads the full sequence, no native streaming/clock control."
+    }
+  },
+  "editorProjectLifecycle": {
+    "version": "2.5.0",
+    "implemented": true,
+    "tools": [
+      "spine_create_project",
+      "spine_open_project",
+      "spine_get_editor_open_status"
+    ],
+    "creation": "New root-only native project, sibling images directory, configurable FPS, verified import/export before exclusive publication.",
+    "defaultNewInstance": true,
+    "launchMayActivateWindow": true,
+    "detachedEditorSurvivesDisconnect": true,
+    "idempotentRetryWithRequestId": true,
+    "runtimeDiscoverySupported": true,
+    "projectLoadProgrammaticReceipt": false,
+    "originalRigHotReload": false,
+    "unsavedEditorAccess": false,
+    "manualAcceptance": {
+      "accepted": true,
+      "project": "MCP-created-cad74195",
+      "report": "work/editor-open-report-2.5.0.json"
+    }
+  },
+  "toolCount": 226,
+  "stabilityWorkflow": {
+    "version": "2.8.0",
+    "newTools": 13,
+    "publicationStages": [
+      "preflight",
+      "building",
+      "published",
+      "opening",
+      "complete",
+      "published_open_failed"
+    ],
+    "sourceAndEditedResourceHashes": true,
+    "uncertainOutputIndependentReverification": true,
+    "suiteReport": "work/stability-report-2.8.0.json",
+    "editorPlaybackControl": false,
+    "editableRigHotReload": false,
+    "jobRecovery": "spine_recover_job uses a persisted recovery ID to rediscover at most one replacement. Live work is never repeated; completed results remain historical. Generic uncertain outputs require a new destination. Same-output publication preserves its publication request ID for independent validation. Does not restore an unsaved/historical input revision.",
+    "visualReviewScope": "Optional known unique animation names; omitted means project scope. Latest applicable review per animation wins. Partial acceptance never meets whole-project release readiness. Source/resources invalidate all scopes.",
+    "characterReview": {
+      "animations": [
+        "01_idle_breeze",
+        "02_greeting_wave",
+        "03_charge_release",
+        "05_jump_land_review"
+      ],
+      "decision": "user-reported accepted for formal selection",
+      "archived": [
+        "04_jump_land"
+      ],
+      "evidence": "work/formal-animation-review-2.8.0/formal-set-acceptance.json"
+    },
+    "toolsAddedInThisRelease": 2,
+    "qualityReport": "work/quality-report-2.8.0.json"
+  },
+  "previewRequests": {
+    "version": "2.10.1",
+    "existingToolsExtended": 5,
+    "creationRequestId": "optional lowercase UUID v4; same source/resource revision and arguments reuse the session",
+    "durableReservationBeforeOutputDirectory": true,
+    "creationLease": true,
+    "uncertainNativeImportIndependentlyVerified": true,
+    "mutationRequestId": "optional per-session key shared by update, resume and stop; receipt and mutation committed in the same request JSON",
+    "generationCondition": "expectedGeneration must equal pendingGeneration",
+    "maxRetainedMutationReceipts": 1024,
+    "oldReceiptsEvicted": false,
+    "oldStopOrResumeReplayAffectsNewerWork": false,
+    "automaticGuiLaunch": false,
+    "report": "work/preview-requests-report-2.10.1.json"
+  },
+  "nativePublication": {
+    "version": "2.9.0",
+    "waitTool": "spine_wait_native_preview",
+    "durableRollbackJournal": true,
+    "recoverBeforeSourceLoad": true,
+    "committedRevisionVerifiedBeforeCleanup": true,
+    "externalConflictOverwritten": false,
+    "waitMsMaximum": 30000,
+    "maxVerifiedResources": 10000,
+    "maxRollbackBytes": 134217728,
+    "maxJournalBytes": 8388608,
+    "sourceResourceProjectAndAllImageVerification": true,
+    "nativeAtomicTextureSwitch": false,
+    "editorDisplayAcknowledgement": false,
+    "report": "work/native-publication-report-2.9.0.json"
+  },
+  "characterTemplates": {
+    "schema": "spine-character-template/1",
+    "tools": [
+      "spine_save_character_template",
+      "spine_apply_character_template"
+    ],
+    "maxBytes": 8388608,
+    "explicitBoneAndSlotRoles": true,
+    "anatomyInference": false,
+    "absoluteContactAnchors": false,
+    "timingAndTranslationScaling": true
+  },
+  "projectSessions": {
+    "schema": "spine-project-session/2",
+    "savedFilesOnly": true,
+    "explicitSessionId": true,
+    "revisionGuard": true,
+    "idempotentMutationReceipts": true,
+    "externalSourceAndResourceDrift": true,
+    "maxTrackedResources": 10000,
+    "defaultVersions": 30,
+    "maxVersions": 100,
+    "defaultArchiveMiB": 1024,
+    "maxArchiveMiB": 4096,
+    "restoreToNewFile": true,
+    "restoredResources": "Verified portable archive resources; original files are not overwritten.",
+    "multiSkeletonNativeEdits": true,
+    "explicitNativePreviewBinding": true,
+    "uncommittedOutputs": "Retained for inspection and explicit checkpoint or a fresh output path.",
+    "unsavedEditorRead": false,
+    "editorOnlyMetadataRestored": false,
+    "rename": true,
+    "archiveUnarchive": true,
+    "archiveDeletesFiles": false,
+    "capacityInspection": true,
+    "adjustLimitsAboveRetainedUsage": true,
+    "receiptLimit": 100000,
+    "physicalGarbageCollection": false,
+    "previewLease": {
+      "explicitEditingActivityOnly": true,
+      "defaultDurationSeconds": 3600,
+      "defaultRenewBeforeSeconds": 120,
+      "maxDurationSeconds": 28800,
+      "automaticIdleRenewal": false,
+      "respectsExplicitStop": true,
+      "durableInterruptedResume": true,
+      "samePreviewId": true
+    },
+    "readLegacyV1": true,
+    "minimumWriterVersion": "2.16.0",
+    "legacyBackupBeforeMigration": true,
+    "olderWritersRejectV2": true,
+    "inlineReceiptThreshold": 256,
+    "receiptSegmentHashVerification": true,
+    "oldReceiptReplayNeverRepeatsEffects": true
+  },
+  "characterAssistance": {
+    "alphaSeamAudit": true,
+    "regionAndMesh": true,
+    "setupPoseOnly": true,
+    "rawAlphaBeforeClippingAndOcclusion": true,
+    "geometryDerivedCandidates": true,
+    "explicitWorldLandmarks": true,
+    "reviewablePreparationRecipe": true,
+    "anatomyInference": false,
+    "imageInpainting": false,
+    "suggestedMinWeight": 0.00001,
+    "existingPreparationDefaultMinWeight": 0
+  },
+  "nativeAudioPortability": {
+    "relativeToFinalNativeProject": true,
+    "actualPcmFixture": true,
+    "isolatedWorkspaceRelocation": true,
+    "audioPlaybackVerified": false
+  },
+  "publicationQuality": {
+    "automaticWorkflows": [
+      "session edit/checkpoint/restore history commit",
+      "publish_and_open before build",
+      "deliver before collection/build"
+    ],
+    "defaultMode": "enforce",
+    "explicitReportMode": true,
+    "meshVisibility": "pixels",
+    "defaultFps": 60,
+    "maxFps": 120,
+    "defaultPixelSize": 0.1,
+    "defaultMaxSamples": 6000,
+    "maxSamples": 50000,
+    "exactContactBoundariesIncluded": true,
+    "characterRules": "Explicit per-animation contacts/joints/separation/crossing/steps; anatomy is not inferred.",
+    "noAnimations": "Resource checks only; explicitly reported as noAnimations.",
+    "visualAcceptance": "Always separate; finite sampling never certifies natural motion.",
+    "candidateRetention": "Failed independent session output is retained without history commit. Originals are not overwritten.",
+    "scopedWaivers": {
+      "prepareThenExplicitApproval": true,
+      "callerConfirmationNotAuthenticatedHumanIdentity": true,
+      "binds": [
+        "normalized exact saved data",
+        "PNG/audio content",
+        "engine build",
+        "sampling profile",
+        "animation",
+        "slot",
+        "triangle",
+        "sampled instant",
+        "maximum observed fold area"
+      ],
+      "onlyMeshFolds": true,
+      "rawFindingsRetained": true,
+      "newWorseUnlistedOrTruncatedFindingsBlocked": true,
+      "staleInputsRejected": true
+    }
+  },
+  "editorBridge": {
+    "researchedAt": "2026-10-24",
+    "supportedBridgeFound": false,
+    "unsavedMemory": false,
+    "editableRigHotReload": false,
+    "nativeTimelineControl": false,
+    "officialNoPluginSystem": "https://en.esotericsoftware.com/support",
+    "cliDocumentation": "https://en.esotericsoftware.com/spine-command-line-interface",
+    "evidence": "work/editor-interface-review-2.12.0.json"
+  },
+  "animatedSeams": {
+    "implemented": true,
+    "explicitBoneLocalAnchors": true,
+    "worldRadius": true,
+    "maximumFrames": 300,
+    "maximumSeams": 20,
+    "maximumCircularSamples": 200000,
+    "maximumTriangleTests": 2000000,
+    "markedProblemCrops": true,
+    "rawAlphaBeforeClippingAndOcclusion": true,
+    "physics": "Independent reset per frame, aggregate bone integration bound.",
+    "continuousCoverageProof": false,
+    "anatomyInference": false
+  },
+  "archiveMaintenance": {
+    "dryRunReferenceScan": true,
+    "protected": [
+      "retained session history",
+      "managed preview/sync/job metadata",
+      "saved JSON/native project references",
+      "shared PNG/audio paths"
+    ],
+    "orphansOnly": true,
+    "quarantineReversible": true,
+    "quarantineReclaimsPhysicalBytes": false,
+    "explicitPermanentPurge": true,
+    "reviewedPlanHashAndJournal": true,
+    "partialMoveRecovery": true,
+    "newReferenceConflictRollback": true,
+    "unrecordedFilesAndSymlinksRejected": true,
+    "scope": "Workspace saved references; diagnostic reports excluded except actual project JSON. Archive interiors are self-contained portable copies. No lock or visibility for unsaved editor memory or uncooperative external applications. Bounded/incomplete scans reject."
+  },
+  "characterPipeline": {
+    "layerHandoff": true,
+    "alphaMasksAndProtectedPixels": true,
+    "canvasPositionsAndPivots": true,
+    "sourcePinnedImageReplacement": true,
+    "explicitSharedUvPropagation": true,
+    "animationRepairCandidates": true,
+    "sharedCameraComparisonVideo": true,
+    "revisionGuardedPromotion": true,
+    "originalPngOverwrites": false,
+    "semanticSegmentation": false,
+    "anatomyInference": false,
+    "imageGeneration": "Codex outside MCP",
+    "nativeInput": "saved single-skeleton projects",
+    "rotationRepair": "unconstrained rigs and explicit windows; interior endpoints must already satisfy limits",
+    "comparisonLimits": {
+      "frames": 180,
+      "outputPixels": 64000000,
+      "videoBytes": 67108864,
+      "contactPhysics": "explicit independently-reset simulation; budget enforced"
+    },
+    "visualAcceptance": "pending until caller-reported review; selection is not authenticated identity or native display proof"
+  },
+  "characterRefinement": {
+    "exactMaskedRgba8Composition": true,
+    "anchorAndCanvasAlignment": true,
+    "batchImageReplacements": 64,
+    "sameSnapshotAndSharedUvConflictChecks": true,
+    "oneSessionVersionPerBatch": true,
+    "constrainedLocalRotationRepair": "explicit_bake",
+    "constraintOrderAndWorldMatrixVerification": true,
+    "physicsCapture": "explicit_reset",
+    "newKeyTimeCoalescing": "float32 and 1e-6 seconds",
+    "sourceImagesAndOriginalAnimationsRetained": true,
+    "imageGeneration": "Codex outside MCP",
+    "pixelCodec": "pngjs 7.0.0 (MIT)",
+    "visualAcceptance": "pending"
+  },
+  "characterTasks": {
+    "implemented": true,
+    "externalGeneration": true,
+    "stages": "optional PSD import, explicit preparation, IK controls, inline/template motions, compose, batch, repair, live contact, media, candidate, review, publish, exact preview",
+    "detachedWorker": true,
+    "hashVerifiedStageReuse": true,
+    "explicitReviewGate": true,
+    "taskBuildPinned": true,
+    "maxAssets": 64,
+    "maxReviewMedia": 8,
+    "failedPreviewDoesNotRepublish": true,
+    "visualAcceptance": "caller reported, not authenticated human or native display acknowledgement"
+  },
+  "liveIkTargetRepair": {
+    "constraintBaking": false,
+    "constraintsAndOriginalClipsPreserved": true,
+    "controllerTypes": [
+      "one-bone IK pointing",
+      "two-bone IK"
+    ],
+    "worldOffsets": true,
+    "worldPaths": true,
+    "splitTranslation": true,
+    "physics": false,
+    "constrainedTargetAncestors": false,
+    "maxKeys": 20000,
+    "maxVerifiedBonePoses": 300000,
+    "maxCoordinateMagnitude": 1000000,
+    "verification": "double-FPS finite world samples and exact range boundaries; optional end effector tolerance"
+  },
+  "taskBranches": {
+    "implemented": true,
+    "parentUnchanged": true,
+    "patchAndRemoveStages": true,
+    "dependencyAwareReuse": true,
+    "reuseRequiresHashes": true,
+    "newReviewRequired": true,
+    "publicationSessionInherited": false,
+    "versionMigration": {
+      "acceptedParents": [
+        "2.16.0",
+        "2.17.0",
+        "2.18.0"
+      ],
+      "explicitConsent": true,
+      "oldNumericAndMediaStages": "recompute",
+      "oldPureComposition": "reuse only if verified"
+    },
+    "sourceDrift": "requires explicit acceptance and invalidates dependent outputs"
+  },
+  "liveIkContactRepair": {
+    "implemented": true,
+    "constraintBaking": false,
+    "footLocalHeelToeLandmarks": true,
+    "contactModes": [
+      "sole",
+      "heel",
+      "toe"
+    ],
+    "rollingAnglePaths": true,
+    "editedChannels": "Independent two-bone IK target translation and direct foot rotation in a NEW clip",
+    "requirements": "Full mix, zero softness, no stretch/compress/physics, normal inheritance, positive uniform scales, no shear; foot at lower tip",
+    "verification": "Doubled-FPS anchor/orientation plus outside/unrelated world poses; original clips retained",
+    "maxSamplesPerWindow": 600,
+    "maxVerificationBonePoses": 300000,
+    "solverModes": {
+      "strict": "Original fully mixed zero-softness controller-only path, direct foot at lower tip",
+      "runtime": "Offset foot, partial IK mix and animated softness through bounded official-runtime inverse solving",
+      "allowFk": "Explicit true permits selected upper/lower rotation tracks during FK/IK blending; constraints/mix timelines remain live",
+      "transitionReach": "Only fades can project an unreachable interpolated ankle onto physical reach. Core contacts never project.",
+      "limits": "Positive uniform scale, normal inheritance, no shear/stretch/compress/physics or overlapping interacting controls; 3,000,000 inverse bone evaluations; 300,000 verification poses"
+    }
+  },
+  "psdImport": {
+    "implemented": true,
+    "parser": "ag-psd@33.0.0",
+    "input": "Standard PSD v1, RGB, 8-bit saved raster layers",
+    "groups": true,
+    "opacity": "Per-layer opacity and ordinary group opacity composited into new PNGs; pass-through interactions requiring backdrop are blocked",
+    "tags": [
+      "bone",
+      "slot",
+      "skin",
+      "folder",
+      "path",
+      "pad",
+      "trim",
+      "bones",
+      "slots",
+      "ignore",
+      "origin",
+      "merge"
+    ],
+    "unsupported": "PSB, 16/32bit, CMYK/spot channels, vector/feathered/real masks, effects, adjustment/fill, partial fill/knockout, non-default Blend If, pass-through non-normal backdrop interactions and unsupported tags. Conflicting child rig semantics block implicit group flattening.",
+    "colorManagement": "Original RGB values; ICC retained as artifact without color conversion",
+    "files": "New generated PNG filenames; logical tag paths retained in manifest",
+    "limits": {
+      "sourceMiB": 32,
+      "dimension": 8192,
+      "canvasPixels": 16777216,
+      "totalLayerPixels": 64000000,
+      "layers": 256,
+      "depth": 24
+    },
+    "detachedOperation": "import_psd",
+    "resume": "Stable requestId verifies exact partial PNG bytes; cancel between layers; job recover supported",
+    "native": "Explicit reviewed candidate promotion builds and verifies new .spine",
+    "nativeAttachmentNames": "Named skins use distinct skin-qualified actual names with shared placeholders; default attachments keep key=name. Default/skin placeholder conflicts block.",
+    "skinSelection": "Named-skin-only PSD returns suggestedSkin/requiresSkinSelection; select explicitly in Spine or render options. No default fallback is injected.",
+    "pixelCompositing": {
+      "bitmapMasks": true,
+      "clippingStacks": true,
+      "groupOpacity": true,
+      "isolatedGroups": true,
+      "explicitMerge": true,
+      "clippedBaseAlphaPreserved": true,
+      "hiddenClipsSkipped": true,
+      "intermediatePixelBudget": 64000000,
+      "operationBudget": 2048,
+      "sourceOrder": "ag-psd 33.0.0 actual reader order verified bottom-to-top against authored Photoshop composites",
+      "comparison": "Premultiplied RGB8 plus alpha, max component error <3/255 and mean <0.2/255 for pinned authored fixtures; unassociated transparent RGB does not describe visible error"
+    }
+  },
+  "characterBuild": {
+    "implemented": true,
+    "tools": [
+      "spine_plan_character_build",
+      "spine_create_character_build_task"
+    ],
+    "source": "Saved JSON/native or passing current-build PSD plan",
+    "landmarkConfirmation": "use_reviewed_landmarks",
+    "anatomyInference": false,
+    "preparation": "Explicit bones and distance-weighted mesh bindings",
+    "controls": "Two-bone IK; optional target creation at setup tip; inferred setup bend unless explicitly specified",
+    "motions": "Editable sparse pose recipes and saved role-mapped templates",
+    "stageRecovery": true,
+    "branchDependencyReuse": true,
+    "finalCandidateReviewMandatory": true,
+    "defaultReview": "APNGs for up to four newly built motions; caller may supply media options",
+    "newRigAffectsOldCandidateMotions": true,
+    "originalFilesUnchanged": true
+  },
+  "rigLandmarks": {
+    "implemented": true,
+    "tools": [
+      "spine_plan_rig_landmarks",
+      "spine_correct_rig_landmarks"
+    ],
+    "coordinateSpaces": [
+      "world",
+      "pixels",
+      "normalized"
+    ],
+    "calibratedReference": true,
+    "inlineMcpImage": true,
+    "immutableCorrections": true,
+    "standaloneDragEditorExportsJson": true,
+    "dominantWeightPreviewAndExactWeightJson": true,
+    "sourceAndDisplayEvidencePinned": true,
+    "existingConstructionTaskIntegration": true,
+    "recognition": "Caller-supplied coordinates/confidences (for example Codex vision); no anatomy model inside MCP"
+  },
+  "meshDeformRepair": {
+    "implemented": true,
+    "mode": "Bounded whole-clip area/edge projection into selected deform timeline",
+    "topologyAndWeightsRetained": true,
+    "originalClipsRetained": true,
+    "pinnedVertices": true,
+    "doubledFpsVerification": true,
+    "sharedCameraComparison": true,
+    "limits": {
+      "vertices": 2000,
+      "triangles": 4000,
+      "frames": 1201,
+      "deformCoordinates": 2000000,
+      "projectionVisits": 5000000
+    },
+    "scope": "One always-active independent mesh without linked dependents or physics. Finite sampling is not a human visual acceptance.",
+    "publication": "Strict quality remains enforced. Retained bad reference clips can still fail a whole-project gate; an explicit repaired-clip scope certifies only that clip.",
+    "nativeSparseZeroEpsilon": 0.0101,
+    "postQuantizationVerification": true
+  },
+  "psdRasterization": {
+    "implemented": true,
+    "tools": [
+      "spine_plan_psd_rasterization",
+      "spine_apply_psd_rasterization"
+    ],
+    "backend": "psd-tools 1.26.0 with exact local Python requirements",
+    "setup": "npm run setup:psd-raster; offline during MCP calls",
+    "policies": [
+      "flatten_document",
+      "flatten_top_level"
+    ],
+    "vectorMasks": true,
+    "activeStyles": [
+      "Stroke"
+    ],
+    "adjustmentDispatch": [
+      "brightnesscontrast",
+      "levels",
+      "curves",
+      "exposure",
+      "huesaturation",
+      "invert",
+      "posterize",
+      "threshold"
+    ],
+    "perDocumentReferenceProofRequired": true,
+    "unsupportedActiveEffectsBlocked": true,
+    "savedMergedImageUsedForRendering": false,
+    "savedLayerPixelsMayBeUsed": true,
+    "fixedPremultipliedProofBounds": {
+      "maxExclusive": 3,
+      "meanExclusive": 0.35
+    },
+    "limits": {
+      "sourceMiB": 32,
+      "dimension": 4096,
+      "canvasPixels": 4194304,
+      "layers": 128,
+      "depth": 16,
+      "rasterUnits": 32,
+      "totalOutputPixels": 64000000
+    },
+    "scope": "Standard RGB8 PSD; each document must match its saved merged reference. Top-level units are independently recomposed. Groups flatten according to the explicit policy, with nested semantic loss reported. No ICC conversion."
+  },
+  "unifiedAuthoring": {
+    "rawPsdToReviewedLandmarks": true,
+    "exactIntermediateArtifactHashes": true,
+    "immutableCorrections": true,
+    "cancellationAndVerifiedStageReuse": true,
+    "reviewInheritance": false,
+    "taskVersionsRequiringExplicitMigration": [
+      "2.16.0",
+      "2.17.0",
+      "2.18.0",
+      "2.19.0",
+      "2.20.0"
+    ],
+    "humanAcceptanceInferred": false
+  },
+  "coupledMeshRepair": {
+    "targets": "2–8 always-active meshes; links only through explicit isolated skin",
+    "seams": "explicit vertex pairs OR pinned reviewed geometric candidates; coincidence or sampled source-relative offset",
+    "preserved": "all original clips, original skins, bone/constraint definitions, target topology/weights and unselected channels of the captured baseline",
+    "bounds": "4000 vertices, 8000 triangles total; 30 seconds; 1201 generated frames; 2M deform coordinates; bounded projection work",
+    "verification": "post native-sparse-zero quantization, doubled FPS, seam/pin/movement/area/edge limits",
+    "unsupported": "implicit seam/anatomy acceptance; live native physics; attachment switches; arbitrary default/skin remapping; unsaved editor memory",
+    "failure": "report fails; no publication",
+    "compatibility": "Opt-in linkedMeshes=isolated_skin requires a NEW outputSkin; physics=sampled_capture uses bounded deterministic 60/120 FPS runtime capture. New skin is scoped to the repaired clip.",
+    "diagnostics": "exact time/slot/mesh/vertex/triangle/edge findings with pinned annotated peak-pose PNGs"
+  },
+  "meshSeamPlanning": {
+    "tools": [
+      "spine_plan_mesh_seams",
+      "spine_audit_mesh_seams"
+    ],
+    "method": "bounded mutual nearest vertices, distance/facing/tie evidence; confidence is geometric ranking, not a probability of anatomical correctness",
+    "selection": "explicit candidate IDs, exact version/source/skin/geometry/preview pins; no automatic acceptance",
+    "scope": "2–8 separate-slot active meshes; boundary or all vertices; up to 8M comparisons and 128 candidates; diagnostics at up to 1201 requested poses and 2M sampled vertex visits",
+    "references": "source-relative mode requires explicit reference animation; optional referenceSkin/referenceTargets support isolated placeholders",
+    "taskEvidencePinnedBeforeExecution": true
+  },
+  "jointMeshCompatibility": {
+    "linkedPolicy": "reject by default; isolated_skin explicitly materializes the effective named skin and selected default targets, maps inherited or own deforms, preserves paths and allocates private native identities",
+    "physicsPolicy": "reject by default; sampled_capture explicitly samples all active bone world transforms and preserves source slot/deform/event channels; disables constraint mixes only in the captured derived clip",
+    "limits": {
+      "durationSeconds": 30,
+      "integrationFps": [
+        60,
+        120
+      ],
+      "captureSamples": 3601,
+      "boneSamples": 100000,
+      "poseCoordinates": 5000000,
+      "repairFps": [
+        30,
+        60
+      ]
+    },
+    "verification": "source/isolation/capture pose checks, original definitions byte-structure checks, doubled-FPS geometric limits, independent seam audit and native roundtrip; no tolerance waiver",
+    "nativePreview": "saved-file publication receipt only; no unsaved editable-rig reload or native display acknowledgement"
+  },
+  "productionCharacterAcceptance": {
+    "fixture": "Official Spine 4.3 Mix-and-Match full character; not the earlier 2-part synthetic assembly",
+    "profile": "examples/production-character-profile.json",
+    "script": "scripts/production-character-smoke.ts",
+    "source": "https://en.esotericsoftware.com/spine-examples-mix-and-match",
+    "fixtureIncludedInCoreRelease": false,
+    "license": "Images restricted by upstream supplied license; local acceptance copies retain license.txt. No supplied PSD is claimed.",
+    "report": "work/production-character-report-2.21.0.json",
+    "completion": "Only a passed current-build report establishes acceptance."
+  },
+  "productWorkflows": {
+    "catalogue": "spine_workflow_catalog",
+    "evidence": "spine_product_completion_status",
+    "currentEvidenceRequiresCompleteSourceInventory": true,
+    "groups": 6,
+    "newHighLevelTools": 22,
+    "fixedPlan": "COMPLETION-PLAN.json",
+    "allRequestedNativeCapabilitiesAvailable": false
+  },
+  "materialAssets": {
+    "explicitSemanticRoles": true,
+    "automaticAnatomyRecognition": false,
+    "externalCodexGeneration": true,
+    "assetRevisionCas": true,
+    "exactProtectedPixels": true,
+    "transparentPngRequiredWhenSpecified": true,
+    "placement": [
+      "bone_local",
+      "world"
+    ],
+    "rotationAndScale": "bone-local",
+    "setupAndAnimatedDrawOrderRetained": true,
+    "comparison": "Shared-camera setup-pose before/after PNG",
+    "undo": "Pinned portable pre-placement collection",
+    "durablePlacementStage": true
+  },
+  "genuinePsdSections": {
+    "tool": "spine_extract_psd_sections",
+    "maxSourceBytes": 33554432,
+    "maxMetadataLayers": 1024,
+    "maxSelectedLayers": 256,
+    "maxVisibleUnits": 32,
+    "maxViewportPixels": 2097152,
+    "sourceRgb8": true,
+    "exactGroupAndViewport": true,
+    "sourceGridMaxErrorExclusive": 3,
+    "sourceGridMeanErrorExclusive": 0.35,
+    "nativeAndJsonPreview": "Byte-exact PNG",
+    "authoredPsdFilesInCurrentFullCharacterFixture": 1,
+    "completeViews": 3,
+    "semanticLoss": "Selected visible direct child groups flattened; other views/hidden variants/child editability retained in original PSD.",
+    "officialArtInCoreRelease": false
+  },
+  "reusableRigProfiles": {
+    "explicitRoles": true,
+    "fullHumanoidRequiredRoles": 16,
+    "partialProfiles": true,
+    "completeMappingRequiredForNewSource": true,
+    "directChainsAndLengths": true,
+    "restRelativeJointLimits": true,
+    "bendDirectionDiagnostics": true,
+    "seamsRequireReplanAfterSourceChange": true,
+    "controllerInventory": true,
+    "automaticRiggingSemantics": false
+  },
+  "motionLibrary": {
+    "presets": [
+      "idle",
+      "walk",
+      "run",
+      "jump",
+      "wave",
+      "turn",
+      "charge"
+    ],
+    "locomotion": "Planar in-place FK, minimum60FPS, strict double-rate contact verification",
+    "wave": "World-geometry raised-hand solve",
+    "turn": "In-plane pivot; no new facing artwork",
+    "visibilityBudget": "Explicit qualityVisibilityPixelSize world units per pixel, default0.1. Gown fixture uses0.5; original two-million-pixel cap and geometric/contact thresholds retained.",
+    "restrictions": [
+      "Explicit role mapping",
+      "Direct positive uniform unsheared limb chains",
+      "No directly constrained FK roles; use controller-driven construction"
+    ],
+    "originalClipsRetained": true,
+    "sharedTempoAndIntensity": true,
+    "secondary": "Explicit delayed role chains, gain and angle budget",
+    "finalCandidateReviewRequired": true,
+    "productionCases": {
+      "cases": [
+        {
+          "actor": "official-spineboy",
+          "factor": 0.8,
+          "amplitude": 1,
+          "selectedClips": [
+            "mcp_idle",
+            "mcp_walk",
+            "mcp_run",
+            "mcp_jump",
+            "mcp_wave",
+            "mcp_turn",
+            "mcp_charge"
+          ],
+          "excludedDraftClips": [],
+          "maxOriginalPoseError": 0.000026054125100927195,
+          "maxJsonBinaryPoseError": 0.000025173346614337788,
+          "strict120FpsContacts": true,
+          "meshCorrection": null
+        },
+        {
+          "actor": "official-spineboy",
+          "factor": 1,
+          "amplitude": 1,
+          "selectedClips": [
+            "mcp_idle",
+            "mcp_walk",
+            "mcp_run",
+            "mcp_jump",
+            "mcp_wave",
+            "mcp_turn",
+            "mcp_charge"
+          ],
+          "excludedDraftClips": [],
+          "maxOriginalPoseError": 0.00002328689060959732,
+          "maxJsonBinaryPoseError": 0.000027213574810502905,
+          "strict120FpsContacts": true,
+          "meshCorrection": null
+        },
+        {
+          "actor": "official-spineboy",
+          "factor": 1.25,
+          "amplitude": 1,
+          "selectedClips": [
+            "mcp_idle",
+            "mcp_walk",
+            "mcp_run",
+            "mcp_jump",
+            "mcp_wave",
+            "mcp_turn",
+            "mcp_charge"
+          ],
+          "excludedDraftClips": [],
+          "maxOriginalPoseError": 0.000059827847053384176,
+          "maxJsonBinaryPoseError": 0.000050538770153707446,
+          "strict120FpsContacts": true,
+          "meshCorrection": null
+        },
+        {
+          "actor": "anime-gown",
+          "factor": 1,
+          "amplitude": 0.1,
+          "selectedClips": [
+            "mcp_idle",
+            "mcp_walk",
+            "mcp_run_corrected",
+            "mcp_jump",
+            "mcp_wave",
+            "mcp_turn",
+            "mcp_charge"
+          ],
+          "excludedDraftClips": [
+            "mcp_run"
+          ],
+          "maxOriginalPoseError": 0,
+          "maxJsonBinaryPoseError": 0.000016106882069877315,
+          "strict120FpsContacts": true,
+          "meshCorrection": {
+            "maxCorrection": 0.28984036930980617,
+            "verificationFolded": 0
+          }
+        }
+      ],
+      "distinctIllustratedOutfits": 2,
+      "originalsUnchanged": true
+    },
+    "humanAcceptance": {
+      "statement": "整体自然，可作为动作库示例",
+      "scope": "Human visual acceptance of the exact official Spineboy seven-motion library example, in the order idle/walk/run/jump/wave/turn/charge. Does not imply human review of derived body proportions, GPU output or unavailable native editor reload APIs.",
+      "videoSha256": "90daebd253c4d913262884d09a3736811b387c4ef4d96a7ec1bf1e0c603f8f27",
+      "currentRegeneratedLibraryHumanApproval": false
+    }
+  },
+  "facialCues": {
+    "existingAttachmentMap": true,
+    "explicitTimesOnly": true,
+    "newClipOnly": true,
+    "audio": "Local WAV/MP3/OGG header plus FFprobe duration and hashes",
+    "audioPlayed": false,
+    "speechRecognition": false
+  },
+  "qualityBoards": {
+    "baselineComparableOnlyForMatchingRigIdentity": true,
+    "sourceAndResourcesPinned": true,
+    "casRevision": true,
+    "independentResolutionRerun": true,
+    "truncatedInventoryNeverAllResolved": true,
+    "dispositionsAreNotWaivers": true,
+    "sharedCameraCandidateComparison": true,
+    "automaticWinner": false
+  },
+  "officialJsDelivery": {
+    "runtime": "@esotericsoftware/spine-core",
+    "version": "4.3.13",
+    "actualAnimationState": true,
+    "loops": true,
+    "crossFadeTransitions": true,
+    "fixedStepPhysics": true,
+    "finiteStateRequired": true,
+    "jsonBinaryFullStateToleranceDefault": 0.001,
+    "atlasPathAndDimensions": true,
+    "eventAndBoneSampleBudgets": true,
+    "requireNativeProject": true,
+    "enforcedQuality": true,
+    "portableLicensesReviewsRuntimeEvidenceAndManifest": true,
+    "gpuVisualAcceptance": false,
+    "audioAcceptance": false,
+    "otherGameEngineAcceptance": false,
+    "includesPerClipPngPreviews": true
+  },
+  "editorContextAndReload": {
+    "context": "Passive related process titles and known managed-open records only",
+    "loadedPathVerified": false,
+    "dirtyStateVerified": false,
+    "editableInPlaceReload": "blocked_upstream",
+    "previewRefresh": "Exact managed preview ID/generation plus saved source hash receipt",
+    "inputAutomation": false,
+    "hostClientReload": "Explicit existing public loopback WebSocket app-server endpoint only; queued refresh is not target-thread loaded-version proof",
+    "nativeDisplayFps": null
+  },
+  "releaseVerification": {
+    "version": "3.1.0",
+    "unitTests": 797,
+    "integrationSuites": 53,
+    "successfulTools": 229,
+    "coreSha256": "02b968db26aa042165dd8053c8965761e99da0afad362c2779ec4adff993d31a",
+    "report": "VERIFICATION.json",
+    "implementedBoundedPlanItems": 28,
+    "upstreamBlockedItems": [],
+    "allRequestedOutcomesAchieved": true,
+    "nativeScope": "NEW startup-bridge windows on the pinned installed Spine 4.3.23 build only. No active attachment to ordinary windows. Reload refuses unsaved/stale/busy states; writes a NEW verified sibling recovery file; preserves supported view state; resets native undo history. No mouse/keyboard injection or window-activation command."
+  },
+  "nativeEditorBridge": {
+    "version": "3.1.0",
+    "startupRequired": true,
+    "officialPluginApi": false,
+    "ordinaryExistingWindowsSupported": false,
+    "supportedBuilds": "native-bridge/builds.json",
+    "nativeProjectPath": true,
+    "nativeDirtyPredicate": true,
+    "editableReload": true,
+    "unsavedChangesRefused": true,
+    "recovery": "NEW sibling native snapshot, parsed and verified before swap",
+    "undoHistoryResetOnReload": true,
+    "mouseKeyboardInjection": false,
+    "bytecodeTransformation": false,
+    "persistedAuthenticatedReceipts": true
+  }
+}

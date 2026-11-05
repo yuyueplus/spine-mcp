@@ -1,0 +1,41 @@
+{
+  "repository": "https://github.com/psd-tools/psd-tools",
+  "commit": "a1fcb7d38d688ce39db54cb241f27af4a2e3a001",
+  "files": [
+    {
+      "fixture": "vector",
+      "source": "tests/psd_files/group.psd",
+      "gitBlobSha": "60dbe4c37171cd6d4dc7bdb81e2d49f04a108fa5",
+      "sha256": "1aaf572b69f0b0fa7c04b7b3a14c97e310a0c7bbdc06e733c9dd0d0cdcf7df1c",
+      "url": "https://github.com/psd-tools/psd-tools/blob/a1fcb7d38d688ce39db54cb241f27af4a2e3a001/tests/psd_files/group.psd"
+    },
+    {
+      "fixture": "stroke",
+      "source": "tests/psd_files/effects/stroke-effect-transparent-shape.psd",
+      "gitBlobSha": "05098c0b529d682f2cad107d13b9a7a161f6a129",
+      "sha256": "bd6514a680c05740ec8392d7ca624a2a6a90e8bddfdb65a698fc184980344af1",
+      "url": "https://github.com/psd-tools/psd-tools/blob/a1fcb7d38d688ce39db54cb241f27af4a2e3a001/tests/psd_files/effects/stroke-effect-transparent-shape.psd"
+    },
+    {
+      "fixture": "invert",
+      "source": "tests/psd_files/adjustments/invert_rgb.psd",
+      "gitBlobSha": "e37dd21fb1edd5b2e273a83aa497fddf5f6aa645",
+      "sha256": "6a48998f4d0c970b973eab4d465997f8fe7183f1d757013089a3144c124152a4",
+      "url": "https://github.com/psd-tools/psd-tools/blob/a1fcb7d38d688ce39db54cb241f27af4a2e3a001/tests/psd_files/adjustments/invert_rgb.psd"
+    },
+    {
+      "fixture": "curves-reject",
+      "source": "tests/psd_files/adjustments/curves_rgb.psd",
+      "gitBlobSha": "42b61f44986954e9eb295de486e4e76bd01ac54e",
+      "sha256": "ca20254c47a9fcc0029caa81f7ac7e197ff3657808332c22b75e23920fd040bb",
+      "url": "https://github.com/psd-tools/psd-tools/blob/a1fcb7d38d688ce39db54cb241f27af4a2e3a001/tests/psd_files/adjustments/curves_rgb.psd"
+    },
+    {
+      "fixture": "unsupported-effect",
+      "source": "tests/psd_files/effects/stroke-composite.psd",
+      "gitBlobSha": "923ff32bd361d57058ccee77c28b0d720c204362",
+      "sha256": "f9a513b4192b336b644caf93153f20ac30fef448298a7dd64f06f46728f770f6",
+      "url": "https://github.com/psd-tools/psd-tools/blob/a1fcb7d38d688ce39db54cb241f27af4a2e3a001/tests/psd_files/effects/stroke-composite.psd"
+    }
+  ]
+}

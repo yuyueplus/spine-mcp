@@ -1,0 +1,9 @@
+{
+  "input": "hero.json",
+  "skin": "default",
+  "slot": "arm-slot",
+  "name": "arm",
+  "alphaThreshold": 1,
+  "padding": 1,
+  "maxVertices": 64
+}

@@ -1,0 +1,6 @@
+{
+  "plan": { "tool": "spine_plan_character_task_branch", "arguments": { "id": "PARENT_TASK_ID", "expectedPlanSha256": "PARENT_PLAN_SHA256", "patch": { "name": "New outfit branch", "assets": { "outfit": "generated/outfit-v2.png" } } } },
+  "apply": { "tool": "spine_apply_character_task_branch", "arguments": { "requestId": "11111111-1111-4111-8111-111111111111", "plan": "RETURNED_BRANCH_PLAN", "expectedSha256": "RETURNED_BRANCH_PLAN_SHA256" } },
+  "run": { "tool": "spine_run_character_task", "arguments": { "id": "NEW_TASK_ID", "expectedPlanSha256": "NEW_TASK_PLAN_SHA256" } },
+  "notes": ["Inspect each reuse/recompute decision first. A new candidate needs a new exact review. Parent artifacts/review are retained.", "For an old 2.16 task, explicitly set allowVersionMigration=true; stages other than verified pure composition are rebuilt. Source drift needs acceptSourceDrift=true.", "Review-media-only changes preserve unchanged processing stages. removeStages can remove optional stages. Publication session binding is dropped by default."]
+}

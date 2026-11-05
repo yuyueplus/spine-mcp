@@ -1,0 +1,8 @@
+{
+  "input": "weighted.json",
+  "output": "weights-refined.spine",
+  "edits": [
+    { "type": "clean_weights", "skin": "default", "slot": "arm-slot", "name": "arm", "maxInfluences": 4, "minWeight": 0.005, "clearDeform": false },
+    { "type": "smooth_weights", "skin": "default", "slot": "arm-slot", "name": "arm", "strength": 0.5, "iterations": 3, "maxInfluences": 4, "minWeight": 0.001, "clearDeform": false }
+  ]
+}

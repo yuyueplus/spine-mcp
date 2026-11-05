@@ -1,0 +1,10 @@
+{
+  "id": "character-delivery",
+  "resume": true,
+  "steps": [
+    { "id": "audit", "operation": "audit_assets", "input": "character.json" },
+    { "id": "preview", "dependsOn": ["audit"], "operation": "preflight", "input": "character.json", "edits": [{ "type": "set_bone", "bone": "root", "transform": { "x": 10 } }] },
+    { "id": "edit", "dependsOn": ["preview"], "operation": "edit_json", "input": "character.json", "edits": [{ "type": "set_bone", "bone": "root", "transform": { "x": 10 } }] },
+    { "id": "delivery", "inputFrom": "edit", "operation": "deliver", "options": { "formats": ["json", "binary"], "atlas": true, "atlasPreset": "portable", "includeProject": true } }
+  ]
+}

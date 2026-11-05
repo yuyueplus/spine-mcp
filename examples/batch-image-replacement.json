@@ -1,0 +1,24 @@
+{
+  "plan": {
+    "tool": "spine_plan_batch_image_replacement",
+    "arguments": {
+      "input": "character/source.spine",
+      "replacements": [
+        { "skin": "default", "slot": "hair", "attachment": "hair", "image": "character/generated/hair.png", "resizePolicy": "preserve-geometry" },
+        { "skin": "default", "slot": "dress", "attachment": "dress", "image": "character/generated/dress.png", "resizePolicy": "preserve-geometry" },
+        { "skin": "default", "slot": "eyes", "attachment": "open", "image": "character/generated/eyes.png", "resizePolicy": "preserve-geometry" }
+      ]
+    }
+  },
+  "apply": {
+    "tool": "spine_apply_batch_image_replacement",
+    "arguments": { "requestId": "88888888-8888-4888-8888-888888888888", "plan": "RETURNED_PLAN_PATH", "expectedSha256": "RETURNED_PLAN_SHA256" }
+  },
+  "reviewAndPromote": "Use spine_get_character_candidate and explicitly select the exact candidate with spine_promote_character_candidate. Supplying the source session ID/current revision checkpoints every replacement as ONE version and requests its bound preview.",
+  "notes": [
+    "All rows use the same original snapshot. Duplicate selectors, missing images, changed source/assets and conflicting shared UV transformations reject the plan/apply.",
+    "Identical shared UV transformations merge once. Identical output image contents are copied once.",
+    "This creates a whole-outfit candidate/version. Existing skin editing tools can first create/select a named skin when runtime skin alternatives are desired.",
+    "A failing row never partially commits the formal session. Native screen/texture publication remains distinct from the atomic session version."
+  ]
+}
