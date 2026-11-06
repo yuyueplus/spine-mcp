@@ -23,6 +23,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+      - name: Linux media dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Windows media dependencies
+        if: runner.os == 'Windows'
+        run: choco install ffmpeg --yes --no-progress
+      - name: macOS media dependencies
+        if: runner.os == 'macOS'
+        run: brew install ffmpeg
+      - name: Media version receipts
+        run: ffmpeg -version
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm run build
       - run: npm run setup:psd-raster -- --python python
