@@ -1,0 +1,8 @@
+{
+  "bgfx.cmake": { "repository": "https://github.com/bkaradzic/bgfx.cmake.git", "commit": "1af3832b87ad0588c05f1f0bd7ee17a7b14d2315", "license": "CC0-1.0" },
+  "bx": { "repository": "https://github.com/bkaradzic/bx.git", "commit": "da13683750ff8df8f44a5a15f637b6ae9460a04b", "license": "BSD-2-Clause" },
+  "bimg": { "repository": "https://github.com/bkaradzic/bimg.git", "commit": "64a34f7441af8f06e40ccab08d76bbf5e59e55b1", "license": "BSD-2-Clause and bundled third-party licenses" },
+  "bgfx": { "repository": "https://github.com/bkaradzic/bgfx.git", "commit": "b2513038f4b753ebeced40821c193978daa0492f", "license": "BSD-2-Clause and bundled third-party licenses" },
+  "spine-runtimes": { "repository": "https://github.com/EsotericSoftware/spine-runtimes.git", "commit": "175a1e05073a406f305bde2621c065b8c2256c42", "sparse": ["spine-cpp"], "license": "Spine Runtimes License Agreement" },
+  "json": { "repository": "https://github.com/nlohmann/json.git", "commit": "55f93686c01528224f448c19128836e7df245f72", "sparse": ["single_include/nlohmann"], "license": "MIT" }
+}

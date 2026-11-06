@@ -8,6 +8,8 @@ import { attachmentEntries } from './attachment-data.js';
 import { fileSha256 } from './file-hash.js';
 import { auditAssets, assertSnapshot } from './production-assets.js';
 import { cleanWeights } from './weight-edits.js';
+import { setConstraintTimeline } from './constraint-edits.js';
+import { resolveConstraint } from './constraint-data.js';
 
 export async function savedCharacterChange(service: SpineService, input: string, output: string, operation: (data: SpineDocument) => SpineDocument | Promise<SpineDocument>) {
   const source = await service.workspace.resolve(input), sha256 = await fileSha256(source), loaded = await service.load(source), assets = await auditAssets(service.workspace, loaded.data, loaded.jsonPath, false);
@@ -84,7 +86,13 @@ export function buildPoseData(source: SpineDocument, args: z.output<typeof poseA
     const times = [...blink.times].sort((a, b) => a - b); if (times.some((t, i) => t <= 0 || t + blink.duration >= duration || (i > 0 && t <= times[i - 1]! + blink.duration))) throw new Error('Blink windows overlap, start at zero or end outside the animation.');
     slots[blink.slot] = { attachment: [{ time: 0, name: blink.open }, ...times.flatMap(time => [{ time, name: blink.closed }, { time: time + blink.duration, name: blink.open }]), { time: duration, name: blink.open }] };
   }
-  data.animations ??= {}; data.animations[args.name] = { bones: tracks, ...(Object.keys(slots).length ? { slots } : {}) }; data.skeleton.fps = Math.max(Number(data.skeleton.fps ?? 30), args.fps); return data;
+  data.animations ??= {}; data.animations[args.name] = { bones: tracks, ...(Object.keys(slots).length ? { slots } : {}) }; data.skeleton.fps = Math.max(Number(data.skeleton.fps ?? 30), args.fps);
+  let result=data;
+  for(const [name,mix] of Object.entries(args.ikMix??{})){
+    const c=resolveConstraint(result,name,'ik');
+    result=setConstraintTimeline(result,args.name,name,'parameters',[{time:0,mix,softness:Number(c.softness??0),bendPositive:c.bendPositive??true,compress:c.compress??false,stretch:c.stretch??false}],'ik');
+  }
+  return result;
 }
 export async function buildPoseAnimation(service: SpineService, raw: z.input<typeof poseAnimationSchema>) {
   const args = poseAnimationSchema.parse(raw);

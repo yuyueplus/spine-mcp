@@ -1,0 +1,14 @@
+{
+  "skeleton": "./assets/skeleton.skel",
+  "atlas": "./assets/skeleton.atlas",
+  "renderer": "auto",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "frames": 450,
+  "warmup": 10,
+  "paced": true,
+  "msaa": 4,
+  "loop": true,
+  "mix": 0.2
+}

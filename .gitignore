@@ -17,3 +17,6 @@ mcp.json
 *.log
 
 .psd-runtime/
+native-renderer/.cache/
+native-renderer/build/
+native-renderer/output/

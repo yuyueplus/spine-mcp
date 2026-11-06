@@ -1,0 +1,7 @@
+# Runtime images need only the verified Linux deployment binaries and shaders.
+*
+!Dockerfile
+!build/
+!build/bin/
+!build/bin/Release/
+!build/bin/Release/**

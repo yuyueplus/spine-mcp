@@ -1,0 +1,30 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { randomUUID } from 'node:crypto';
+import { readFile, writeFile } from 'node:fs/promises';
+import { productFixture, productDefinition } from './product-fixture.js';
+import { createRigProfile } from '../src/product-rig.js';
+import { planMotionPack } from '../src/product-motion.js';
+import { saveCharacterRecipe, planCharacterRecipe, planCharacterRecipeSchema } from '../src/character-recipe.js';
+
+test('reviewable recipes reuse controls and motions but never PSD pins or prior approval', async () => {
+  const f = await productFixture();
+  const profile = await createRigProfile(f.service, { requestId: randomUUID(), input: f.input, name: 'rig', definition: productDefinition });
+  const plan = await planMotionPack(f.service, { input: f.input, profile: profile.profile, expectedSha256: profile.profileSha256, name: 'motion', driver: 'ik', motions: [{ preset: 'walk', name: 'new_walk' }], reviewVideo: false });
+  const saveArgs = { requestId: randomUUID(), name: 'Reusable live IK', plan: plan.plan, expectedSha256: plan.planSha256 };
+  const recipe = await saveCharacterRecipe(f.service, saveArgs);
+  assert.equal((await saveCharacterRecipe(f.service, saveArgs)).recipeSha256, recipe.recipeSha256);
+  assert.equal('psd' in recipe.construction, false);
+  assert.equal('expectedDataSha256' in recipe.construction, false);
+  assert.equal('landmarkConfirmation' in recipe.construction, false);
+  const next = await planCharacterRecipe(f.service, planCharacterRecipeSchema.parse({ input: f.input, name: 'Reuse', recipe: recipe.recipe, expectedSha256: recipe.recipeSha256, confirmation: 'recheck_landmarks_for_current_character', publication: { native: false, openInEditor: false } }));
+  assert.equal(next.landmarkReviewRequired, true);
+  assert.equal(next.inheritedVisualAcceptance, false);
+  assert.equal(next.args.construction.controls.length, 2);
+  assert.equal(next.args.construction.motions[0]!.name, 'new_walk');
+  assert.equal(next.dataSha256, plan.construction.expectedDataSha256);
+  const before = await readFile(f.input);
+  await writeFile(recipe.recipe, '{}');
+  await assert.rejects(planCharacterRecipe(f.service, { input: f.input, name: 'Bad', recipe: recipe.recipe, expectedSha256: recipe.recipeSha256, confirmation: 'recheck_landmarks_for_current_character' }), /changed/);
+  assert.deepEqual(await readFile(f.input), before);
+});

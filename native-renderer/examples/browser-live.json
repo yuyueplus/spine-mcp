@@ -1,0 +1,22 @@
+{
+  "directory": "../../work/browser-live",
+  "hubState": "../../work/live-room-hub/server.json",
+  "roomId": "11111111-1111-4111-8111-111111111111",
+  "srtPort": 19000,
+  "httpPort": 8088,
+  "durationSeconds": 3600,
+  "ffmpeg": "ffmpeg",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "clips": [
+    {
+      "animation": "idle",
+      "label": "待机"
+    },
+    {
+      "animation": "wave",
+      "label": "招手"
+    }
+  ]
+}

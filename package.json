@@ -1,6 +1,6 @@
 {
   "name": "spine-local-mcp",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "private": true,
   "description": "Local Spine 4.3.23 project and animation tools over MCP stdio",
   "type": "module",
@@ -74,7 +74,8 @@
     "smoke:production-motion-pack": "node dist/scripts/production-motion-pack-smoke.js",
     "smoke:psd-sections": "node dist/scripts/psd-section-smoke.js",
     "build:editor-bridge": "npm run build && node dist/scripts/build-native-editor-bridge.js",
-    "smoke:editor-bridge": "node dist/scripts/native-editor-bridge-smoke.js"
+    "smoke:editor-bridge": "node dist/scripts/native-editor-bridge-smoke.js",
+    "smoke:live-capabilities": "node dist/scripts/live-capabilities-smoke.js"
   },
   "dependencies": {
     "@esotericsoftware/spine-core": "4.3.13",

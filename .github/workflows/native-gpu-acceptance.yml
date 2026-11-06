@@ -1,0 +1,50 @@
+name: Native Linux GPU acceptance
+on:
+  workflow_dispatch:
+    inputs:
+      session:
+        description: Absolute licensed runtime session JSON on the GPU runner
+        required: true
+        type: string
+      hub:
+        description: Absolute trusted hub JSON with GPU slots and worker paths
+        required: true
+        type: string
+      rooms:
+        default: '1'
+        type: string
+      seconds:
+        default: '86400'
+        type: string
+permissions:
+  contents: read
+jobs:
+  gpu:
+    runs-on: [self-hosted, linux, x64, nvidia-gpu]
+    timeout-minutes: 1500
+    defaults:
+      run:
+        working-directory: native-renderer
+    env:
+      CGO_ENABLED: '1'
+      SESSION_JSON: ${{ inputs.session }}
+      HUB_JSON: ${{ inputs.hub }}
+      ROOM_COUNT: ${{ inputs.rooms }}
+      MEDIA_SECONDS: ${{ inputs.seconds }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23.3'
+          cache: false
+      - run: bash ./build.sh
+      - name: Actual Vulkan, NVENC, audio and concurrent soak
+        run: bash scripts/accept-gpu.sh "$SESSION_JSON" "$HUB_JSON" "$ROOM_COUNT" "$MEDIA_SECONDS" "${{ github.workspace }}/native-renderer/output/gpu-${{ github.run_id }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gpu-acceptance-${{ github.run_id }}
+          path: |
+            native-renderer/output/gpu-*/acceptance.json
+            native-renderer/output/gpu-*-smoke/*.log
+            native-renderer/output/gpu-*-smoke/probe.json

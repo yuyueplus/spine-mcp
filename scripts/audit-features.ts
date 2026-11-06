@@ -35,6 +35,7 @@ definitions['quality-smoke'] = [path.join(projectRoot, 'dist/scripts/quality-smo
 definitions['native-publication-smoke'] = [path.join(projectRoot, 'dist/scripts/native-publication-smoke.js')]; order.push('native-publication-smoke');
 definitions['preview-requests-smoke'] = [path.join(projectRoot, 'dist/scripts/preview-requests-smoke.js')]; order.push('preview-requests-smoke');
 for (const name of ['session-smoke', 'character-assistance-smoke', 'complex-project-smoke', 'session-lifecycle-smoke', 'maintenance-upgrade-smoke', 'character-pipeline-smoke', 'character-refinement-smoke', 'character-tasks-smoke', 'branch-contact-psd-smoke', 'construction-runtime-psd-smoke', 'visual-rig-deform-raster-smoke', 'unified-joint-smoke', 'seam-compatibility-smoke', 'production-character-smoke', 'product-workflow-smoke', 'production-motion-pack-smoke', 'psd-section-smoke']) { definitions[name] = [path.join(projectRoot, 'dist/scripts', `${name}.js`)]; order.push(name); }
+definitions['live-capabilities-smoke']=[path.join(projectRoot,'dist/scripts/live-capabilities-smoke.js')];order.push('live-capabilities-smoke');
 definitions['native-editor-bridge-smoke']=[path.join(projectRoot,'dist/scripts/native-editor-bridge-smoke.js')];order.push('native-editor-bridge-smoke');
 const only = value('--only')?.split(','); for (const name of only ?? []) if (!(name in definitions)) throw new Error(`Unknown suite: ${name}`);
 let persistence = Promise.resolve();

@@ -1,0 +1,41 @@
+name: Native renderer build
+on:
+  workflow_dispatch:
+  push:
+    paths: ['native-renderer/**', '.github/workflows/native-renderer.yml']
+  pull_request:
+    paths: ['native-renderer/**', '.github/workflows/native-renderer.yml']
+permissions:
+  contents: read
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, ubuntu-22.04, macos-14]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: native-renderer
+        shell: bash
+    env:
+      CGO_ENABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23.3'
+          cache: false
+      - name: Linux build dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y cmake build-essential libx11-dev libgl1-mesa-dev
+      - name: Unit checks
+        run: go test ./... && go vet ./...
+      - name: Build pinned native dependencies and Go worker
+        run: go run ./cmd/buildnative -jobs 4
+      - name: Package deployment files and notices
+        run: go run ./cmd/package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: spine-bgfx-${{ runner.os }}-${{ runner.arch }}
+          path: native-renderer/output/*.zip

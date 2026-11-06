@@ -2,7 +2,7 @@
 
 在后台读取和修改已保存的 Spine 工程，通过 stdio 向 Codex 等 MCP 客户端提供工具。文件编辑、骨骼姿态预览、CLI 导入导出和图集打包都不使用鼠标键盘，也不激活桌面窗口。显式调用编辑器打开功能时会启动窗口，可能改变焦点。
 
-当前版本 **3.1.0，共 229 个 MCP 工具**。涵盖工程预检、资源管理、关键帧编辑、跨工程复用、网格与蒙皮、动画质量、交付和检查点工作流。普通 JSON 编辑无需 CLI；原生工程工具通过本机 4.3.23 导入、重新导出核对后才发布新的 `.spine`。标准 MCP 客户端可按已注册的 `spine43` 启动新服务；已连接客户端可能仍持有旧进程或工具目录，需要重连。`npm run verify:registered` 验证新建连接，不表示已打开的对话已刷新。
+当前版本 **3.2.0，共 237 个 MCP 工具**。涵盖工程预检、资源管理、关键帧编辑、跨工程复用、网格与蒙皮、动画质量、交付和检查点工作流。普通 JSON 编辑无需 CLI；原生工程工具通过本机 4.3.23 导入、重新导出核对后才发布新的 `.spine`。标准 MCP 客户端可按已注册的 `spine43` 启动新服务；已连接客户端可能仍持有旧进程或工具目录，需要重连。`npm run verify:registered` 验证新建连接，不表示已打开的对话已刷新。
 
 ## 从 GitHub 安装
 
@@ -22,6 +22,23 @@ npm run doctor
 编辑器状态和原窗口重载只支持 `native-bridge/builds.json` 中固定哈希的构建及桥接启动方式，版本号相同不代表构建兼容。普通 JSON 文件处理不需要原生桥接。
 
 源码仓库保留测试、示例、第三方许可和自有桥接 JAR；个人配置、工作工程、依赖、编译目录及本机验收输出均不提交。`npm test` 运行单元测试；完整集成验证所需的本机工具和示例见下文“完整功能核对”。
+
+## 3.2.0 可编辑 IK 动作、制作配方和 GPU 直播
+
+本轮固定范围是制作能力四项与配套直播能力四项，不包含选配的 Spine4.2 输出、网页工作台、Cocos 扩展或样例知识库。仍面向 Spine4.3.23。旧工程可以读取；旧构建的不可变动作/制作计划需要在当前版本重新预检，不沿用旧的候选批准。
+
+- `spine_plan_motion_pack` 新增 `driver:"ik"`：从明确角色映射生成走、跑、跳等控制器轨道，复用独立、设置姿势 mix 为0或1、零柔度的二骨骼 IK，并仅在新动作中启用全混合，或创建默认关闭、仅在新动作启用的约束。原动作的 JSON 和实际姿态分别核对；不以“未改关键帧”代替姿态保留。FK 路径继续可用。
+- 动作配方共九类：idle、walk、run、jump、wave、turn、charge、attack、hit。每次最多八个动作；turn 是平面转动。新动作需要独立的视觉确认。IK 生成仍要求正向等比无剪切、独立目标及无物理交互；部分 mix/软 IK 的已有接触修复工具保持原范围，不能当作程序化动作生成已支持。
+- `spine_save_character_build_recipe` 保存准备、控制器和动作参数；`spine_plan_character_build_from_recipe` 在当前角色上复核，可显式覆盖关节、绑定、控制器和动作。PSD 计划、来源 SHA、旧任务回执和视觉通过记录不继承。原有 PSD→确认关节→后台制作→最终候选审核流程继续使用。
+- `spine_plan_live_room`、`spine_start_live_room`、`spine_get_live_room`、`spine_list_live_rooms`、`spine_control_live_room`、`spine_stop_live_room` 接入独立 Go/cgo 渲染服务。支持 GPU NV12、显式 NVENC/AMF H264、最多八轨本地音频混合、有限帧队列、显存预留、房间排队、重试、租期和进程树清理。启动受理不等于播放回执；控制是否应用须检查 lastResponse 的 ID/appliedAtFrame。
+
+图形输出仍有 CPU 读回；NV12 由 GPU 转换并打包，原始数据量为 RGBA 的37.5%，不是 GPU 编码零拷贝。硬件编码器先做真实一帧编码探测，失败会明确报错，不静默改用软件。SRT 必须在计划中显式开启 allowNetworkOutput；默认只写新本地文件。
+
+安装本机对应平台的 native-renderer 部署包后，可用 `npm run setup -- --output NEW.json --config OLD.json --native-dir NATIVE_PACKAGE_DIR` 生成配置。默认只声明一个本地 GPU 槽位、一路并发、1024MiB 预留预算，需按实机调整。多物理 GPU 使用明确 GPU UUID 的独立 Linux 容器槽位，不能仅设置 CUDA_VISIBLE_DEVICES 就声称 Vulkan 已隔离。详见 [渲染服务说明](native-renderer/README.md)。
+
+Windows AMD 与 Linux NVIDIA 实机验收分别记录。Linux 主机进程模式的 Vulkan/NVENC/AAC/SRT 和四路1080p60一分钟短测已通过；当前共享机的GPU隔离容器NVENC初始化失败，物理多卡与24小时长稳仍待验收。`native-renderer/scripts/accept-gpu.sh` 和手动触发的 self-hosted GPU workflow 提供颜色、真实NVENC、音频和持续并发验收入口，详情见渲染服务说明。数值/往返/视频文件通过不表示新动作已经获得用户自然度认可。
+
+本机浏览器观看示例已提供在 `native-renderer/examples/browser-live.py`，支持SRT→HLS、动作轮播及到期停止；配置和启动步骤见[渲染服务说明](native-renderer/README.md#本机浏览器直播示例)。浏览器连续解码通过与间歇闪动画质确认分开记录。
 
 ## 3.1.0 原生编辑器状态与可编辑工程重载
 

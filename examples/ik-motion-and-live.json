@@ -1,0 +1,56 @@
+{
+  "motionPack": {
+    "input": "character.json",
+    "profile": "rig-profiles/PROFILE.json",
+    "expectedSha256": "REPLACE_WITH_PROFILE_SHA256",
+    "name": "Editable IK pack",
+    "driver": "ik",
+    "ikPrefix": "MCP",
+    "motions": [
+      {
+        "preset": "walk",
+        "name": "walk_ik"
+      },
+      {
+        "preset": "run",
+        "name": "run_ik"
+      },
+      {
+        "preset": "jump",
+        "name": "jump_ik"
+      },
+      {
+        "preset": "attack",
+        "name": "attack_ik"
+      },
+      {
+        "preset": "hit",
+        "name": "hit_ik"
+      }
+    ]
+  },
+  "liveRoom": {
+    "skeleton": "runtime/skeleton.skel",
+    "atlas": "runtime/skeleton.atlas",
+    "output": "renders/new-room.mp4",
+    "animation": "walk_ik",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 300,
+    "pixelFormat": "nv12",
+    "codec": "h264_nvenc",
+    "bitrateKbps": 6000,
+    "audio": [
+      {
+        "file": "audio/music.wav",
+        "gain": 0.4,
+        "loop": true,
+        "offsetMs": 0
+      }
+    ],
+    "leaseSeconds": 600,
+    "allowNetworkOutput": false
+  },
+  "scope": "Spine4.3.23 only. Create a reviewed rig profile first. These are arguments for spine_plan_motion_pack and spine_plan_live_room; separate exact plan SHA/request IDs start durable jobs. Local output is new. Real hardware encoder/driver availability must be probed."
+}
