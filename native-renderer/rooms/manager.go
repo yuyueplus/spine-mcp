@@ -158,17 +158,25 @@ func active(s string) bool {
 	return s == "queued" || s == "starting" || s == "running" || s == "retrying" || s == "stopping"
 }
 func within(root, path string, newFile bool) (string, error) {
+	rootAbs, err := filepath.Abs(root)
+	if err != nil {
+		return "", err
+	}
+	canonicalRoot, err := filepath.EvalSymlinks(rootAbs)
+	if err != nil {
+		return "", err
+	}
 	a, err := filepath.Abs(path)
 	if err != nil {
 		return "", err
 	}
 	check := a
-	if newFile {
-		check = filepath.Dir(a)
-	}
 	for {
 		if _, err = os.Stat(check); err == nil {
 			break
+		}
+		if !newFile || !errors.Is(err, os.ErrNotExist) {
+			return "", err
 		}
 		p := filepath.Dir(check)
 		if p == check {
@@ -180,9 +188,12 @@ func within(root, path string, newFile bool) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	rel, err := filepath.Rel(root, resolved)
-	lexical, e := filepath.Rel(root, a)
-	if err != nil || e != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) || lexical == ".." || strings.HasPrefix(lexical, ".."+string(os.PathSeparator)) {
+	suffix, err := filepath.Rel(check, a)
+	if err != nil {
+		return "", err
+	}
+	rel, err := filepath.Rel(canonicalRoot, filepath.Join(resolved, suffix))
+	if err != nil || rel == ".." || strings.HasPrefix(rel, ".."+string(os.PathSeparator)) || filepath.IsAbs(rel) {
 		return "", errors.New("path escapes configured workspace")
 	}
 	return a, nil
