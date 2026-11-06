@@ -10,7 +10,8 @@
         "MCP preflight/bake/contact audit",
         "Shared-state camera-view audit"
       ],
-      "acceptance": "Real gravity, rails and circle contacts; original clips preserved; native editable output roundtrip; no per-frame pose snapping."
+      "acceptance": "Real gravity, rails and circle contacts; original clips preserved; native editable output roundtrip; no per-frame pose snapping.",
+      "status": "implemented_and_locally_verified"
     },
     {
       "id": "visual",
@@ -19,7 +20,8 @@
         "Shared-camera pixel comparison and explicit masks",
         "Difference/contact evidence"
       ],
-      "acceptance": "Unchanged output passes; deliberate drift fails; camera/resource/baseline drift is reported."
+      "acceptance": "Unchanged output passes; deliberate drift fails; camera/resource/baseline drift is reported.",
+      "status": "implemented_and_locally_verified"
     },
     {
       "id": "editor",
@@ -28,7 +30,8 @@
         "Real state/readback receipts",
         "Build compatibility and incremental-edit feasibility report"
       ],
-      "acceptance": "No injected input or focus activation; model/undo unchanged by view controls. Unsupported builds and incremental undo operations remain explicit rather than emulated."
+      "acceptance": "No injected input or focus activation; model/undo unchanged by view controls. Unsupported builds and incremental undo operations remain explicit rather than emulated.",
+      "status": "implemented_with_explicit_external_limits"
     },
     {
       "id": "characters",
@@ -36,7 +39,8 @@
         "Explicit arbitrary multi-bone chain contact baking",
         "Bounded complex PSD compatibility/import improvements"
       ],
-      "acceptance": "Non-humanoid chains supported by explicit landmarks; unreachable targets rejected; original source bytes preserved; unsupported PSD semantics reported."
+      "acceptance": "Non-humanoid chains supported by explicit landmarks; unreachable targets rejected; original source bytes preserved; unsupported PSD semantics reported.",
+      "status": "implemented_and_locally_verified"
     },
     {
       "id": "choreography",
@@ -44,7 +48,8 @@
         "Sampled crossfade sequences",
         "Prop/hand contact handoff on explicit bone branches"
       ],
-      "acceptance": "New editable clip; source clips and references preserved; contact error and transition diagnostics returned."
+      "acceptance": "New editable clip; source clips and references preserved; contact error and transition diagnostics returned.",
+      "status": "implemented_and_locally_verified"
     },
     {
       "id": "delivery",
@@ -53,7 +58,8 @@
         "Engine-neutral integration manifest and adapters",
         "Portable release installers"
       ],
-      "acceptance": "No version-label-only conversion; unrepresentable data rejects; real target-runtime playback and sampled pose comparisons."
+      "acceptance": "No version-label-only conversion; unrepresentable data rejects; real target-runtime playback and sampled pose comparisons.",
+      "status": "implemented_with_explicit_external_limits"
     },
     {
       "id": "deployment",
@@ -62,9 +68,11 @@
         "Reconnectable persistent bounded/24h soak entrypoints",
         "Linux GPU/container diagnosis and release evidence"
       ],
-      "acceptance": "Hardware modes pass only with real receipts. Missing physical GPUs/macOS/24h elapsed time cannot be marked passed. A terminated continuous-soak process requires a NEW run; interrupted fragments are never added into a 24h pass."
+      "acceptance": "Hardware modes pass only with real receipts. Missing physical GPUs/macOS/24h elapsed time cannot be marked passed. A terminated continuous-soak process requires a NEW run; interrupted fragments are never added into a 24h pass.",
+      "status": "implemented_with_explicit_external_limits"
     }
   ],
   "sourceProtection": "All authoring outputs are NEW; plans pin source/resource hashes. Remote database and Redis access remains read-only.",
-  "status": "in_progress"
+  "status": "local_implementation_verified_external_acceptance_pending",
+  "evidence": "VERIFICATION.json"
 }

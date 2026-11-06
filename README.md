@@ -48,6 +48,8 @@ PSD新增格式只适用于 section 提取路径：默认拒绝 PSB、16位转�
 
 发行目录提供 `Install.ps1`、`Install.sh` 和逐文件哈希校验器。Windows作者工具已在本机验收；Linux的原生渲染/通用物理单独记录。新增 Windows/Linux/macOS CI入口不等于这些平台已完成 GPU 或原生编辑器验收。24小时、多卡、macOS GPU 和隔离容器 NVENC 必须保留实机通过记录。
 
+本轮封存结果：830项单元测试、55组完整集成审计、252个工具实际调用通过；Windows/Ubuntu/macOS ARM64与Intel的单元测试和原生包CI均通过。Windows中文空格路径与Linux全新安装通过。完整范围、来源哈希和未通过项见 `VERIFICATION.json`。24小时、macOS GPU、隔离容器NVENC及目标Unity/Cocos编辑器不计入已通过范围。
+
 ## 3.2.0 可编辑 IK 动作、制作配方和 GPU 直播
 
 本轮固定范围是制作能力四项与配套直播能力四项，不包含选配的 Spine4.2 输出、网页工作台、Cocos 扩展或样例知识库。仍面向 Spine4.3.23。旧工程可以读取；旧构建的不可变动作/制作计划需要在当前版本重新预检，不沿用旧的候选批准。

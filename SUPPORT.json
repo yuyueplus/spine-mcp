@@ -964,16 +964,26 @@
   },
   "releaseVerification": {
     "version": "3.3.0",
-    "unitTests": 797,
-    "integrationSuites": 53,
-    "successfulTools": 229,
-    "coreSha256": "02b968db26aa042165dd8053c8965761e99da0afad362c2779ec4adff993d31a",
+    "unitTests": 830,
+    "integrationSuites": 55,
+    "successfulTools": 252,
+    "coreSha256": "b57e8ba831393c7b414589487a37c1eaac947776605b8b122bdf3c9acc2bb8ae",
     "report": "VERIFICATION.json",
     "implementedBoundedPlanItems": 28,
     "upstreamBlockedItems": [],
     "allRequestedOutcomesAchieved": false,
     "nativeScope": "NEW startup-bridge windows on the pinned installed Spine 4.3.23 build only. No active attachment to ordinary windows. Reload refuses unsaved/stale/busy states; writes a NEW verified sibling recovery file; preserves supported view state; resets native undo history. No mouse/keyboard injection or window-activation command.",
-    "scope": "See current sealed evidence; hardware/24h/engine-editor and incremental-edit limitations remain explicit."
+    "scope": "See current sealed evidence; hardware/24h/engine-editor and incremental-edit limitations remain explicit.",
+    "portableInstallersVerified": [
+      "Windows PowerShell (Unicode and spaces)",
+      "Linux POSIX shell"
+    ],
+    "platformCiPassed": [
+      "windows-2022",
+      "ubuntu-22.04",
+      "macos-15 ARM64",
+      "macos-15 Intel"
+    ]
   },
   "nativeEditorBridge": {
     "version": "3.3.0",
@@ -1028,14 +1038,16 @@
       "explicitTargets": true,
       "interactingConstraintsSupported": false,
       "maxSeconds": 60,
-      "continuousProof": false
+      "continuousProof": false,
+      "verticalCollinearBendSeedVerified": true
     },
     "motionSequence": {
       "officialAnimationState": true,
       "crossfade": true,
       "propLeafBoneHandoff": true,
       "maxSeconds": 60,
-      "originalClipsPreserved": true
+      "originalClipsPreserved": true,
+      "preservesPropReflectionAndShear": true
     },
     "psdSections": {
       "formats": [
@@ -1067,7 +1079,8 @@
       "cooperativeStop": true,
       "maximumSeconds": 86400,
       "explicitDiskBudget": true,
-      "runningIsNotPassed": true
+      "runningIsNotPassed": true,
+      "diskBudget": "Preflight estimate and periodic observed-output guard; buffered writes may exceed the threshold before cooperative stop."
     }
   }
 }

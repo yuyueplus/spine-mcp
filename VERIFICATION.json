@@ -1,637 +1,677 @@
 {
-  "schema": "spine-source-verification/3.2",
-  "version": "3.2.0",
+  "schema": "spine-source-verification/3.3",
+  "version": "3.3.0",
   "targetVersion": "4.3.23",
-  "tools": 237,
-  "createdAt": "2026-11-06T06:10:12.780706+00:00",
-  "scope": "Source publication. Authoring MCP/bridge acceptance is Windows-specific; Linux evidence covers the native rendering worker and room manager. Windows AMF periodic macroblocking passed controlled regression and user visual confirmation. Newly reported intermittent playback stutter is under investigation. GPU-isolated Docker NVENC, physical multi-GPU, 24-hour soak and macOS GPU acceptance remain open.",
+  "tools": 252,
+  "createdAt": "2026-11-06T21:47:30.111Z",
+  "scope": "Current frozen-source Windows authoring/bridge/native acceptance. Linux generic physics, GPU rendering and encoding are recorded separately. No implication of 4.2 editor, Unity/Cocos editor, unlisted native builds, 24h or macOS GPU acceptance.",
   "coreFiles": [
     {
-      "path": "src/acceptance.ts",
+      "path": "src\\acceptance.ts",
       "sha256": "18c487d5a131614c9cb63e2397b00418600663b0ae337174ca3c893a181d41f4"
     },
     {
-      "path": "src/advanced-animation.ts",
+      "path": "src\\advanced-animation.ts",
       "sha256": "25decb72fe5729c665bec6bae2306714e4234da596fd1c590c2b1211038baa84"
     },
     {
-      "path": "src/alpha-geometry.ts",
+      "path": "src\\alpha-geometry.ts",
       "sha256": "ab41f6ecc7ee6d6b8e473375c77cf8c0d0ed76ee4a58c7c6ff19f6ecd5c7427c"
     },
     {
-      "path": "src/animated-seams.ts",
+      "path": "src\\animated-seams.ts",
       "sha256": "9e437df970976628538352883ea777423f6466ae1d304867327c2af50adb6d3d"
     },
     {
-      "path": "src/animation-audit.ts",
+      "path": "src\\animation-audit.ts",
       "sha256": "04134b7b74838da69afe90367eadddf2ce9795a4895cdff21a63153e399dda8a"
     },
     {
-      "path": "src/animation-baking.ts",
+      "path": "src\\animation-baking.ts",
       "sha256": "fb0f072375acb5751bffd96df9a97e0d4071227fef5a83430441fe2a49f097df"
     },
     {
-      "path": "src/animation-data.ts",
+      "path": "src\\animation-data.ts",
       "sha256": "b658399a053ffcce84a91ea9c4b56248fe0eca3232f0302556821df7c2c52d97"
     },
     {
-      "path": "src/animation-edits.ts",
+      "path": "src\\animation-edits.ts",
       "sha256": "dcb56b290c7d3b9f2ebc0c204d269a4365fcef06abc394fa62c407719c1eb895"
     },
     {
-      "path": "src/animation-layers.ts",
+      "path": "src\\animation-layers.ts",
       "sha256": "2672c8eff6387cc434b9a42d0d7835f896ef9e496dea12a64aa214d84f9edf87"
     },
     {
-      "path": "src/animation-quality.ts",
+      "path": "src\\animation-quality.ts",
       "sha256": "3e29693bc0acc68d99b548599a7310b2f3aae925494fb0294d676ab4544708d3"
     },
     {
-      "path": "src/animation-repair.ts",
+      "path": "src\\animation-repair.ts",
       "sha256": "5ad5f9cf07febf692857f6a70e83b84358b5ada8f329bde6b08716219c1cee0b"
     },
     {
-      "path": "src/animation-sampler.ts",
+      "path": "src\\animation-sampler.ts",
       "sha256": "b190beed1fa07925d535887773906d0f86dc007836caa3b7f949c8b160e555bb"
     },
     {
-      "path": "src/archive-maintenance.ts",
+      "path": "src\\archive-maintenance.ts",
       "sha256": "00d46ab6a50301d17ad050e63ad0fabe28142f9e7e26b0269687c6e4f7076108"
     },
     {
-      "path": "src/artwork-preview.ts",
+      "path": "src\\artwork-preview.ts",
       "sha256": "450762ecfff92a5e350e273c7ae4ffdd207fa260b311619bfede71c6a4b99e9b"
     },
     {
-      "path": "src/attachment-data.ts",
+      "path": "src\\attachment-data.ts",
       "sha256": "4882227dbbc6d2dc78b5b4d29538cb36fe802bb9e8dba4cf6976d827abc4ee20"
     },
     {
-      "path": "src/attachment-reuse.ts",
+      "path": "src\\attachment-reuse.ts",
       "sha256": "d4dc68fca00ff135e9cde6d78854bcb5a481debe27d05833df0276eedb496f50"
     },
     {
-      "path": "src/audit-schema.ts",
+      "path": "src\\audit-schema.ts",
       "sha256": "2e094a01c2d62aad9f3387ed27923602fb3f2bd8492462a4d1f6c1c1b4ac6bc9"
     },
     {
-      "path": "src/audit-visibility.ts",
+      "path": "src\\audit-visibility.ts",
       "sha256": "77f148dd2170f0394b0f9412b51cae681966fcd4c52415a19b8216b22b269e9f"
     },
     {
-      "path": "src/batch-image-replacement.ts",
+      "path": "src\\batch-image-replacement.ts",
       "sha256": "0bb3c97ad4d8a431710440790d52e0b8ac5b810f3728b27601af3872624bf83f"
     },
     {
-      "path": "src/binary-geometry.ts",
+      "path": "src\\binary-geometry.ts",
       "sha256": "d0c8076a34cdf6dc7484502acfeb56307d23d7085a059999c4fc1600551c07d1"
     },
     {
-      "path": "src/character-assistance.ts",
+      "path": "src\\chain-contact.ts",
+      "sha256": "7dbe8b506a173ea962970582df5c067685847817b002891e8724fad23d268ff1"
+    },
+    {
+      "path": "src\\character-assistance.ts",
       "sha256": "5558e25348f312dafe9befc5b1b6ae7c42b9ebd5d9d2ae6949d6535c50298547"
     },
     {
-      "path": "src/character-build.ts",
+      "path": "src\\character-build.ts",
       "sha256": "ba209c29a24cef3e6389b4cf9efe0da8ad131c0a5d57caa7fe21160c31539c82"
     },
     {
-      "path": "src/character-candidates.ts",
-      "sha256": "f90ac30dd00adff61e99847a5353c220754aa34aeeaa6dc784a24de064dec896"
+      "path": "src\\character-candidates.ts",
+      "sha256": "62420c0e3e9d8f4e6af517b61b0bf0b4ba0bdba4fed3565ee3fa18b38915ecf8"
     },
     {
-      "path": "src/character-construction.ts",
+      "path": "src\\character-construction.ts",
       "sha256": "606513098dbeadb50ce08046736b0826f2e27ecdfd4d5c4efbfd66a13f54995b"
     },
     {
-      "path": "src/character-pipeline-server.ts",
+      "path": "src\\character-pipeline-server.ts",
       "sha256": "650c3402872df55264aaf89f4d394461f444384731d81c856072478641821dc3"
     },
     {
-      "path": "src/character-recipe.ts",
+      "path": "src\\character-recipe.ts",
       "sha256": "2fb1be3fd45410797aa67488a5f03eb9b29afe5d44f395d8fc1eb2f3200a5c15"
     },
     {
-      "path": "src/character-task-branch.ts",
+      "path": "src\\character-task-branch.ts",
       "sha256": "b91a6f8110ce369bcd36bac134782635a7634bf8278fd7ea97fc2de8780e3406"
     },
     {
-      "path": "src/character-task.ts",
+      "path": "src\\character-task.ts",
       "sha256": "6e622b166984b2f7f87e3c0112c9bf9db41970cf51811d4c34e48e827f57b177"
     },
     {
-      "path": "src/character-template.ts",
+      "path": "src\\character-template.ts",
       "sha256": "27dbf5877bfbcf9d0e91294e11759d599f5063395af74b7df1692453d6a1d7ac"
     },
     {
-      "path": "src/character-workflow.ts",
+      "path": "src\\character-workflow.ts",
       "sha256": "c2272a45934c9c2fbe4149eed6053f7cae93ab00cecf9b64605212f1ddebbfdd"
     },
     {
-      "path": "src/cli.ts",
+      "path": "src\\cli.ts",
       "sha256": "8bdd9bc0668c3183e8f1438be5995222cd7b7e2a005b654295143004526d8b78"
     },
     {
-      "path": "src/clipping-bake.ts",
+      "path": "src\\clipping-bake.ts",
       "sha256": "633dac6a827691e04c6c8a6dfe90b801dbe08c8a0ba106ae8423a1263074dfcf"
     },
     {
-      "path": "src/config.ts",
-      "sha256": "b0c1f4eb02c0b3741bdb175b51570361eb6a30ee47edaa42a7d0acb8afa53e4b"
+      "path": "src\\config.ts",
+      "sha256": "6d8a23f33697f1c685fc705d4f3a8eff66c29065659af0b0655977a731de22c5"
     },
     {
-      "path": "src/constrained-repair.ts",
+      "path": "src\\constrained-repair.ts",
       "sha256": "bda29cee1048b4007646b4b97c409241044ff756a38f7b3d5c550df9216dfed7"
     },
     {
-      "path": "src/constraint-data.ts",
+      "path": "src\\constraint-data.ts",
       "sha256": "ecb004033dce8b68a44e77cc968db72484b4070897879f77510b3a75b1d7b92a"
     },
     {
-      "path": "src/constraint-edits.ts",
+      "path": "src\\constraint-edits.ts",
       "sha256": "937c8b6d537191d975b6444af4b1956db1d7155829c085b48c0d1845d8c5d49d"
     },
     {
-      "path": "src/curve-equivalence.ts",
+      "path": "src\\curve-equivalence.ts",
       "sha256": "f043bff649546bee756c55ddfd806249fad4ded2725479bfdc744e5d85cb30cd"
     },
     {
-      "path": "src/demo.ts",
+      "path": "src\\demo.ts",
       "sha256": "02ce4e845d55a3adb08fa91b7091562ef5c26b3c16043b3b90a22953b2d7e984"
     },
     {
-      "path": "src/document.ts",
+      "path": "src\\document.ts",
       "sha256": "cda40f3fd6cc7192d438baad2b8cd35e00488f42c4e6cf122c0efa5cee78c25c"
     },
     {
-      "path": "src/draw-order-compilation.ts",
+      "path": "src\\draw-order-compilation.ts",
       "sha256": "4e41fa71fef0d508710a3b9a820e9e2a6c535aa66f7b72b4a32a82adf8bb7c13"
     },
     {
-      "path": "src/editor-project.ts",
+      "path": "src\\editor-project.ts",
       "sha256": "412fb590afebbb1a782adf7976e3a7862c9c040e517ade09cf80f0fb4cca6e40"
     },
     {
-      "path": "src/editor-server.ts",
-      "sha256": "8806a4178530b616c436429c9d81defcf285aea370e8578da93e8a274e0c1019"
+      "path": "src\\editor-server.ts",
+      "sha256": "e37c57770449564bb38ac08883677698ec8d924b4279fa4e7a111123e98006ef"
     },
     {
-      "path": "src/editor.ts",
+      "path": "src\\editor.ts",
       "sha256": "eadd077d86dd5359c1769e6e8f3e069ab1b7fafa4faaf5e9ca88f8fa3f8bdf36"
     },
     {
-      "path": "src/edits.ts",
+      "path": "src\\edits.ts",
       "sha256": "8cd1013dba9008409299b0629064584554d051c25a288a97ef15303931159149"
     },
     {
-      "path": "src/environment.ts",
+      "path": "src\\environment.ts",
       "sha256": "2ca21faee8cb30338ddca3e7c5d8be58061a26686c5dba92c2b8609682ff7ecc"
     },
     {
-      "path": "src/file-hash.ts",
+      "path": "src\\extension-names.ts",
+      "sha256": "c9b23edb82bbc3748fad6cb10ecf5cbb4d31e4970cbf6357faec411bb66b3406"
+    },
+    {
+      "path": "src\\extensions-server.ts",
+      "sha256": "d836755d9d26d1d23e03f8f552719e37d900f392cc1dccb272c8f1efd9cf0de5"
+    },
+    {
+      "path": "src\\file-hash.ts",
       "sha256": "e8e2fb56234e81dcab635aa7013500637bf4cf5a26de3b7b73c47c1703da52d0"
     },
     {
-      "path": "src/file-replace.ts",
+      "path": "src\\file-replace.ts",
       "sha256": "f2d3af0299e087b55f9bb3ab6713b416ef53bc293007334556dd6620b408e8c8"
     },
     {
-      "path": "src/foot-contacts.ts",
+      "path": "src\\foot-contacts.ts",
       "sha256": "9351684c01c168da878b8faa8f2d187d35fc174f92980dfd4d8588197a8027c1"
     },
     {
-      "path": "src/frames.ts",
+      "path": "src\\frames.ts",
       "sha256": "3d5428c2dc3e6c48695515015beb36c9a82b42d7e4c2c3b83c55104d829f5aaf"
     },
     {
-      "path": "src/geometry-edits.ts",
+      "path": "src\\geometry-edits.ts",
       "sha256": "0627c0946df2dcdc4eef864c1eeeebb283675dae170a7614412cd7142db37f47"
     },
     {
-      "path": "src/geometry-verification.ts",
+      "path": "src\\geometry-verification.ts",
       "sha256": "83af37e1e723b4eeff91c24863dd3b12b04e02e9a9db65553ecb22d8c7030c9a"
     },
     {
-      "path": "src/ik-contact-repair.ts",
+      "path": "src\\ik-contact-repair.ts",
       "sha256": "bf85027eb149bed15a8e435edb64fb42d4dc7693acb6e7d59cf918aaa6e6c0e7"
     },
     {
-      "path": "src/ik-motion.ts",
+      "path": "src\\ik-motion.ts",
       "sha256": "94f5ad5f2c636b11c14e739d1260a166f8c74f46f7a187a2f2d7018920a60d8d"
     },
     {
-      "path": "src/ik-target-repair.ts",
+      "path": "src\\ik-target-repair.ts",
       "sha256": "79ac3a2d752d54c6f89329cacf2c9e02d01c9590dec2ad7ef628e29e2388af5e"
     },
     {
-      "path": "src/image-assets.ts",
+      "path": "src\\image-assets.ts",
       "sha256": "c7331f28a68b67108d1afdedaaa71507f17d2bdfec757dafb3336553e44cf22a"
     },
     {
-      "path": "src/image-replacement.ts",
+      "path": "src\\image-replacement.ts",
       "sha256": "1976d15b40b292e6c48bcb4dc6d40733ab15a423297fb29b1607080e4e5404da"
     },
     {
-      "path": "src/import-audio.ts",
+      "path": "src\\import-audio.ts",
       "sha256": "6e8d99bb5d0704aab975859d73b1ab845d217aa7080c3a92f8364304bc9de861"
     },
     {
-      "path": "src/import-order.ts",
+      "path": "src\\import-order.ts",
       "sha256": "44ac26ada7f944b003a8e534991c4dac13619812dcc93b3579549e6df9d57cbf"
     },
     {
-      "path": "src/import-timing.ts",
+      "path": "src\\import-timing.ts",
       "sha256": "6840b2892a12f54eb77a367071c3526bad2ffd0140e029bf1bf5cf750c28f032"
     },
     {
-      "path": "src/index.ts",
+      "path": "src\\index.ts",
       "sha256": "f40cf73f7137bf8e793e79638e952cff63d00154f208601267ad4e9f79247267"
     },
     {
-      "path": "src/job-schema.ts",
+      "path": "src\\job-schema.ts",
       "sha256": "bb54b1a55b3316407be3e4aff53c544de3dd40aa527027accdbb341d347d11dc"
     },
     {
-      "path": "src/job-worker.ts",
+      "path": "src\\job-worker.ts",
       "sha256": "3f91ab2959fe00d3fc8215be6798efd87209c2a80d12e460c40dea473bdd2790"
     },
     {
-      "path": "src/jobs.ts",
+      "path": "src\\jobs.ts",
       "sha256": "d687a50e8dcf4d04ec0dc26ef0ff73b0365f31333c377f96cfb95a6e2060a638"
     },
     {
-      "path": "src/joint-mesh-compatibility.ts",
+      "path": "src\\joint-mesh-compatibility.ts",
       "sha256": "88279fc3843050986ddb8ac6d2c18eed9e80df36cc985838fa0ac61ec3918c7b"
     },
     {
-      "path": "src/joint-mesh-repair.ts",
+      "path": "src\\joint-mesh-repair.ts",
       "sha256": "52e4ce18d98bbd3278672132887ab363a3e6b60bccfc3d04cc3a4a0d7ef7066e"
     },
     {
-      "path": "src/json.ts",
+      "path": "src\\json.ts",
       "sha256": "6a096f35891328460404dd1bf1b6529805977ee579887dd952c5b0edb74fd8f7"
     },
     {
-      "path": "src/launcher-discovery.ts",
+      "path": "src\\launcher-discovery.ts",
       "sha256": "4ce79949cdd63a33e51715d9bc06f1b49ae0e24616a21a006b370edfbda3e2fd"
     },
     {
-      "path": "src/layer-handoff.ts",
+      "path": "src\\layer-handoff.ts",
       "sha256": "2fd354e98958c1e489889587668aabdc6c1960ab7ce113d57ca589635adaa73c"
     },
     {
-      "path": "src/live-rooms.ts",
+      "path": "src\\live-rooms.ts",
       "sha256": "37b3f108dc34aedbdf3b5c218f768c747919f7b47daf894d726ce533a1233bf8"
     },
     {
-      "path": "src/mcp-client.ts",
+      "path": "src\\mcp-client.ts",
       "sha256": "3633790f7c5ed2332ad370d39a58af8569e1cdae9894c0344819d6dc0ea9e8a7"
     },
     {
-      "path": "src/media-sampling.ts",
+      "path": "src\\media-sampling.ts",
       "sha256": "267592ba6031ee7fb5a65dd37880115a9a52283e144762a9d9e07325e1c31451"
     },
     {
-      "path": "src/media.ts",
+      "path": "src\\media.ts",
       "sha256": "2ff7678bef0e09e8594af6ac650dd3f67beaf921ca1628fbf4c24e7de5b77b15"
     },
     {
-      "path": "src/mesh-deform-repair.ts",
+      "path": "src\\mesh-deform-repair.ts",
       "sha256": "26e2f163d374517f7b2a128c916f15f08e9c0bb8a0797a0d5aaca286ed31db86"
     },
     {
-      "path": "src/mesh-edits.ts",
+      "path": "src\\mesh-edits.ts",
       "sha256": "a6e5e5d82844c2eb58103f1dee4c08367174c28d54acd64e02f20584e8b6e200"
     },
     {
-      "path": "src/mesh-generation.ts",
+      "path": "src\\mesh-generation.ts",
       "sha256": "c4350cf3d2bff0f47b317faf3c039d0e9416e7a31c6fe2085fbda7b97e06f986"
     },
     {
-      "path": "src/mesh-seam-schema.ts",
+      "path": "src\\mesh-seam-schema.ts",
       "sha256": "c29cf6b08fb61d4cdc0a0fcb77eccad0970904099a6bd41194379b04a42f9297"
     },
     {
-      "path": "src/mesh-seams.ts",
+      "path": "src\\mesh-seams.ts",
       "sha256": "35c5c7b081505e336c3a580b882b5f7541497a06934c8850ff6c2e03d123d3ac"
     },
     {
-      "path": "src/multi-project.ts",
+      "path": "src\\motion-sequence.ts",
+      "sha256": "537d588aa14086bb6b9bbe6388cd4ac9ff90cc44b2bb445f62b26d36235ebc57"
+    },
+    {
+      "path": "src\\multi-project.ts",
       "sha256": "65dd5574a61af54c45ba9ae594a436eed9390c98aa0dd5f1ee332f398e7364cb"
     },
     {
-      "path": "src/native-compatibility.ts",
+      "path": "src\\native-acceptance-worker.ts",
+      "sha256": "3ca6b649670bff3069da77ce63de77cacb1cfb8d0f95df52cab253a73bfb8715"
+    },
+    {
+      "path": "src\\native-acceptance.ts",
+      "sha256": "d59a7f11c8696fd7ac44e9305c7a16022dc78fd894a415754bedb1e487fc35ab"
+    },
+    {
+      "path": "src\\native-compatibility.ts",
       "sha256": "10aa5426156d20b640b208b09bc369e67d6c4be474fd308cac42dc9ea93390ec"
     },
     {
-      "path": "src/native-editor-bridge.ts",
-      "sha256": "3f8cf9cc092d502fdb52daa20ae70fa8cce56e8672e3dea20be74258b6fb009e"
+      "path": "src\\native-editor-bridge.ts",
+      "sha256": "79c11bb0bfde7d125168164a4322285e54204325d0316e1f68597064ff64b34a"
     },
     {
-      "path": "src/native-playback.ts",
+      "path": "src\\native-playback.ts",
       "sha256": "ce265acf00f77965eade1f8a78f08c407e8c078a7ee5390bd50d34b72069005e"
     },
     {
-      "path": "src/native-png.ts",
+      "path": "src\\native-png.ts",
       "sha256": "37236cc67e5ec4e932bb9c34dbd86475f7c2b979a7c6cbf075f56397ddaad60b"
     },
     {
-      "path": "src/native-preview-server.ts",
+      "path": "src\\native-preview-server.ts",
       "sha256": "100d0f0f4ed60450f2556d8383676b91dd523ec346f791d331e011a0fa6903cf"
     },
     {
-      "path": "src/native-preview-supervision.ts",
+      "path": "src\\native-preview-supervision.ts",
       "sha256": "457d49e7d3c09cee430e750017da049755c38782d787db745ea0a4e32b2ab164"
     },
     {
-      "path": "src/native-preview-supervisor.ts",
+      "path": "src\\native-preview-supervisor.ts",
       "sha256": "9912fd54c671a89b0660a33d836cd3dfabf4b5f1d40f09d4e5489e1c8cd792d5"
     },
     {
-      "path": "src/native-preview-wait.ts",
+      "path": "src\\native-preview-wait.ts",
       "sha256": "a334caa62c0180f1ddb5ba47b0068a47934a3b3348ffa4f1aab31fbfd154eef1"
     },
     {
-      "path": "src/native-preview-worker.ts",
+      "path": "src\\native-preview-worker.ts",
       "sha256": "92b4d1689aa2c851d61caef557c43397cee7e11f406c069ad1b8bccd6837b552"
     },
     {
-      "path": "src/native-preview.ts",
+      "path": "src\\native-preview.ts",
       "sha256": "0a0c104e41cc207e9d292be057cccde0de36b759aba67318e506cfce32b09175"
     },
     {
-      "path": "src/native-sequence.ts",
+      "path": "src\\native-sequence.ts",
       "sha256": "85a2e0b6b7f25fa3e38b2d130fe75e1bf5c88aef8a955414bc4ec057f464918c"
     },
     {
-      "path": "src/original-archive.ts",
+      "path": "src\\original-archive.ts",
       "sha256": "69d81338ef638cf95e6453f2ca4a56509dc04bd744afc77eb3d95dee3b32c76e"
     },
     {
-      "path": "src/pngjs.d.ts",
+      "path": "src\\physics-tools.ts",
+      "sha256": "6d56c8de389de086d2f82155104eeddfe5992e1f23a48f25d4cceb18ec6b04df"
+    },
+    {
+      "path": "src\\pngjs.d.ts",
       "sha256": "b24ee185e303382b8f05fe63098b4dbde7965fcc8b7f60c3245d473b88392160"
     },
     {
-      "path": "src/preview-requests.ts",
+      "path": "src\\preview-requests.ts",
       "sha256": "db8829e0ca4c3acfd1f1c6f65087dd01271bcb3e39d21020c12b91c12ffe18c8"
     },
     {
-      "path": "src/preview.ts",
+      "path": "src\\preview.ts",
       "sha256": "5201167e8d9b697f8091a4bfbe5fc7ba4e19faf9ce87a045f175e2183b1522db"
     },
     {
-      "path": "src/product-catalog.ts",
-      "sha256": "664ea6a606f504c3bc9d5ec681d4c0d44b1852e504ecace008bcdeb3052555e6"
+      "path": "src\\product-catalog.ts",
+      "sha256": "6a9e8f53c0f48000b5763248c29851c0ac4d3e7946d43712f428e40f0867c054"
     },
     {
-      "path": "src/product-diagnostics.ts",
+      "path": "src\\product-diagnostics.ts",
       "sha256": "d46aeb4920a8947cfde4f7ea0d55e48055575fb2886c3a558c5e7cecca717b8f"
     },
     {
-      "path": "src/product-guards.ts",
+      "path": "src\\product-guards.ts",
       "sha256": "2c914165ef32875e26e7f4995a7a29612cdcfe7b8fcd2ff0fffd22fa17336c70"
     },
     {
-      "path": "src/product-materials.ts",
+      "path": "src\\product-materials.ts",
       "sha256": "3e52a72f57026795dd6deb5e1554302e9c2aa2fe9fc962e17b777fe92daecdb0"
     },
     {
-      "path": "src/product-motion.ts",
+      "path": "src\\product-motion.ts",
       "sha256": "e9c50c4fd422fdbf990602a327cebb14a34e85828012fb9d07df98fee9f5f526"
     },
     {
-      "path": "src/product-psd-sections.ts",
-      "sha256": "b64c46803a5a7e1531a11f36b31e3d740e14b94735ead4cb262e7227f66705b6"
+      "path": "src\\product-psd-sections.ts",
+      "sha256": "d0ffcbf906918c6265ecfc2cf1e3779b9379118eddf16faf75c4b93aa74f8685"
     },
     {
-      "path": "src/product-quality.ts",
+      "path": "src\\product-quality.ts",
       "sha256": "7e6cfba727e9194e3ccfac9515f8ee44ac4b899422b7fdcc4a08e0883151af54"
     },
     {
-      "path": "src/product-rig.ts",
+      "path": "src\\product-rig.ts",
       "sha256": "428842e1104e8f2158baa29574939a597486127fb0440c6cffe47e594154961b"
     },
     {
-      "path": "src/product-server.ts",
+      "path": "src\\product-server.ts",
       "sha256": "835fc75cc9df17e5adae25b4fb4b1bf8307e72bda79e2aa14a6788b8b9f85685"
     },
     {
-      "path": "src/production-assets.ts",
+      "path": "src\\production-assets.ts",
       "sha256": "52f7efa72b8a0ae91f03b1a8ec3cbd1888950a72b813e080e819480d237784d9"
     },
     {
-      "path": "src/production-edits.ts",
+      "path": "src\\production-edits.ts",
       "sha256": "ef4f6e2525ad3127c4f13aad202fcdca96f57b9683436e13d3308bdf963df331"
     },
     {
-      "path": "src/production-keyframes.ts",
+      "path": "src\\production-keyframes.ts",
       "sha256": "cba4068158d2bc590b24609676baef8f8fc21e676d813691081093f47fdd42c0"
     },
     {
-      "path": "src/production-mesh.ts",
+      "path": "src\\production-mesh.ts",
       "sha256": "993f13c50a7a05dd04dc3f830dc54eee64028ae8f2528048c2ba2cce9cb56c4b"
     },
     {
-      "path": "src/production-quality.ts",
+      "path": "src\\production-quality.ts",
       "sha256": "448f008cd5137d8906e0c5a9461eab47d1b089b6c7075ddd138c22401bf5e7a1"
     },
     {
-      "path": "src/production-schema.ts",
+      "path": "src\\production-schema.ts",
       "sha256": "e984425ca008ba0126834e450134bb2c8be309dffb6267c9d90bb6f5b2b876d0"
     },
     {
-      "path": "src/production-server.ts",
+      "path": "src\\production-server.ts",
       "sha256": "3d8758ba1db38b9419f4652be2adb94515169252be253e4561bca688493eb40f"
     },
     {
-      "path": "src/production-transfer.ts",
+      "path": "src\\production-transfer.ts",
       "sha256": "ef9a4d89927d6cb00ce4203d1d5707f116c06957d6977067e46b8a5c4604298f"
     },
     {
-      "path": "src/production-workflows.ts",
+      "path": "src\\production-workflows.ts",
       "sha256": "cc00f9fe448244c68be3453e132f7a55f74c3f3bcc57e8b396937ce12f9d26ee"
     },
     {
-      "path": "src/progress.ts",
+      "path": "src\\progress.ts",
       "sha256": "eac026e83180f71c330617913740951f14b45cb47659ac0a2341e76026a80b64"
     },
     {
-      "path": "src/project-session.ts",
+      "path": "src\\project-session.ts",
       "sha256": "a34bfacf7107b8293c5ddeaad7ec0a5ae4a6135581c04157b595cb8892e73400"
     },
     {
-      "path": "src/project-workflow.ts",
+      "path": "src\\project-workflow.ts",
       "sha256": "b12fb7e88d888ad2d9951f114151d432da1671b02307c13f25f59f624e4f2af2"
     },
     {
-      "path": "src/psd-compositor.ts",
+      "path": "src\\psd-compatibility.ts",
+      "sha256": "113189b4ddb8e09a067b4ae6f56b28beb842245cbe433a097a148f955f4c1507"
+    },
+    {
+      "path": "src\\psd-compositor.ts",
       "sha256": "098c7b985d110ca9293ab2a532bb9196171a97439b9c7d04072bc9bb0380d3e8"
     },
     {
-      "path": "src/psd-import.ts",
+      "path": "src\\psd-import.ts",
       "sha256": "d9361fbd5d34a3df2f19d487791f44f08bc0866d8648b16f369b9c52b32e4d58"
     },
     {
-      "path": "src/psd-raster-requirements.txt",
+      "path": "src\\psd-raster-requirements.txt",
       "sha256": "a903d2bb1bd6154a6c9e9999f56fc238aa42d91873dd46b57416c6e7f2b41ba9"
     },
     {
-      "path": "src/psd-raster.py",
+      "path": "src\\psd-raster.py",
       "sha256": "fee2da208706dd5dd12fce1fedf1d8df12e33cb1dfe01c1d4593eefe8c354deb"
     },
     {
-      "path": "src/psd-rasterization.ts",
+      "path": "src\\psd-rasterization.ts",
       "sha256": "230d9f4d70209dd4ad671e9f2453b61d89c589266c932066f54f895a2e6dd0de"
     },
     {
-      "path": "src/psd-schema.ts",
+      "path": "src\\psd-schema.ts",
       "sha256": "713f5034fa19485c1bd8a84f9a72300ba7634ea85e7e3a4256d1696d8d9c0602"
     },
     {
-      "path": "src/psd-sections.py",
-      "sha256": "b2b32402b7122c6830023378f62e23dbd51dba0c0bb4431c8157bbb20897ccde"
+      "path": "src\\psd-sections.py",
+      "sha256": "22cc9beadb8f971f26872b79499206dcf775c84f726bfb9597fe2c038fab0709"
     },
     {
-      "path": "src/publication.ts",
+      "path": "src\\publication.ts",
       "sha256": "9a9d168de45bb9da3efbe0bb826ce260bc4ae3c999fb3c1becdbd60390326636"
     },
     {
-      "path": "src/publish-quality-schema.ts",
+      "path": "src\\publish-quality-schema.ts",
       "sha256": "e1717abdebd1e646c5e841bd0c079be44a559f306a3070fa86b4ead4d3747546"
     },
     {
-      "path": "src/publish-quality.ts",
+      "path": "src\\publish-quality.ts",
       "sha256": "0a16e4f3bd04e8eaee00c882a0c2b8e1310b3d9b1ea54779ae8ebceea1c6603b"
     },
     {
-      "path": "src/quality-waivers.ts",
+      "path": "src\\quality-waivers.ts",
       "sha256": "b63095ec3ebf829e54c9f098ed45e7a6698f04c08a8f236b194b6b2f37635fb3"
     },
     {
-      "path": "src/raster.ts",
+      "path": "src\\raster.ts",
       "sha256": "b541afb025ef02320bf7b5e79c548628e7a212c955db5e2f4f8b5cdb032db70d"
     },
     {
-      "path": "src/regression-suite.ts",
+      "path": "src\\regression-suite.ts",
       "sha256": "824c86aa755309259b9039eb2f54dd1c95b9dbe3026d6a22eaba341b26b3d57b"
     },
     {
-      "path": "src/repaint-composition.ts",
+      "path": "src\\repaint-composition.ts",
       "sha256": "08245c657bf0b1d1ee19c12fb2b568828dc0f0aa1b4ac77150a4777da24fd575"
     },
     {
-      "path": "src/resource-paths.ts",
+      "path": "src\\resource-paths.ts",
       "sha256": "642ce656f0ec6da175682918d974c5964ca351f1d120f4c290edec9692a4f09c"
     },
     {
-      "path": "src/rig-landmarks.ts",
+      "path": "src\\rig-landmarks.ts",
       "sha256": "1349f93f89f077d0c2c79ba8253dfe0391bbd2229495e3b7e3ca7d633cb8f595"
     },
     {
-      "path": "src/runtime-ik-contact.ts",
+      "path": "src\\runtime-compatibility.ts",
+      "sha256": "59364772b8d70435c21e553c4785133e1d990a5c12ae9f8a17cf63ddd0b6ef8a"
+    },
+    {
+      "path": "src\\runtime-ik-contact.ts",
       "sha256": "9b02c0d912d52ecf3fd6c2d2d9b33a3b111a370cd7cbe69a325eb8a7b1472e3d"
     },
     {
-      "path": "src/runtime.ts",
+      "path": "src\\runtime.ts",
       "sha256": "25cfe7b4636d206116472b396440ebf09a920130050419eb8d25823e14186f0c"
     },
     {
-      "path": "src/saved-sync.ts",
+      "path": "src\\saved-sync.ts",
       "sha256": "370d32e7a637ff73b097b2d261d2990d917e674e40fac9c8eb4f9c3185620022"
     },
     {
-      "path": "src/scene-preview.ts",
+      "path": "src\\scene-preview.ts",
       "sha256": "0cf9c2293e0e29ab3316e7886e1cae96bbd37357c8109314a868a2b0b4ead2a4"
     },
     {
-      "path": "src/sequence-publication.ts",
+      "path": "src\\sequence-publication.ts",
       "sha256": "7fb64061036eb04a3c7d8545ce4811a814d2a9afab2b521c59e59b7e71fc507e"
     },
     {
-      "path": "src/server.ts",
-      "sha256": "d5b99060a88eb94c8660e6d0cf19c49bebac559ccf3cd4f088d86663b04dbeec"
+      "path": "src\\server.ts",
+      "sha256": "4482d2a28c4633d78cd72a49ce2347dc22713ed474b6bacc3c062dd457192bf2"
     },
     {
-      "path": "src/service.ts",
-      "sha256": "091777f45071d5d99bb9e256df6369fe01fd069b185ed1f9bf72a50d7784414d"
+      "path": "src\\service.ts",
+      "sha256": "23b2a95ff5b69290e07bde92c53b944da7b145a4e02194b3ee55d0d5352b316a"
     },
     {
-      "path": "src/session-server.ts",
+      "path": "src\\session-server.ts",
       "sha256": "2b04659dea1a3d4c5ad900e0b2a6734e9bd4c9569f479af71cd498473092f091"
     },
     {
-      "path": "src/slot-data.ts",
+      "path": "src\\slot-data.ts",
       "sha256": "4a2e32f019f0d11f33b6a7471f1e86a65bc7c11d3f0c51bae427ea635ed93de1"
     },
     {
-      "path": "src/slot-edits.ts",
+      "path": "src\\slot-edits.ts",
       "sha256": "9d6595582879b41731ab7afcb51e9c8da421a2da1cd80fb321f510bed1fd263c"
     },
     {
-      "path": "src/stability-schema.ts",
+      "path": "src\\stability-schema.ts",
       "sha256": "59ad6c43edbd9d7ce54f59a9cbe721dd0ffedb9a09d415404086336969b086ce"
     },
     {
-      "path": "src/stability-server.ts",
+      "path": "src\\stability-server.ts",
       "sha256": "b063b309ad3850b04b31e9355f0ed96fef24ad6ac84c1681da1ef14cfce51f45"
     },
     {
-      "path": "src/structure.ts",
+      "path": "src\\structure.ts",
       "sha256": "7b07183405457697488139fdc80c03cc958a0bfb7cc265659fc3d081bf38ca45"
     },
     {
-      "path": "src/surface-retopology.ts",
+      "path": "src\\surface-retopology.ts",
       "sha256": "0799d1ccbd0e96411121c528e572f6e9ab5c888e2422c86b80e6ee7e267e649f"
     },
     {
-      "path": "src/surface-sampling.ts",
+      "path": "src\\surface-sampling.ts",
       "sha256": "7148604d15368f5f20de0566921eef0ffe6012433f9b400cdb120faecee2b5a2"
     },
     {
-      "path": "src/sync-lock.ts",
+      "path": "src\\sync-lock.ts",
       "sha256": "ec93d636897944b5b9bc4747708a551c0a4d656d6d8cbf2ea8a99d2ec75119dc"
     },
     {
-      "path": "src/sync-schema.ts",
+      "path": "src\\sync-schema.ts",
       "sha256": "f19bf82f3c3be69feff01f2e02c7ff9207fbc7c1d689a49a2cea1176a0db8d22"
     },
     {
-      "path": "src/sync-server.ts",
+      "path": "src\\sync-server.ts",
       "sha256": "688ecb85dc40ce2b33ed1400ba9415e2dd667f88575e855272faf02439f2f1b6"
     },
     {
-      "path": "src/sync-worker.ts",
+      "path": "src\\sync-worker.ts",
       "sha256": "6681ad5a63e801d1a354db8b2a1686256f05f0a89fb9f20c347f7684bd27a566"
     },
     {
-      "path": "src/task-authoring.ts",
+      "path": "src\\task-authoring.ts",
       "sha256": "95ef3b8a7c732596d4f1474e1b529f34a6e2731c5712d44f12622e82d4639779"
     },
     {
-      "path": "src/texture-raster.ts",
+      "path": "src\\texture-raster.ts",
       "sha256": "01b97d8eaf075b78a815f8b0e2047ffbd6e7f34e5b723e9fbc4ab0c768cdfd94"
     },
     {
-      "path": "src/timeline-tools.ts",
+      "path": "src\\timeline-tools.ts",
       "sha256": "844a593e4bc7347751e2de5425d8354da5596d319519f1166d8c19a1f50ab34c"
     },
     {
-      "path": "src/timeline-verification.ts",
+      "path": "src\\timeline-verification.ts",
       "sha256": "e4c70e06c7124939aa7d89ec4b0b8fe684e2b8dd26416fc638d26d719c33061a"
     },
     {
-      "path": "src/version.ts",
-      "sha256": "f0b62776b9804c6907878060199b21e0707a0f14cd55507f537883bcebc05fae"
+      "path": "src\\version.ts",
+      "sha256": "112bb0a96872e935bad5da4d8af7048af0800d68aa8a1f7d54047c81dbed9c41"
     },
     {
-      "path": "src/weight-edits.ts",
+      "path": "src\\visual-regression.ts",
+      "sha256": "69262a69f09146d0b44128e73b646a6eb36de79beb2494b58ddf2b937c55c549"
+    },
+    {
+      "path": "src\\weight-edits.ts",
       "sha256": "d81b3bdcdf099d6f7e0f24762f3370c739aa37191df6d655956d703e8a141739"
     },
     {
-      "path": "src/weight-order.ts",
+      "path": "src\\weight-order.ts",
       "sha256": "0d9b026a9f502f5b945880806bdbcb6092569928b3a44066320f33391cd3f7b3"
     },
     {
-      "path": "src/world-animation.ts",
+      "path": "src\\world-animation.ts",
       "sha256": "11736b5bb39245951a99c3e355e8849b329785116c2aba24f7774750c6d1eb3e"
     }
   ],
@@ -641,40 +681,28 @@
       "sha256": "7dd682fe71497184d6da56f844d72fb7d78fdbf910f0ec418e804fc82ef00017"
     },
     {
-      "path": "native-renderer/CMakeLists.txt",
-      "sha256": "17f692944721426a2684580a8860e61830d30b9bc431d190c6ba0cd60ad3386d"
-    },
-    {
-      "path": "native-renderer/Dockerfile",
-      "sha256": "e8ed0fe4f2113f822eddb5bca21a5095e318a2527c7546178481cf11b3c0ece0"
-    },
-    {
-      "path": "native-renderer/README.md",
-      "sha256": "f389a9d7daf4db620cca8f4cf566f2207685c1c2e22f249725bdeacd387b1d3a"
+      "path": "native-renderer/broadcast/airlift_test.go",
+      "sha256": "a09144b96827f97f7f2873964656c1511c684f481eab052e5699c033b9a6638b"
     },
     {
       "path": "native-renderer/broadcast/airlift.go",
       "sha256": "eef2f77cb53184c7941d66f5c6ddf265253d917e61d1bce5fae5d62f95469e95"
     },
     {
-      "path": "native-renderer/broadcast/airlift_test.go",
-      "sha256": "a09144b96827f97f7f2873964656c1511c684f481eab052e5699c033b9a6638b"
+      "path": "native-renderer/broadcast/magnifier_test.go",
+      "sha256": "a24e48f1027a0a10452f4689658b542dca9c53e40d639c8c878e4989c6eb3460"
     },
     {
       "path": "native-renderer/broadcast/magnifier.go",
       "sha256": "b3401d416b533185ed3e57ea9ab079deb138c7a8bbf0b9e18e83f26d8c542e5b"
     },
     {
-      "path": "native-renderer/broadcast/magnifier_test.go",
-      "sha256": "a24e48f1027a0a10452f4689658b542dca9c53e40d639c8c878e4989c6eb3460"
+      "path": "native-renderer/broadcast/packing_test.go",
+      "sha256": "7f1ac1b3d609734edab6e6b904d51bdc198c5ad317add069f43e043ce240215e"
     },
     {
       "path": "native-renderer/broadcast/packing.go",
       "sha256": "5d3cade5ce0e512a2b1c0560fba3bd273cf209adde6122d6ede5f6c12242bb60"
-    },
-    {
-      "path": "native-renderer/broadcast/packing_test.go",
-      "sha256": "7f1ac1b3d609734edab6e6b904d51bdc198c5ad317add069f43e043ce240215e"
     },
     {
       "path": "native-renderer/broadcast/process_other.go",
@@ -685,20 +713,20 @@
       "sha256": "4c1cba304d115f997f7990f045739aa25a760c408fb2a9f52056b7b8acf76ea1"
     },
     {
-      "path": "native-renderer/broadcast/scene.go",
-      "sha256": "c94eca3cbdec0239166b5b4e7a0cd920230b632dd4f560930ba7292af1f5683a"
-    },
-    {
       "path": "native-renderer/broadcast/scene_test.go",
       "sha256": "5f059d962faac157ac8ee1a2d9880f24563ca2fed72e2c66edd278a96b61cfd1"
     },
     {
-      "path": "native-renderer/broadcast/server.go",
-      "sha256": "7911da5301a9f94e2866df5dadbe007d840a925582736b84105cf34e31ef7edb"
+      "path": "native-renderer/broadcast/scene.go",
+      "sha256": "c94eca3cbdec0239166b5b4e7a0cd920230b632dd4f560930ba7292af1f5683a"
     },
     {
       "path": "native-renderer/broadcast/server_test.go",
       "sha256": "a24cf0e3a393707f81c5589461e8521d9f2b1ef47ddc5ebc9d73460a045735b2"
+    },
+    {
+      "path": "native-renderer/broadcast/server.go",
+      "sha256": "7911da5301a9f94e2866df5dadbe007d840a925582736b84105cf34e31ef7edb"
     },
     {
       "path": "native-renderer/broadcast/track.go",
@@ -725,12 +753,16 @@
       "sha256": "9d35fb2a860f945fe9ff48dc846e83cfb9a8bcc4b587e814e78f24f03f10c5b3"
     },
     {
+      "path": "native-renderer/CMakeLists.txt",
+      "sha256": "17f692944721426a2684580a8860e61830d30b9bc431d190c6ba0cd60ad3386d"
+    },
+    {
       "path": "native-renderer/cmd/acceptance/main.go",
       "sha256": "e520189ba450c74345d74433e3ead149727b7fc211e4d477afececd0c6897c44"
     },
     {
       "path": "native-renderer/cmd/buildnative/main.go",
-      "sha256": "1bd8067e2070eba059a54d0921ca16672ac1739c943a93514f337a2c888f08c8"
+      "sha256": "d01c003a5d2019c3764950c184b7c192c812f92a29d5d943c2fd54839be73d5c"
     },
     {
       "path": "native-renderer/cmd/lottery-demo/main.go",
@@ -738,7 +770,11 @@
     },
     {
       "path": "native-renderer/cmd/package/main.go",
-      "sha256": "9aa2f4803778a410883cb349b31ad4a889d1dcf2320913d0c94e01544700197a"
+      "sha256": "f8de950e1418dc1249d0abbde5c79b4d8f241dad0b52a3951cb3d2342c577568"
+    },
+    {
+      "path": "native-renderer/cmd/spine-physics/main.go",
+      "sha256": "520289d228c3526d12cf228a5e216cae9f111d439bde9dfd4aa23e6eb67f93c8"
     },
     {
       "path": "native-renderer/cmd/spine-roomd/main.go",
@@ -746,7 +782,7 @@
     },
     {
       "path": "native-renderer/cmd/spine-soak/main.go",
-      "sha256": "61b22fcf1c050a4781e6dcd9d9488e9c3724f3c13e8d1c820d137af8c8ec61b4"
+      "sha256": "c78b9e32d48fc789a36172bcefedc4138f979acbd7a69e148941691e6794797a"
     },
     {
       "path": "native-renderer/cmd/spine-worker/main.go",
@@ -755,6 +791,10 @@
     {
       "path": "native-renderer/dependencies.json",
       "sha256": "e06f57f740d2ab1dc9cf844512404543ad83fe5e86e9c85b7c7553077019da96"
+    },
+    {
+      "path": "native-renderer/Dockerfile",
+      "sha256": "e8ed0fe4f2113f822eddb5bca21a5095e318a2527c7546178481cf11b3c0ece0"
     },
     {
       "path": "native-renderer/examples/browser-live.json",
@@ -781,6 +821,10 @@
       "sha256": "963ffb94ae578d1928401bcda6706e4b6b30283c0e54fadcd6a942eef608b75c"
     },
     {
+      "path": "native-renderer/examples/physics-scene.json",
+      "sha256": "c7e1d4387ece97923fad2fd8157cd29daf996d26718ce90ddd34ca544b7fa045"
+    },
+    {
       "path": "native-renderer/examples/session.json",
       "sha256": "e8cb3bf427f8a04f05c6c58ae1b976065a3a948030712eba1ad6e27f46f6c40d"
     },
@@ -805,12 +849,12 @@
       "sha256": "a852159c53cea99550cbd4fe9f65fa2060de4acc3da9a455f5bc67c502eeca6e"
     },
     {
-      "path": "native-renderer/internal/native/native.go",
-      "sha256": "e74943cc6e71a6b897df4485c9b4ca694462cf2daff61ddf680ad0e999f9e249"
-    },
-    {
       "path": "native-renderer/internal/native/native_test.go",
       "sha256": "ab93ba8ebd14c8e0138ccbae8956f55a9969e4917f32e09d0882375f647de767"
+    },
+    {
+      "path": "native-renderer/internal/native/native.go",
+      "sha256": "e74943cc6e71a6b897df4485c9b4ca694462cf2daff61ddf680ad0e999f9e249"
     },
     {
       "path": "native-renderer/internal/native/types.go",
@@ -849,24 +893,24 @@
       "sha256": "4014ef02401e164251ea7f0d78ba86b96a822fd6e569bb3100d458114e06cf1f"
     },
     {
-      "path": "native-renderer/internal/trackphysics/b2_contact.c",
-      "sha256": "0b444777bca7e06a2a2ed2a368a553f66004e4946c6489eb2131da09c14009a2"
-    },
-    {
       "path": "native-renderer/internal/trackphysics/b2_contact_solver.c",
       "sha256": "b1517043145c4cff89db81690e8ff87a0a91658cbc8d9695c645e96a6766eb0b"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_contact.c",
+      "sha256": "0b444777bca7e06a2a2ed2a368a553f66004e4946c6489eb2131da09c14009a2"
     },
     {
       "path": "native-renderer/internal/trackphysics/b2_core.c",
       "sha256": "23959651ec8bad4d6130f77c693cf4c812bf5ccb036335566711b299df045ede"
     },
     {
-      "path": "native-renderer/internal/trackphysics/b2_distance.c",
-      "sha256": "24eb0c39bedaa035d7050d3ea86e13038d3699a9b7f2f8767fed9a8a36efd4aa"
-    },
-    {
       "path": "native-renderer/internal/trackphysics/b2_distance_joint.c",
       "sha256": "9835a50661fb2e5fb7c4bc7ab672bb0b8222b61fd967e4241e0f6926e17b95fc"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_distance.c",
+      "sha256": "24eb0c39bedaa035d7050d3ea86e13038d3699a9b7f2f8767fed9a8a36efd4aa"
     },
     {
       "path": "native-renderer/internal/trackphysics/b2_dynamic_tree.c",
@@ -929,12 +973,12 @@
       "sha256": "6bb36bbc88ec66789e76858a151626c2cc39e796d5246ae9784c3c20279d801a"
     },
     {
-      "path": "native-renderer/internal/trackphysics/b2_solver.c",
-      "sha256": "39cbbda9dfe4b2816cbfdf83a60f4d376a47ce4ec309ab64d7e12982aabbee79"
-    },
-    {
       "path": "native-renderer/internal/trackphysics/b2_solver_set.c",
       "sha256": "e2afad566bff75166377cbacae5f6d371e725f76530d1f867ac62b7d61caf4b8"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_solver.c",
+      "sha256": "39cbbda9dfe4b2816cbfdf83a60f4d376a47ce4ec309ab64d7e12982aabbee79"
     },
     {
       "path": "native-renderer/internal/trackphysics/b2_table.c",
@@ -961,14 +1005,6 @@
       "sha256": "04a1b64df528cc28357a7813ee89b99ba3596468c18de6b374a4d0fc90f0624f"
     },
     {
-      "path": "native-renderer/internal/trackphysics/box2d/LICENSE",
-      "sha256": "68a3e676d7e94093b102d5cba0d4e04af812040d6f230c3db67a6664574e43d2"
-    },
-    {
-      "path": "native-renderer/internal/trackphysics/box2d/SOURCE.json",
-      "sha256": "085c10f33883b1cd39f5d4f77c46d028e0c5d7103854047e4ed7075973f47465"
-    },
-    {
       "path": "native-renderer/internal/trackphysics/box2d/include/box2d/base.h",
       "sha256": "20180151e976cce32d493614d4fe47e15f3aca982b97a7baf8c23f80eb843479"
     },
@@ -993,8 +1029,12 @@
       "sha256": "ea3da532cb49978123dca81bb3c76d66d912f89486ba1fca9ac9c9d54d28cf60"
     },
     {
-      "path": "native-renderer/internal/trackphysics/box2d/src/CMakeLists.txt",
-      "sha256": "e735f8bbc6ae8debb065fc8f5bcffc620fc593e423bb68625bb657bfb7d09ecf"
+      "path": "native-renderer/internal/trackphysics/box2d/LICENSE",
+      "sha256": "68a3e676d7e94093b102d5cba0d4e04af812040d6f230c3db67a6664574e43d2"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/SOURCE.json",
+      "sha256": "085c10f33883b1cd39f5d4f77c46d028e0c5d7103854047e4ed7075973f47465"
     },
     {
       "path": "native-renderer/internal/trackphysics/box2d/src/aabb.c",
@@ -1053,6 +1093,10 @@
       "sha256": "37e9d1649e5efa2f56b3725cd28e24ec56a10ebb0bfe839a02c989249a29358d"
     },
     {
+      "path": "native-renderer/internal/trackphysics/box2d/src/CMakeLists.txt",
+      "sha256": "e735f8bbc6ae8debb065fc8f5bcffc620fc593e423bb68625bb657bfb7d09ecf"
+    },
+    {
       "path": "native-renderer/internal/trackphysics/box2d/src/constants.h",
       "sha256": "cbad16c4dd09b6af9f5a1007e07a10c0b4a49aab4e213840895e50ca81020817"
     },
@@ -1065,20 +1109,20 @@
       "sha256": "4887073345515772629093b199c2842631f886678986f10d53f774dec6a7c465"
     },
     {
-      "path": "native-renderer/internal/trackphysics/box2d/src/contact.c",
-      "sha256": "98993ee57a91ed2fedf9f018e47098f2c99b13e288e4c79587465c2164fd5c66"
-    },
-    {
-      "path": "native-renderer/internal/trackphysics/box2d/src/contact.h",
-      "sha256": "b3d0c7ad195dd21d515e3659ee0e922e861e2a0d3335d354ecae27467a2f3412"
-    },
-    {
       "path": "native-renderer/internal/trackphysics/box2d/src/contact_solver.c",
       "sha256": "6b8899fb2135fa13022f2c99776e835e076602920cbf1577e5933d994e364c34"
     },
     {
       "path": "native-renderer/internal/trackphysics/box2d/src/contact_solver.h",
       "sha256": "13c456c528a326b57c3fb74e8fd834513932dddffd6bd071c02dcf008b3cf4bf"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/contact.c",
+      "sha256": "98993ee57a91ed2fedf9f018e47098f2c99b13e288e4c79587465c2164fd5c66"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/contact.h",
+      "sha256": "b3d0c7ad195dd21d515e3659ee0e922e861e2a0d3335d354ecae27467a2f3412"
     },
     {
       "path": "native-renderer/internal/trackphysics/box2d/src/core.c",
@@ -1093,12 +1137,12 @@
       "sha256": "b30e72708882d80d19b9d73a201c90681bb245a58e5b40384df9b30b6cad8fd3"
     },
     {
-      "path": "native-renderer/internal/trackphysics/box2d/src/distance.c",
-      "sha256": "6e44c7b8268ef585ef92e7c96e9f3749922f410a9b5ff709d1879c8d9f911668"
-    },
-    {
       "path": "native-renderer/internal/trackphysics/box2d/src/distance_joint.c",
       "sha256": "15e56db2c924964b11a65a1209bc9b248d8092470bfd51dc11cc926567124548"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/distance.c",
+      "sha256": "6e44c7b8268ef585ef92e7c96e9f3749922f410a9b5ff709d1879c8d9f911668"
     },
     {
       "path": "native-renderer/internal/trackphysics/box2d/src/dynamic_tree.c",
@@ -1181,20 +1225,20 @@
       "sha256": "05ef245b103848460f0bbeeaba63685215d545e0b60878adaef64299e3d21b05"
     },
     {
-      "path": "native-renderer/internal/trackphysics/box2d/src/solver.c",
-      "sha256": "1e48185b231a15a2fc9a2327e8cd421b95488418fe55579d5d41056229823663"
-    },
-    {
-      "path": "native-renderer/internal/trackphysics/box2d/src/solver.h",
-      "sha256": "e49b4efab22e904b52d48439672ea968d88d9d0ff7f3d4d7ae1e8be4d8a6965b"
-    },
-    {
       "path": "native-renderer/internal/trackphysics/box2d/src/solver_set.c",
       "sha256": "8c9bf12c3513cd1996e804bc164ac5f0723dded4bd03b43e1efb7c4641a4387b"
     },
     {
       "path": "native-renderer/internal/trackphysics/box2d/src/solver_set.h",
       "sha256": "60ddefa8ec81bc1efde1bb47f1e475b7eefb51d7dfbda4b01eb731a5a7646ea1"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/solver.c",
+      "sha256": "1e48185b231a15a2fc9a2327e8cd421b95488418fe55579d5d41056229823663"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/solver.h",
+      "sha256": "e49b4efab22e904b52d48439672ea968d88d9d0ff7f3d4d7ae1e8be4d8a6965b"
     },
     {
       "path": "native-renderer/internal/trackphysics/box2d/src/table.c",
@@ -1229,6 +1273,22 @@
       "sha256": "ee8f553ea810fe5aec82adaefd913992ca46e62a4b54143ffc0e93ac733f6427"
     },
     {
+      "path": "native-renderer/internal/trackphysics/scene_test.go",
+      "sha256": "133f9cdd03d6df9107ebcd22fa8f5e0296104a3a721c4772b68290837279d14a"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/scene.c",
+      "sha256": "3b4eae40d8d80f8d6a8a0d91e3dcbf0082e5d70a9b8de18c92c08bd7d2e5e6fa"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/scene.go",
+      "sha256": "baf4b800745cfa2136202172b7006c7af2782ea66dc8a0fa0b8e052fc7073d63"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/track_test.go",
+      "sha256": "47bcbb875267b01ef47954ec9c2acbfd732310bb8cf6102f27a6c55fee1aa0de"
+    },
+    {
       "path": "native-renderer/internal/trackphysics/track.c",
       "sha256": "00cd0ec95ee9443d731ec24f9253d5ccd5c36387d7ca0eded12f60e117ffddd9"
     },
@@ -1238,27 +1298,31 @@
     },
     {
       "path": "native-renderer/internal/trackphysics/track.h",
-      "sha256": "e24b538f4f6ad90d5020edaf29c982e2a9ec4e2f12249f7965c7f5258b8629a2"
+      "sha256": "7e5176555a59b4b61ce19f3af35b2e25df7bca6fc89d2c44b4ac682f759e0165"
     },
     {
-      "path": "native-renderer/internal/trackphysics/track_test.go",
-      "sha256": "47bcbb875267b01ef47954ec9c2acbfd732310bb8cf6102f27a6c55fee1aa0de"
-    },
-    {
-      "path": "native-renderer/rooms/docker.go",
-      "sha256": "f7a14127703298614922806c1820ab416793524d78e89cdeef2389310c26d967"
+      "path": "native-renderer/README.md",
+      "sha256": "65de9579b402eca57a62bec0b700832f912ddcd288f2169f7893bb56a2f41aa0"
     },
     {
       "path": "native-renderer/rooms/docker_test.go",
       "sha256": "8f58d85be531c29ff2853a1a7f16446ffa1fa28b7267c3374658e6f2bf02a095"
     },
     {
-      "path": "native-renderer/rooms/manager.go",
-      "sha256": "7911e88e7aa4e55c886c024e1af2728b5d1dbe53b653cc2b824336056844b348"
+      "path": "native-renderer/rooms/docker.go",
+      "sha256": "f7a14127703298614922806c1820ab416793524d78e89cdeef2389310c26d967"
     },
     {
       "path": "native-renderer/rooms/manager_test.go",
       "sha256": "aef0ab859051d8794e2cbc59be5c4c98e0a5a1e6507da5dcfbd505c6d3ae4e63"
+    },
+    {
+      "path": "native-renderer/rooms/manager.go",
+      "sha256": "efdbfcf1555d7d8e9ad0fa3fe84ae36ef4e3d19acdc4796cda823110acfc9b88"
+    },
+    {
+      "path": "native-renderer/rooms/paths_test.go",
+      "sha256": "b032499746361c75c85fb0fd412e7342389db050a736a5530af5f0ca26eb38a7"
     },
     {
       "path": "native-renderer/rooms/process_other.go",
@@ -1301,12 +1365,12 @@
       "sha256": "b3480b1cb31881565abc3f2ba26c6239ce0385375c92e2b25085174f8527b942"
     },
     {
-      "path": "native-renderer/worker/encoding.go",
-      "sha256": "8c99b425daf534499a0e0e57e427df7da4106ecac78b2b68c6f207bc754a244a"
-    },
-    {
       "path": "native-renderer/worker/encoding_integration_test.go",
       "sha256": "f3e9735d57196b781814bf5d32723842f45df93e53c819bc13a8583aea913c46"
+    },
+    {
+      "path": "native-renderer/worker/encoding.go",
+      "sha256": "8c99b425daf534499a0e0e57e427df7da4106ecac78b2b68c6f207bc754a244a"
     },
     {
       "path": "native-renderer/worker/integration_test.go",
@@ -1335,61 +1399,63 @@
   ],
   "milestones": {
     "authoring": "Editable IK motion, attack/hit presets and reusable character build recipes implemented; per-character visual review remains explicit.",
-    "liveRendering": "GPU NV12, hardware probes, local audio, bounded room manager, SRT and loopback HLS viewer implemented."
+    "liveRendering": "GPU NV12, hardware probes, local audio, bounded room manager, SRT and loopback HLS viewer implemented.",
+    "extensions": "15 added MCP tools, source-protected physics/visual/contact/sequence/PSD/4.2/adapter/native timeline and acceptance workflows verified.",
+    "portability": "Four-platform CPU/media unit checks and separately recorded native builds; GPU/editor deployment scope remains explicit."
   },
   "verification": {
     "implementationComplete": true,
     "localSupportedScopePassed": true,
     "allPassed": false,
     "unitTests": {
-      "command": "npm test",
-      "tests": 816,
-      "passed": 816,
+      "command": "npm test (inside frozen-source audit)",
+      "tests": 830,
+      "passed": 830,
       "failed": 0,
-      "logSha256": "7041163910c4d3fe08762d63a13261759b77657521a229246311275f3e079f37"
+      "logSha256": "2a6bc2bc70bf0f5a6d084557777f31fbf0bf5e38fa6eca17e5ae82ead7c4e3fe"
     },
     "registeredTools": {
-      "serverVersion": "3.2.0",
-      "tools": 237,
-      "previousActualConnectionVerified": true
+      "serverVersion": "3.3.0",
+      "tools": 252,
+      "freshSdkConnectionVerified": true,
+      "activeChatReloadInferred": false
     },
     "nativeEditorBridge": {
       "passed": true,
-      "agentSha256": "4cd86ac2421b6cffe878e16bec9e0edcbe134e776259bd660c5234ff3c723376",
-      "sourceSha256": "183d1959912e742d53148887154cc7a4216599a5e9bf32d37e549037c9b74a26",
+      "agentSha256": "9d06bfc15b5bc4332a37e3d64a21aa2fb5b93abb5360a0a23520a5473411eddd",
+      "sourceSha256": "563c0904c4adccd0862f12373daa7700fa0c4adb814b1152bbdae8baba436a97",
       "targetVersion": "4.3.23",
-      "targetJarSha256": "4a1f51fa672fcffe251e10de6bb9399b0aec6564da0161f0a48aafa45681eaf8",
-      "scope": "NEW startup-bridge windows on the pinned installed Spine 4.3.23 build only. No active attachment to ordinary windows. Reload refuses unsaved/stale/busy states; writes a NEW verified sibling recovery file; preserves supported view state; resets native undo history. No mouse/keyboard injection or window-activation command.",
-      "realNativeFixtureCases": 5,
-      "dirtyRefusal": true,
-      "nativeUndoRestoresSavedState": true,
-      "postInstallRollback": true,
-      "postRepaintRollback": true,
-      "nativeRepaintBarrier": true,
-      "osForegroundPreservedObserved": true,
-      "exactRequestReplay": true,
-      "reconnectReceipts": true,
+      "scope": "NEW pinned-build startup-bridge windows only; full reload resets undo; timeline view controls preserve model/undo.",
+      "corruptRefusedWithoutChangingModel": true,
+      "staleRefused": true,
+      "retryAppliedOnce": true,
+      "reconnectReceiptVerified": true,
       "sourceFilesUnchanged": true,
-      "unicodeStartupFixedWithEncodedArguments": true,
-      "immutablePerInstanceAgent": true,
-      "reusedUnchangedBundleEvidence": "3.1.0; native-bridge sources/bundle unchanged in this phase"
+      "cameraStableAfterRepaint": true,
+      "recoveryNativeRoundTripVerified": true,
+      "reportSha256": "71bff7aa7e1152127baec11a8dbd71cf7a2da3b2081d04f42003ac28e1433342",
+      "timeline": {
+        "instanceId": "f6d4793a-3f1b-4b8d-aabb-0d97ddbdf4cd",
+        "passed": true,
+        "modelUnchanged": true,
+        "undoPreserved": true,
+        "frame": 10,
+        "playPauseAndSeek": true,
+        "staleRejected": true,
+        "idempotentReplay": true
+      }
     },
     "nativeUnitChecks": {
       "platform": "windows/amd64",
       "cgoEnabled": true,
       "goTest": true,
       "goVet": true,
-      "testLogSha256": "daf644130cca8275eabcaee93b266f4a39f66e70f17d1f452bde95457609a9cc",
+      "testLogSha256": "f331396808650302cbdc1d1e93bf4a8f9baf1b66ba239576f9b18e7b5cec342e",
       "vetLogSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "realAMFRegressionPassed": true,
-      "realAMFTestLogSha256": "e2952d1d516cbb3f109af2195dd196a7b1426f0b9eecdb700df4e1774fcbf551",
-      "hlsSnapshotTestsPassed": 2,
-      "broadcastRacePassed": true,
-      "box2dTrackTestsPassed": true,
-      "centralAirliftTestsPassed": true,
-      "synchronizedMagnifierTestsPassed": true,
-      "lowerLipContactTestsPassed": true,
-      "lowerLipContactTestLogSha256": "16cffe90a430625bf1657bc579a3e55ea417f7467113f176540c1ec6298e008d"
+      "canonicalRootAndOutputLinkTests": true,
+      "previousAMFEncoderSourceUnchanged": true,
+      "priorAMFHardwareProof": "e2952d1d516cbb3f109af2195dd196a7b1426f0b9eecdb700df4e1774fcbf551",
+      "priorHardwareScope": "Previous actual AMF texture regression and user confirmation; no new hardware-encoder claim from CPU-only unit tests."
     },
     "linuxNvidia": {
       "hostProcessAcceptancePassed": true,
@@ -1580,7 +1646,7 @@
           "animation": "03_charge_release",
           "startSeconds": 1.2,
           "endSeconds": 2.2,
-          "durationSeconds": 1.0,
+          "durationSeconds": 1,
           "sourceJsonSha256": "07956036b846370573b3cd9bd621c3591f1cd0992ba20faa735c98879e142be9",
           "method": "Sampled every bone applied world translation/matrix at 30fps with official Spine 4.3 JS runtime; all sampled components finite."
         },
@@ -1589,10 +1655,12 @@
     },
     "pending": [
       "GPU-isolated Docker NVENC on the tested NVIDIA 580.82.09 host; host-process encoding passed.",
-      "Physical multi-GPU rendering/encoding isolation and capacity.",
       "24-hour concurrent soak.",
       "macOS GPU acceptance.",
-      "User-reported intermittent playback pause: 125-second sample had no buffering or >100ms browser frame gap; exact one-second authored charge hold confirmed. Other client-side stalls remain unverified."
+      "User-reported intermittent playback pause: 125-second sample had no buffering or >100ms browser frame gap; exact one-second authored charge hold confirmed. Other client-side stalls remain unverified.",
+      "4.2 native editor and Unity/Cocos editor validation in target projects.",
+      "Incremental structural editor edits preserving native undo and unlisted editor build support.",
+      "Multi-GPU hardware-encoding isolation/capacity beyond the separately passed two720p30 software-encoded30s containers."
     ],
     "scriptedLotteryDemo": {
       "stage": "prototype-6",
@@ -1650,6 +1718,2006 @@
       "uniformMagnifierPoseChecks": 24570,
       "lowerLipContactVerifiedPoses": 8119,
       "maximumUpperLipClearanceWidePixels": 1.0719
+    },
+    "featureAudit": {
+      "passed": true,
+      "suites": 55,
+      "successfulTools": 252,
+      "coreSha256": "b57e8ba831393c7b414589487a37c1eaac947776605b8b122bdf3c9acc2bb8ae",
+      "reportSha256": "652f446ea7a46dc3130e2f9ebf9425b4c3d5c024e8b3546a6c3e4d42cde04600",
+      "coverage": [
+        {
+          "name": "spine_status",
+          "successfulCalls": 36,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_inspect",
+          "successfulCalls": 22,
+          "distinctSuccessfulInputs": 22
+        },
+        {
+          "name": "spine_validate",
+          "successfulCalls": 30,
+          "distinctSuccessfulInputs": 30
+        },
+        {
+          "name": "spine_get_animation",
+          "successfulCalls": 6,
+          "distinctSuccessfulInputs": 6
+        },
+        {
+          "name": "spine_set_bone",
+          "successfulCalls": 44,
+          "distinctSuccessfulInputs": 44
+        },
+        {
+          "name": "spine_add_bone",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_add_animation",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_rename_object",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_delete_object",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_reparent_bone",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_set_slot_order",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_set_constraint",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_set_constraint_timeline",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_set_skin_members",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_set_attachment",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_copy_attachment",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_link_mesh",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_unlink_mesh",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_inspect_mesh",
+          "successfulCalls": 5,
+          "distinctSuccessfulInputs": 5
+        },
+        {
+          "name": "spine_transform_mesh",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_refine_mesh",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_mesh_from_region",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_trace_region",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_mesh_from_alpha",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_polygon_from_region",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_auto_weights",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_inspect_weights",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_clean_weights",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_smooth_weights",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_flatten_draw_order",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_set_folder_draw_order",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_set_attachment_animation",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_set_weights",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_crop_animation",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_merge_animations",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_mirror_animation",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_bake_animation",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_set_timeline",
+          "successfulCalls": 16,
+          "distinctSuccessfulInputs": 16
+        },
+        {
+          "name": "spine_apply_edits",
+          "successfulCalls": 27,
+          "distinctSuccessfulInputs": 27
+        },
+        {
+          "name": "spine_add_slot",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_set_slot",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_add_skin",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_attach_image",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_set_attachment_timeline",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_set_color_timeline",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_set_event",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_set_event_timeline",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_set_draw_order",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_inspect_timelines",
+          "successfulCalls": 14,
+          "distinctSuccessfulInputs": 14
+        },
+        {
+          "name": "spine_copy_timelines",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_retime_keyframes",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_retime_animation",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_rename_animation",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_remove_timeline",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_edit_project",
+          "successfulCalls": 19,
+          "distinctSuccessfulInputs": 19
+        },
+        {
+          "name": "spine_check_loop",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_build_project",
+          "successfulCalls": 27,
+          "distinctSuccessfulInputs": 27
+        },
+        {
+          "name": "spine_edit_multi_project",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_batch",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_export_frames",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_start_job",
+          "successfulCalls": 15,
+          "distinctSuccessfulInputs": 15
+        },
+        {
+          "name": "spine_get_job",
+          "successfulCalls": 515,
+          "distinctSuccessfulInputs": 20
+        },
+        {
+          "name": "spine_list_jobs",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_resume_jobs",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_cancel_job",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_create_demo",
+          "successfulCalls": 27,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_render_preview",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_editor_handoff",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_render_artwork",
+          "successfulCalls": 28,
+          "distinctSuccessfulInputs": 28
+        },
+        {
+          "name": "spine_project_info",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_export",
+          "successfulCalls": 9,
+          "distinctSuccessfulInputs": 9
+        },
+        {
+          "name": "spine_import",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_pack_atlas",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_bake_clipping",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_retarget_animation",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_world_mirror",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_compose_animation",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_bake_constraints",
+          "successfulCalls": 5,
+          "distinctSuccessfulInputs": 5
+        },
+        {
+          "name": "spine_simplify_animation_adaptive",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_relink_assets",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_edit_keyframes",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_edit_curves",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_insert_boundary_keys",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_paste_keyframes",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_key_pose",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_transfer_animation",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_transfer_rig",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_merge_skins",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_mesh_from_contours",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_edit_mesh_vertices",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_refine_selected_triangles",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_replace_mesh_topology",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_transfer_weights",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_simplify_animation",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_selective_bake",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_preflight_edits",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_check_native_compatibility",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_plan_retarget",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_compare_animations_adaptive",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_check_physics_cycles",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_media_status",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_export_media",
+          "successfulCalls": 6,
+          "distinctSuccessfulInputs": 6
+        },
+        {
+          "name": "spine_archive_project",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_verify_archive",
+          "successfulCalls": 5,
+          "distinctSuccessfulInputs": 5
+        },
+        {
+          "name": "spine_compare_artwork",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_audit_assets",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_collect_assets",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_compare_projects",
+          "successfulCalls": 23,
+          "distinctSuccessfulInputs": 23
+        },
+        {
+          "name": "spine_trace_contours",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_check_mesh_intersections",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_check_visual_loop",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_pack_atlas_configured",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_unpack_atlas",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_deliver",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_verify_package",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_run_pipeline",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_retry_job",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_start_saved_sync",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_get_saved_sync",
+          "successfulCalls": 104,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_list_saved_sync",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_stop_saved_sync",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_resume_saved_sync",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_wait_native_preview",
+          "successfulCalls": 28,
+          "distinctSuccessfulInputs": 28
+        },
+        {
+          "name": "spine_start_native_preview",
+          "successfulCalls": 12,
+          "distinctSuccessfulInputs": 11
+        },
+        {
+          "name": "spine_get_native_preview",
+          "successfulCalls": 840,
+          "distinctSuccessfulInputs": 13
+        },
+        {
+          "name": "spine_list_native_previews",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_update_native_preview",
+          "successfulCalls": 62,
+          "distinctSuccessfulInputs": 18
+        },
+        {
+          "name": "spine_stop_native_preview",
+          "successfulCalls": 33,
+          "distinctSuccessfulInputs": 19
+        },
+        {
+          "name": "spine_resume_native_preview",
+          "successfulCalls": 17,
+          "distinctSuccessfulInputs": 9
+        },
+        {
+          "name": "spine_control_native_playback",
+          "successfulCalls": 11,
+          "distinctSuccessfulInputs": 11
+        },
+        {
+          "name": "spine_start_native_sequence_preview",
+          "successfulCalls": 8,
+          "distinctSuccessfulInputs": 6
+        },
+        {
+          "name": "spine_control_editor_timeline",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_create_project",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_open_project",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_get_editor_open_status",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_editor_state",
+          "successfulCalls": 7,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_reload_editor_project",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_editor_request_status",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_save_character_template",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_apply_character_template",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_recover_job",
+          "successfulCalls": 6,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_check_environment",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_publish_and_open",
+          "successfulCalls": 6,
+          "distinctSuccessfulInputs": 5
+        },
+        {
+          "name": "spine_get_publication",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_audit_animation",
+          "successfulCalls": 20,
+          "distinctSuccessfulInputs": 20
+        },
+        {
+          "name": "spine_prepare_character",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_build_pose_animation",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_bake_foot_contacts",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_run_regression_suite",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_record_visual_review",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_get_acceptance",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_prepare_quality_waiver",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_approve_quality_waiver",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_migrate_session",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_compact_session_receipts",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_audit_animated_seams",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_plan_archive_cleanup",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_apply_archive_cleanup",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_restore_archive_cleanup",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_purge_archive_cleanup",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_create_session",
+          "successfulCalls": 9,
+          "distinctSuccessfulInputs": 7
+        },
+        {
+          "name": "spine_get_session",
+          "successfulCalls": 5,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_list_sessions",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_check_publish_quality",
+          "successfulCalls": 5,
+          "distinctSuccessfulInputs": 5
+        },
+        {
+          "name": "spine_configure_session",
+          "successfulCalls": 263,
+          "distinctSuccessfulInputs": 261
+        },
+        {
+          "name": "spine_set_session_archived",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_get_session_storage",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_touch_session",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_bind_session_preview",
+          "successfulCalls": 6,
+          "distinctSuccessfulInputs": 6
+        },
+        {
+          "name": "spine_checkpoint_session",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_edit_session",
+          "successfulCalls": 5,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_compare_session_versions",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_restore_session",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_audit_character_layers",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_suggest_character_rig",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_plan_mesh_seams",
+          "successfulCalls": 7,
+          "distinctSuccessfulInputs": 7
+        },
+        {
+          "name": "spine_audit_mesh_seams",
+          "successfulCalls": 15,
+          "distinctSuccessfulInputs": 15
+        },
+        {
+          "name": "spine_create_joint_mesh_repair",
+          "successfulCalls": 8,
+          "distinctSuccessfulInputs": 8
+        },
+        {
+          "name": "spine_review_character_task_stage",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_plan_rig_landmarks",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_correct_rig_landmarks",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_create_mesh_deform_repair",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_plan_psd_rasterization",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_apply_psd_rasterization",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_plan_character_build",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_create_character_build_task",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_plan_character_task_branch",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_apply_character_task_branch",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_create_ik_contact_repair",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_plan_psd_import",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_import_psd",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_create_character_task",
+          "successfulCalls": 5,
+          "distinctSuccessfulInputs": 4
+        },
+        {
+          "name": "spine_run_character_task",
+          "successfulCalls": 27,
+          "distinctSuccessfulInputs": 13
+        },
+        {
+          "name": "spine_get_character_task",
+          "successfulCalls": 2404,
+          "distinctSuccessfulInputs": 13
+        },
+        {
+          "name": "spine_supply_character_task_assets",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_review_character_task",
+          "successfulCalls": 12,
+          "distinctSuccessfulInputs": 11
+        },
+        {
+          "name": "spine_create_ik_target_repair",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_compose_layer_repaint",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_plan_batch_image_replacement",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_apply_batch_image_replacement",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_prepare_layer_handoff",
+          "successfulCalls": 4,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_audit_layer_handoff",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_import_layer_handoff",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_plan_image_replacement",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_apply_image_replacement",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_create_animation_repair",
+          "successfulCalls": 6,
+          "distinctSuccessfulInputs": 5
+        },
+        {
+          "name": "spine_get_character_candidate",
+          "successfulCalls": 5,
+          "distinctSuccessfulInputs": 5
+        },
+        {
+          "name": "spine_promote_character_candidate",
+          "successfulCalls": 35,
+          "distinctSuccessfulInputs": 33
+        },
+        {
+          "name": "spine_connection_diagnostics",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_editor_context",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_refresh_editor_view",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_benchmark_preview",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_create_material_spec",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_get_material_assets",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_supply_material_assets",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_place_material_assets",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_extract_psd_sections",
+          "successfulCalls": 8,
+          "distinctSuccessfulInputs": 5
+        },
+        {
+          "name": "spine_create_rig_profile",
+          "successfulCalls": 7,
+          "distinctSuccessfulInputs": 7
+        },
+        {
+          "name": "spine_audit_rig_profile",
+          "successfulCalls": 5,
+          "distinctSuccessfulInputs": 5
+        },
+        {
+          "name": "spine_plan_motion_pack",
+          "successfulCalls": 7,
+          "distinctSuccessfulInputs": 7
+        },
+        {
+          "name": "spine_save_character_build_recipe",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_plan_character_build_from_recipe",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_plan_live_room",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_start_live_room",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_get_live_room",
+          "successfulCalls": 80,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_list_live_rooms",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_control_live_room",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_stop_live_room",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_create_motion_pack_task",
+          "successfulCalls": 5,
+          "distinctSuccessfulInputs": 5
+        },
+        {
+          "name": "spine_create_facial_animation",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_create_quality_board",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_get_quality_board",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_update_quality_board",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_compare_repair_candidates",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_verify_runtime_delivery",
+          "successfulCalls": 7,
+          "distinctSuccessfulInputs": 7
+        },
+        {
+          "name": "spine_deliver_character_package",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_workflow_catalog",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_product_completion_status",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_plan_physics_bake",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_bake_physics_animation",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_audit_physics_contacts",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_audit_view_sync",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_create_visual_baseline",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_compare_visual_baseline",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_bake_chain_contact",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_compose_motion_sequence",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_inspect_psd_compatibility",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_export_runtime42",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        },
+        {
+          "name": "spine_create_engine_adapter",
+          "successfulCalls": 3,
+          "distinctSuccessfulInputs": 3
+        },
+        {
+          "name": "spine_start_native_acceptance",
+          "successfulCalls": 2,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_get_native_acceptance",
+          "successfulCalls": 23,
+          "distinctSuccessfulInputs": 2
+        },
+        {
+          "name": "spine_stop_native_acceptance",
+          "successfulCalls": 1,
+          "distinctSuccessfulInputs": 1
+        }
+      ]
+    },
+    "extensions": {
+      "passed": true,
+      "tools": [
+        "spine_plan_physics_bake",
+        "spine_bake_physics_animation",
+        "spine_audit_physics_contacts",
+        "spine_audit_view_sync",
+        "spine_create_visual_baseline",
+        "spine_compare_visual_baseline",
+        "spine_control_editor_timeline",
+        "spine_bake_chain_contact",
+        "spine_compose_motion_sequence",
+        "spine_inspect_psd_compatibility",
+        "spine_export_runtime42",
+        "spine_create_engine_adapter",
+        "spine_start_native_acceptance",
+        "spine_get_native_acceptance",
+        "spine_stop_native_acceptance"
+      ],
+      "sourceUnchanged": true,
+      "nativePhysicsRoundtrip": true,
+      "visual": {
+        "baseline": {
+          "baseline": "D:\\codes\\CodexComm\\spine-mcp-4.3\\work\\visual-baselines\\3483a944-1444-416b-a38c-03118a43137e\\manifest.json",
+          "baselineSha256": "97002c3625b39448ff840460cb97b4c3baaf6fc4549e2ea7a9f73e6b3a4df0f5",
+          "frames": 2,
+          "viewport": {
+            "minX": -130,
+            "maxX": 130,
+            "minY": -20,
+            "maxY": 190
+          },
+          "pinnedFiles": [
+            {
+              "path": "D:\\codes\\CodexComm\\spine-mcp-4.3\\work\\visual-baselines\\3483a944-1444-416b-a38c-03118a43137e\\manifest.json",
+              "sha256": "97002c3625b39448ff840460cb97b4c3baaf6fc4549e2ea7a9f73e6b3a4df0f5"
+            },
+            {
+              "path": "D:\\codes\\CodexComm\\spine-mcp-4.3\\work\\previews\\artwork-5f249e70-7187-4689-be1b-99f0bcfad4ac.png",
+              "sha256": "601270f73e6b7ea2ab8223fdf2811987aa11cbc963c74d8e58f4dd845bb967a5"
+            },
+            {
+              "path": "D:\\codes\\CodexComm\\spine-mcp-4.3\\work\\previews\\artwork-d5d900c9-454d-4294-88e6-b85e060ac10c.png",
+              "sha256": "601270f73e6b7ea2ab8223fdf2811987aa11cbc963c74d8e58f4dd845bb967a5"
+            }
+          ],
+          "requestId": "d0023d8f-07a6-430c-a48d-5121a5d8f857",
+          "reused": false
+        },
+        "unchangedPassed": true,
+        "actualChangeDetected": true,
+        "changedReport": "D:\\codes\\CodexComm\\spine-mcp-4.3\\work\\visual-comparison-reports\\beb8641b-f80c-4671-90e7-e723e6ed269c\\manifest.json"
+      },
+      "chain": {
+        "maxContactError": 0.009865610738558546,
+        "checkedTimes": 241,
+        "chains": 1,
+        "newName": "reach",
+        "solver": "bounded FABRIK,3–16 explicit joints; no anatomy inference",
+        "visualAcceptance": "pending"
+      },
+      "sequence": {
+        "duration": 1.8,
+        "schedule": [
+          {
+            "animation": "idle",
+            "duration": 1,
+            "mix": 0,
+            "speed": 1,
+            "loop": false,
+            "start": 0,
+            "end": 1,
+            "sourceDuration": 2
+          },
+          {
+            "animation": "wave",
+            "duration": 1,
+            "mix": 0.2,
+            "speed": 1,
+            "loop": false,
+            "start": 0.8,
+            "end": 1.8,
+            "sourceDuration": 2
+          }
+        ],
+        "maxSampledStateError": 3.7578234843849145e-06,
+        "maxPropError": 7.105427357601002e-15,
+        "checkedFrames": 109,
+        "sampledOnly": true,
+        "newName": "sequence",
+        "eventPolicy": "all",
+        "visualAcceptance": "pending",
+        "scope": "Official runtime crossfades and explicit leaf-prop contacts baked into one NEW clip. Original clips/constraints unchanged; mixes disabled only in the baked clip."
+      },
+      "runtime42": {
+        "passed": true,
+        "runtime": "official @esotericsoftware/spine-core4.2.120",
+        "animations": [
+          "sequence"
+        ],
+        "skin": "default",
+        "poses": 109,
+        "coordinates": 7848,
+        "maxError": 0,
+        "scope": "Actual AnimationState playback and sampled bone/attachment/color/order/sequence comparison. No4.2 editor/binary/GPU screen acceptance."
+      },
+      "javascriptAdapterPlayed": true,
+      "unityEditorVerified": false,
+      "cocosEditorVerified": false,
+      "psd": [
+        {
+          "info": {
+            "version": 1,
+            "depth": 16,
+            "colorMode": 3,
+            "width": 64,
+            "height": 64,
+            "layers": 2,
+            "groups": [
+              {
+                "name": "Character",
+                "path": [
+                  "Character"
+                ],
+                "children": 1
+              }
+            ],
+            "groupsTruncated": false,
+            "findings": [],
+            "findingsTruncated": false,
+            "formatSupported": true,
+            "requiresExplicitPsbOptIn": false,
+            "requiresExplicit8BitConversion": true,
+            "sourceUnchanged": true,
+            "scope": "Metadata/format inspection only; per-section independent composite and native proof still required",
+            "source": {
+              "path": "D:\\codes\\CodexComm\\spine-mcp-4.3\\work\\extensions-b98c6026-17f6-45ed-8a6f-2268c169165f\\rgb16.psd",
+              "sha256": "89d4dd61282f7b3c939c70498e86df752605bce776ebb6ffaf33230c6955d247"
+            },
+            "helperSha256": "22cc9beadb8f971f26872b79499206dcf775c84f726bfb9597fe2c038fab0709"
+          },
+          "checksPassed": true,
+          "backend": {
+            "checksPassed": true,
+            "width": 64,
+            "height": 64,
+            "units": [
+              {
+                "name": "Body",
+                "image": "part-0000.png",
+                "left": 10,
+                "top": 12,
+                "width": 24,
+                "height": 28
+              }
+            ],
+            "comparison": {
+              "maxPremultipliedError": 0,
+              "meanPremultipliedError": 0,
+              "fractionAbove3": 0
+            },
+            "sourceLayers": 2,
+            "selectedLayers": 1,
+            "sourceVersion": 1,
+            "sourceBitDepth": 16,
+            "outputBitDepth": 8,
+            "explicitBitDepthConversion": true,
+            "reference": "Original PSD selected-group compositor; saved whole-document merged preview is not used as the renderer",
+            "scope": "Only the explicit group and document viewport; hidden variants and child editing semantics are not retained in flattened units",
+            "versions": {
+              "aggdraw": "1.4.1",
+              "attrs": "26.1.0",
+              "numpy": "2.5.4",
+              "pillow": "13.0.0",
+              "psd-tools": "1.26.0",
+              "scipy": "1.18.1"
+            }
+          }
+        },
+        {
+          "info": {
+            "version": 2,
+            "depth": 8,
+            "colorMode": 3,
+            "width": 64,
+            "height": 64,
+            "layers": 2,
+            "groups": [
+              {
+                "name": "Character",
+                "path": [
+                  "Character"
+                ],
+                "children": 1
+              }
+            ],
+            "groupsTruncated": false,
+            "findings": [],
+            "findingsTruncated": false,
+            "formatSupported": true,
+            "requiresExplicitPsbOptIn": true,
+            "requiresExplicit8BitConversion": false,
+            "sourceUnchanged": true,
+            "scope": "Metadata/format inspection only; per-section independent composite and native proof still required",
+            "source": {
+              "path": "D:\\codes\\CodexComm\\spine-mcp-4.3\\work\\extensions-b98c6026-17f6-45ed-8a6f-2268c169165f\\format.psb",
+              "sha256": "e28c7bd9237b63997a13d456132499a7a3ac477318d359082ef9e9af0abe4b09"
+            },
+            "helperSha256": "22cc9beadb8f971f26872b79499206dcf775c84f726bfb9597fe2c038fab0709"
+          },
+          "checksPassed": true,
+          "backend": {
+            "checksPassed": true,
+            "width": 64,
+            "height": 64,
+            "units": [
+              {
+                "name": "Body",
+                "image": "part-0000.png",
+                "left": 10,
+                "top": 12,
+                "width": 24,
+                "height": 28
+              }
+            ],
+            "comparison": {
+              "maxPremultipliedError": 0,
+              "meanPremultipliedError": 0,
+              "fractionAbove3": 0
+            },
+            "sourceLayers": 2,
+            "selectedLayers": 1,
+            "sourceVersion": 2,
+            "sourceBitDepth": 8,
+            "outputBitDepth": 8,
+            "explicitBitDepthConversion": false,
+            "reference": "Original PSD selected-group compositor; saved whole-document merged preview is not used as the renderer",
+            "scope": "Only the explicit group and document viewport; hidden variants and child editing semantics are not retained in flattened units",
+            "versions": {
+              "aggdraw": "1.4.1",
+              "attrs": "26.1.0",
+              "numpy": "2.5.4",
+              "pillow": "13.0.0",
+              "psd-tools": "1.26.0",
+              "scipy": "1.18.1"
+            }
+          }
+        }
+      ],
+      "nativeAcceptance": {
+        "id": "637d9f71-849b-48c7-9281-b0c4eb7b355d",
+        "passed": true,
+        "seconds": 3,
+        "survivedMcpDisconnect": true,
+        "stoppedOwnedJob": true
+      },
+      "reportSha256": "26f5881e907b494de91dfe090eb6a1ad8486a2393f5bd334e3fddd93ff66caf4"
+    },
+    "linuxExtensions": {
+      "host": "192.168.0.30",
+      "goTest": true,
+      "goVet": true,
+      "genericPhysicsActualCli": true,
+      "sourceArchiveSha256": "93c29192834bc6f472b31bb8c08449cb97559c740b06b4cd7ba1cf26fdb8436e",
+      "reportSha256": "d23c377bbe048192f87a2c389e25774f32cfc28105596cca98062a3fd8e4ee83",
+      "dualGpuVulkan": {
+        "passed": true,
+        "cards": [
+          {
+            "gpuUuid": "GPU-b36ca0a8-f27e-15a9-c7df-9e0631e69217",
+            "deviceId": 9865,
+            "frames": 900,
+            "decodedFrames": 900,
+            "deadlineMisses": 0,
+            "frameP95Ms": 2.154125
+          },
+          {
+            "gpuUuid": "GPU-44ea3338-2424-23ed-3805-45e0aa478033",
+            "deviceId": 7605,
+            "frames": 900,
+            "decodedFrames": 900,
+            "deadlineMisses": 0,
+            "frameP95Ms": 2.9755
+          }
+        ],
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "seconds": 30,
+        "warmupFrames": 30,
+        "encoding": "libx264 software",
+        "isolatedBy": "explicit UUID per container",
+        "scope": "Bounded warmed rendering/encoding proof; no isolated NVENC, maximum capacity or24h claim. Earlier cold 2s V100 probe had7 deadline misses."
+      },
+      "driverIsolation": {
+        "passed": false,
+        "driver": "580.82.09",
+        "hostNvencPassed": true,
+        "singleGpuContainerNvencPassed": false,
+        "allVisibleDiagnosticNvencPassed": true,
+        "allVisibleAcceptedAsIsolation": false,
+        "ffmpegUbuntu22And24Reproduced": true,
+        "upstreamReference": "https://github.com/NVIDIA/nvidia-container-toolkit/issues/1249"
+      }
+    },
+    "nativePackages": [
+      {
+        "platform": "windows",
+        "arch": "amd64",
+        "path": "native-renderer/output/spine-bgfx-0.2.0-windows-amd64-mcp3.3.0-verified.zip",
+        "sha256": "891f77cc307c52cde463179ca7f045d19249a34e2e573ac7af7c8f2f45811dfb",
+        "filesVerified": 63,
+        "includesPhysicsExampleAndBox2dLicense": true
+      },
+      {
+        "platform": "linux",
+        "arch": "amd64",
+        "path": "work/extension-3.3.0/spine-bgfx-0.2.0-linux-amd64-mcp3.3.0-verified.zip",
+        "sha256": "00fc679cbcd08b0ed47daaeb3370333473b1814836bf71a4ffd5477734af7298",
+        "filesVerified": 60,
+        "includesPhysicsExampleAndBox2dLicense": true
+      }
+    ],
+    "platformCi": [
+      {
+        "workflow": "MCP portable checks",
+        "headSha": "a17bf2c47411bb4893a8f0f569a89d8d96bf629d",
+        "url": "https://github.com/yuyueplus/spine-mcp/actions/runs/42294079723",
+        "jobs": [
+          {
+            "name": "test (ubuntu-22.04)",
+            "passed": true
+          },
+          {
+            "name": "test (macos-15-intel)",
+            "passed": true
+          },
+          {
+            "name": "test (windows-2022)",
+            "passed": true
+          },
+          {
+            "name": "test (macos-15)",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "workflow": "Native renderer build",
+        "headSha": "91c096f70ed8858510f3778f5a70b76fc45fd88b",
+        "url": "https://github.com/yuyueplus/spine-mcp/actions/runs/42290713657",
+        "jobs": [
+          {
+            "name": "build (windows-2022)",
+            "passed": true
+          },
+          {
+            "name": "build (macos-15)",
+            "passed": true
+          },
+          {
+            "name": "build (ubuntu-22.04)",
+            "passed": true
+          },
+          {
+            "name": "build (macos-15-intel)",
+            "passed": true
+          }
+        ]
+      }
+    ],
+    "activeChatObservation": {
+      "serverVersion": "3.2.0",
+      "diskVersion": "3.3.0",
+      "tools": 237,
+      "freshSdkTools": 252,
+      "activeChatReloadVerified": false
+    },
+    "portableInstallation": {
+      "windows": {
+        "passed": true,
+        "unicodeAndSpaces": true,
+        "installerExecuted": true,
+        "freshSdkSmoke": true,
+        "version": "3.3.0",
+        "tools": 252,
+        "manifestSha256": "437ad59742871ef4044fe1e28db09d1d6bb2ac35ec6d3297807f6d7a524ba5df",
+        "reportSha256": "17ddf4ede688cfca5fe2ceb570753b866d663508ac17ef727d3c6149bbdacc64"
+      },
+      "linux": {
+        "passed": true,
+        "version": "3.3.0",
+        "tools": 252,
+        "called": [
+          "spine_create_demo",
+          "spine_plan_physics_bake",
+          "spine_bake_physics_animation",
+          "spine_create_visual_baseline",
+          "spine_compare_visual_baseline",
+          "spine_export_runtime42"
+        ],
+        "sourceUnchanged": true,
+        "physicalFrames": 61,
+        "visualBaselineCompared": true,
+        "runtime42Played": true,
+        "scope": "Linux portable installer and saved-JSON/physics/CPU-preview/4.2 JS runtime only. No Linux native editor or complete 252-tool acceptance."
+      },
+      "scope": "Fresh installation of the identical runtime, dependency lock and installers. PSD environment is optional and explicitly skipped in these portable installer tests; advanced PSD was verified separately."
     }
-  }
+  },
+  "history": [
+    {
+      "version": "3.2.0",
+      "createdAt": "2026-11-06T06:10:12.780706+00:00",
+      "scope": "Source publication. Authoring MCP/bridge acceptance is Windows-specific; Linux evidence covers the native rendering worker and room manager. Windows AMF periodic macroblocking passed controlled regression and user visual confirmation. Newly reported intermittent playback stutter is under investigation. GPU-isolated Docker NVENC, physical multi-GPU, 24-hour soak and macOS GPU acceptance remain open.",
+      "verification": {
+        "implementationComplete": true,
+        "localSupportedScopePassed": true,
+        "allPassed": false,
+        "unitTests": {
+          "command": "npm test",
+          "tests": 816,
+          "passed": 816,
+          "failed": 0,
+          "logSha256": "7041163910c4d3fe08762d63a13261759b77657521a229246311275f3e079f37"
+        },
+        "registeredTools": {
+          "serverVersion": "3.2.0",
+          "tools": 237,
+          "previousActualConnectionVerified": true
+        },
+        "nativeEditorBridge": {
+          "passed": true,
+          "agentSha256": "4cd86ac2421b6cffe878e16bec9e0edcbe134e776259bd660c5234ff3c723376",
+          "sourceSha256": "183d1959912e742d53148887154cc7a4216599a5e9bf32d37e549037c9b74a26",
+          "targetVersion": "4.3.23",
+          "targetJarSha256": "4a1f51fa672fcffe251e10de6bb9399b0aec6564da0161f0a48aafa45681eaf8",
+          "scope": "NEW startup-bridge windows on the pinned installed Spine 4.3.23 build only. No active attachment to ordinary windows. Reload refuses unsaved/stale/busy states; writes a NEW verified sibling recovery file; preserves supported view state; resets native undo history. No mouse/keyboard injection or window-activation command.",
+          "realNativeFixtureCases": 5,
+          "dirtyRefusal": true,
+          "nativeUndoRestoresSavedState": true,
+          "postInstallRollback": true,
+          "postRepaintRollback": true,
+          "nativeRepaintBarrier": true,
+          "osForegroundPreservedObserved": true,
+          "exactRequestReplay": true,
+          "reconnectReceipts": true,
+          "sourceFilesUnchanged": true,
+          "unicodeStartupFixedWithEncodedArguments": true,
+          "immutablePerInstanceAgent": true,
+          "reusedUnchangedBundleEvidence": "3.1.0; native-bridge sources/bundle unchanged in this phase"
+        },
+        "nativeUnitChecks": {
+          "platform": "windows/amd64",
+          "cgoEnabled": true,
+          "goTest": true,
+          "goVet": true,
+          "testLogSha256": "daf644130cca8275eabcaee93b266f4a39f66e70f17d1f452bde95457609a9cc",
+          "vetLogSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "realAMFRegressionPassed": true,
+          "realAMFTestLogSha256": "e2952d1d516cbb3f109af2195dd196a7b1426f0b9eecdb700df4e1774fcbf551",
+          "hlsSnapshotTestsPassed": 2,
+          "broadcastRacePassed": true,
+          "box2dTrackTestsPassed": true,
+          "centralAirliftTestsPassed": true,
+          "synchronizedMagnifierTestsPassed": true,
+          "lowerLipContactTestsPassed": true,
+          "lowerLipContactTestLogSha256": "16cffe90a430625bf1657bc579a3e55ea417f7467113f176540c1ec6298e008d"
+        },
+        "linuxNvidia": {
+          "hostProcessAcceptancePassed": true,
+          "allDeploymentModesPassed": false,
+          "hostOS": "Ubuntu 22.04.5 LTS",
+          "buildRuntime": "Ubuntu 24.04",
+          "gpu": "RTX 4070 Ti SUPER",
+          "driver": "580.82.09",
+          "checks": {
+            "nativeCgoBuild": true,
+            "vulkanBlendPmaClippingWeightedMeshesAndTint": true,
+            "gpuNv12ColorReference": true,
+            "nativeControlsAndPixels": true,
+            "audioWaveformGainLoopOffset": true,
+            "goVet": true,
+            "roomRace": true,
+            "cgocheck2": true,
+            "realNvencProbeRegression": true,
+            "srtReceivedDecodedFrames": 90,
+            "aac48kStereo": true,
+            "queueControlsStopCrashRetryAndParentLoss": true,
+            "portableUnicodeCleanPathDecodedFrames": 30,
+            "portableEncoder": "explicit libx264 in GPU-isolated container",
+            "sourceAssetsUnchanged": true,
+            "ownedRenderProcessesRemaining": []
+          },
+          "performance": [
+            {
+              "name": "four-1080p60",
+              "rooms": 4,
+              "secondsPerRoom": 60,
+              "width": 1920,
+              "height": 1080,
+              "fps": 60,
+              "framesPerRoom": [
+                3600,
+                3600,
+                3600,
+                3600
+              ],
+              "p95FrameMs": [
+                1.964327,
+                1.910812,
+                2.483809,
+                2.343414
+              ],
+              "deadlineMisses": [
+                7,
+                9,
+                8,
+                3
+              ],
+              "acceptedMaximumDeadlineMissRatio": 0.01,
+              "verification": "encoded packets; separate short samples are fully decoded"
+            },
+            {
+              "name": "single-4k60",
+              "rooms": 1,
+              "secondsPerRoom": 60,
+              "width": 3840,
+              "height": 2160,
+              "fps": 60,
+              "framesPerRoom": [
+                3600
+              ],
+              "p95FrameMs": [
+                3.327311
+              ],
+              "deadlineMisses": [
+                0
+              ],
+              "acceptedMaximumDeadlineMissRatio": 0.01,
+              "verification": "encoded packets; separate short samples are fully decoded"
+            },
+            {
+              "name": "two-1080p30-ten-minutes",
+              "rooms": 2,
+              "secondsPerRoom": 600,
+              "width": 1920,
+              "height": 1080,
+              "fps": 30,
+              "framesPerRoom": [
+                18000,
+                18000
+              ],
+              "p95FrameMs": [
+                1.710892,
+                1.691469
+              ],
+              "deadlineMisses": [
+                0,
+                0
+              ],
+              "acceptedMaximumDeadlineMissRatio": 0.001,
+              "verification": "encoded packets; separate short samples are fully decoded"
+            }
+          ],
+          "package": {
+            "platform": "linux/amd64",
+            "sha256": "9bccc4e20600cb99afedd70d8046ddbcd07ce7c1994ba7fc3e9c4ae1f0bb259c",
+            "files": 54,
+            "licenseFiles": 40
+          },
+          "note": "Source character assets and private server connection information are not distributed."
+        },
+        "windowsLiveViewer": {
+          "resolution": "1280x720",
+          "fps": 30,
+          "codec": "h264_amf",
+          "srtToHls": true,
+          "browserContinuousPlaybackSeconds": 30,
+          "msePlayer": "hls.js 1.6.13",
+          "jsErrors": 0,
+          "sampledBlackFrames": 0,
+          "reportedIntermittentFlickerResolved": true,
+          "viewerExampleCliAndSyntaxChecked": true,
+          "encoderUsage": "lowlatency",
+          "browserDecodedFramesAdvanced": 901,
+          "bufferingEvents": 0,
+          "amfPeriodicMacroblockingControlledFix": {
+            "schema": "spine-amf-quality-fix/1",
+            "createdAt": "2026-11-06T05:18:49.915368+00:00",
+            "platform": "windows/amd64",
+            "gpu": "AMD RX550",
+            "oldUsage": "ultralowlatency",
+            "newUsage": "lowlatency",
+            "codec": "h264_amf",
+            "targetBitrateKbps": 3500,
+            "width": 1280,
+            "height": 720,
+            "fps": 30,
+            "gop": 60,
+            "staticInputFrames": 240,
+            "inputPngSha256": "ae0bf3abd256c9674789aab3a175dbcaf637a9e0e344151dc7f9e829e9e863eb",
+            "staticClothingROI": {
+              "x": 490,
+              "y": 250,
+              "width": 320,
+              "height": 340
+            },
+            "roiPSNRMinimumDb": {
+              "before": 21.91585350036621,
+              "after": 41.689029693603516
+            },
+            "roiMaximumAdjacentFrameRGBChange": {
+              "before": 11.48560619354248,
+              "after": 0.5338051319122314
+            },
+            "realEncoderRegressionPassed": true,
+            "syntheticTextureKeyframeMeanRGBChange": 1.1231,
+            "syntheticAcceptanceMaximumRGBChange": 3,
+            "nativeGPUEncodeAndDecodeFrames": 90,
+            "browserContinuousPlaybackSeconds": 30,
+            "browserDecodedFramesAdvanced": 901,
+            "browserJSErrors": 0,
+            "browserBufferingEvents": 0,
+            "sampledBlackFrames": 0,
+            "liveCaptureDecodedFrames": 720,
+            "userVisualAcceptance": {
+              "passed": true,
+              "confirmedAt": "2026-11-06T06:06:43.901971+00:00",
+              "feedback": "已正常，不再出现",
+              "scope": "Periodic skirt/hair macroblocking only; newly reported intermittent playback pause is being investigated separately."
+            },
+            "hlsSnapshotTestsPassed": 2,
+            "package": {
+              "passed": true,
+              "files": 60,
+              "sha256": "5d854ab4f0c93cec609f081bcdcbde97135d4d85c5dacf19aaa941df38fe2f60",
+              "allManifestHashesVerified": true,
+              "viewerScriptsIncluded": true
+            },
+            "workerSha256": "6036a129de67b808be974abea69b99281b9a5afa9aedcccc7a711e5c87146126"
+          },
+          "intermittentPauseInvestigation": {
+            "schema": "spine-live-stutter-investigation/1",
+            "createdAt": "2026-11-06T06:10:12.780706+00:00",
+            "durationSeconds": 125,
+            "browserFrameCallbacks": 3754,
+            "browserBufferingEvents": 0,
+            "browserGapsOver100ms": 0,
+            "maximumBrowserCallbackGapMs": 50.10000000000582,
+            "browserDroppedFrames": 0,
+            "capturedDecodedFrames": 3750,
+            "maximumEncodedFrameIntervalSeconds": 0.03333400000001063,
+            "encodedFrameGapsOver50ms": 0,
+            "confirmedAuthoredStaticHold": {
+              "animation": "03_charge_release",
+              "startSeconds": 1.2,
+              "endSeconds": 2.2,
+              "durationSeconds": 1,
+              "sourceJsonSha256": "07956036b846370573b3cd9bd621c3591f1cd0992ba20faa735c98879e142be9",
+              "method": "Sampled every bone applied world translation/matrix at 30fps with official Spine 4.3 JS runtime; all sampled components finite."
+            },
+            "scope": "Playback transport/decode pause was not reproduced in this sample. An exact one-second all-bone hold is present in the source animation. This does not establish that every user-side pause has this cause. Original animations and live settings were not modified."
+          }
+        },
+        "pending": [
+          "GPU-isolated Docker NVENC on the tested NVIDIA 580.82.09 host; host-process encoding passed.",
+          "Physical multi-GPU rendering/encoding isolation and capacity.",
+          "24-hour concurrent soak.",
+          "macOS GPU acceptance.",
+          "User-reported intermittent playback pause: 125-second sample had no buffering or >100ms browser frame gap; exact one-second authored charge hold confirmed. Other client-side stalls remain unverified."
+        ],
+        "scriptedLotteryDemo": {
+          "stage": "prototype-6",
+          "localAcceptancePassed": true,
+          "productionReady": false,
+          "platform": "windows/amd64",
+          "backend": "Vulkan",
+          "codec": "libx264",
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "durationSeconds": 117,
+          "completeSpecifiedResultRoundsThisRevision": 1,
+          "decodedFramesPerRound": 3510,
+          "priorPrototypeTwoResultRoundAcceptanceRetained": true,
+          "numberDecalsPerBall": 12,
+          "bakedRestingPileCounts": [
+            49,
+            42
+          ],
+          "restingPileFootprintsPixels": [
+            [
+              99.1,
+              40.1
+            ],
+            [
+              95.4,
+              37.9
+            ]
+          ],
+          "resultTrackPhysics": {
+            "engine": "official Box2D",
+            "version": "3.1.1",
+            "stepHz": 120,
+            "substeps": 16,
+            "poseHz": 60,
+            "collisionAndSleepTestsPassed": true,
+            "coordinateSystem": "wide-camera pixels"
+          },
+          "browserJsExceptions": 0,
+          "ownedWorkerCancellationPassed": true,
+          "evidenceSha256": "ed52c710f0d0d6ad091c9fc4f79c23e172b26603f09347732102adbf25009d90",
+          "limitations": [
+            "Reference framing/timing approximate, not pixel-identical.",
+            "Magnifiers rerender shared scene state at higher resolution; encoded small-view and enlarged-view pixels differ in clarity.",
+            "Central suction is guided constrained motion, not fluid simulation; main-chamber mixing remains authored.",
+            "No presenter/lip sync or full3D glass refraction.",
+            "Windows AMD/Vulkan tested; Linux/macOS demo acceptance pending.",
+            "One bounded117-second round per job, no24-hour continuous programme scheduler."
+          ],
+          "centralAirliftRouteVerified": true,
+          "pipeForegroundOcclusionVerified": true,
+          "startupReplayPassed": true,
+          "oneSharedWideCameraPhysicsWorld": true,
+          "uniformMagnifierPoseChecks": 24570,
+          "lowerLipContactVerifiedPoses": 8119,
+          "maximumUpperLipClearanceWidePixels": 1.0719
+        }
+      }
+    }
+  ]
 }
