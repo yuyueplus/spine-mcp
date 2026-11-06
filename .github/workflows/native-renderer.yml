@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-2022, ubuntu-22.04, macos-14]
+        os: [windows-2022, ubuntu-22.04, macos-15, macos-15-intel]
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -30,11 +30,11 @@ jobs:
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y cmake build-essential libx11-dev libgl1-mesa-dev
       - name: Unit checks
-        run: go test ./... && go vet ./...
+        run: node ../scripts/ci-check.mjs go-test && node ../scripts/ci-check.mjs go-vet
       - name: Build pinned native dependencies and Go worker
-        run: go run ./cmd/buildnative -jobs 4
+        run: node ../scripts/ci-check.mjs native-build
       - name: Package deployment files and notices
-        run: go run ./cmd/package
+        run: node ../scripts/ci-check.mjs native-package
       - uses: actions/upload-artifact@v4
         with:
           name: spine-bgfx-${{ runner.os }}-${{ runner.arch }}
