@@ -2,10 +2,11 @@ import type { McpServer } from '@modelcontextprotocol/server';
 import { z } from 'zod/v4';
 import type { SpineService } from './service.js';
 import { createProjectOptions, editorOpenOptions } from './editor-project.js';
-import { nativeEditorReloadOptions } from './native-editor-bridge.js';
+import { nativeEditorReloadOptions,nativeTimelineOptions } from './native-editor-bridge.js';
 
-export const EDITOR_TOOL_COUNT = 6;
+export const EDITOR_TOOL_COUNT = 7;
 export function registerEditorTools(server: McpServer, service: SpineService) {
+  server.registerTool('spine_control_editor_timeline',{description:'Guarded native-main-thread animation selection, exact frame seek and forward play/pause in one pinned bridge-enabled editor. Uses no injected input or window activation. Fresh expected project/model/undo state required; dirty/busy/stale states refuse. Receipt verifies model and undo unchanged; request IDs deduplicate. Requires this bridge version in a NEW managed instance.',inputSchema:nativeTimelineOptions,annotations:{readOnlyHint:false,destructiveHint:false,idempotentHint:true,openWorldHint:false}},async a=>{try{const r=await service.nativeEditor.controlTimeline(a);return{...(r.ok===false&&!r.pending?{isError:true}:{}),content:[{type:'text' as const,text:JSON.stringify(r,null,2)}]};}catch(e){return{isError:true,content:[{type:'text' as const,text:JSON.stringify({error:(e as Error).message})}]};}});
   const result = async (action: () => Promise<unknown>) => {
     try { const value=await action();const reply=value as {ok?:boolean;pending?:boolean};return { ...(reply?.ok===false&&!reply.pending?{isError:true}:{}),content: [{ type: 'text' as const, text: JSON.stringify(value, null, 2) }] }; }
     catch (error) { return { isError: true, content: [{ type: 'text' as const, text: JSON.stringify({ error: (error as Error).message }) }] }; }

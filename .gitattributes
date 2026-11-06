@@ -1,6 +1,8 @@
 # Native bridge and verification manifests pin file bytes. Preserve them on
 # checkout, including on Windows with core.autocrlf=true.
 * -text
+# Vendored Box2D bytes must match SOURCE.json, including upstream whitespace.
+native-renderer/internal/trackphysics/box2d/** -whitespace
 *.png binary
 *.psd binary
 *.jar binary

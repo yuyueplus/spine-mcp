@@ -20,7 +20,7 @@ export const configSchema = z.object({
   ffmpegExecutable: z.string().nullable().optional(),
   ffprobeExecutable: z.string().nullable().optional(),
   nativeRenderer: z.object({
-    workerExecutable: z.string().min(1), roomServerExecutable: z.string().min(1), nativeLibrary: z.string().min(1),
+    workerExecutable: z.string().min(1), roomServerExecutable: z.string().min(1), nativeLibrary: z.string().min(1), physicsExecutable:z.string().min(1).optional(),
     slots: z.array(z.object({id:z.string().regex(/^[a-zA-Z0-9_-]{1,80}$/),capacity:z.number().int().min(1).max(64),memoryMB:z.number().int().min(64),dockerGpu:z.string().optional(),dockerImage:z.string().optional()}).strict()).min(1).max(32),
     queueLimit:z.number().int().min(0).max(256).default(16)
   }).strict().optional(),
@@ -44,6 +44,7 @@ export async function loadConfig(): Promise<Config> {
   if (config.ffprobeExecutable) config.ffprobeExecutable = path.resolve(configDirectory, config.ffprobeExecutable);
   if (config.nativeRenderer) for (const field of ['workerExecutable','roomServerExecutable','nativeLibrary'] as const)
     config.nativeRenderer[field] = path.resolve(configDirectory, config.nativeRenderer[field]);
+  if(config.nativeRenderer?.physicsExecutable)config.nativeRenderer.physicsExecutable=path.resolve(configDirectory,config.nativeRenderer.physicsExecutable);
   if (config.cliRuntimeDiscovery) config.cliRuntimeDiscovery.root = path.resolve(configDirectory, config.cliRuntimeDiscovery.root);
   if (config.guiRuntimeDiscovery) config.guiRuntimeDiscovery.root = path.resolve(configDirectory, config.guiRuntimeDiscovery.root);
   if (/^[\\/]{2}/.test(config.workspaceRoot)) throw new Error('Workspace must be on a local disk.');

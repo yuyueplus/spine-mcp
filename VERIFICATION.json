@@ -3,8 +3,8 @@
   "version": "3.2.0",
   "targetVersion": "4.3.23",
   "tools": 237,
-  "createdAt": "2026-11-06T04:57:33.183649+00:00",
-  "scope": "Source publication. Authoring MCP/bridge acceptance is Windows-specific; Linux evidence covers the native rendering worker and room manager. GPU-isolated Docker NVENC, physical multi-GPU, 24-hour soak and reported AMF flicker remain open.",
+  "createdAt": "2026-11-06T06:10:12.780706+00:00",
+  "scope": "Source publication. Authoring MCP/bridge acceptance is Windows-specific; Linux evidence covers the native rendering worker and room manager. Windows AMF periodic macroblocking passed controlled regression and user visual confirmation. Newly reported intermittent playback stutter is under investigation. GPU-isolated Docker NVENC, physical multi-GPU, 24-hour soak and macOS GPU acceptance remain open.",
   "coreFiles": [
     {
       "path": "src/acceptance.ts",
@@ -641,16 +641,88 @@
       "sha256": "7dd682fe71497184d6da56f844d72fb7d78fdbf910f0ec418e804fc82ef00017"
     },
     {
+      "path": "native-renderer/CMakeLists.txt",
+      "sha256": "17f692944721426a2684580a8860e61830d30b9bc431d190c6ba0cd60ad3386d"
+    },
+    {
+      "path": "native-renderer/Dockerfile",
+      "sha256": "e8ed0fe4f2113f822eddb5bca21a5095e318a2527c7546178481cf11b3c0ece0"
+    },
+    {
+      "path": "native-renderer/README.md",
+      "sha256": "f389a9d7daf4db620cca8f4cf566f2207685c1c2e22f249725bdeacd387b1d3a"
+    },
+    {
+      "path": "native-renderer/broadcast/airlift.go",
+      "sha256": "eef2f77cb53184c7941d66f5c6ddf265253d917e61d1bce5fae5d62f95469e95"
+    },
+    {
+      "path": "native-renderer/broadcast/airlift_test.go",
+      "sha256": "a09144b96827f97f7f2873964656c1511c684f481eab052e5699c033b9a6638b"
+    },
+    {
+      "path": "native-renderer/broadcast/magnifier.go",
+      "sha256": "b3401d416b533185ed3e57ea9ab079deb138c7a8bbf0b9e18e83f26d8c542e5b"
+    },
+    {
+      "path": "native-renderer/broadcast/magnifier_test.go",
+      "sha256": "a24e48f1027a0a10452f4689658b542dca9c53e40d639c8c878e4989c6eb3460"
+    },
+    {
+      "path": "native-renderer/broadcast/packing.go",
+      "sha256": "5d3cade5ce0e512a2b1c0560fba3bd273cf209adde6122d6ede5f6c12242bb60"
+    },
+    {
+      "path": "native-renderer/broadcast/packing_test.go",
+      "sha256": "7f1ac1b3d609734edab6e6b904d51bdc198c5ad317add069f43e043ce240215e"
+    },
+    {
+      "path": "native-renderer/broadcast/process_other.go",
+      "sha256": "6a63300291d33cbd97859947ae9400cf838436f1499fbc37c470077d756b2eee"
+    },
+    {
+      "path": "native-renderer/broadcast/process_windows.go",
+      "sha256": "4c1cba304d115f997f7990f045739aa25a760c408fb2a9f52056b7b8acf76ea1"
+    },
+    {
+      "path": "native-renderer/broadcast/scene.go",
+      "sha256": "c94eca3cbdec0239166b5b4e7a0cd920230b632dd4f560930ba7292af1f5683a"
+    },
+    {
+      "path": "native-renderer/broadcast/scene_test.go",
+      "sha256": "5f059d962faac157ac8ee1a2d9880f24563ca2fed72e2c66edd278a96b61cfd1"
+    },
+    {
+      "path": "native-renderer/broadcast/server.go",
+      "sha256": "7911da5301a9f94e2866df5dadbe007d840a925582736b84105cf34e31ef7edb"
+    },
+    {
+      "path": "native-renderer/broadcast/server_test.go",
+      "sha256": "a24cf0e3a393707f81c5589461e8521d9f2b1ef47ddc5ebc9d73460a045735b2"
+    },
+    {
+      "path": "native-renderer/broadcast/track.go",
+      "sha256": "b596da325b0b95550f174d585dda491382edceaf5ce28bf842cc5b6a2165437f"
+    },
+    {
+      "path": "native-renderer/broadcast/web/app.js",
+      "sha256": "96edb15938906935db3748261103fc877f1b332f3947b02e23ee5484d11b4fa4"
+    },
+    {
+      "path": "native-renderer/broadcast/web/index.html",
+      "sha256": "c56185b6cc1b143e4c168bbb5c581412cb5c1eb402d5a70df6905d372ddf7a8c"
+    },
+    {
+      "path": "native-renderer/broadcast/web/style.css",
+      "sha256": "a523c2b7f19880959e709ca66b4cb16338bf6c2f24c560d2794531545ec56545"
+    },
+    {
       "path": "native-renderer/build.ps1",
       "sha256": "5d419f657b9e423db56ab14b4d4ae1cd664ad6f76936cf55bacbaee14f35a636"
     },
     {
       "path": "native-renderer/build.sh",
       "sha256": "9d35fb2a860f945fe9ff48dc846e83cfb9a8bcc4b587e814e78f24f03f10c5b3"
-    },
-    {
-      "path": "native-renderer/CMakeLists.txt",
-      "sha256": "17f692944721426a2684580a8860e61830d30b9bc431d190c6ba0cd60ad3386d"
     },
     {
       "path": "native-renderer/cmd/acceptance/main.go",
@@ -661,8 +733,12 @@
       "sha256": "1bd8067e2070eba059a54d0921ca16672ac1739c943a93514f337a2c888f08c8"
     },
     {
+      "path": "native-renderer/cmd/lottery-demo/main.go",
+      "sha256": "bab4f1b96630e3184c04f73883a99312014c272709eec6d62e5ca0e7052ad554"
+    },
+    {
       "path": "native-renderer/cmd/package/main.go",
-      "sha256": "8ff02982ab4ab95528dd28f0c9ca4c78226e68dcda9af739c18d40042bc75d77"
+      "sha256": "9aa2f4803778a410883cb349b31ad4a889d1dcf2320913d0c94e01544700197a"
     },
     {
       "path": "native-renderer/cmd/spine-roomd/main.go",
@@ -681,20 +757,36 @@
       "sha256": "e06f57f740d2ab1dc9cf844512404543ad83fe5e86e9c85b7c7553077019da96"
     },
     {
-      "path": "native-renderer/Dockerfile",
-      "sha256": "e8ed0fe4f2113f822eddb5bca21a5095e318a2527c7546178481cf11b3c0ece0"
-    },
-    {
       "path": "native-renderer/examples/browser-live.json",
       "sha256": "78537e2a9ae193eac3088dba2d4ff310fc8c9e30153df935d570e28be1bf72a0"
     },
     {
       "path": "native-renderer/examples/browser-live.py",
-      "sha256": "8347586b7752b44147b3735e9553beb546ca1c0ef019cd5d619da838551dcf21"
+      "sha256": "d881dacf4efaa6a6a5c09a78494ada7d0fab49031ed38aef1ca80051f826187b"
+    },
+    {
+      "path": "native-renderer/examples/hls_snapshot.py",
+      "sha256": "0c616c551dd2b73eb016a97750d8ae296fad2831b8aa2aec802d692be9cd36cd"
+    },
+    {
+      "path": "native-renderer/examples/lottery-demo/build_assets.py",
+      "sha256": "85b347812ebce5db946fde9f7759eff60131a6ec7251deaa77b9bf229ea5686a"
+    },
+    {
+      "path": "native-renderer/examples/lottery-demo/build_voices.ps1",
+      "sha256": "a84a5905fd100f20100a16b308996ffc53ffc07d131e22e10a532e944cc8409d"
+    },
+    {
+      "path": "native-renderer/examples/lottery-demo/verify_browser.mjs",
+      "sha256": "963ffb94ae578d1928401bcda6706e4b6b30283c0e54fadcd6a942eef608b75c"
     },
     {
       "path": "native-renderer/examples/session.json",
       "sha256": "e8cb3bf427f8a04f05c6c58ae1b976065a3a948030712eba1ad6e27f46f6c40d"
+    },
+    {
+      "path": "native-renderer/examples/test_hls_snapshot.py",
+      "sha256": "18f082c99da2a33f42364cf303b568e06d37103de4bdf768fb5043c0c8c9e46d"
     },
     {
       "path": "native-renderer/go.mod",
@@ -729,8 +821,428 @@
       "sha256": "bfc4ff269a1f91145125ba2f73bc2bfb9c573b520cc12ccb309696ff0fe632c9"
     },
     {
-      "path": "native-renderer/README.md",
-      "sha256": "de4060b1f29d80d8404672adef6a0234950992dbd3f2343f51e42ba5d050a716"
+      "path": "native-renderer/internal/trackphysics/b2_aabb.c",
+      "sha256": "239a22e20ed0917be4e9ac498c47721441961a8ae5fe74be0b79fb2d7bead8d3"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_arena_allocator.c",
+      "sha256": "6ca7d262e2acac4d13617b9bbff05c2e9272dfbe774649173d9846309c85dd97"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_array.c",
+      "sha256": "711a0075b752968d03fb487f47a07ba9a624aee2388b1f9e6d53f271de8c56cb"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_bitset.c",
+      "sha256": "a99f857f928d96c7522fb6dc19c26e2defd4be6b15dcda85c6bbdad5586424a0"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_body.c",
+      "sha256": "3aba88c639d3e3c6c2aaff65be12ecd8d531d14fb5f0f8c36b54a63f242780f5"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_broad_phase.c",
+      "sha256": "0a561a61304ed02f6b43758ee19585f21b2a33a4c459b6695f306df72d472c1f"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_constraint_graph.c",
+      "sha256": "4014ef02401e164251ea7f0d78ba86b96a822fd6e569bb3100d458114e06cf1f"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_contact.c",
+      "sha256": "0b444777bca7e06a2a2ed2a368a553f66004e4946c6489eb2131da09c14009a2"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_contact_solver.c",
+      "sha256": "b1517043145c4cff89db81690e8ff87a0a91658cbc8d9695c645e96a6766eb0b"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_core.c",
+      "sha256": "23959651ec8bad4d6130f77c693cf4c812bf5ccb036335566711b299df045ede"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_distance.c",
+      "sha256": "24eb0c39bedaa035d7050d3ea86e13038d3699a9b7f2f8767fed9a8a36efd4aa"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_distance_joint.c",
+      "sha256": "9835a50661fb2e5fb7c4bc7ab672bb0b8222b61fd967e4241e0f6926e17b95fc"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_dynamic_tree.c",
+      "sha256": "a6976a1bd7ac465c983eacb6ba61cec81e06de817d382757f558b2f8a899367d"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_geometry.c",
+      "sha256": "acfe1ea26dac014c8c31c42f9b9dc48d02e4e1f49c48b107f0f4a82db74d0dac"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_hull.c",
+      "sha256": "1185618a9281a84beb445e7e0a0a6055853fc2612e1321197ba48e07f860dedb"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_id_pool.c",
+      "sha256": "9221a008369628f51afc629bc97fab50f4ae81f8dc81ced3fcc29e8a3b4e1aa6"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_island.c",
+      "sha256": "e6492a08e12907d97e6e8f02215992e33dc3789acf732bf8bb6d70abd7249914"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_joint.c",
+      "sha256": "93765a4e66ad510e9a722fb702184244f83e9631b43160dcfa966fcf530e9c32"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_manifold.c",
+      "sha256": "f6303624d8bd35c49988761c777d577613542e897e72681d0676507722ac5b62"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_math_functions.c",
+      "sha256": "4485bc3e7ab93c678170f925154152188226433ed02ded2873878e569738a119"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_motor_joint.c",
+      "sha256": "4afdb658d16c81fef2b2317e86a1526c5727ad3118ed22126fae5a4a66f50f22"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_mouse_joint.c",
+      "sha256": "edf93c2169fcae88969f29af297482d8f635dafd36d384530154a42fee2b5a3e"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_mover.c",
+      "sha256": "263408733b1daea40fd20b5fb5354c974d646ea521cb82efba1b7e8b08082191"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_prismatic_joint.c",
+      "sha256": "e20818ff5a02edaddcca7098e24d9091386b7cbcdafcd9264c40e4fef4a8659c"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_revolute_joint.c",
+      "sha256": "c53db5b9361e8ffc4d986bbb17a07cfa22dfb33206240efee169c944a17d8bfb"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_sensor.c",
+      "sha256": "340bf2e58b7173fffeb4aa3fd3ca762aef36d3e9d6dbe3cf55b31e2c615ab33d"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_shape.c",
+      "sha256": "6bb36bbc88ec66789e76858a151626c2cc39e796d5246ae9784c3c20279d801a"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_solver.c",
+      "sha256": "39cbbda9dfe4b2816cbfdf83a60f4d376a47ce4ec309ab64d7e12982aabbee79"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_solver_set.c",
+      "sha256": "e2afad566bff75166377cbacae5f6d371e725f76530d1f867ac62b7d61caf4b8"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_table.c",
+      "sha256": "9a512f98756bae032add89e86caf1d8f1d2dc87b54a7db4235092a249843ff0a"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_timer.c",
+      "sha256": "79fc6c3ce374a566153d749f3b196f21418285fcab4411af23c206550e65df4c"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_types.c",
+      "sha256": "bb1506cbfe1a1bcb40b669103a8ebd71e0e4d4b8959901ee497f9866d43df091"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_weld_joint.c",
+      "sha256": "5ad84adc5f617ec837d6a02674ceb63dfb47a036c03179ed4a52a5cff787ef63"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_wheel_joint.c",
+      "sha256": "bb2ffdad5814cbd2479335376da9126eed64d3efbbb99860e5d347050a5f2b04"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/b2_world.c",
+      "sha256": "04a1b64df528cc28357a7813ee89b99ba3596468c18de6b374a4d0fc90f0624f"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/LICENSE",
+      "sha256": "68a3e676d7e94093b102d5cba0d4e04af812040d6f230c3db67a6664574e43d2"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/SOURCE.json",
+      "sha256": "085c10f33883b1cd39f5d4f77c46d028e0c5d7103854047e4ed7075973f47465"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/include/box2d/base.h",
+      "sha256": "20180151e976cce32d493614d4fe47e15f3aca982b97a7baf8c23f80eb843479"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/include/box2d/box2d.h",
+      "sha256": "f84e07c7a7dd049acd734c9cb355f9d91e5eccca39aebfd4510b13dc7b48eb6f"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/include/box2d/collision.h",
+      "sha256": "ee1995ff2460e036c7dabedddd028d6d2f40b8fe3976b4405d611aa6c6ca8cc9"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/include/box2d/id.h",
+      "sha256": "19ae35f2b248951bc40e0bb56e23e0768063930d3a74bbfb4d433d219a0c1b27"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/include/box2d/math_functions.h",
+      "sha256": "334eab5cd04b8e7bcdb6d4d2575aa17f5e07bee63fd92084e9759d57b6bcae89"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/include/box2d/types.h",
+      "sha256": "ea3da532cb49978123dca81bb3c76d66d912f89486ba1fca9ac9c9d54d28cf60"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/CMakeLists.txt",
+      "sha256": "e735f8bbc6ae8debb065fc8f5bcffc620fc593e423bb68625bb657bfb7d09ecf"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/aabb.c",
+      "sha256": "f7962c7f73d6f1ac84e96a6eac9d1ffae03b568e33903a1896c3ad1bc8636cb5"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/aabb.h",
+      "sha256": "81fd633eb290fbe6bff18e0db47e8be198ce6cfcb203873f0e5d71b4d881d4a0"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/arena_allocator.c",
+      "sha256": "a134e8badac17efb8b0ecae1a4627b90d15f3c2689669c69025f53070a838a03"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/arena_allocator.h",
+      "sha256": "aa117611ae55d2e13dbfa3ce4562fead9f092eb52b0ba2b3a0ffc3cc63840a8a"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/array.c",
+      "sha256": "677b98644da1c59abf6859528ad8ebe997f5e97c225f2ccc5330c8a7f23db157"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/array.h",
+      "sha256": "84f2fb5787163b58f7901a778c97d18e062f42fe9b4ba0c93caa3a1c0e6bfbe1"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/atomic.h",
+      "sha256": "faeaf41a6f88e6faf5c804b4f610cfc33311153481d0b1fd48cc7dfa676891af"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/bitset.c",
+      "sha256": "8dbaa9c8c20ed67482f5bdb3686206de3a21ac8f34d65003997569b7a05e28cd"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/bitset.h",
+      "sha256": "62c5024722c2e62c9cae21b55dfa1bd11e93302c8d061eb5dc1093c1b5e7f7d8"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/body.c",
+      "sha256": "eb29b16f2060bb730ad1a5936c4c61ff99b91cb3f8b55e742d8f3784600f626e"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/body.h",
+      "sha256": "be819c268df5370e93cda1fbb096c30d8a56d976b5b514ffb353b534aa131a7c"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/box2d.natvis",
+      "sha256": "ddb3f1afc8712b2a6edd9ed5f9b0bf28333a640e22b2b099f899c9ae56a85661"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/broad_phase.c",
+      "sha256": "b03d37a0fa9ba79e70b794c0acf17568388b3ad11a30186b446701010da38676"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/broad_phase.h",
+      "sha256": "37e9d1649e5efa2f56b3725cd28e24ec56a10ebb0bfe839a02c989249a29358d"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/constants.h",
+      "sha256": "cbad16c4dd09b6af9f5a1007e07a10c0b4a49aab4e213840895e50ca81020817"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/constraint_graph.c",
+      "sha256": "e515cb6e4196fe00f84b8e9e5d84067db47312a68cf61309f0b462198b932455"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/constraint_graph.h",
+      "sha256": "4887073345515772629093b199c2842631f886678986f10d53f774dec6a7c465"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/contact.c",
+      "sha256": "98993ee57a91ed2fedf9f018e47098f2c99b13e288e4c79587465c2164fd5c66"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/contact.h",
+      "sha256": "b3d0c7ad195dd21d515e3659ee0e922e861e2a0d3335d354ecae27467a2f3412"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/contact_solver.c",
+      "sha256": "6b8899fb2135fa13022f2c99776e835e076602920cbf1577e5933d994e364c34"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/contact_solver.h",
+      "sha256": "13c456c528a326b57c3fb74e8fd834513932dddffd6bd071c02dcf008b3cf4bf"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/core.c",
+      "sha256": "7706e710a9c138a3fba4654db93729cba4f321eb4fe788c613047d3b05bbf784"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/core.h",
+      "sha256": "11f408d604dd27c6e7605577f56b2402fdeefec83d7cf81ebe73b183f5e25eeb"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/ctz.h",
+      "sha256": "b30e72708882d80d19b9d73a201c90681bb245a58e5b40384df9b30b6cad8fd3"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/distance.c",
+      "sha256": "6e44c7b8268ef585ef92e7c96e9f3749922f410a9b5ff709d1879c8d9f911668"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/distance_joint.c",
+      "sha256": "15e56db2c924964b11a65a1209bc9b248d8092470bfd51dc11cc926567124548"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/dynamic_tree.c",
+      "sha256": "a9c9bbb6567594cb6d4fbc4f8628f86b2dd2d94370822e96b34d4f6c76d99173"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/geometry.c",
+      "sha256": "be4421f07dd380e841b7970f1f63c0a0c5d4b0cccbd310da357629678446e42f"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/hull.c",
+      "sha256": "c21d1c24241589a07f7c85b33909b9aca1c3dcbec2c26df831bbb0298d5a4e0f"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/id_pool.c",
+      "sha256": "384c1795268ceaf1c91f3d3179512406133864544a62a9e61cfaf0f7bfff0a4d"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/id_pool.h",
+      "sha256": "e11d6cfb00ce3d6fb2086f3f69e8feac626901062c43ca7659693cfed9db012e"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/island.c",
+      "sha256": "d67c19d451bfd7ad6ffcb8f0636bfb124643e050e520f777600dcf946ec46a2e"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/island.h",
+      "sha256": "951ce8401d427432a29d132b910eb3fd1043a5bd074b6384f7a8ecc096b1c4af"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/joint.c",
+      "sha256": "4843c656b1b4ceac3886cb75df4536e098713b1b4aee47f27355c44f37ba5270"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/joint.h",
+      "sha256": "c1679de54fcd7bddb2d3adced4d2c1e7da9f4da82f02aba9deffbbd17868986f"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/manifold.c",
+      "sha256": "4eba05144d4cf7ace6b92339b20cd55d85d8d93bac3972292b90b31161be1a99"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/math_functions.c",
+      "sha256": "699916979ffc3c8570fe765dc095a313f94da6604eabea1810becc1ac29ca8be"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/motor_joint.c",
+      "sha256": "90d3bdd6657749916e6ecb1d1e5eb5a5122cccd8e0d4a822cc7dbc1c27b0e3ba"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/mouse_joint.c",
+      "sha256": "4a7afeac9ebf471540be0f35673027a8c37b9d03e3413ed0ab738973ca999d92"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/mover.c",
+      "sha256": "8fc92803559612981ea19bbc8fda675e33effc94d5d0a8b7f2bd17ba06c619b2"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/prismatic_joint.c",
+      "sha256": "0779a482035286c46903502367882fe64e256f84fa480d6bab514c77618effa9"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/revolute_joint.c",
+      "sha256": "369e2b11e8b68e0831191b198d7ec9ede1903e42560f96ff9f7e0e55ec695c40"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/sensor.c",
+      "sha256": "efffe17470d5d2c93398540d66e1941f974cbbbf54e34af25d876a48627de515"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/sensor.h",
+      "sha256": "783e9ea7f1fb22c57dae2d331cfa324bafeeb99d1e486b466910646038b53a32"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/shape.c",
+      "sha256": "7f21cae5ae2cfc519ad43bdce9de01acdd1ccaa01cb5bf976d0adb256ce3bb00"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/shape.h",
+      "sha256": "05ef245b103848460f0bbeeaba63685215d545e0b60878adaef64299e3d21b05"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/solver.c",
+      "sha256": "1e48185b231a15a2fc9a2327e8cd421b95488418fe55579d5d41056229823663"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/solver.h",
+      "sha256": "e49b4efab22e904b52d48439672ea968d88d9d0ff7f3d4d7ae1e8be4d8a6965b"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/solver_set.c",
+      "sha256": "8c9bf12c3513cd1996e804bc164ac5f0723dded4bd03b43e1efb7c4641a4387b"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/solver_set.h",
+      "sha256": "60ddefa8ec81bc1efde1bb47f1e475b7eefb51d7dfbda4b01eb731a5a7646ea1"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/table.c",
+      "sha256": "9d7535c536babeb9e89ad036ff8f9124f4bf77ffc6f0d14fac1fb7b503be5560"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/table.h",
+      "sha256": "f2d7f741ebe9650731dc9f11362b0e31f0cb6cca6bdccff07a8eaf834c387f7b"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/timer.c",
+      "sha256": "fc5398f7776756ed98b61703ebb8d321bf0d84ba585691b4109cdd8b70a27008"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/types.c",
+      "sha256": "bff50be52b9f6c685f38918a70811c0daf55ee1cb367d76fd6127e6683fabca8"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/weld_joint.c",
+      "sha256": "eb05e26002ca83349020642ea8e0ce5eb30d9b36cfbe96df670c5b90cc6eb05d"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/wheel_joint.c",
+      "sha256": "7e21c2ccdd451be540d76022e865909f2fa98bbadd55dc5d25456b22af920d36"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/world.c",
+      "sha256": "e14e55cba52f50fedf9b572aeb03658331d2e95f5375ee2b4bde5185bac90e3a"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/box2d/src/world.h",
+      "sha256": "ee8f553ea810fe5aec82adaefd913992ca46e62a4b54143ffc0e93ac733f6427"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/track.c",
+      "sha256": "00cd0ec95ee9443d731ec24f9253d5ccd5c36387d7ca0eded12f60e117ffddd9"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/track.go",
+      "sha256": "1a70ddbc39a569153e3c434120cdf9e98d26e6f4377f97a06efd2da5a3f10359"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/track.h",
+      "sha256": "e24b538f4f6ad90d5020edaf29c982e2a9ec4e2f12249f7965c7f5258b8629a2"
+    },
+    {
+      "path": "native-renderer/internal/trackphysics/track_test.go",
+      "sha256": "47bcbb875267b01ef47954ec9c2acbfd732310bb8cf6102f27a6c55fee1aa0de"
     },
     {
       "path": "native-renderer/rooms/docker.go",
@@ -790,11 +1302,11 @@
     },
     {
       "path": "native-renderer/worker/encoding.go",
-      "sha256": "2b619dd9d276cb7f4385afe291fa11957a43d7bfdcb73e5115c8956b5b9fca04"
+      "sha256": "8c99b425daf534499a0e0e57e427df7da4106ecac78b2b68c6f207bc754a244a"
     },
     {
       "path": "native-renderer/worker/encoding_integration_test.go",
-      "sha256": "e4c86d419d2a7f979b145c4942d54f5af4888fc0d72041bb085c31ff378a5e6e"
+      "sha256": "f3e9735d57196b781814bf5d32723842f45df93e53c819bc13a8583aea913c46"
     },
     {
       "path": "native-renderer/worker/integration_test.go",
@@ -867,8 +1379,17 @@
       "cgoEnabled": true,
       "goTest": true,
       "goVet": true,
-      "testLogSha256": "c1e146a15dde49d28751717ad7680d92308f5b9afbb0cdad6985c0bece4bcd9f",
-      "vetLogSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "testLogSha256": "daf644130cca8275eabcaee93b266f4a39f66e70f17d1f452bde95457609a9cc",
+      "vetLogSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "realAMFRegressionPassed": true,
+      "realAMFTestLogSha256": "e2952d1d516cbb3f109af2195dd196a7b1426f0b9eecdb700df4e1774fcbf551",
+      "hlsSnapshotTestsPassed": 2,
+      "broadcastRacePassed": true,
+      "box2dTrackTestsPassed": true,
+      "centralAirliftTestsPassed": true,
+      "synchronizedMagnifierTestsPassed": true,
+      "lowerLipContactTestsPassed": true,
+      "lowerLipContactTestLogSha256": "16cffe90a430625bf1657bc579a3e55ea417f7467113f176540c1ec6298e008d"
     },
     "linuxNvidia": {
       "hostProcessAcceptancePassed": true,
@@ -983,15 +1504,152 @@
       "msePlayer": "hls.js 1.6.13",
       "jsErrors": 0,
       "sampledBlackFrames": 0,
-      "reportedIntermittentFlickerResolved": false,
-      "viewerExampleCliAndSyntaxChecked": true
+      "reportedIntermittentFlickerResolved": true,
+      "viewerExampleCliAndSyntaxChecked": true,
+      "encoderUsage": "lowlatency",
+      "browserDecodedFramesAdvanced": 901,
+      "bufferingEvents": 0,
+      "amfPeriodicMacroblockingControlledFix": {
+        "schema": "spine-amf-quality-fix/1",
+        "createdAt": "2026-11-06T05:18:49.915368+00:00",
+        "platform": "windows/amd64",
+        "gpu": "AMD RX550",
+        "oldUsage": "ultralowlatency",
+        "newUsage": "lowlatency",
+        "codec": "h264_amf",
+        "targetBitrateKbps": 3500,
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "gop": 60,
+        "staticInputFrames": 240,
+        "inputPngSha256": "ae0bf3abd256c9674789aab3a175dbcaf637a9e0e344151dc7f9e829e9e863eb",
+        "staticClothingROI": {
+          "x": 490,
+          "y": 250,
+          "width": 320,
+          "height": 340
+        },
+        "roiPSNRMinimumDb": {
+          "before": 21.91585350036621,
+          "after": 41.689029693603516
+        },
+        "roiMaximumAdjacentFrameRGBChange": {
+          "before": 11.48560619354248,
+          "after": 0.5338051319122314
+        },
+        "realEncoderRegressionPassed": true,
+        "syntheticTextureKeyframeMeanRGBChange": 1.1231,
+        "syntheticAcceptanceMaximumRGBChange": 3,
+        "nativeGPUEncodeAndDecodeFrames": 90,
+        "browserContinuousPlaybackSeconds": 30,
+        "browserDecodedFramesAdvanced": 901,
+        "browserJSErrors": 0,
+        "browserBufferingEvents": 0,
+        "sampledBlackFrames": 0,
+        "liveCaptureDecodedFrames": 720,
+        "userVisualAcceptance": {
+          "passed": true,
+          "confirmedAt": "2026-11-06T06:06:43.901971+00:00",
+          "feedback": "已正常，不再出现",
+          "scope": "Periodic skirt/hair macroblocking only; newly reported intermittent playback pause is being investigated separately."
+        },
+        "hlsSnapshotTestsPassed": 2,
+        "package": {
+          "passed": true,
+          "files": 60,
+          "sha256": "5d854ab4f0c93cec609f081bcdcbde97135d4d85c5dacf19aaa941df38fe2f60",
+          "allManifestHashesVerified": true,
+          "viewerScriptsIncluded": true
+        },
+        "workerSha256": "6036a129de67b808be974abea69b99281b9a5afa9aedcccc7a711e5c87146126"
+      },
+      "intermittentPauseInvestigation": {
+        "schema": "spine-live-stutter-investigation/1",
+        "createdAt": "2026-11-06T06:10:12.780706+00:00",
+        "durationSeconds": 125,
+        "browserFrameCallbacks": 3754,
+        "browserBufferingEvents": 0,
+        "browserGapsOver100ms": 0,
+        "maximumBrowserCallbackGapMs": 50.10000000000582,
+        "browserDroppedFrames": 0,
+        "capturedDecodedFrames": 3750,
+        "maximumEncodedFrameIntervalSeconds": 0.03333400000001063,
+        "encodedFrameGapsOver50ms": 0,
+        "confirmedAuthoredStaticHold": {
+          "animation": "03_charge_release",
+          "startSeconds": 1.2,
+          "endSeconds": 2.2,
+          "durationSeconds": 1.0,
+          "sourceJsonSha256": "07956036b846370573b3cd9bd621c3591f1cd0992ba20faa735c98879e142be9",
+          "method": "Sampled every bone applied world translation/matrix at 30fps with official Spine 4.3 JS runtime; all sampled components finite."
+        },
+        "scope": "Playback transport/decode pause was not reproduced in this sample. An exact one-second all-bone hold is present in the source animation. This does not establish that every user-side pause has this cause. Original animations and live settings were not modified."
+      }
     },
     "pending": [
       "GPU-isolated Docker NVENC on the tested NVIDIA 580.82.09 host; host-process encoding passed.",
       "Physical multi-GPU rendering/encoding isolation and capacity.",
       "24-hour concurrent soak.",
-      "Reported periodic AMF live-preview texture/quality changes near keyframe/segment boundaries; exact cause needs controlled comparison.",
-      "macOS GPU acceptance."
-    ]
+      "macOS GPU acceptance.",
+      "User-reported intermittent playback pause: 125-second sample had no buffering or >100ms browser frame gap; exact one-second authored charge hold confirmed. Other client-side stalls remain unverified."
+    ],
+    "scriptedLotteryDemo": {
+      "stage": "prototype-6",
+      "localAcceptancePassed": true,
+      "productionReady": false,
+      "platform": "windows/amd64",
+      "backend": "Vulkan",
+      "codec": "libx264",
+      "width": 1280,
+      "height": 720,
+      "fps": 30,
+      "durationSeconds": 117,
+      "completeSpecifiedResultRoundsThisRevision": 1,
+      "decodedFramesPerRound": 3510,
+      "priorPrototypeTwoResultRoundAcceptanceRetained": true,
+      "numberDecalsPerBall": 12,
+      "bakedRestingPileCounts": [
+        49,
+        42
+      ],
+      "restingPileFootprintsPixels": [
+        [
+          99.1,
+          40.1
+        ],
+        [
+          95.4,
+          37.9
+        ]
+      ],
+      "resultTrackPhysics": {
+        "engine": "official Box2D",
+        "version": "3.1.1",
+        "stepHz": 120,
+        "substeps": 16,
+        "poseHz": 60,
+        "collisionAndSleepTestsPassed": true,
+        "coordinateSystem": "wide-camera pixels"
+      },
+      "browserJsExceptions": 0,
+      "ownedWorkerCancellationPassed": true,
+      "evidenceSha256": "ed52c710f0d0d6ad091c9fc4f79c23e172b26603f09347732102adbf25009d90",
+      "limitations": [
+        "Reference framing/timing approximate, not pixel-identical.",
+        "Magnifiers rerender shared scene state at higher resolution; encoded small-view and enlarged-view pixels differ in clarity.",
+        "Central suction is guided constrained motion, not fluid simulation; main-chamber mixing remains authored.",
+        "No presenter/lip sync or full3D glass refraction.",
+        "Windows AMD/Vulkan tested; Linux/macOS demo acceptance pending.",
+        "One bounded117-second round per job, no24-hour continuous programme scheduler."
+      ],
+      "centralAirliftRouteVerified": true,
+      "pipeForegroundOcclusionVerified": true,
+      "startupReplayPassed": true,
+      "oneSharedWideCameraPhysicsWorld": true,
+      "uniformMagnifierPoseChecks": 24570,
+      "lowerLipContactVerifiedPoses": 8119,
+      "maximumUpperLipClearanceWidePixels": 1.0719
+    }
   }
 }

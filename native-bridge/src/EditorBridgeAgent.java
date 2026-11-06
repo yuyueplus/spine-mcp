@@ -60,7 +60,7 @@ public final class EditorBridgeAgent {
     Properties encoded=new Properties();encoded.load(new StringReader(new String(decoded,StandardCharsets.US_ASCII)));Properties p=new Properties();
     for(String key:encoded.stringPropertyNames())p.setProperty(key,new String(Base64.getDecoder().decode(encoded.getProperty(key)),StandardCharsets.UTF_8));
     if(!requestId.equals(p.getProperty("id"))||!id.equals(p.getProperty("instanceId")))return;
-    Set<String> keys=new HashSet<String>(Arrays.asList("id","instanceId","action","issuedAt","deadline","input","sha256","expected.instanceId","expected.projectPath","expected.projectIdentity","expected.undoToken","expected.modelSha256"));
+    Set<String> keys=new HashSet<String>(Arrays.asList("id","instanceId","action","issuedAt","deadline","input","sha256","expected.instanceId","expected.projectPath","expected.projectIdentity","expected.undoToken","expected.modelSha256","view.frame","view.playing","view.animation","view.skeleton"));
     if(!keys.containsAll(p.stringPropertyNames())){response(requestId,NativeEditorAccess.map("ok",false,"error","Unsupported request property."));return;}
     Path journal=root.resolve("journal").resolve(requestId+".started");
     try{Files.write(journal,NativeEditorAccess.hash(decoded).getBytes(StandardCharsets.US_ASCII),StandardOpenOption.CREATE_NEW);}catch(FileAlreadyExistsException e){return;}

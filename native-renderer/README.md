@@ -59,6 +59,42 @@ spine-worker -config session.json -output 'srt://YOUR_HOST:9000?mode=caller&pkt_
 
 这不会自动接入 EEAI 的鉴权、路由和会话管理。接入时由现有 Go 服务启动 worker，传入该服务生成的地址；不要启动带有远程数据库写入的业务程序做本地渲染验收。
 
+## 指定结果出球演示（prototype-6）
+
+新增 `cmd/lottery-demo`：在本机输入六个正码及一个特码，生成117秒、1280×720、30fps的 Spine 场景，并由原生 GPU worker 输出 SRT，经本机 FFmpeg 转为 HLS 和 MP4。页面只播放服务器编码的视频。首版使用49种号码、每种24帧的球面旋转素材；左侧特写、主球机、颜色和离线中文报号绑定同一组结果。它是明确标识的指定结果演示，没有接入原站账户、投注或结算。
+
+第2版将球面改为12个小圆号码贴纸、较窄的粗体字、不同停留朝向和较小的高光；底部改为49球/42球两套预先计算的重力接触姿态，补齐前后遮挡、接触阴影及玻璃后的明暗。出球前后分别使用对应球数的球堆，不再保留规则行列。球堆姿态由离线球体接触求解后投影得到，搅拌阶段仍使用预设轨迹。
+
+第3版使用官方 Box2D3.1.1 计算左侧轨道的下落、轨道接触、球间碰撞、摩擦、滚动阻力及停稳；以120Hz、每步4个子步求解，60Hz姿态烘焙为 Spine 位置和旋转关键帧。落地时不会把球强行移动到预设终点，球堆在后续球落入时也保持动态。特码按参考片从右侧进入独立托盘，和左侧六球使用分开的碰撞层。系统只调整放球闸门时间以匹配节目节奏，号码绑定独立于物理几何。特码显示、报号时间采用其实际停稳时间；主球舱搅拌及小视图出舱过渡仍含预设轨迹。
+
+Box2D 源码固定在 `internal/trackphysics/box2d/SOURCE.json` 所列的官方提交 `8c661469c9507d3ad6fbd2fea3f1aa71669c2fe3`，许可证为 MIT，原许可保留于同目录。通过 cgo 静态编译进演示服务，不新增动态库或运行时下载。构建这项演示需要支持 C17 的 cgo 编译器。生成目录中的 `physics.json` 记录引擎版本、步长、放球时间及最终物理姿态，并和场景一起校验。官方说明：[Box2D3.1.1](https://github.com/erincatto/box2d/releases/tag/v3.1.1)、[滚动阻力](https://box2d.org/posts/2025/04/box2d-3.1/)。
+
+第4版修正主画面的出球机构：所选球先进入中央漏斗口，经竖直吸管上升、顶部弯头，正码再进入左侧外轨；特码经同一吸管后转入右侧支路。小画面和主画面绑定同一个物理出球时钟，移除从球舱直接斜飞到左右结果位的捷径。吸送阶段采用位置连续的导管约束运动，左侧滚落仍由 Box2D 计算，没有声称做完整流体模拟。管壁、漏斗前沿和顶部盖板使用未修改底图的局部 UV 网格恢复遮挡。未选球的混动范围集中在漏斗下方；球面、静态球堆和输入号码规则不变。
+
+第5版把物理世界直接标定到主画面轨道的像素坐标，取消主画面和放大窗各自的位置曲线及球径变化。左侧放大窗和独立特码窗分别以4.05倍、4.75倍等比取景；轨道背景使用同一区域的 UV 网格，球的位置、大小、转角、颜色和贴图序列来自主画面已序列化的同一组关键帧，插值时刻也一致。放大窗重新以较高分辨率绘制球面，因此清晰度与把已编码的小球直接放大不同。当前 Box2D 配置为120Hz、每步16个子步，60Hz烘焙，入栈前以平滑阻尼模拟气动缓冲；球仍通过物理接触停稳。测试覆盖117秒全部3510个视频时刻、七个球的跨视图位置、球径及转角，并核对颜色、可见性和贴图序列。这里验证的是共享姿态数据，不能把它解释成编码后逐像素相同。
+
+第6版重新标定顶部外轨的下方承托面：上弯轨按底图内沿拟合，物理球心沿承托面法线偏移球半径，修正旧碰撞轨道靠近上沿造成的可见悬空间隙。出口位置直接读取同一物理入口，导管弯头同时匹配入口切向速度；入轨初速为95像素/秒，并给出相应滚动角速度。下落与接触仍由 Box2D 求解，没有将每帧球位强行贴到曲线上。新增检查测量七个球在顶部弯轨的逐采样承托间隙，同时保留跨视图同步、碰撞、停稳和完整视频验收。
+
+本轮素材位于仓库的 `work/lottery-demo-v2/assets-final`。构建并运行（在 native-renderer 目录内）：
+
+```powershell
+$env:GOOS='windows'; $env:GOARCH='amd64'; $env:CGO_ENABLED='1'
+go build -o build/bin/Release/lottery-demo.exe ./cmd/lottery-demo
+.\build\bin\Release\lottery-demo.exe -root .. -assets ../work/lottery-demo-v2/assets-final -state ../work/lottery-demo-v6/run-local -binary build/bin/Release -listen 127.0.0.1:8090 -ttl 2h
+```
+
+FFmpeg/FFprobe需在 PATH，或通过同名参数指定绝对路径。打开输出的本机地址，设置七个不同的1–49整数后点击“生成并播放”。每轮结果提交后锁定；重复 requestId 返回原任务，冲突和同时提交第二轮返回409。停止会先等待本任务进程清理，再释放下一轮。服务重启将旧活动任务标记为 interrupted，不重复播出。单目录最多保留16轮；服务寿命可配置1分钟至24小时，默认2小时。
+
+`POST /api/rounds` 接受 `mode:"scripted_demo"`、`roundId`、`requestId`、`regularNumbers:[...]`、`specialNumber`。写请求需要页面注入的 `X-Demo-Key`；服务只接受127.0.0.1的 Host。`GET /api/rounds` 返回状态及媒体地址。完整回放通过3510帧解码和尺寸检查后才开放。`POST /api/rounds/{id}/stop` 停止本任务。
+
+素材构建工具为 `examples/lottery-demo/build_assets.py` 和 `build_voices.ps1`。前者需要 Python、NumPy、Pillow、一个已清理的空场底图、已核验规则 JSON 和98个预生成报号 WAV；后者在 Windows 使用本机中文 SAPI 声音静默生成 WAV。先执行 `build_voices.ps1 -Output NEW_VOICES`，再执行 `python build_assets.py --plate PLATE.png --rules RULES.json --voices NEW_VOICES --output NEW_ASSETS`；输出目录必须未封存。默认球面字体为本机 Impact，可用 `--font` 指定其它字体文件；运行服务只读取生成好的图片，不需要字体或 Python。播放器固定为 hls.js1.6.13，下载时验证 SHA-512，运行时不下载依赖，也不调用图像或语音服务。
+
+演示实测平台为 Windows AMD/Vulkan；它使用有立体感的球面序列和2D物理轨道，未实现完整三维玻璃折射、主球舱实时三维碰撞、写实主持人、动态口型及24小时无缝连续节目。参考片机位和出球节奏为近似复现，并非逐像素一致。Linux/macOS需要单独构建和实测；本机通过不代表跨平台已验收。
+
+独立 Chrome 验收脚本：`node examples/lottery-demo/verify_browser.mjs http://127.0.0.1:8090/ NEW_EVIDENCE_DIR`。它使用新的浏览器配置和空演示状态，完成参考号码、特码49的两轮真实直播、回放及停止检查，不操作用户已有 Chrome 标签。
+
+追加 `reference` 参数可只检查一轮参考号码及停止清理，追加 `startup` 则检查已有完整回放在页面重载后的恢复。完整播放验证同时保存70秒结果画面及52秒主轨道/放大窗的对照截图。端口可通过命令行指定，验收脚本 URL 应与实际服务一致。
+
 ## 控制
 
 传入 `-control-stdin` 后，父进程通过 stdin 管道发送每行一个 JSON 请求。stdout 输出 ready、response、progress、complete/error JSON；每个 response 带有应用命令时的帧号。每 300 帧发一次 progress。ready 只表示资源和 GPU 就绪，不代表 SRT 已连通或观众已看到。父进程应持续读取 stdout 和 stderr，避免管道反压。
@@ -162,4 +198,17 @@ python native-renderer/examples/browser-live.py --config native-renderer/example
 
 配置durationSeconds控制观看页持续时间，MCP计划的leaseSeconds应与它匹配。页面“结束本机直播”只停止配置的房间及本接收器；暂停video仅暂停观看。手动中断示例程序也会请求停止该房间。自动切换动作仅使用clips中的明确名称；未提供的素材不会被生成。示例中idle/wave是占位名称，请替换为工程实际动作。
 
-已在Windows AMF、720p30、五动作轮播下核对浏览器连续解码。用户另报告间歇闪动：一次30秒浏览器采样未见黑帧或重新缓冲，24秒解码采样在人像纹理上出现与2秒关键帧/分片周期一致的短暂变化。AMF编码与播放端的具体责任仍需对照验证，不能将“能播放”当作闪动质量验收已经通过。
+Windows RX550 上已复现并修正 AMF 每2秒关键帧出现的衣裙马赛克：旧 `ultralowlatency` 模式限制单帧编码预算，改为 `lowlatency`，保持 CBR 目标码率、2秒 VBV 和无B帧。相同720p静态角色、3.5Mbps、240帧对照中，衣裙区域最低PSNR从21.92dB提升到41.69dB，最大相邻帧RGB变化从11.49/255降到0.53/255。该模式允许关键帧短时使用更多码率；不同GPU、素材及接收端仍需实测。
+
+观看页先将HLS文件读为内存快照，关闭句柄后再发送给浏览器，避免慢请求长期阻止FFmpeg替换播放列表；Windows文件句柄允许delete共享，便于清理旧分片。文件读入内存的短暂期间仍可能与Windows的替换操作竞争。复制部署时保留 `browser-live.py` 同目录下的 `hls_snapshot.py`；原生压缩包包含这两个脚本及配置示例。可运行 `python -m unittest discover -s native-renderer/examples -p test_hls_snapshot.py -v` 验证慢请求期间的播放列表替换和打开分片的删除；设置 `SBGFX_TEST_FFMPEG`、`SBGFX_TEST_HARDWARE_ENCODER=h264_amf` 后运行Go测试，可在实际AMD编码器上核对静止纹理跨关键帧的稳定性。数值回归与最终观看反馈分别记录。
+
+
+## 通用物理与持久化验收（MCP 3.3.0）
+
+部署包增加 `spine-physics`，使用随源码固定的官方 Box2D3.1.1（见 `internal/trackphysics/box2d/SOURCE.json`）。独立JSON CLI支持动态圆、静态胶囊折线、重力、摩擦、弹性、碰撞过滤、延迟激活和固定步进。`spine-physics -probe` 查询协议；`-input scene.json -output NEW.json` 只创建新输出。许可证随包放在 `licenses/Box2D-LICENSE`，上游源码及其哈希清单不作应用级修改。
+
+MCP使用 `spine_plan_physics_bake` 固定源工程、资源和求解器哈希，再通过 `spine_bake_physics_animation` 输出新动作候选；`spine_audit_physics_contacts` 检查明确接触时段，`spine_audit_view_sync` 检查统一镜头变换。输入坐标 x向右/y向上，角度为度；轨道胶囊半径和球半径均参与接触面。轨道物理不使用屏幕插值或逐帧姿态瞬移。出生时间控制刚体激活，不控制附件透明度。
+
+`spine_start_native_acceptance` 从当前、仅本地输出的直播计划启动独立监督进程。MCP断开后继续，`spine_get_native_acceptance` 读取实际心跳、进度和最终报告，`spine_stop_native_acceptance` 关闭该任务自己的控制管道并等待房间清理。支持1～86400秒、1～8路，需显式输出空间预算；长测不能沿用默认2GiB预算。运行中、失联、停止请求均不是验收通过。任务不会访问远程数据库或Redis。
+
+Linux 192.168.0.30 已对3.3新增通用物理及完整Go单元测试/静态检查通过。当前 NVIDIA580.82.09 双GPU主机的单卡隔离容器NVENC仍失败：相同命令宿主机成功、单卡容器失败、全卡可见容器成功；Ubuntu22/24两组FFmpeg均复现。该组合与 [NVIDIA已记录问题](https://github.com/NVIDIA/nvidia-container-toolkit/issues/1249) 一致。全卡可见仅用于诊断，不作为隔离通过或默认部署方案；不注入第三方驱动拦截库。物理多卡渲染容量、24小时持续运行及macOS GPU仍须独立实机回执。

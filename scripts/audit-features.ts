@@ -35,6 +35,7 @@ definitions['quality-smoke'] = [path.join(projectRoot, 'dist/scripts/quality-smo
 definitions['native-publication-smoke'] = [path.join(projectRoot, 'dist/scripts/native-publication-smoke.js')]; order.push('native-publication-smoke');
 definitions['preview-requests-smoke'] = [path.join(projectRoot, 'dist/scripts/preview-requests-smoke.js')]; order.push('preview-requests-smoke');
 for (const name of ['session-smoke', 'character-assistance-smoke', 'complex-project-smoke', 'session-lifecycle-smoke', 'maintenance-upgrade-smoke', 'character-pipeline-smoke', 'character-refinement-smoke', 'character-tasks-smoke', 'branch-contact-psd-smoke', 'construction-runtime-psd-smoke', 'visual-rig-deform-raster-smoke', 'unified-joint-smoke', 'seam-compatibility-smoke', 'production-character-smoke', 'product-workflow-smoke', 'production-motion-pack-smoke', 'psd-section-smoke']) { definitions[name] = [path.join(projectRoot, 'dist/scripts', `${name}.js`)]; order.push(name); }
+definitions['extensions-smoke']=[path.join(projectRoot,'dist/scripts/extensions-smoke.js')];order.push('extensions-smoke');
 definitions['live-capabilities-smoke']=[path.join(projectRoot,'dist/scripts/live-capabilities-smoke.js')];order.push('live-capabilities-smoke');
 definitions['native-editor-bridge-smoke']=[path.join(projectRoot,'dist/scripts/native-editor-bridge-smoke.js')];order.push('native-editor-bridge-smoke');
 const only = value('--only')?.split(','); for (const name of only ?? []) if (!(name in definitions)) throw new Error(`Unknown suite: ${name}`);
@@ -52,8 +53,11 @@ const run = async (name: string) => {
 };
 if (only) { for (const name of only) await run(name); }
 else if ((await run('tests')).passed && (await run('smoke')).passed) {
-  const rest = order.slice(2), native = (name: string) => /native-editor|native-preview|native-playback|native-sequence|native-publication|preview-requests|character-pipeline|character-refinement|character-tasks|branch-contact-psd|construction-runtime-psd|visual-rig-deform-raster|unified-joint|seam-compatibility|production-character|product-workflow|production-motion-pack|psd-section|^session/.test(name);
-  for (const [suites, size] of [[rest.filter(name => !native(name)), parallel], [rest.filter(name => native(name) && name !== 'preview-requests-smoke'), Math.min(2, parallel)], [['preview-requests-smoke'], 1]] as [string[], number][]) for (let index = 0; index < suites.length; index += size) await Promise.all(suites.slice(index, index + size).map(run));
+  const rest = order.slice(2), native = (name: string) => /extensions-smoke|native-editor|native-preview|native-playback|native-sequence|native-publication|preview-requests|character-pipeline|character-refinement|character-tasks|branch-contact-psd|construction-runtime-psd|visual-rig-deform-raster|unified-joint|seam-compatibility|production-character|product-workflow|production-motion-pack|psd-section|^session/.test(name);
+  for (const [suites, size] of [[rest.filter(name => !native(name)), parallel], [rest.filter(name => native(name) && name !== 'preview-requests-smoke'), Math.min(2, parallel)], [['preview-requests-smoke'], 1]] as [string[], number][]) {
+    let index=0;
+    await Promise.all(Array.from({length:Math.min(size,suites.length)},async()=>{while(index<suites.length){const name=suites[index++]!;await run(name);}}));
+  }
 }
 const coverage = tools.map(tool => ({ name: tool.name, successfulSuites: [] as string[], successfulCalls: 0, rejectedCalls: 0, distinctSuccessfulInputs: new Set<string>() }));
 for (const result of results.filter(result => result.passed && result.coreSha256 === coreSha256)) {

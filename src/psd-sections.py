@@ -12,13 +12,17 @@ def extract(request):
     source=pathlib.Path(request['input']).resolve(strict=True)
     output=pathlib.Path(request['output']).resolve(strict=True)
     if any(output.iterdir()):raise ValueError('Section output must be a NEW empty directory')
-    if source.stat().st_size>32*1024**2:raise ValueError('PSD source exceeds 32 MiB')
+    if source.stat().st_size>128*1024**2:raise ValueError('PSD source exceeds 128 MiB')
     before=hashlib.sha256(source.read_bytes()).hexdigest()
     if before!=request['sourceSha256']:raise ValueError('PSD source changed')
     with source.open('rb') as f:header=f.read(26)
-    if header[:6]!=b'8BPS\0\1' or int.from_bytes(header[22:24],'big')!=8 or int.from_bytes(header[24:26],'big')!=3:raise ValueError('Selected sections require standard RGB8 PSD')
+    version=int.from_bytes(header[4:6],'big');depth=int.from_bytes(header[22:24],'big')
+    if header[:4]!=b'8BPS' or version not in (1,2) or depth not in (8,16) or int.from_bytes(header[24:26],'big')!=3:raise ValueError('Selected sections require RGB8/16 PSD/PSB')
+    if version==2 and not request.get('allowPsb',False):raise ValueError('PSB requires explicit allowPsb=true')
+    if depth==16 and not request.get('allow16BitTo8Bit',False):raise ValueError('RGB16 conversion requires explicit allow16BitTo8Bit=true; output textures are8-bit')
+    if int.from_bytes(header[14:18],'big')*int.from_bytes(header[18:22],'big')>64000000:raise ValueError('PSD canvas exceeds64MP')
     psd=PSDImage.open(source)
-    if len(list(psd.descendants()))>1024:raise ValueError('PSD section metadata exceeds 1024 layers/groups')
+    if len(list(psd.descendants()))>4096:raise ValueError('PSD section metadata exceeds4096 layers/groups')
     selected=psd
     for name in request['groupPath']:
         found=[l for l in selected if l.name==name]
@@ -60,12 +64,38 @@ def extract(request):
     combined.save(output/'recomposed.png')
     if comparison['maxPremultipliedError']>=3 or comparison['meanPremultipliedError']>=.35:raise ValueError('Independent section units do not reproduce the original group composite')
     if hashlib.sha256(source.read_bytes()).hexdigest()!=before:raise ValueError('PSD changed during section extraction')
-    return {'checksPassed':True,'width':w,'height':h,'units':units,'comparison':comparison,'sourceLayers':len(list(psd.descendants())),'selectedLayers':len(descendants),'reference':'Original PSD selected-group compositor; saved whole-document merged preview is not used as the renderer','scope':'Only the explicit group and document viewport; hidden variants and child editing semantics are not retained in flattened units','versions':versions()}
+    return {'checksPassed':True,'width':w,'height':h,'units':units,'comparison':comparison,'sourceLayers':len(list(psd.descendants())),'selectedLayers':len(descendants),'sourceVersion':version,'sourceBitDepth':depth,'outputBitDepth':8,'explicitBitDepthConversion':depth==16,'reference':'Original PSD selected-group compositor; saved whole-document merged preview is not used as the renderer','scope':'Only the explicit group and document viewport; hidden variants and child editing semantics are not retained in flattened units','versions':versions()}
+
+def inspect_source(request):
+    versions();source=pathlib.Path(request['input']).resolve(strict=True)
+    if source.stat().st_size>128*1024**2:raise ValueError('PSD source exceeds128MiB')
+    before=hashlib.sha256(source.read_bytes()).hexdigest()
+    if before!=request['sourceSha256']:raise ValueError('PSD source changed')
+    with source.open('rb') as f:header=f.read(26)
+    if header[:4]!=b'8BPS' or int.from_bytes(header[4:6],'big') not in (1,2):raise ValueError('Not a PSD/PSB')
+    info={'version':int.from_bytes(header[4:6],'big'),'depth':int.from_bytes(header[22:24],'big'),'colorMode':int.from_bytes(header[24:26],'big'),'width':int.from_bytes(header[18:22],'big'),'height':int.from_bytes(header[14:18],'big')}
+    if info['width']*info['height']>64000000:raise ValueError('PSD canvas exceeds64MP')
+    psd=PSDImage.open(source);layers=list(psd.descendants())
+    if len(layers)>4096:raise ValueError('PSD metadata exceeds4096 layers')
+    findings=[]
+    for layer in layers:
+        if not layer.is_visible():continue
+        styles=[type(e).__name__ for e in layer.effects if e.enabled and type(e).__name__!='Stroke']
+        if styles:findings.append({'layer':layer.name,'reason':'active_styles_need_explicit_rasterization','styles':styles})
+        if layer.kind not in {'pixel','group','type','smartobject','shape','brightnesscontrast','levels','curves','exposure','huesaturation','invert','posterize','threshold'}:findings.append({'layer':layer.name,'reason':'unsupported_active_kind','kind':layer.kind})
+    if hashlib.sha256(source.read_bytes()).hexdigest()!=before:raise ValueError('PSD changed during inspection')
+    return {**info,'layers':len(layers),'groups':[{'name':l.name,'path':list(reversed([p.name for p in _parents(l)])),'children':len(list(l))} for l in layers if l.is_group()][:512],'groupsTruncated':sum(l.is_group() for l in layers)>512,'findings':findings[:128],'findingsTruncated':len(findings)>128,'formatSupported':info['colorMode']==3 and info['depth'] in (8,16),'requiresExplicitPsbOptIn':info['version']==2,'requiresExplicit8BitConversion':info['depth']==16,'sourceUnchanged':True,'scope':'Metadata/format inspection only; per-section independent composite and native proof still required'}
+
+def _parents(layer):
+    while layer is not None and not isinstance(layer,PSDImage):
+        yield layer
+        layer=getattr(layer,'parent',None)
 
 if __name__=='__main__':
     try:
         p=pathlib.Path(sys.argv[1]).resolve(strict=True)
         if p.stat().st_size>65536:raise ValueError('Oversized PSD section request')
-        print(json.dumps(extract(json.loads(p.read_text(encoding='utf-8')))))
+        request=json.loads(p.read_text(encoding='utf-8'))
+        print(json.dumps(inspect_source(request) if request.get('operation')=='inspect' else extract(request)))
     except Exception as e:
         print(json.dumps({'error':str(e)}));sys.exit(1)

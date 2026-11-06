@@ -15,6 +15,7 @@ export const nativeEditorReloadOptions = z.object({
   expected: z.object({ projectPath: z.string().min(1), projectIdentity: z.string().regex(/^\d+$/), undoToken: z.string().regex(/^-?\d+$/), modelSha256: sha }).strict(),
   requestId: uuid.optional(), waitMs: z.number().int().min(0).max(25000).default(10000),
 }).strict();
+export const nativeTimelineOptions=nativeEditorReloadOptions.omit({input:true}).extend({frame:z.number().finite().min(0).max(1000000).optional(),playing:z.boolean().optional(),animation:z.string().min(1).max(256).optional(),skeleton:z.string().min(1).max(256).optional()}).strict().refine(a=>a.frame!==undefined||a.playing!==undefined||a.animation!==undefined,'A native timeline change is required.');
 export interface NativeEditorState {
   instanceId: string; projectPath: string | null; projectIdentity: string; undoToken: string; dirty: boolean;
   model: { sha256: string; skeletons: unknown[]; keyCount: number }; view: Record<string, unknown>;
@@ -186,5 +187,13 @@ export class NativeEditorBridge {
     for (const [key, value] of Object.entries(args.expected)) expected['expected.' + key] = value;
     const result = await this.submit(args.instanceId, { action: 'reload', input, sha256, ...expected }, args.requestId, args.waitMs);
     return { ...result, focusActivationRequested: false, recovery: { originalFilesWritten: false, initialFile: path.join(await this.folder(args.instanceId), 'recovery', 'initial.spine'), note: 'A failed candidate parse leaves the current model intact. A failed application restores the previous native model and view; inspect the rollback receipt. Reloading resets native undo history.' } };
+  }
+  async controlTimeline(raw:z.input<typeof nativeTimelineOptions>){
+    const args=nativeTimelineOptions.parse(raw),{record}=await this.instance(args.instanceId),bundle=await verifyNativeBridgeBundle(this.deps.bundleRoot);
+    if(record.agentSha256!==bundle.sha256)throw Error('This editor uses an older native bridge. Open a NEW bridge-enabled instance; the existing editor is retained.');
+    await this.workspace.resolve(args.expected.projectPath);const fields:Record<string,string>={action:'view','expected.instanceId':args.instanceId};
+    for(const[k,v]of Object.entries(args.expected))fields['expected.'+k]=v;
+    for(const k of ['frame','playing','animation','skeleton']as const)if(args[k]!==undefined)fields['view.'+k]=String(args[k]);
+    return{...await this.submit(args.instanceId,fields,args.requestId,args.waitMs),focusActivationRequested:false,modelEditRequested:false};
   }
 }

@@ -57,16 +57,16 @@
     "nativeRoundTrip": "Exported data verification cannot prove preservation of editor-only metadata or visual GPU equivalence. Exact original archives retain all native bytes; collected previews have portable paths. Archived native internal resource paths remain original. Edited/reimported metadata preservation remains unproven.",
     "nativeVideo": "The native OpenGL video exporter is not invoked. Clean CPU artwork frames (no preview labels/borders), configurable dimensions and default transparent RGBA feed local FFmpeg/FFprobe for APNG/GIF/MP4/paged spritesheets. Actual frame-count verification; max300 frames,2MP/frame,64M output pixels,64MiB/file,128MiB outputs. GIF is palette/binary-alpha limited; H.264 MP4 is lossy and opaque, transparent areas black and even dimensions required. Frame quantization can change fractional interval duration; the requested endpoint is omitted by default; near-grid native timestamp rounding is coalesced.",
     "nativeConcaveClipping": "Installed 4.3.23 JSON/binary import can force convex=false to true. Diagnosis/preflight and unsafe-publication rejection remain. Only stable convex/inverse clips permit equivalent flag normalization. The importer issue is not fixed. Explicit visual fallback samples the official clipper to ordinary triangle meshes on a new flat rig, retaining selected skin/animation artwork only; original rig, clipping editability, other skins/animations are not retained in this derived output. Max300 frames/500 compound slots/20000 triangle samples. Native readback and sampled pixel comparison required.",
-    "liveUnsavedEditorState": "Unavailable: no supported editor-internal structural automation API identified. See official evidence and alternatives in RESEARCH.json. Save manually before background editing.",
+    "liveUnsavedEditorState": "Guarded path/model/dirty/undo state is readable only in NEW fixed-build startup-bridge windows; general unsaved model editing/export remains unavailable.",
     "savedSynchronization": "Saved .spine/JSON only; source files never written. Native inputs need CLI. Detects project and all referenced image/audio changes after stability delay, with periodic full hashes. Default1h/20 revisions/512MiB recorded archives; max8 live watches/100 revisions/1GiB input/10000 resource files. Limits/stop checked between stages: a current archive or CLI export can finish, so physical disk usage is not a hard quota. CLI temporary exports are separate. Twenty consecutive errors stop until explicit resume. Immutable commit records and archive verification recover publication status without duplicating a committed revision. Unsaved editor memory remains unavailable.",
     "userProductionRegression": "User-reported approval remains bound to the five exact formal clips: 01,02,03,05 and06. Old04 remains excluded; no private production project was supplied.",
     "activeMcpConnection": "A fresh standard SDK client launches the current registered spine43 build. Existing application connections/tool catalogs need client-side reload; no supported active-conversation reload capability is exposed to this task.",
     "weightTransfer": "Nearest-vertex (default) or barycentric nearest-triangle surface weights in setup-world space; optional maximum matching distance, slot-local mirror, bone maps and target weight locks. Equal-distance overlapping surfaces choose the first triangle. More than 16 influences reject. Five million comparisons per call. Existing deform keys require explicit clearing when weights change. minWeight=0 preserves every positive weight; an explicit positive threshold removes smaller unlocked influences and renormalizes while retaining locked values. Native import may quantize small weights; use an explicit threshold if verification rejects tiny influences.",
-    "verificationCoverage": "The reproducible 45-suite frozen-core audit records actual current-build MCP requests. Endpoint coverage does not prove every argument, continuous geometry, natural motion or editor-only metadata.",
+    "verificationCoverage": "Current complete frozen-source audit is recorded in VERIFICATION.json; successful endpoint coverage is distinct from all arguments, continuous geometry, appearance and hardware acceptance.",
     "nativeEditorPreview": "Open the generated dedicated preview project once in Spine. Image changes use the documented Spine image watcher. Dedicated native preview automatic refresh was confirmed by the user; see work/native-preview-visual-test-2.2.0.json. Does not reload the original editable project or follow native animation/time/selection. Status proves PNG publication only; the GUI has no programmatic display receipt. Last good image stays visible on render failure. Reconnect old MCP clients to access new tools.",
-    "editableProjectReload": "Not implemented or verified on the installed entrypoint. The isolated bone/slot/keyframe native round trip passes, but it is a saved-file check, not running-editor reload. No supported target-instance, dirty-state guard, no-focus reload and live-state acknowledgement route was established. See work/native-reload-check-2.2.0.json and RESEARCH.json.",
+    "editableProjectReload": "Implemented and verified for NEW fixed-build startup-bridge windows; stale/dirty/busy states refuse; NEW recovery snapshot; reload resets undo. Timeline view controls preserve model and undo.",
     "nativePreviewRecovery": "Renderer process exits are independently supervised, with bounded exponential backoff and five consecutive failures before exhaustion. Explicit resume or a new edit resets the budget; 20 seconds of process stability resets consecutive failures. Supervisor interruption is recovered on MCP startup or edit/update/resume. Saved files only; no native editor memory or display receipt. Same managed native project and PNG are retained across explicit renew/resume. Missing files or changes after the native-project hash baseline reject. Legacy sessions establish the baseline on first resume. System boot alone does not start MCP workers.",
-    "nativeContinuousPlayback": "High-frequency single-PNG playback failed native visual acceptance (LOADING placeholders). Prefer preloaded native sequence: Spine plays loaded frames without per-frame file writes; native timeline controls remain manual. Resource updates may briefly load images; visual verification is recorded separately.",
+    "nativeContinuousPlayback": "Use preloaded native sequence instead of per-frame PNG writes. Timeline controls are available in current-bundle bridge windows; texture watcher acceptance and editable-model reload remain separate.",
     "nativeCurveNormalization": "Constant/nearly constant segments only: per-component Bezier ordinate convex-hull bound <=2e-5 of endpoint scale. Endpoints and nonconstant curves retain strict existing checks. Reported normalization is not native GPU visual acceptance.",
     "animationDiagnostics": "Explicit character rules and world units required. Default geometry mode keeps all fold candidates. Optional centroid mode classifies posed-centroid clipping and fully opaque later normal layers, retaining full candidate inventory; no full-triangle coverage or self-occlusion proof. Optional physics integrates from reset on the physics FPS grid plus exact requested boundaries; schedule affects integration. Independent previews reset separately. Finite sampling does not establish natural anatomy or visual acceptance. Optional pixels mode evaluates all covered world-aligned cell centers at explicit resolution, preserving unresolved subpixel findings, per-pixel alpha, budgets and marked geometric-region PNGs. Not continuous/GPU coverage or self-occlusion proof.",
     "footContactBaking": "Default rejects constrained rigs. Explicit constraintMode=bake samples full interacting bone/slot/attachment/deform motion, disables constraints only in the new animation, then solves direct upper/lower/foot chains. Original rig/animations remain; new captured channels are resampled. Positive uniform scale, normal inheritance and a reference bend required. Doubled-FPS/key/boundary validation includes unrelated world transforms; unreachable/unsupported/over-budget/error cases reject.",
@@ -74,7 +74,7 @@
     "visualReviews": "Explicit caller-reported review bound to source and all referenced resource hashes; source/resource changes invalidate it. Not an authenticated user identity or native editor display receipt.",
     "nativeCliTransientColorMutation": "An observed multi-skeleton CLI load/export changed one RGBA key. Exact round-trip verification rejected it and no bad project was published. Same-code retry passed; cause is not claimed fixed."
   },
-  "version": "3.0.0",
+  "version": "3.3.0",
   "artworkRaster": {
     "decodedTexturesPerRenderCall": "one per referenced PNG, reused across poses",
     "textureFilter": "bilinear premultiplied RGBA",
@@ -185,7 +185,7 @@
       "report": "work/editor-open-report-2.5.0.json"
     }
   },
-  "toolCount": 226,
+  "toolCount": 252,
   "stabilityWorkflow": {
     "version": "2.8.0",
     "newTools": 13,
@@ -317,7 +317,7 @@
     "reviewablePreparationRecipe": true,
     "anatomyInference": false,
     "imageInpainting": false,
-    "suggestedMinWeight": 0.00001,
+    "suggestedMinWeight": 1e-05,
     "existingPreparationDefaultMinWeight": 0
   },
   "nativeAudioPortability": {
@@ -367,10 +367,10 @@
   },
   "editorBridge": {
     "researchedAt": "2026-10-24",
-    "supportedBridgeFound": false,
-    "unsavedMemory": false,
-    "editableRigHotReload": false,
-    "nativeTimelineControl": false,
+    "supportedBridgeFound": true,
+    "unsavedMemory": "guarded state/proof only in startup-bridge windows",
+    "editableRigHotReload": true,
+    "nativeTimelineControl": true,
     "officialNoPluginSystem": "https://en.esotericsoftware.com/support",
     "cliDocumentation": "https://en.esotericsoftware.com/spine-command-line-interface",
     "evidence": "work/editor-interface-review-2.12.0.json"
@@ -743,7 +743,7 @@
     "catalogue": "spine_workflow_catalog",
     "evidence": "spine_product_completion_status",
     "currentEvidenceRequiresCompleteSourceInventory": true,
-    "groups": 6,
+    "groups": 15,
     "newHighLevelTools": 22,
     "fixedPlan": "COMPLETION-PLAN.json",
     "allRequestedNativeCapabilitiesAvailable": false
@@ -767,8 +767,8 @@
   },
   "genuinePsdSections": {
     "tool": "spine_extract_psd_sections",
-    "maxSourceBytes": 33554432,
-    "maxMetadataLayers": 1024,
+    "maxSourceBytes": 134217728,
+    "maxMetadataLayers": 4096,
     "maxSelectedLayers": 256,
     "maxVisibleUnits": 32,
     "maxViewportPixels": 2097152,
@@ -780,7 +780,10 @@
     "authoredPsdFilesInCurrentFullCharacterFixture": 1,
     "completeViews": 3,
     "semanticLoss": "Selected visible direct child groups flattened; other views/hidden variants/child editability retained in original PSD.",
-    "officialArtInCoreRelease": false
+    "officialArtInCoreRelease": false,
+    "sourceRgb16ExplicitQuantization": true,
+    "psbExplicitOptIn": true,
+    "maxCanvasPixels": 64000000
   },
   "reusableRigProfiles": {
     "explicitRoles": true,
@@ -833,8 +836,8 @@
             "mcp_charge"
           ],
           "excludedDraftClips": [],
-          "maxOriginalPoseError": 0.000026054125100927195,
-          "maxJsonBinaryPoseError": 0.000025173346614337788,
+          "maxOriginalPoseError": 2.6054125100927195e-05,
+          "maxJsonBinaryPoseError": 2.5173346614337788e-05,
           "strict120FpsContacts": true,
           "meshCorrection": null
         },
@@ -852,8 +855,8 @@
             "mcp_charge"
           ],
           "excludedDraftClips": [],
-          "maxOriginalPoseError": 0.00002328689060959732,
-          "maxJsonBinaryPoseError": 0.000027213574810502905,
+          "maxOriginalPoseError": 2.328689060959732e-05,
+          "maxJsonBinaryPoseError": 2.7213574810502905e-05,
           "strict120FpsContacts": true,
           "meshCorrection": null
         },
@@ -871,8 +874,8 @@
             "mcp_charge"
           ],
           "excludedDraftClips": [],
-          "maxOriginalPoseError": 0.000059827847053384176,
-          "maxJsonBinaryPoseError": 0.000050538770153707446,
+          "maxOriginalPoseError": 5.9827847053384176e-05,
+          "maxJsonBinaryPoseError": 5.0538770153707446e-05,
           "strict120FpsContacts": true,
           "meshCorrection": null
         },
@@ -893,7 +896,7 @@
             "mcp_run"
           ],
           "maxOriginalPoseError": 0,
-          "maxJsonBinaryPoseError": 0.000016106882069877315,
+          "maxJsonBinaryPoseError": 1.6106882069877315e-05,
           "strict120FpsContacts": true,
           "meshCorrection": {
             "maxCorrection": 0.28984036930980617,
@@ -949,17 +952,18 @@
     "includesPerClipPngPreviews": true
   },
   "editorContextAndReload": {
-    "context": "Passive related process titles and known managed-open records only",
-    "loadedPathVerified": false,
-    "dirtyStateVerified": false,
-    "editableInPlaceReload": "blocked_upstream",
+    "context": "Guarded native state in NEW pinned-build startup-bridge windows; passive titles/managed records for ordinary windows.",
+    "loadedPathVerified": true,
+    "dirtyStateVerified": true,
+    "editableInPlaceReload": "NEW fixed-build startup-bridge windows only; resets undo",
     "previewRefresh": "Exact managed preview ID/generation plus saved source hash receipt",
     "inputAutomation": false,
     "hostClientReload": "Explicit existing public loopback WebSocket app-server endpoint only; queued refresh is not target-thread loaded-version proof",
-    "nativeDisplayFps": null
+    "nativeDisplayFps": null,
+    "nativeTimelineControl": "NEW current-bundle bridge windows; preserves model/undo"
   },
   "releaseVerification": {
-    "version": "3.1.0",
+    "version": "3.3.0",
     "unitTests": 797,
     "integrationSuites": 53,
     "successfulTools": 229,
@@ -967,11 +971,12 @@
     "report": "VERIFICATION.json",
     "implementedBoundedPlanItems": 28,
     "upstreamBlockedItems": [],
-    "allRequestedOutcomesAchieved": true,
-    "nativeScope": "NEW startup-bridge windows on the pinned installed Spine 4.3.23 build only. No active attachment to ordinary windows. Reload refuses unsaved/stale/busy states; writes a NEW verified sibling recovery file; preserves supported view state; resets native undo history. No mouse/keyboard injection or window-activation command."
+    "allRequestedOutcomesAchieved": false,
+    "nativeScope": "NEW startup-bridge windows on the pinned installed Spine 4.3.23 build only. No active attachment to ordinary windows. Reload refuses unsaved/stale/busy states; writes a NEW verified sibling recovery file; preserves supported view state; resets native undo history. No mouse/keyboard injection or window-activation command.",
+    "scope": "See current sealed evidence; hardware/24h/engine-editor and incremental-edit limitations remain explicit."
   },
   "nativeEditorBridge": {
-    "version": "3.1.0",
+    "version": "3.3.0",
     "startupRequired": true,
     "officialPluginApi": false,
     "ordinaryExistingWindowsSupported": false,
@@ -984,6 +989,85 @@
     "undoHistoryResetOnReload": true,
     "mouseKeyboardInjection": false,
     "bytecodeTransformation": false,
-    "persistedAuthenticatedReceipts": true
+    "persistedAuthenticatedReceipts": true,
+    "nativeTimelineControl": true,
+    "timelineAppliedViewVerified": true,
+    "timelinePreservesUndo": true,
+    "incrementalStructuralEditPreservingUndo": false,
+    "unlistedBuildsSupported": false
+  },
+  "extensions": {
+    "tools": 15,
+    "physics": {
+      "engine": "Box2D3.1.1",
+      "source": "native-renderer/internal/trackphysics/box2d/SOURCE.json",
+      "world": "x right/y up",
+      "shapes": [
+        "dynamic circles",
+        "static capsule polylines"
+      ],
+      "maxDuration": 120,
+      "maxBodies": 128,
+      "maxPoses": 250000,
+      "requiresNativeSolver": true,
+      "originalClipsPreserved": true
+    },
+    "visual": {
+      "baselineImageHashes": true,
+      "sharedCamera": true,
+      "explicitMasks": true,
+      "maximumFrames": 64,
+      "maxAggregatePixels": 16000000,
+      "aestheticInference": false
+    },
+    "chainContact": {
+      "joints": [
+        3,
+        16
+      ],
+      "explicitTargets": true,
+      "interactingConstraintsSupported": false,
+      "maxSeconds": 60,
+      "continuousProof": false
+    },
+    "motionSequence": {
+      "officialAnimationState": true,
+      "crossfade": true,
+      "propLeafBoneHandoff": true,
+      "maxSeconds": 60,
+      "originalClipsPreserved": true
+    },
+    "psdSections": {
+      "formats": [
+        "RGB8 PSD",
+        "RGB16 PSD (explicit 8bit conversion)",
+        "RGB8/16 PSB (explicit opt-in)"
+      ],
+      "inputMiB": 128,
+      "maxCanvasPixels": 64000000,
+      "maxMetadataLayers": 4096,
+      "sourceBytesRetained": true
+    },
+    "runtime42": {
+      "runtime": "official @esotericsoftware/spine-core4.2.120",
+      "actualSampledPlayback": true,
+      "constraints": "explicit bake",
+      "sourceLinkedMeshes": "reject; unlink explicitly first",
+      "inverseOrConvex43Clipping": "reject; explicit compatible fallback required",
+      "native42EditorVerified": false,
+      "physics": "Explicit physics:true, reset-and-integrate sampled capture; finite FPS and existing bake budgets apply."
+    },
+    "engineAdapters": {
+      "javascriptActualPlaybackVerified": true,
+      "unityEditorVerified": false,
+      "cocosEditorVerified": false
+    },
+    "nativeAcceptance": {
+      "persistentController": true,
+      "cooperativeStop": true,
+      "maximumSeconds": 86400,
+      "explicitDiskBudget": true,
+      "runningIsNotPassed": true
+    }
   }
 }

@@ -1,0 +1,70 @@
+{
+  "schema": "spine-extension-plan/1",
+  "version": "3.3.0",
+  "scope": "Seven requested extension directions; bounded implementation and actual acceptance are recorded separately.",
+  "items": [
+    {
+      "id": "physics",
+      "deliverables": [
+        "Generic pinned Box2D scene solver",
+        "MCP preflight/bake/contact audit",
+        "Shared-state camera-view audit"
+      ],
+      "acceptance": "Real gravity, rails and circle contacts; original clips preserved; native editable output roundtrip; no per-frame pose snapping."
+    },
+    {
+      "id": "visual",
+      "deliverables": [
+        "Pinned image baselines",
+        "Shared-camera pixel comparison and explicit masks",
+        "Difference/contact evidence"
+      ],
+      "acceptance": "Unchanged output passes; deliberate drift fails; camera/resource/baseline drift is reported."
+    },
+    {
+      "id": "editor",
+      "deliverables": [
+        "Guarded native timeline control",
+        "Real state/readback receipts",
+        "Build compatibility and incremental-edit feasibility report"
+      ],
+      "acceptance": "No injected input or focus activation; model/undo unchanged by view controls. Unsupported builds and incremental undo operations remain explicit rather than emulated."
+    },
+    {
+      "id": "characters",
+      "deliverables": [
+        "Explicit arbitrary multi-bone chain contact baking",
+        "Bounded complex PSD compatibility/import improvements"
+      ],
+      "acceptance": "Non-humanoid chains supported by explicit landmarks; unreachable targets rejected; original source bytes preserved; unsupported PSD semantics reported."
+    },
+    {
+      "id": "choreography",
+      "deliverables": [
+        "Sampled crossfade sequences",
+        "Prop/hand contact handoff on explicit bone branches"
+      ],
+      "acceptance": "New editable clip; source clips and references preserved; contact error and transition diagnostics returned."
+    },
+    {
+      "id": "delivery",
+      "deliverables": [
+        "Strict Spine4.2 subset exporter with official JS runtime validation",
+        "Engine-neutral integration manifest and adapters",
+        "Portable release installers"
+      ],
+      "acceptance": "No version-label-only conversion; unrepresentable data rejects; real target-runtime playback and sampled pose comparisons."
+    },
+    {
+      "id": "deployment",
+      "deliverables": [
+        "Cross-platform build/verification workflow",
+        "Reconnectable persistent bounded/24h soak entrypoints",
+        "Linux GPU/container diagnosis and release evidence"
+      ],
+      "acceptance": "Hardware modes pass only with real receipts. Missing physical GPUs/macOS/24h elapsed time cannot be marked passed. A terminated continuous-soak process requires a NEW run; interrupted fragments are never added into a 24h pass."
+    }
+  ],
+  "sourceProtection": "All authoring outputs are NEW; plans pin source/resource hashes. Remote database and Redis access remains read-only.",
+  "status": "in_progress"
+}

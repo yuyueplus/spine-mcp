@@ -1,4 +1,5 @@
 import argparse,base64,hashlib,http.server,io,json,os,pathlib,secrets,subprocess,tarfile,threading,time,urllib.request,urllib.parse,uuid
+from hls_snapshot import HlsSnapshotHandlerMixin
 
 parser=argparse.ArgumentParser(description='Serve a loopback HLS viewer for one owned Spine MCP live room.')
 parser.add_argument('--config',type=pathlib.Path,required=True,help='Viewer JSON configuration; relative paths resolve beside this file.')
@@ -67,7 +68,7 @@ setInterval(status,2000);status();
 </script></html>'''.replace('__TOKEN__',STOP_TOKEN).replace('直播默认持续一小时',f'直播时长：{SETUP["durationSeconds"]//60} 分钟').replace('二次元角色 · 五组动作轮播 · 720p / 30 FPS',f'角色动作预览 · {WIDTH}×{HEIGHT} / {FPS} FPS')
 (WEB/'index.html').write_text(HTML,encoding='utf-8')
 
-class Handler(http.server.SimpleHTTPRequestHandler):
+class Handler(HlsSnapshotHandlerMixin,http.server.SimpleHTTPRequestHandler):
  def __init__(self,*a,**kw):super().__init__(*a,directory=str(WEB),**kw)
  def log_message(self,format,*args):pass
  def end_headers(self):

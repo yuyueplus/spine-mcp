@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>指定结果出球演示</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<main>
+ <header><div><div class="eyebrow"><span></span> BROADCAST STUDIO / 06</div><h1>指定结果出球演示</h1><p>输入六个正码和一个特码，后台生成本期出球画面。可在播放器中开启报号声音。</p></div><div class="version">贴轨滚动 · 第6版</div></header>
+ <div class="workspace">
+  <section class="preview">
+   <div class="player"><video id="video" controls autoplay muted playsinline></video><div id="cover"><span class="cover-tag">结果动画演示</span><h2 id="coverTitle">从一组号码开始</h2><p id="coverHint">在右侧填写结果，然后生成并播放。</p></div><span id="badge" class="badge">尚未开始</span></div>
+   <div class="playback-line"><span id="phase">等待提交</span><span id="clock">00:00 / 01:57</span></div><div class="progress"><i id="progress"></i></div>
+   <div class="results-title"><span>画面中的出球结果</span><span id="revealed">0 / 7</span></div>
+   <div id="results" class="results"></div>
+   <div class="preview-footer"><span id="roundLabel">指定结果驱动 · 无投注功能</span><div><button id="retry" class="text-button">重新连接画面</button><button id="replay" class="text-button" disabled>播放本期回放 ↗</button></div></div>
+  </section>
+  <aside>
+   <div class="panel-title"><span class="step">01</span><h2>设置本期结果</h2></div><p class="description">主画面与放大窗同步使用同一球位、大小和转角。</p>
+   <form id="form"><label class="label">正码 <span>按出球顺序填写</span></label><div class="numbers" id="numbers"></div><div class="special-line"><label class="label" for="special">特码 <span>第七个球</span></label><input id="special" type="number" min="1" max="49" value="4" required inputmode="numeric"></div><div class="presets"><button type="button" data-preset="reference">参考结果</button><button type="button" data-preset="49">特码49</button><button type="button" data-preset="random">换一组演示</button></div><p class="input-note">本演示采用1–49、不重复的七个号码。</p><button type="submit" class="primary" id="submit">生成并播放 <span>→</span></button></form>
+   <div class="status-panel"><div class="panel-title"><span class="step">02</span><h2>后台任务</h2></div><div id="status" class="status"><i></i><span>等待提交</span></div><p id="statusHint">提交后本期结果锁定，完整演出约117秒。</p><button id="stop" class="stop" disabled>停止当前演示</button></div>
+   <div class="scope"><strong>演示范围</strong><p>左下窗口等比放大主轨道，右下小窗放大主画面的特码托盘。支持报号与MP4回放。写实主持人和口型尚未加入。</p></div>
+  </aside>
+ </div>
+ <div id="message" role="status" aria-live="polite"></div>
+ <footer>指定结果的动画演示。本页不会连接原站账户、投注或结算系统。<span id="connection">本机控制台</span></footer>
+</main>
+<script>window.demoKey="__CONTROL_KEY__";</script><script src="/hls.min.js"></script><script src="/app.js"></script>
+</body></html>

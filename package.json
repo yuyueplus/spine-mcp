@@ -1,6 +1,6 @@
 {
   "name": "spine-local-mcp",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "private": true,
   "description": "Local Spine 4.3.23 project and animation tools over MCP stdio",
   "type": "module",
@@ -13,6 +13,8 @@
     "doctor": "node dist/src/index.js doctor",
     "test": "npm run build && node --test --test-concurrency=4 dist/test/*.test.js",
     "smoke": "node dist/scripts/smoke.js",
+    "smoke:extensions": "node dist/scripts/extensions-smoke.js",
+    "seal:extensions": "node dist/scripts/seal-extensions.js",
     "verify:registered": "node dist/scripts/verify-registered.js",
     "call": "node dist/scripts/call-tool.js",
     "smoke:workflow": "node dist/scripts/workflow-smoke.js",
@@ -85,6 +87,7 @@
     "ag-psd": "33.0.0",
     "earcut": "3.0.2",
     "pngjs": "7.0.0",
+    "spine-core-42": "npm:@esotericsoftware/spine-core@4.2.120",
     "zod": "4.6.7"
   },
   "devDependencies": {

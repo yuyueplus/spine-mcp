@@ -164,7 +164,7 @@ func main() {
 		name += ".exe"
 	}
 	fail(run(root, "go", "build", "-trimpath", "-o", filepath.Join(build, "bin", *config, name), "./cmd/spine-worker"))
-	for _, tool := range []string{"spine-roomd", "spine-soak"} {
+	for _, tool := range []string{"spine-roomd", "spine-soak", "spine-physics"} {
 		name := tool
 		if runtime.GOOS == "windows" {
 			name += ".exe"

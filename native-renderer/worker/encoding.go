@@ -48,7 +48,11 @@ func (e EncoderConfig) Args() []string {
 		a = append(a, "-gpu", strconv.Itoa(e.Device), "-preset", "p4", "-tune", "ull", "-rc", "cbr", "-rc-lookahead", "0")
 	}
 	if e.Name() == "h264_amf" {
-		a = append(a, "-usage", "ultralowlatency", "-quality", "balanced", "-rc", "cbr")
+		// Ultra-low latency constrains the bits available to each frame. Detailed
+		// artwork then collapses into blocks on recurring I-frames even when the
+		// average bitrate is sufficient. Low latency can spend the VBV budget on
+		// keyframes while retaining the same target rate and two-second buffer.
+		a = append(a, "-usage", "lowlatency", "-quality", "balanced", "-rc", "cbr")
 	}
 	return append(a, "-b:v", fmt.Sprint(rate)+"k", "-maxrate", fmt.Sprint(rate)+"k", "-bufsize", fmt.Sprint(rate*2)+"k")
 }

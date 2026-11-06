@@ -12,9 +12,11 @@ import (
 	"image/png"
 	"io"
 	"os"
+	"os/signal"
 	"path/filepath"
 	"runtime"
 	"strings"
+	"syscall"
 	"time"
 )
 
@@ -26,7 +28,13 @@ func run() error {
 	seconds := flag.Int("seconds", 86400, "media seconds per room,1..86400")
 	misses := flag.Float64("max-miss-ratio", .001, "maximum deadline-miss fraction")
 	hardware := flag.Bool("require-hardware", true, "require actual hardware encoding")
+	stopEOF := flag.Bool("stop-on-stdin-eof", false, "cooperatively stop owned rooms when the controller closes stdin")
 	flag.Parse()
+	rootContext, stopSignals := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	defer stopSignals()
+	if *stopEOF {
+		go func() { _, _ = io.Copy(io.Discard, os.Stdin); stopSignals() }()
+	}
 	if *hubFile == "" || *session == "" || *destination == "" || *count < 1 || *count > 64 || *seconds < 1 || *seconds > 86400 || *misses < 0 || *misses > 1 {
 		return fmt.Errorf("invalid bounded acceptance arguments")
 	}
@@ -158,7 +166,7 @@ func run() error {
 		}
 		ids = append(ids, id)
 	}
-	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(*seconds+660)*time.Second)
+	ctx, cancel := context.WithTimeout(rootContext, time.Duration(*seconds+660)*time.Second)
 	defer cancel()
 	started := time.Now()
 	lastProgress := time.Time{}
@@ -180,7 +188,13 @@ func run() error {
 			break
 		}
 		if time.Since(lastProgress) > 30*time.Second {
-			_ = json.NewEncoder(os.Stdout).Encode(map[string]any{"event": "soak-progress", "elapsedSeconds": time.Since(started).Seconds(), "rooms": m.List()})
+			progress := map[string]any{"event": "soak-progress", "elapsedSeconds": time.Since(started).Seconds(), "rooms": m.List(), "secondsPerRoom": *seconds}
+			_ = json.NewEncoder(os.Stdout).Encode(progress)
+			body, _ := json.Marshal(progress)
+			tmp := filepath.Join(destinationAbs, ".progress.tmp")
+			if os.WriteFile(tmp, body, 0600) == nil {
+				_ = os.Rename(tmp, filepath.Join(destinationAbs, "progress.json"))
+			}
 			lastProgress = time.Now()
 		}
 		select {

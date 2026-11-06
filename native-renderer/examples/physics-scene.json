@@ -1,0 +1,14 @@
+{
+  "duration": 3,
+  "fps": 60,
+  "stepHz": 120,
+  "substeps": 8,
+  "unitsPerMeter": 100,
+  "gravity": {"x": 0, "y": -980},
+  "bodies": [
+    {"id": "ball", "position": {"x": 0, "y": 150}, "velocity": {"x": 30, "y": 0}, "rotation": 0, "angularVelocity": 0, "radius": 10, "density": 1, "friction": 0.4, "restitution": 0.2, "linearDamping": 0, "angularDamping": 0.1, "spawn": 0, "category": 1, "mask": 65535}
+  ],
+  "rails": [
+    {"points": [{"x": -100, "y": 0}, {"x": 100, "y": 0}], "radius": 1, "friction": 0.4, "restitution": 0.2, "category": 1, "mask": 65535}
+  ]
+}

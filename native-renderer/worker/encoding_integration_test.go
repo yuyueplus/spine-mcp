@@ -1,8 +1,10 @@
 package worker
 
 import (
+	"bytes"
 	"context"
 	"encoding/binary"
+	"io"
 	"math"
 	"os"
 	"os/exec"
@@ -177,5 +179,72 @@ func TestRealHardwareEncoderProbe(t *testing.T) {
 	defer cancel()
 	if err := ProbeEncoder(ctx, ffmpeg, encoder); err != nil {
 		t.Fatal(err)
+	}
+}
+
+// A static fine-texture fixture exposes a recurring I-frame quality collapse.
+// The old AMF ultra-low-latency preset produced a >12/255 mean RGB jump on
+// RX550; low latency stays below 2/255 with the same 3.5 Mbps rate and GOP.
+func TestRealAMFStaticTextureDoesNotPulseAtKeyframe(t *testing.T) {
+	ffmpeg := os.Getenv("SBGFX_TEST_FFMPEG")
+	if ffmpeg == "" || os.Getenv("SBGFX_TEST_HARDWARE_ENCODER") != "h264_amf" {
+		t.Skip("real AMF encoder not configured")
+	}
+	const width, height, count = 1280, 720, 121
+	frame := make([]byte, width*height*4)
+	for y := 0; y < height; y++ {
+		for x := 0; x < width; x++ {
+			i := (y*width + x) * 4
+			frame[i], frame[i+1], frame[i+2], frame[i+3] = 29, 36, 52, 255
+			if x >= 480 && x < 800 && y >= 180 && y < 580 {
+				u, v := float64(x-480), float64(y-180)
+				frame[i] = 70 + byte(math.Sin(u*.23+v*.31)*32+32)
+				frame[i+1] = 90 + byte(math.Sin(u*.17-v*.13)*48+48)
+				frame[i+2] = 100 + byte(((x-480)*17+(y-180)*11)%100)
+			}
+		}
+	}
+	c := DefaultConfig()
+	c.Width, c.Height, c.FPS, c.PixelFormat = width, height, 30, "rgba"
+	c.Encoder = EncoderConfig{Codec: "h264_amf", BitrateKbps: 3500}
+	output := filepath.Join(t.TempDir(), "static-texture.mp4")
+	args, err := EncoderArgs(c, output, false)
+	if err != nil {
+		t.Fatal(err)
+	}
+	readers := make([]io.Reader, count)
+	for i := range readers {
+		readers[i] = bytes.NewReader(frame)
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), 40*time.Second)
+	defer cancel()
+	encode := exec.CommandContext(ctx, ffmpeg, args...)
+	hideProcess(encode)
+	encode.Stdin = io.MultiReader(readers...)
+	if log, err := encode.CombinedOutput(); err != nil {
+		t.Fatalf("AMF encode: %v: %s", err, log)
+	}
+	decode := exec.CommandContext(ctx, ffmpeg, "-v", "error", "-i", output,
+		"-vf", "select=between(n\\,59\\,61),crop=320:400:480:180", "-fps_mode", "passthrough",
+		"-pix_fmt", "rgb24", "-f", "rawvideo", "pipe:1")
+	hideProcess(decode)
+	pixels, err := decode.Output()
+	if err != nil {
+		t.Fatal(err)
+	}
+	const frameBytes = 320 * 400 * 3
+	if len(pixels) != 3*frameBytes {
+		t.Fatalf("expected 3 decoded frames, got %d bytes", len(pixels))
+	}
+	for n := 1; n < 3; n++ {
+		sum := 0.0
+		for i := 0; i < frameBytes; i++ {
+			sum += math.Abs(float64(pixels[n*frameBytes+i]) - float64(pixels[(n-1)*frameBytes+i]))
+		}
+		mean := sum / frameBytes
+		t.Logf("static texture RGB change at frame %d: %.4f/255", 59+n, mean)
+		if mean > 3 {
+			t.Fatalf("static texture pulses across keyframe: mean RGB change %.4f/255", mean)
+		}
 	}
 }

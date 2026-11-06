@@ -1,0 +1,29 @@
+name: MCP portable checks
+on:
+  workflow_dispatch:
+  push:
+    paths: ['src/**', 'test/**', 'scripts/**', 'package*.json', 'tsconfig.json', 'native-bridge/**', '.github/workflows/mcp-checks.yml']
+  pull_request:
+    paths: ['src/**', 'test/**', 'scripts/**', 'package*.json', 'tsconfig.json', 'native-bridge/**', '.github/workflows/mcp-checks.yml']
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, ubuntu-22.04, macos-14]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm run build
+      - run: npm run setup:psd-raster -- --python python
+      - run: npm test

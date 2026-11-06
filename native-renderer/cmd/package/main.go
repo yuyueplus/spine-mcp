@@ -43,12 +43,18 @@ func main() {
 		library = "libspine-bgfx.dylib"
 	}
 	files := map[string]string{worker: filepath.Join(binary, worker), library: filepath.Join(binary, library), "dependencies.json": "dependencies.json", "README.md": "README.md", "examples/session.json": "examples/session.json", "licenses/Go-LICENSE": filepath.Join(runtime.GOROOT(), "LICENSE")}
-	for _, tool := range []string{"spine-roomd", "spine-soak"} {
+	for _, example := range []string{"browser-live.py", "browser-live.json", "hls_snapshot.py", "physics-scene.json"} {
+		name := filepath.Join("examples", example)
+		files[filepath.ToSlash(name)] = name
+	}
+	for _, tool := range []string{"spine-roomd", "spine-soak", "spine-physics"} {
 		if runtime.GOOS == "windows" {
 			tool += ".exe"
 		}
 		files[tool] = filepath.Join(binary, tool)
 	}
+	files["licenses/Box2D-LICENSE"] = "internal/trackphysics/box2d/LICENSE"
+	files["licenses/Box2D-SOURCE.json"] = "internal/trackphysics/box2d/SOURCE.json"
 	fail(filepath.WalkDir(filepath.Join(binary, "shaders"), func(file string, d os.DirEntry, err error) error {
 		if err != nil {
 			return err
@@ -129,7 +135,7 @@ func main() {
 		fail(e)
 		header.Name = key
 		header.Method = zip.Deflate
-		if key == worker || strings.HasPrefix(key, "spine-roomd") || strings.HasPrefix(key, "spine-soak") {
+		if key == worker || strings.HasPrefix(key, "spine-roomd") || strings.HasPrefix(key, "spine-soak") || strings.HasPrefix(key, "spine-physics") {
 			header.SetMode(0755)
 		} else {
 			header.SetMode(0644)

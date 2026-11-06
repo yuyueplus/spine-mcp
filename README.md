@@ -2,11 +2,11 @@
 
 在后台读取和修改已保存的 Spine 工程，通过 stdio 向 Codex 等 MCP 客户端提供工具。文件编辑、骨骼姿态预览、CLI 导入导出和图集打包都不使用鼠标键盘，也不激活桌面窗口。显式调用编辑器打开功能时会启动窗口，可能改变焦点。
 
-当前版本 **3.2.0，共 237 个 MCP 工具**。涵盖工程预检、资源管理、关键帧编辑、跨工程复用、网格与蒙皮、动画质量、交付和检查点工作流。普通 JSON 编辑无需 CLI；原生工程工具通过本机 4.3.23 导入、重新导出核对后才发布新的 `.spine`。标准 MCP 客户端可按已注册的 `spine43` 启动新服务；已连接客户端可能仍持有旧进程或工具目录，需要重连。`npm run verify:registered` 验证新建连接，不表示已打开的对话已刷新。
+当前版本 **3.3.0，共 252 个 MCP 工具**。涵盖工程预检、资源管理、关键帧编辑、跨工程复用、网格与蒙皮、动画质量、交付和检查点工作流。普通 JSON 编辑无需 CLI；原生工程工具通过本机 4.3.23 导入、重新导出核对后才发布新的 `.spine`。标准 MCP 客户端可按已注册的 `spine43` 启动新服务；已连接客户端可能仍持有旧进程或工具目录，需要重连。`npm run verify:registered` 验证新建连接，不表示已打开的对话已刷新。
 
 ## 从 GitHub 安装
 
-当前验证平台为 Windows。需要 Node.js 22.2+ 和本机可用的 Spine 4.3.23；视频功能另需 FFmpeg/FFprobe，复杂 PSD 栅格化另需 Python 3.11+。本仓库不包含 Spine 编辑器或其安装包。
+作者工具完整验收平台为 Windows；Linux 的后台 JSON、物理、CPU 预览和原生渲染分项记录验收。需要 Node.js 22.2+ 和本机可用的 Spine 4.3.23；视频功能另需 FFmpeg/FFprobe，复杂 PSD 栅格化另需 Python 3.11+。本仓库不包含 Spine 编辑器或其安装包。
 
 ```powershell
 git clone https://github.com/yuyueplus/spine-mcp.git
@@ -22,6 +22,31 @@ npm run doctor
 编辑器状态和原窗口重载只支持 `native-bridge/builds.json` 中固定哈希的构建及桥接启动方式，版本号相同不代表构建兼容。普通 JSON 文件处理不需要原生桥接。
 
 源码仓库保留测试、示例、第三方许可和自有桥接 JAR；个人配置、工作工程、依赖、编译目录及本机验收输出均不提交。`npm test` 运行单元测试；完整集成验证所需的本机工具和示例见下文“完整功能核对”。
+
+## 3.3.0 物理、视觉回归、编排与兼容交付
+
+这一版新增15个 MCP 工具，七个工作流；现有工程、图片和原动作均保留，新结果另存。查询 `spine_workflow_catalog` 获取参数入口；`spine_product_completion_status` 返回与当前源码和桥接包哈希匹配的验收范围。
+
+| 能力 | MCP 工具 | 边界 |
+| --- | --- | --- |
+| 通用物理动画 | `spine_plan_physics_bake`、`spine_bake_physics_animation` | 固定 Box2D3.1.1；圆形刚体、胶囊轨道、碰撞层、摩擦、弹性、重力和延迟激活；世界坐标 x向右/y向上；输出独立骨骼关键帧 |
+| 接触与双视图核对 | `spine_audit_physics_contacts`、`spine_audit_view_sync` | 显式轨道与接触时段；双视图检查统一缩放、平移、旋转关系，另有像素基线工具 |
+| 图片自动回归 | `spine_create_visual_baseline`、`spine_compare_visual_baseline` | 固定镜头、姿态、PNG哈希和显式遮罩；输出差异图，不推断动作自然度 |
+| 原生时间轴控制 | `spine_control_editor_timeline` | 桥接窗口中播放、暂停、跳帧、选择动作；回读应用结果，保留模型和撤销记录 |
+| 非人形接触 | `spine_bake_chain_contact` | 显式3～16关节直接链与世界目标，采样FABRIK求解；不可达目标拒绝 |
+| 动作与道具编排 | `spine_compose_motion_sequence` | 官方运行时交叉过渡、插槽/变形/序列/绘制顺序、显式叶骨道具交接；输出新动作，按采样结果核对 |
+| PSD扩展 | `spine_inspect_psd_compatibility` | 只读格式检查；原有 `spine_extract_psd_sections` 新增显式 PSB 和 RGB16→RGBA8 选项，仍要求独立合成及原生往返验证 |
+| Spine4.2交付 | `spine_export_runtime42` | 官方4.2.120 JavaScript运行时真实播放比对；不支持的链接网格/裁剪明确拒绝，约束须显式烘焙；物理约束另需 `physics:true` 确认采样捕获 |
+| 引擎集成 | `spine_create_engine_adapter` | 校验完整交付包，生成 JavaScript、Unity、Cocos 接入文件；JavaScript实际播放已验证，Unity/Cocos编辑器验收仍需目标项目 |
+| 持久化原生验收 | `spine_start_native_acceptance`、`spine_get_native_acceptance`、`spine_stop_native_acceptance` | MCP断开后继续，记录心跳和进度，限制并发、时长、磁盘预算；启动受理和运行状态不算通过；监督进程终止后须新建验收任务，多段时长不拼接为连续长测 |
+
+物理工具需安装本平台 native-renderer 包，其中包含 `spine-physics`、固定 Box2D 源码清单及 MIT 许可。`setup --native-dir` 可生成对应路径。延迟激活只控制刚体参与模拟的时间，不自动隐藏附件。物理烘焙上限120秒/128刚体/250000姿态；连续数学误差和任意受约束骨架不在保证范围。
+
+PSD新增格式只适用于 section 提取路径：默认拒绝 PSB、16位转换；明确设置 `allowPsb:true` 或 `allow16BitTo8Bit:true` 后处理，原文件字节保持不变。最大128MiB、64MP画布、4096元数据图层，既有选区/合成预算继续生效。16位转换会量化为8位；不承诺所有 Photoshop 效果语义。
+
+原生时间轴只适用于当前固定构建和新版桥接启动窗口。旧窗口内的代理不会热替换。结构增量编辑并保留原生撤销栈、普通窗口直接附加、未列入兼容清单的构建仍未实现；完整工程重载继续重置撤销记录。
+
+发行目录提供 `Install.ps1`、`Install.sh` 和逐文件哈希校验器。Windows作者工具已在本机验收；Linux的原生渲染/通用物理单独记录。新增 Windows/Linux/macOS CI入口不等于这些平台已完成 GPU 或原生编辑器验收。24小时、多卡、macOS GPU 和隔离容器 NVENC 必须保留实机通过记录。
 
 ## 3.2.0 可编辑 IK 动作、制作配方和 GPU 直播
 

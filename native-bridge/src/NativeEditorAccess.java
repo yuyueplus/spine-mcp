@@ -220,13 +220,45 @@ public final class NativeEditorAccess {
   }
   @SuppressWarnings("unchecked")
   Map<String,Object> execute(final Properties p)throws Exception {
-    final String action=p.getProperty("action");if(!"status".equals(action)&&!"reload".equals(action))throw new IllegalArgumentException("Unsupported native action.");
+    final String action=p.getProperty("action");if(!"status".equals(action)&&!"reload".equals(action)&&!"view".equals(action))throw new IllegalArgumentException("Unsupported native action.");
     final Map<String,Object>[] result=new Map[1];final CountDownLatch done=new CountDownLatch(1);
     post(new NativeTask(){public void run()throws Exception {
       if(System.currentTimeMillis()>Long.parseLong(p.getProperty("deadline",String.valueOf(Long.MAX_VALUE))))throw new IllegalStateException("REQUEST_EXPIRED: no native changes were made.");
       final Map<String,Object> before=snapshot();
       if(action.equals("status")){result[0]=map("ok",true,"status",before);done.countDown();return;}
       if(operationPending)throw new IllegalStateException("EDITOR_BUSY: another reload is still pending.");guard(p,before);
+      if(action.equals("view")){
+        final Map<String,Object> prior=(Map<String,Object>)before.get("view");
+        Map<String,Object> desired=new LinkedHashMap<String,Object>(prior);
+        Map<String,Object> buttons=new LinkedHashMap<String,Object>((Map<String,Object>)prior.get("playbackButtons"));desired.put("playbackButtons",buttons);
+        String frame=p.getProperty("view.frame");if(frame!=null){float number=Float.parseFloat(frame);if(!Float.isFinite(number)||number<0||number>1000000)throw new IllegalArgumentException("Invalid timeline frame.");desired.put("frame",number);desired.put("animate",true);}
+        String animation=p.getProperty("view.animation"),skeleton=p.getProperty("view.skeleton");
+        if(animation!=null){
+          List<Object> next=new ArrayList<Object>();int matches=0;
+          for(Object raw:(List<?>)prior.get("skeletons")){
+            Map<String,Object> s=new LinkedHashMap<String,Object>((Map<String,Object>)raw);
+            boolean selected=skeleton==null||skeleton.equals(s.get("name"));
+            if(selected){boolean found=false;for(Object model:(List<?>)((Map<?,?>)before.get("model")).get("skeletons"))if(s.get("name").equals(((Map<?,?>)model).get("name")))for(Object a:(List<?>)((Map<?,?>)model).get("animations"))if(animation.equals(((Map<?,?>)a).get("name")))found=true;
+              if(found){s.put("animations",new ArrayList<String>(Arrays.asList(animation)));matches++;}else if(skeleton!=null)throw new IllegalArgumentException("Unknown animation in selected skeleton.");
+            }next.add(s);
+          }
+          if(matches!=1)throw new IllegalArgumentException("Select one unambiguous native skeleton/animation.");desired.put("skeletons",next);desired.put("animate",true);
+        }
+        String playing=p.getProperty("view.playing");if(playing!=null){if(!playing.equals("true")&&!playing.equals("false"))throw new IllegalArgumentException("Invalid playback flag.");buttons.put("F",Boolean.valueOf(playing));buttons.put("S",false);desired.put("animate",true);}
+        if(frame==null&&animation==null&&playing==null)throw new IllegalArgumentException("A native timeline change is required.");
+        final long inputStart=inputRevision.get();operationPending=true;final List<Object> missing;
+        try{missing=restoreView(desired);}catch(Throwable failure){try{restoreView(prior);}catch(Throwable ignored){}throw failure;}
+        final long rendered=frameCounter();afterFrames(rendered,System.currentTimeMillis(),new NativeTask(){public void run()throws Exception {
+          operationPending=false;Map<String,Object> after=snapshot();boolean modelSame=((Map<?,?>)before.get("model")).get("sha256").equals(((Map<?,?>)after.get("model")).get("sha256"));
+          boolean undoSame=before.get("undoToken").equals(after.get("undoToken"));
+          Map<?,?> observed=(Map<?,?>)after.get("view");boolean viewVerified=true;
+          if(playing!=null)viewVerified=Boolean.valueOf(playing).equals(observed.get("playing"));
+          if(frame!=null&&!Boolean.TRUE.equals(observed.get("playing")))viewVerified=viewVerified&&Math.abs(((Number)observed.get("frame")).floatValue()-Float.parseFloat(frame))<.01f;
+          if(animation!=null){boolean found=false;for(Object raw:(List<?>)observed.get("skeletons")){Map<?,?> s=(Map<?,?>)raw;if((skeleton==null||skeleton.equals(s.get("name")))&&((List<?>)s.get("animations")).contains(animation))found=true;}viewVerified=viewVerified&&found;}
+          result[0]=map("ok",modelSame&&undoSame&&viewVerified,"committed",true,"before",before,"status",after,"viewFallbacks",missing,"nativeModelVerified",modelSame,"viewAppliedVerified",viewVerified,"undoHistoryReset",false,"undoTokenPreserved",undoSame,"concurrentNativeInput",inputRevision.get()!=inputStart,"nativeFramesAdvanced",frameCounter()-rendered);
+          if(!modelSame||!undoSame)result[0].put("error","NATIVE_VIEW_CHANGED_MODEL: inspect state before further operations.");else if(!viewVerified)result[0].put("error","NATIVE_VIEW_NOT_ACKNOWLEDGED: inspect the actual returned view state.");done.countDown();
+        }},result,done);return;
+      }
       final Path input=Paths.get(p.getProperty("input")).toRealPath();if(!input.toString().toLowerCase(Locale.ROOT).endsWith(".spine"))throw new IllegalArgumentException("Expected a .spine file.");
       if(!hash(input).equals(p.getProperty("sha256")))throw new IllegalStateException("INPUT_CHANGED: project hash does not match.");
       final Object old=project();final Map<String,Object> oldView=(Map<String,Object>)before.get("view");final long inputBefore=inputRevision.get();
