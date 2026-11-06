@@ -33,7 +33,7 @@ assert.equal(native.passed,true);assert.equal(native.agentSha256,bundle.sha256);
 assert.equal(native.sourceSha256,bundle.sourceSha256);
 const tests=audit.results.find((r:any)=>r.name==='tests'&&r.passed);
 assert.ok(tests);const testLog=await readFile(tests.log,'utf8');assert.match(testLog,/# fail 0\b/);
-const count=Number(testLog.match(/# pass (\d+)/)?.[1]);assert.ok(count>=828);
+const count=Number(testLog.match(/# pass (\d+)/)?.[1]);assert.ok(count>=830);
 if(report.version!==VERSION){
  (report.history??=[]).push({version:report.version,createdAt:report.createdAt,scope:report.scope,verification:report.verification});
 }

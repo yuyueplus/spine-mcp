@@ -48,6 +48,21 @@ test('runtime crossfade captures slots/draw order and creates one new clip',()=>
 test('prop handoff follows an independent actor branch with a verified contact point',()=>{
  const source=productData();source.bones.push({name:'prop',parent:'root',x:100});const a=motionSequenceSchema.parse({requestId:randomUUID(),input:'source.json',newName:'handoff',clips:[{animation:'source',duration:1,mix:0}],props:[{bone:'prop',windows:[{start:0,end:1,targetBone:'hand_L',offset:{x:3,y:1}}]}]});const r=composeMotionData(source,a);assert.ok(r.maxPropError<.001);assert.throws(()=>composeMotionData(source,{...a,props:[{bone:'pelvis',windows:a.props[0]!.windows}]}),/leaf/);
 });
+
+test('vertical singular chains seed their bend perpendicular to the chain',()=>{
+ const solved=solveChain([{x:0,y:0},{x:0,y:20},{x:0,y:40},{x:0,y:60}],{x:0,y:45},.1);
+ assert.ok(Math.hypot(solved.at(-1)!.x,solved.at(-1)!.y-45)<.1);
+ for(let i=1;i<solved.length;i++)assert.ok(Math.abs(Math.hypot(solved[i]!.x-solved[i-1]!.x,solved[i]!.y-solved[i-1]!.y)-20)<1e-6);
+});
+
+test('prop blending preserves reflections and shear, including the unchanged blend boundaries',()=>{
+ const source=productData();source.bones[0]!.scaleX=-1;source.bones[0]!.scaleY=1.2;source.bones.push({name:'prop',parent:'root',x:100,rotation:30,shearY:8});
+ const args=motionSequenceSchema.parse({requestId:randomUUID(),input:'source.json',newName:'affine-handoff',clips:[{animation:'source',duration:1,mix:0}],props:[{bone:'prop',windows:[{start:0,end:1,targetBone:'hand_L',blendIn:.2,blendOut:.2}]}]}),r=composeMotionData(source,args);
+ for(const time of[0,.5,1]){const a=animationSampler(source,'source').sample(time).findBone('prop')!.appliedPose,b=animationSampler(r.data,'affine-handoff').sample(time).findBone('prop')!.appliedPose;
+  for(const [x,y]of[[a.a*a.d-a.b*a.c,b.a*b.d-b.b*b.c],[a.a*a.a+a.c*a.c,b.a*b.a+b.c*b.c],[a.b*a.b+a.d*a.d,b.b*b.b+b.d*b.d],[a.a*a.b+a.c*a.d,b.a*b.b+b.c*b.d]])assert.ok(Math.abs(x!-y!)<1e-5);
+  if(time===0||time===1)for(const key of['worldX','worldY','a','b','c','d']as const)assert.ok(Math.abs(a[key]-b[key])<1e-5);
+ }
+});
 test('Spine4.2 export actually plays the common subset and rejects unsupported source links',()=>{
  const source=productData(),before=JSON.stringify(source),a=runtime42Schema.parse({requestId:randomUUID(),input:'source.json',animations:['source','ordered'],atlas:false}),r=convert42Data(source,a);assert.equal(r.output.skeleton.spine,'4.2.120');assert.equal(r.verification.passed,true);assert.ok(r.verification.poses>100);assert.equal(JSON.stringify(source),before);
  const linked=productData();(linked.skins as any[])[0].attachments.body.body.source='other';assert.throws(()=>convert42Data(linked,a),/independent meshes/);
